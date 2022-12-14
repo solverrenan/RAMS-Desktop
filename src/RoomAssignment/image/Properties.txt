@@ -1,0 +1,8 @@
+
+//Color
+Button - Orange : [218,104,70]
+Primary Background : [205,203,214]
+Secondary : White
+
+//Font
+Font : Century Gothic, 14, Plain

@@ -5,6 +5,8 @@
  */
 package RoomAssignment;
 
+import java.awt.Color;
+
 /**
  *
  * @author solve
@@ -29,16 +31,21 @@ public class Dashboard extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        pnlNavigator = new javax.swing.JPanel();
-        btnRoomManagement = new javax.swing.JButton();
-        btnHome = new javax.swing.JButton();
-        lblDashboardText = new javax.swing.JLabel();
-        lblDate = new javax.swing.JLabel();
-        btnAccount = new javax.swing.JButton();
+        pnlTabLeft = new javax.swing.JPanel();
+        pnlTabHome = new javax.swing.JPanel();
+        lblHome = new javax.swing.JLabel();
+        pnlTabRoomManagement = new javax.swing.JPanel();
+        lblTabRoomManagement = new javax.swing.JLabel();
+        pnlTabMembers = new javax.swing.JPanel();
+        lblTabMembers = new javax.swing.JLabel();
+        pnlTabAccount = new javax.swing.JPanel();
+        lblTabAccount = new javax.swing.JLabel();
         lblWelcomeUser = new javax.swing.JLabel();
-        btnMembers = new javax.swing.JButton();
-        pnlNavigatorPanel = new javax.swing.JPanel();
+        pnlTabRight = new javax.swing.JPanel();
         pnlHome = new javax.swing.JPanel();
+        pnlRoomManagement = new javax.swing.JPanel();
+        pnlMembers = new javax.swing.JPanel();
+        pnlAccount = new javax.swing.JPanel();
 
         jLabel1.setText("jLabel1");
 
@@ -47,102 +54,278 @@ public class Dashboard extends javax.swing.JFrame {
         setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         setMaximumSize(new java.awt.Dimension(1000, 500));
         setMinimumSize(new java.awt.Dimension(1000, 500));
+        setModalExclusionType(java.awt.Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
         setName("Dashboard"); // NOI18N
         setPreferredSize(new java.awt.Dimension(1000, 500));
         setResizable(false);
 
-        pnlNavigator.setBackground(new java.awt.Color(205, 203, 214));
-        pnlNavigator.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pnlTabLeft.setBackground(new java.awt.Color(205, 203, 214));
 
-        btnRoomManagement.setBackground(new java.awt.Color(218, 104, 70));
-        btnRoomManagement.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        btnRoomManagement.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RoomAssignment/image/lecture.png"))); // NOI18N
-        btnRoomManagement.setText("Room Management");
-        btnRoomManagement.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        btnRoomManagement.setBorderPainted(false);
-        pnlNavigator.add(btnRoomManagement, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 160, 330, 50));
+        pnlTabHome.setBackground(new java.awt.Color(218, 104, 70));
+        pnlTabHome.setPreferredSize(new java.awt.Dimension(105, 55));
+        pnlTabHome.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlTabHomeMouseClicked(evt);
+            }
+        });
 
-        btnHome.setBackground(new java.awt.Color(218, 104, 70));
-        btnHome.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        btnHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RoomAssignment/image/home.png"))); // NOI18N
-        btnHome.setToolTipText("");
-        btnHome.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        btnHome.setBorderPainted(false);
-        btnHome.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        btnHome.setLabel("Home");
-        pnlNavigator.add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 110, 330, 50));
+        lblHome.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        lblHome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RoomAssignment/image/home.png"))); // NOI18N
+        lblHome.setText("Home");
 
-        lblDashboardText.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        lblDashboardText.setText("Dashboard");
-        pnlNavigator.add(lblDashboardText, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
+        javax.swing.GroupLayout pnlTabHomeLayout = new javax.swing.GroupLayout(pnlTabHome);
+        pnlTabHome.setLayout(pnlTabHomeLayout);
+        pnlTabHomeLayout.setHorizontalGroup(
+            pnlTabHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTabHomeLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        pnlTabHomeLayout.setVerticalGroup(
+            pnlTabHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTabHomeLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblHome, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
-        lblDate.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        lblDate.setText("Date: [real-time and date]");
-        pnlNavigator.add(lblDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, -1, -1));
+        pnlTabRoomManagement.setBackground(new java.awt.Color(218, 104, 70));
+        pnlTabRoomManagement.setPreferredSize(new java.awt.Dimension(105, 55));
+        pnlTabRoomManagement.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlTabRoomManagementMouseClicked(evt);
+            }
+        });
 
-        btnAccount.setBackground(new java.awt.Color(218, 104, 70));
-        btnAccount.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        btnAccount.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RoomAssignment/image/user.png"))); // NOI18N
-        btnAccount.setText("Account");
-        btnAccount.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        btnAccount.setBorderPainted(false);
-        pnlNavigator.add(btnAccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 260, 330, 50));
+        lblTabRoomManagement.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        lblTabRoomManagement.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTabRoomManagement.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RoomAssignment/image/lecture.png"))); // NOI18N
+        lblTabRoomManagement.setText("Room Management");
+
+        javax.swing.GroupLayout pnlTabRoomManagementLayout = new javax.swing.GroupLayout(pnlTabRoomManagement);
+        pnlTabRoomManagement.setLayout(pnlTabRoomManagementLayout);
+        pnlTabRoomManagementLayout.setHorizontalGroup(
+            pnlTabRoomManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTabRoomManagementLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblTabRoomManagement, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        pnlTabRoomManagementLayout.setVerticalGroup(
+            pnlTabRoomManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTabRoomManagementLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblTabRoomManagement, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        pnlTabMembers.setBackground(new java.awt.Color(218, 104, 70));
+        pnlTabMembers.setPreferredSize(new java.awt.Dimension(105, 55));
+        pnlTabMembers.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlTabMembersMouseClicked(evt);
+            }
+        });
+
+        lblTabMembers.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        lblTabMembers.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTabMembers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RoomAssignment/image/group.png"))); // NOI18N
+        lblTabMembers.setText("Members");
+
+        javax.swing.GroupLayout pnlTabMembersLayout = new javax.swing.GroupLayout(pnlTabMembers);
+        pnlTabMembers.setLayout(pnlTabMembersLayout);
+        pnlTabMembersLayout.setHorizontalGroup(
+            pnlTabMembersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTabMembersLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblTabMembers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        pnlTabMembersLayout.setVerticalGroup(
+            pnlTabMembersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTabMembersLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblTabMembers, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        pnlTabAccount.setBackground(new java.awt.Color(218, 104, 70));
+        pnlTabAccount.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlTabAccountMouseClicked(evt);
+            }
+        });
+
+        lblTabAccount.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        lblTabAccount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTabAccount.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RoomAssignment/image/user.png"))); // NOI18N
+        lblTabAccount.setText("Account");
+
+        javax.swing.GroupLayout pnlTabAccountLayout = new javax.swing.GroupLayout(pnlTabAccount);
+        pnlTabAccount.setLayout(pnlTabAccountLayout);
+        pnlTabAccountLayout.setHorizontalGroup(
+            pnlTabAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTabAccountLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblTabAccount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        pnlTabAccountLayout.setVerticalGroup(
+            pnlTabAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTabAccountLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblTabAccount, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         lblWelcomeUser.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        lblWelcomeUser.setText("Welcome, [name of librarian]");
-        pnlNavigator.add(lblWelcomeUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        lblWelcomeUser.setText("Welcome, [username]");
 
-        btnMembers.setBackground(new java.awt.Color(218, 104, 70));
-        btnMembers.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        btnMembers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RoomAssignment/image/group.png"))); // NOI18N
-        btnMembers.setText("Members");
-        btnMembers.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        btnMembers.setBorderPainted(false);
-        pnlNavigator.add(btnMembers, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 210, 330, 50));
+        javax.swing.GroupLayout pnlTabLeftLayout = new javax.swing.GroupLayout(pnlTabLeft);
+        pnlTabLeft.setLayout(pnlTabLeftLayout);
+        pnlTabLeftLayout.setHorizontalGroup(
+            pnlTabLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlTabHome, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
+            .addComponent(pnlTabRoomManagement, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
+            .addComponent(pnlTabMembers, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
+            .addComponent(pnlTabAccount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pnlTabLeftLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblWelcomeUser)
+                .addContainerGap(63, Short.MAX_VALUE))
+        );
+        pnlTabLeftLayout.setVerticalGroup(
+            pnlTabLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTabLeftLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(lblWelcomeUser)
+                .addGap(52, 52, 52)
+                .addComponent(pnlTabHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnlTabRoomManagement, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnlTabMembers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnlTabAccount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
-        pnlNavigatorPanel.setBackground(new java.awt.Color(255, 255, 255));
+        pnlTabRight.setBackground(new java.awt.Color(0, 255, 255));
+
+        pnlHome.setBackground(new java.awt.Color(0, 0, 153));
 
         javax.swing.GroupLayout pnlHomeLayout = new javax.swing.GroupLayout(pnlHome);
         pnlHome.setLayout(pnlHomeLayout);
         pnlHomeLayout.setHorizontalGroup(
             pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 722, Short.MAX_VALUE)
+            .addGap(0, 790, Short.MAX_VALUE)
         );
         pnlHomeLayout.setVerticalGroup(
             pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 478, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout pnlNavigatorPanelLayout = new javax.swing.GroupLayout(pnlNavigatorPanel);
-        pnlNavigatorPanel.setLayout(pnlNavigatorPanelLayout);
-        pnlNavigatorPanelLayout.setHorizontalGroup(
-            pnlNavigatorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlNavigatorPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(pnlHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+        pnlRoomManagement.setBackground(new java.awt.Color(153, 0, 153));
+
+        javax.swing.GroupLayout pnlRoomManagementLayout = new javax.swing.GroupLayout(pnlRoomManagement);
+        pnlRoomManagement.setLayout(pnlRoomManagementLayout);
+        pnlRoomManagementLayout.setHorizontalGroup(
+            pnlRoomManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 714, Short.MAX_VALUE)
         );
-        pnlNavigatorPanelLayout.setVerticalGroup(
-            pnlNavigatorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlNavigatorPanelLayout.createSequentialGroup()
+        pnlRoomManagementLayout.setVerticalGroup(
+            pnlRoomManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 478, Short.MAX_VALUE)
+        );
+
+        pnlMembers.setBackground(new java.awt.Color(153, 153, 0));
+
+        javax.swing.GroupLayout pnlMembersLayout = new javax.swing.GroupLayout(pnlMembers);
+        pnlMembers.setLayout(pnlMembersLayout);
+        pnlMembersLayout.setHorizontalGroup(
+            pnlMembersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 714, Short.MAX_VALUE)
+        );
+        pnlMembersLayout.setVerticalGroup(
+            pnlMembersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 478, Short.MAX_VALUE)
+        );
+
+        pnlAccount.setBackground(new java.awt.Color(153, 0, 0));
+
+        javax.swing.GroupLayout pnlAccountLayout = new javax.swing.GroupLayout(pnlAccount);
+        pnlAccount.setLayout(pnlAccountLayout);
+        pnlAccountLayout.setHorizontalGroup(
+            pnlAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 714, Short.MAX_VALUE)
+        );
+        pnlAccountLayout.setVerticalGroup(
+            pnlAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 478, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout pnlTabRightLayout = new javax.swing.GroupLayout(pnlTabRight);
+        pnlTabRight.setLayout(pnlTabRightLayout);
+        pnlTabRightLayout.setHorizontalGroup(
+            pnlTabRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTabRightLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(pnlHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(pnlTabRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlTabRightLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(pnlRoomManagement, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+            .addGroup(pnlTabRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlTabRightLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(pnlMembers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+            .addGroup(pnlTabRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlTabRightLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(pnlAccount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+        pnlTabRightLayout.setVerticalGroup(
+            pnlTabRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTabRightLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pnlHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(pnlTabRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlTabRightLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(pnlRoomManagement, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+            .addGroup(pnlTabRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlTabRightLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(pnlMembers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+            .addGroup(pnlTabRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlTabRightLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(pnlAccount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(pnlNavigator, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(pnlTabLeft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlNavigatorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(pnlTabRight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlNavigator, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(pnlNavigatorPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlTabLeft, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlTabRight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         getAccessibleContext().setAccessibleDescription("");
@@ -150,6 +333,54 @@ public class Dashboard extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void pnlTabHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlTabHomeMouseClicked
+        pnlHome.setVisible(true);
+        pnlRoomManagement.setVisible(false);
+        pnlMembers.setVisible(false);
+        pnlAccount.setVisible(false);
+        
+        pnlTabHome.setBackground(new Color(247, 246, 220));
+        pnlTabRoomManagement.setBackground(new Color(218,104,70));
+        pnlTabMembers.setBackground(new Color(218,104,70));
+        pnlTabAccount.setBackground(new Color(218,104,70));
+    }//GEN-LAST:event_pnlTabHomeMouseClicked
+
+    private void pnlTabRoomManagementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlTabRoomManagementMouseClicked
+        pnlRoomManagement.setVisible(true);
+        pnlHome.setVisible(false);
+        pnlMembers.setVisible(false);
+        pnlAccount.setVisible(false);
+        
+        pnlTabRoomManagement.setBackground(new Color(247, 246, 220));
+        pnlTabHome.setBackground(new Color(218,104,70));
+        pnlTabMembers.setBackground(new Color(218,104,70));
+        pnlTabAccount.setBackground(new Color(218,104,70));
+    }//GEN-LAST:event_pnlTabRoomManagementMouseClicked
+
+    private void pnlTabMembersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlTabMembersMouseClicked
+        pnlMembers.setVisible(true);
+        pnlHome.setVisible(false);
+        pnlRoomManagement.setVisible(false);
+        pnlAccount.setVisible(false);
+        
+        pnlTabMembers.setBackground(new Color(247, 246, 220));
+        pnlTabHome.setBackground(new Color(218,104,70));
+        pnlTabRoomManagement.setBackground(new Color(218,104,70));
+        pnlTabAccount.setBackground(new Color(218,104,70));
+    }//GEN-LAST:event_pnlTabMembersMouseClicked
+
+    private void pnlTabAccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlTabAccountMouseClicked
+        pnlAccount.setVisible(true);
+        pnlHome.setVisible(false);
+        pnlRoomManagement.setVisible(false);
+        pnlMembers.setVisible(false);
+        
+        pnlTabAccount.setBackground(new Color(247, 246, 220));
+        pnlTabHome.setBackground(new Color(218,104,70));
+        pnlTabRoomManagement.setBackground(new Color(218,104,70));
+        pnlTabMembers.setBackground(new Color(218,104,70));
+    }//GEN-LAST:event_pnlTabAccountMouseClicked
 
     /**
      * @param args the command line arguments
@@ -187,17 +418,22 @@ public class Dashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAccount;
-    private javax.swing.JButton btnHome;
-    private javax.swing.JButton btnMembers;
-    private javax.swing.JButton btnRoomManagement;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblDashboardText;
-    private javax.swing.JLabel lblDate;
+    private javax.swing.JLabel lblHome;
+    private javax.swing.JLabel lblTabAccount;
+    private javax.swing.JLabel lblTabMembers;
+    private javax.swing.JLabel lblTabRoomManagement;
     private javax.swing.JLabel lblWelcomeUser;
+    private javax.swing.JPanel pnlAccount;
     private javax.swing.JPanel pnlHome;
-    private javax.swing.JPanel pnlNavigator;
-    private javax.swing.JPanel pnlNavigatorPanel;
+    private javax.swing.JPanel pnlMembers;
+    private javax.swing.JPanel pnlRoomManagement;
+    private javax.swing.JPanel pnlTabAccount;
+    private javax.swing.JPanel pnlTabHome;
+    private javax.swing.JPanel pnlTabLeft;
+    private javax.swing.JPanel pnlTabMembers;
+    private javax.swing.JPanel pnlTabRight;
+    private javax.swing.JPanel pnlTabRoomManagement;
     // End of variables declaration//GEN-END:variables
 }
