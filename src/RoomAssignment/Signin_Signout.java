@@ -39,11 +39,13 @@ public class Signin_Signout extends javax.swing.JFrame {
         lblPass = new javax.swing.JLabel();
         pwPassword = new javax.swing.JPasswordField();
         cboxShowPassword = new javax.swing.JCheckBox();
+        btnExit = new javax.swing.JButton();
         btnLogin = new javax.swing.JButton();
         lblLoginImage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setFont(new java.awt.Font("Century Gothic", 0, 10)); // NOI18N
         setName("SigninSignout"); // NOI18N
         setResizable(false);
 
@@ -52,9 +54,11 @@ public class Signin_Signout extends javax.swing.JFrame {
         lblWelcomeImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RoomAssignment/image/undraw_enter.png"))); // NOI18N
 
         lblWelcomeText.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        lblWelcomeText.setForeground(new java.awt.Color(51, 51, 51));
         lblWelcomeText.setText("Welcome, ");
 
         lblWelcomeLoginText.setFont(new java.awt.Font("Century Gothic", 3, 12)); // NOI18N
+        lblWelcomeLoginText.setForeground(new java.awt.Color(51, 51, 51));
         lblWelcomeLoginText.setText("Login to Room Assignment Management System");
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 2, 10)); // NOI18N
@@ -97,46 +101,78 @@ public class Signin_Signout extends javax.swing.JFrame {
         pnlLogin.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lblUser.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        lblUser.setForeground(new java.awt.Color(51, 51, 51));
         lblUser.setText("Username: ");
 
+        txtUser.setBackground(new java.awt.Color(222, 222, 222));
         txtUser.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         txtUser.setToolTipText("");
         txtUser.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
 
         lblPass.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        lblPass.setForeground(new java.awt.Color(51, 51, 51));
         lblPass.setText("Password:");
 
+        pwPassword.setBackground(new java.awt.Color(222, 222, 222));
         pwPassword.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pwPassword.setText("jPasswordField1");
         pwPassword.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
 
         cboxShowPassword.setBackground(new java.awt.Color(255, 255, 255));
         cboxShowPassword.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        cboxShowPassword.setForeground(new java.awt.Color(51, 51, 51));
         cboxShowPassword.setLabel("Show Password");
+
+        btnExit.setBackground(new java.awt.Color(218, 104, 70));
+        btnExit.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        btnExit.setForeground(new java.awt.Color(51, 51, 51));
+        btnExit.setText("Exit");
+        btnExit.setToolTipText("");
+        btnExit.setBorder(null);
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
 
         btnLogin.setBackground(new java.awt.Color(218, 104, 70));
         btnLogin.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        btnLogin.setForeground(new java.awt.Color(51, 51, 51));
         btnLogin.setText("Login");
         btnLogin.setBorder(null);
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlLoginLayout = new javax.swing.GroupLayout(pnlLogin);
         pnlLogin.setLayout(pnlLoginLayout);
         pnlLoginLayout.setHorizontalGroup(
             pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlLoginLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlLoginLayout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(pnlLoginLayout.createSequentialGroup()
+                                .addComponent(lblUser)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cboxShowPassword)
+                            .addGroup(pnlLoginLayout.createSequentialGroup()
+                                .addComponent(lblPass)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(pwPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(pnlLoginLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(36, Short.MAX_VALUE))
+            .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLoginLayout.createSequentialGroup()
+                    .addContainerGap(174, Short.MAX_VALUE)
                     .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pnlLoginLayout.createSequentialGroup()
-                        .addComponent(lblUser)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlLoginLayout.createSequentialGroup()
-                        .addComponent(lblPass)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(pwPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(cboxShowPassword))
-                .addContainerGap(28, Short.MAX_VALUE))
+                    .addGap(18, 18, 18)))
         );
         pnlLoginLayout.setVerticalGroup(
             pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,11 +187,17 @@ public class Signin_Signout extends javax.swing.JFrame {
                     .addComponent(lblPass))
                 .addGap(18, 18, 18)
                 .addComponent(cboxShowPassword)
-                .addGap(18, 18, 18)
-                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29))
+            .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLoginLayout.createSequentialGroup()
+                    .addContainerGap(152, Short.MAX_VALUE)
+                    .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(29, 29, 29)))
         );
 
+        btnExit.getAccessibleContext().setAccessibleName("btnExit");
         btnLogin.getAccessibleContext().setAccessibleName("btnLogin");
 
         lblLoginImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RoomAssignment/image/undraw_male_avatar.png"))); // NOI18N
@@ -203,6 +245,16 @@ public class Signin_Signout extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnExitActionPerformed
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        Dashboard db = new Dashboard();
+        db.show(); //For display function only.
+        this.dispose();
+    }//GEN-LAST:event_btnLoginActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -240,6 +292,7 @@ public class Signin_Signout extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnExit;
     private javax.swing.JButton btnLogin;
     private javax.swing.JCheckBox cboxShowPassword;
     private javax.swing.JLabel jLabel1;
