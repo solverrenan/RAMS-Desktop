@@ -31,6 +31,9 @@ public class Dashboard extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
         pnlTabLeft = new javax.swing.JPanel();
         pnlTabHome = new javax.swing.JPanel();
         lblHome = new javax.swing.JLabel();
@@ -43,11 +46,39 @@ public class Dashboard extends javax.swing.JFrame {
         lblWelcomeUser = new javax.swing.JLabel();
         pnlTabRight = new javax.swing.JPanel();
         pnlHome = new javax.swing.JPanel();
+        pnlCreatedSchedule = new javax.swing.JPanel();
+        lblCreatedSchedule = new javax.swing.JLabel();
+        lblScheduleNumber = new javax.swing.JLabel();
+        pnlCreatedAccount = new javax.swing.JPanel();
+        lblCreatedAccount = new javax.swing.JLabel();
+        lblAccountNumber = new javax.swing.JLabel();
+        pnlFacultiesStudents = new javax.swing.JPanel();
+        lblFaculties = new javax.swing.JLabel();
+        lblStudents = new javax.swing.JLabel();
+        lblFacultiesNumber = new javax.swing.JLabel();
+        lblStudentsNumber = new javax.swing.JLabel();
         pnlRoomManagement = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
         pnlMembers = new javax.swing.JPanel();
         pnlAccount = new javax.swing.JPanel();
 
         jLabel1.setText("jLabel1");
+
+        jMenu1.setText("File");
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar1.add(jMenu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -59,9 +90,10 @@ public class Dashboard extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(1000, 500));
         setResizable(false);
 
-        pnlTabLeft.setBackground(new java.awt.Color(205, 203, 214));
+        pnlTabLeft.setBackground(java.awt.Color.white);
 
         pnlTabHome.setBackground(new java.awt.Color(218, 104, 70));
+        pnlTabHome.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         pnlTabHome.setPreferredSize(new java.awt.Dimension(105, 55));
         pnlTabHome.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -87,11 +119,12 @@ public class Dashboard extends javax.swing.JFrame {
             pnlTabHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTabHomeLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblHome, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
+                .addComponent(lblHome, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         pnlTabRoomManagement.setBackground(new java.awt.Color(218, 104, 70));
+        pnlTabRoomManagement.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         pnlTabRoomManagement.setPreferredSize(new java.awt.Dimension(105, 55));
         pnlTabRoomManagement.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -117,11 +150,12 @@ public class Dashboard extends javax.swing.JFrame {
             pnlTabRoomManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTabRoomManagementLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblTabRoomManagement, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
+                .addComponent(lblTabRoomManagement, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         pnlTabMembers.setBackground(new java.awt.Color(218, 104, 70));
+        pnlTabMembers.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         pnlTabMembers.setPreferredSize(new java.awt.Dimension(105, 55));
         pnlTabMembers.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -147,11 +181,12 @@ public class Dashboard extends javax.swing.JFrame {
             pnlTabMembersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTabMembersLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblTabMembers, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
+                .addComponent(lblTabMembers, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         pnlTabAccount.setBackground(new java.awt.Color(218, 104, 70));
+        pnlTabAccount.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         pnlTabAccount.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlTabAccountMouseClicked(evt);
@@ -209,35 +244,243 @@ public class Dashboard extends javax.swing.JFrame {
                 .addComponent(pnlTabMembers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlTabAccount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(162, Short.MAX_VALUE))
+        );
+
+        pnlTabRight.setBackground(new java.awt.Color(204, 204, 204));
+
+        pnlHome.setBackground(new java.awt.Color(204, 204, 204));
+
+        pnlCreatedSchedule.setBackground(java.awt.Color.darkGray);
+
+        lblCreatedSchedule.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        lblCreatedSchedule.setForeground(java.awt.Color.white);
+        lblCreatedSchedule.setText("Created Schedule");
+
+        lblScheduleNumber.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
+        lblScheduleNumber.setForeground(java.awt.Color.white);
+        lblScheduleNumber.setText("00");
+
+        javax.swing.GroupLayout pnlCreatedScheduleLayout = new javax.swing.GroupLayout(pnlCreatedSchedule);
+        pnlCreatedSchedule.setLayout(pnlCreatedScheduleLayout);
+        pnlCreatedScheduleLayout.setHorizontalGroup(
+            pnlCreatedScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlCreatedScheduleLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlCreatedScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblScheduleNumber)
+                    .addComponent(lblCreatedSchedule))
+                .addContainerGap(91, Short.MAX_VALUE))
+        );
+        pnlCreatedScheduleLayout.setVerticalGroup(
+            pnlCreatedScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlCreatedScheduleLayout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(lblScheduleNumber)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblCreatedSchedule)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pnlTabRight.setBackground(new java.awt.Color(0, 255, 255));
+        pnlCreatedAccount.setBackground(java.awt.Color.darkGray);
 
-        pnlHome.setBackground(new java.awt.Color(0, 0, 153));
+        lblCreatedAccount.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        lblCreatedAccount.setForeground(java.awt.Color.white);
+        lblCreatedAccount.setText("Created Account");
+
+        lblAccountNumber.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
+        lblAccountNumber.setForeground(java.awt.Color.white);
+        lblAccountNumber.setText("00");
+
+        javax.swing.GroupLayout pnlCreatedAccountLayout = new javax.swing.GroupLayout(pnlCreatedAccount);
+        pnlCreatedAccount.setLayout(pnlCreatedAccountLayout);
+        pnlCreatedAccountLayout.setHorizontalGroup(
+            pnlCreatedAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlCreatedAccountLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlCreatedAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblAccountNumber)
+                    .addComponent(lblCreatedAccount))
+                .addContainerGap(97, Short.MAX_VALUE))
+        );
+        pnlCreatedAccountLayout.setVerticalGroup(
+            pnlCreatedAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlCreatedAccountLayout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(lblAccountNumber)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblCreatedAccount)
+                .addContainerGap(50, Short.MAX_VALUE))
+        );
+
+        pnlFacultiesStudents.setBackground(java.awt.Color.darkGray);
+
+        lblFaculties.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        lblFaculties.setForeground(java.awt.Color.white);
+        lblFaculties.setText("Faculties");
+
+        lblStudents.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        lblStudents.setForeground(java.awt.Color.white);
+        lblStudents.setText("Students");
+
+        lblFacultiesNumber.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
+        lblFacultiesNumber.setForeground(java.awt.Color.white);
+        lblFacultiesNumber.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblFacultiesNumber.setText("00");
+
+        lblStudentsNumber.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
+        lblStudentsNumber.setForeground(java.awt.Color.white);
+        lblStudentsNumber.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblStudentsNumber.setText("00");
+
+        javax.swing.GroupLayout pnlFacultiesStudentsLayout = new javax.swing.GroupLayout(pnlFacultiesStudents);
+        pnlFacultiesStudents.setLayout(pnlFacultiesStudentsLayout);
+        pnlFacultiesStudentsLayout.setHorizontalGroup(
+            pnlFacultiesStudentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlFacultiesStudentsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlFacultiesStudentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblStudentsNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnlFacultiesStudentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(lblFacultiesNumber, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblFaculties, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblStudents, javax.swing.GroupLayout.Alignment.LEADING)))
+                .addContainerGap(153, Short.MAX_VALUE))
+        );
+        pnlFacultiesStudentsLayout.setVerticalGroup(
+            pnlFacultiesStudentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlFacultiesStudentsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblFacultiesNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblFaculties)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblStudentsNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblStudents)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout pnlHomeLayout = new javax.swing.GroupLayout(pnlHome);
         pnlHome.setLayout(pnlHomeLayout);
         pnlHomeLayout.setHorizontalGroup(
             pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 790, Short.MAX_VALUE)
+            .addGroup(pnlHomeLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(pnlFacultiesStudents, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(pnlCreatedSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(pnlCreatedAccount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         pnlHomeLayout.setVerticalGroup(
             pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 478, Short.MAX_VALUE)
+            .addGroup(pnlHomeLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(pnlCreatedAccount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlCreatedSchedule, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlFacultiesStudents, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pnlRoomManagement.setBackground(new java.awt.Color(153, 0, 153));
+        pnlRoomManagement.setBackground(new java.awt.Color(204, 204, 204));
+
+        jTable1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable1);
+
+        jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel3.setText("Room Management");
+
+        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jLabel2.setText("UserID");
+
+        jTextField1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jTextField1.setText("000");
+
+        jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jLabel4.setText("Name");
+
+        jTextField2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+
+        jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jLabel5.setText("Status");
+
+        jComboBox1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Instructor", "Student" }));
+
+        jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jLabel6.setText("Room Number");
+
+        jTextField3.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
 
         javax.swing.GroupLayout pnlRoomManagementLayout = new javax.swing.GroupLayout(pnlRoomManagement);
         pnlRoomManagement.setLayout(pnlRoomManagementLayout);
         pnlRoomManagementLayout.setHorizontalGroup(
             pnlRoomManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 714, Short.MAX_VALUE)
+            .addGroup(pnlRoomManagementLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlRoomManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 731, Short.MAX_VALUE)
+                    .addGroup(pnlRoomManagementLayout.createSequentialGroup()
+                        .addGroup(pnlRoomManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlRoomManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel3)
+                                .addGroup(pnlRoomManagementLayout.createSequentialGroup()
+                                    .addComponent(jLabel2)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jTextField1))
+                                .addGroup(pnlRoomManagementLayout.createSequentialGroup()
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jTextField2))
+                                .addGroup(pnlRoomManagementLayout.createSequentialGroup()
+                                    .addComponent(jLabel5)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(pnlRoomManagementLayout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         pnlRoomManagementLayout.setVerticalGroup(
             pnlRoomManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 478, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlRoomManagementLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addGroup(pnlRoomManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlRoomManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlRoomManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlRoomManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pnlMembers.setBackground(new java.awt.Color(153, 153, 0));
@@ -408,6 +651,9 @@ public class Dashboard extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -418,14 +664,39 @@ public class Dashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JLabel lblAccountNumber;
+    private javax.swing.JLabel lblCreatedAccount;
+    private javax.swing.JLabel lblCreatedSchedule;
+    private javax.swing.JLabel lblFaculties;
+    private javax.swing.JLabel lblFacultiesNumber;
     private javax.swing.JLabel lblHome;
+    private javax.swing.JLabel lblScheduleNumber;
+    private javax.swing.JLabel lblStudents;
+    private javax.swing.JLabel lblStudentsNumber;
     private javax.swing.JLabel lblTabAccount;
     private javax.swing.JLabel lblTabMembers;
     private javax.swing.JLabel lblTabRoomManagement;
     private javax.swing.JLabel lblWelcomeUser;
     private javax.swing.JPanel pnlAccount;
+    private javax.swing.JPanel pnlCreatedAccount;
+    private javax.swing.JPanel pnlCreatedSchedule;
+    private javax.swing.JPanel pnlFacultiesStudents;
     private javax.swing.JPanel pnlHome;
     private javax.swing.JPanel pnlMembers;
     private javax.swing.JPanel pnlRoomManagement;
