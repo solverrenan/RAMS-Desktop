@@ -18,6 +18,15 @@ public class Dashboard extends javax.swing.JFrame {
      */
     public Dashboard() {
         initComponents();
+        pnlHome.setVisible(true);
+        pnlRoomManagement.setVisible(false);
+        pnlMembers.setVisible(false);
+        pnlAccount.setVisible(false);
+        
+        pnlTabHome.setBackground(new Color(247, 246, 220));
+        pnlTabRoomManagement.setBackground(new Color(218,104,70));
+        pnlTabMembers.setBackground(new Color(218,104,70));
+        pnlTabAccount.setBackground(new Color(218,104,70));
     }
 
     /**
@@ -29,11 +38,8 @@ public class Dashboard extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        tpRAMStartTime = new com.raven.swing.TimePicker();
+        tpRAMEndTime = new com.raven.swing.TimePicker();
         pnlTabLeft = new javax.swing.JPanel();
         pnlTabHome = new javax.swing.JPanel();
         lblHome = new javax.swing.JLabel();
@@ -43,54 +49,127 @@ public class Dashboard extends javax.swing.JFrame {
         lblTabMembers = new javax.swing.JLabel();
         pnlTabAccount = new javax.swing.JPanel();
         lblTabAccount = new javax.swing.JLabel();
-        lblWelcomeUser = new javax.swing.JLabel();
+        lblImageOnTop = new javax.swing.JLabel();
+        lblRoomMangementSystem = new javax.swing.JLabel();
         pnlTabRight = new javax.swing.JPanel();
         pnlHome = new javax.swing.JPanel();
-        pnlCreatedSchedule = new javax.swing.JPanel();
-        lblCreatedSchedule = new javax.swing.JLabel();
-        lblScheduleNumber = new javax.swing.JLabel();
-        pnlCreatedAccount = new javax.swing.JPanel();
-        lblCreatedAccount = new javax.swing.JLabel();
-        lblAccountNumber = new javax.swing.JLabel();
-        pnlFacultiesStudents = new javax.swing.JPanel();
-        lblFaculties = new javax.swing.JLabel();
-        lblStudents = new javax.swing.JLabel();
-        lblFacultiesNumber = new javax.swing.JLabel();
-        lblStudentsNumber = new javax.swing.JLabel();
-        pnlRoomManagement = new javax.swing.JPanel();
+        pnlHomeCreatedSchedule = new javax.swing.JPanel();
+        lblHomeCreatedSchedule = new javax.swing.JLabel();
+        lblHomeScheduleNumber = new javax.swing.JLabel();
+        pnlHomeCreatedAccount = new javax.swing.JPanel();
+        lblHomeCreatedAccount = new javax.swing.JLabel();
+        lblHomeAccountNumber = new javax.swing.JLabel();
+        pnlHomeFacultiesStudents = new javax.swing.JPanel();
+        lblHomeFaculties = new javax.swing.JLabel();
+        lblHomeStudents = new javax.swing.JLabel();
+        lblHomeFacultiesNumber = new javax.swing.JLabel();
+        lblHomeStudentsNumber = new javax.swing.JLabel();
+        pnlHomeActivityLog = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel6 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        jList1 = new javax.swing.JList<>();
+        pnlRoomManagement = new javax.swing.JPanel();
+        lblRAMRoomManagement = new javax.swing.JLabel();
+        spRAMShowRoom = new javax.swing.JScrollPane();
+        tblRAMShowRoom = new javax.swing.JTable();
+        lblRAMID = new javax.swing.JLabel();
+        lblRAMSubject = new javax.swing.JLabel();
+        lblRAMSection = new javax.swing.JLabel();
+        lblRAMDayOfTheWeek = new javax.swing.JLabel();
+        lblRAMStartTime = new javax.swing.JLabel();
+        lblRAMEndTime = new javax.swing.JLabel();
+        txtRAMID = new javax.swing.JTextField();
+        txtRAMSubject = new javax.swing.JTextField();
+        txtRAMSection = new javax.swing.JTextField();
+        txtRAMDayOfTheWeek = new javax.swing.JTextField();
+        btnRAMSearch = new javax.swing.JButton();
+        btnRAMSave = new javax.swing.JButton();
+        btnRAMAddNew = new javax.swing.JButton();
+        txtRAMStartTime = new javax.swing.JTextField();
+        txtRAMEndTime = new javax.swing.JTextField();
+        btnRAMStartTime = new javax.swing.JButton();
+        btnRAMEndTime = new javax.swing.JButton();
+        lblRAMError = new javax.swing.JLabel();
+        btnRAMDeleteRoom = new javax.swing.JButton();
         pnlMembers = new javax.swing.JPanel();
+        lblMMember = new javax.swing.JLabel();
+        btnMViewHead = new javax.swing.JButton();
+        btnMViewTeacher = new javax.swing.JButton();
+        pnlMViewTeacher = new javax.swing.JPanel();
+        spMTeacher = new javax.swing.JScrollPane();
+        tblMTeacher = new javax.swing.JTable();
+        lblMTeacherID = new javax.swing.JLabel();
+        lblMTeacherUsername = new javax.swing.JLabel();
+        lblMTeacherFirstName = new javax.swing.JLabel();
+        lblMTeacherLastName = new javax.swing.JLabel();
+        lblMTeacherPassword = new javax.swing.JLabel();
+        txtMTeacherID = new javax.swing.JTextField();
+        txtMTeacherUsername = new javax.swing.JTextField();
+        txtMTeacherFirstName = new javax.swing.JTextField();
+        txtMTeacherLastName = new javax.swing.JTextField();
+        pfMTeacherPassword = new javax.swing.JPasswordField();
+        cbMTeacherShowPassword = new javax.swing.JCheckBox();
+        btnMTeacherEdit = new javax.swing.JButton();
+        btnMTeacherSave = new javax.swing.JButton();
+        btnMTeacherAddNew = new javax.swing.JButton();
+        lblMTeacherError = new javax.swing.JLabel();
+        btnMTeacherDelete = new javax.swing.JButton();
+        pnlMViewHead = new javax.swing.JPanel();
+        lblMHeadFirstName = new javax.swing.JLabel();
+        lblMHeadLastName = new javax.swing.JLabel();
+        lblMHeadPassword = new javax.swing.JLabel();
+        btnMHeadEdit = new javax.swing.JButton();
+        txtMHeadID = new javax.swing.JTextField();
+        btnMHeadSave = new javax.swing.JButton();
+        txtMHeadUsername = new javax.swing.JTextField();
+        txtMHeadFirstName = new javax.swing.JTextField();
+        txtMHeadLastName = new javax.swing.JTextField();
+        btnMHeadAddNew = new javax.swing.JButton();
+        spMHead = new javax.swing.JScrollPane();
+        tblMHead = new javax.swing.JTable();
+        pfMHeadPassword = new javax.swing.JPasswordField();
+        lblMHeadID = new javax.swing.JLabel();
+        cbMHeadShowPassword = new javax.swing.JCheckBox();
+        lblMHeadUsername = new javax.swing.JLabel();
+        lblMHeadDepartment = new javax.swing.JLabel();
+        txtMHeadDepartment = new javax.swing.JTextField();
+        lblMHeadError = new javax.swing.JLabel();
+        btnMHeadDelete = new javax.swing.JButton();
         pnlAccount = new javax.swing.JPanel();
+        lblRAMRoomManagement1 = new javax.swing.JLabel();
+        pnlAInformation = new javax.swing.JPanel();
+        lblAID = new javax.swing.JLabel();
+        lblAUsername = new javax.swing.JLabel();
+        lblAFirstName = new javax.swing.JLabel();
+        lblALastName = new javax.swing.JLabel();
+        lblADepartment = new javax.swing.JLabel();
+        txtAID = new javax.swing.JTextField();
+        txtAUsername = new javax.swing.JTextField();
+        txtAFirstName = new javax.swing.JTextField();
+        txtALastName = new javax.swing.JTextField();
+        txtADepartment = new javax.swing.JTextField();
+        btnALogout = new javax.swing.JButton();
+        btnAChangePassword = new javax.swing.JButton();
 
-        jLabel1.setText("jLabel1");
+        tpRAMStartTime.setForeground(new java.awt.Color(218, 104, 70));
+        tpRAMStartTime.setDisplayText(txtRAMStartTime);
+        tpRAMStartTime.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
 
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
+        tpRAMEndTime.setForeground(new java.awt.Color(218, 104, 70));
+        tpRAMEndTime.setDisplayText(txtRAMEndTime);
+        tpRAMEndTime.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        tpRAMEndTime.setName(""); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        setMaximumSize(new java.awt.Dimension(1000, 500));
-        setMinimumSize(new java.awt.Dimension(1000, 500));
+        setMaximumSize(new java.awt.Dimension(1100, 600));
+        setMinimumSize(new java.awt.Dimension(1100, 600));
         setModalExclusionType(java.awt.Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
         setName("Dashboard"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(1000, 500));
+        setPreferredSize(new java.awt.Dimension(1100, 600));
         setResizable(false);
 
-        pnlTabLeft.setBackground(java.awt.Color.white);
+        pnlTabLeft.setBackground(new java.awt.Color(251, 251, 251));
 
         pnlTabHome.setBackground(new java.awt.Color(218, 104, 70));
         pnlTabHome.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -143,7 +222,7 @@ public class Dashboard extends javax.swing.JFrame {
             pnlTabRoomManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTabRoomManagementLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblTabRoomManagement, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblTabRoomManagement, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pnlTabRoomManagementLayout.setVerticalGroup(
@@ -215,149 +294,184 @@ public class Dashboard extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        lblWelcomeUser.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        lblWelcomeUser.setText("Welcome, [username]");
+        lblImageOnTop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RoomAssignment/image/undraw_Launching.png"))); // NOI18N
+
+        lblRoomMangementSystem.setFont(new java.awt.Font("Copperplate Gothic Bold", 2, 12)); // NOI18N
+        lblRoomMangementSystem.setText("Room Management System");
 
         javax.swing.GroupLayout pnlTabLeftLayout = new javax.swing.GroupLayout(pnlTabLeft);
         pnlTabLeft.setLayout(pnlTabLeftLayout);
         pnlTabLeftLayout.setHorizontalGroup(
             pnlTabLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlTabHome, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
-            .addComponent(pnlTabRoomManagement, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
-            .addComponent(pnlTabMembers, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
+            .addComponent(pnlTabHome, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
+            .addComponent(pnlTabRoomManagement, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
+            .addComponent(pnlTabMembers, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
             .addComponent(pnlTabAccount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTabLeftLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblImageOnTop)
+                .addGap(61, 61, 61))
             .addGroup(pnlTabLeftLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblWelcomeUser)
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addComponent(lblRoomMangementSystem)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlTabLeftLayout.setVerticalGroup(
             pnlTabLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlTabLeftLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTabLeftLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(lblWelcomeUser)
-                .addGap(52, 52, 52)
+                .addComponent(lblImageOnTop)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblRoomMangementSystem)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
                 .addComponent(pnlTabHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(pnlTabRoomManagement, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(pnlTabMembers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(pnlTabAccount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(162, Short.MAX_VALUE))
+                .addGap(120, 120, 120))
         );
 
         pnlTabRight.setBackground(new java.awt.Color(204, 204, 204));
 
         pnlHome.setBackground(new java.awt.Color(204, 204, 204));
 
-        pnlCreatedSchedule.setBackground(java.awt.Color.darkGray);
+        pnlHomeCreatedSchedule.setBackground(java.awt.Color.darkGray);
 
-        lblCreatedSchedule.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        lblCreatedSchedule.setForeground(java.awt.Color.white);
-        lblCreatedSchedule.setText("Created Schedule");
+        lblHomeCreatedSchedule.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        lblHomeCreatedSchedule.setForeground(java.awt.Color.white);
+        lblHomeCreatedSchedule.setText("Created Schedule");
 
-        lblScheduleNumber.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
-        lblScheduleNumber.setForeground(java.awt.Color.white);
-        lblScheduleNumber.setText("00");
+        lblHomeScheduleNumber.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
+        lblHomeScheduleNumber.setForeground(java.awt.Color.white);
+        lblHomeScheduleNumber.setText("00");
 
-        javax.swing.GroupLayout pnlCreatedScheduleLayout = new javax.swing.GroupLayout(pnlCreatedSchedule);
-        pnlCreatedSchedule.setLayout(pnlCreatedScheduleLayout);
-        pnlCreatedScheduleLayout.setHorizontalGroup(
-            pnlCreatedScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlCreatedScheduleLayout.createSequentialGroup()
+        javax.swing.GroupLayout pnlHomeCreatedScheduleLayout = new javax.swing.GroupLayout(pnlHomeCreatedSchedule);
+        pnlHomeCreatedSchedule.setLayout(pnlHomeCreatedScheduleLayout);
+        pnlHomeCreatedScheduleLayout.setHorizontalGroup(
+            pnlHomeCreatedScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlHomeCreatedScheduleLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlCreatedScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblScheduleNumber)
-                    .addComponent(lblCreatedSchedule))
+                .addGroup(pnlHomeCreatedScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblHomeScheduleNumber)
+                    .addComponent(lblHomeCreatedSchedule))
                 .addContainerGap(91, Short.MAX_VALUE))
         );
-        pnlCreatedScheduleLayout.setVerticalGroup(
-            pnlCreatedScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlCreatedScheduleLayout.createSequentialGroup()
+        pnlHomeCreatedScheduleLayout.setVerticalGroup(
+            pnlHomeCreatedScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlHomeCreatedScheduleLayout.createSequentialGroup()
                 .addGap(36, 36, 36)
-                .addComponent(lblScheduleNumber)
+                .addComponent(lblHomeScheduleNumber)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblCreatedSchedule)
+                .addComponent(lblHomeCreatedSchedule)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pnlCreatedAccount.setBackground(java.awt.Color.darkGray);
+        pnlHomeCreatedAccount.setBackground(java.awt.Color.darkGray);
 
-        lblCreatedAccount.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        lblCreatedAccount.setForeground(java.awt.Color.white);
-        lblCreatedAccount.setText("Created Account");
+        lblHomeCreatedAccount.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        lblHomeCreatedAccount.setForeground(java.awt.Color.white);
+        lblHomeCreatedAccount.setText("Created Account");
 
-        lblAccountNumber.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
-        lblAccountNumber.setForeground(java.awt.Color.white);
-        lblAccountNumber.setText("00");
+        lblHomeAccountNumber.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
+        lblHomeAccountNumber.setForeground(java.awt.Color.white);
+        lblHomeAccountNumber.setText("00");
 
-        javax.swing.GroupLayout pnlCreatedAccountLayout = new javax.swing.GroupLayout(pnlCreatedAccount);
-        pnlCreatedAccount.setLayout(pnlCreatedAccountLayout);
-        pnlCreatedAccountLayout.setHorizontalGroup(
-            pnlCreatedAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlCreatedAccountLayout.createSequentialGroup()
+        javax.swing.GroupLayout pnlHomeCreatedAccountLayout = new javax.swing.GroupLayout(pnlHomeCreatedAccount);
+        pnlHomeCreatedAccount.setLayout(pnlHomeCreatedAccountLayout);
+        pnlHomeCreatedAccountLayout.setHorizontalGroup(
+            pnlHomeCreatedAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlHomeCreatedAccountLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlCreatedAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblAccountNumber)
-                    .addComponent(lblCreatedAccount))
+                .addGroup(pnlHomeCreatedAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblHomeAccountNumber)
+                    .addComponent(lblHomeCreatedAccount))
                 .addContainerGap(97, Short.MAX_VALUE))
         );
-        pnlCreatedAccountLayout.setVerticalGroup(
-            pnlCreatedAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlCreatedAccountLayout.createSequentialGroup()
+        pnlHomeCreatedAccountLayout.setVerticalGroup(
+            pnlHomeCreatedAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlHomeCreatedAccountLayout.createSequentialGroup()
                 .addGap(36, 36, 36)
-                .addComponent(lblAccountNumber)
+                .addComponent(lblHomeAccountNumber)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblCreatedAccount)
+                .addComponent(lblHomeCreatedAccount)
                 .addContainerGap(50, Short.MAX_VALUE))
         );
 
-        pnlFacultiesStudents.setBackground(java.awt.Color.darkGray);
+        pnlHomeFacultiesStudents.setBackground(java.awt.Color.darkGray);
 
-        lblFaculties.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        lblFaculties.setForeground(java.awt.Color.white);
-        lblFaculties.setText("Faculties");
+        lblHomeFaculties.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        lblHomeFaculties.setForeground(java.awt.Color.white);
+        lblHomeFaculties.setText("Faculties");
 
-        lblStudents.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        lblStudents.setForeground(java.awt.Color.white);
-        lblStudents.setText("Students");
+        lblHomeStudents.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        lblHomeStudents.setForeground(java.awt.Color.white);
+        lblHomeStudents.setText("Students");
 
-        lblFacultiesNumber.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
-        lblFacultiesNumber.setForeground(java.awt.Color.white);
-        lblFacultiesNumber.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblFacultiesNumber.setText("00");
+        lblHomeFacultiesNumber.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
+        lblHomeFacultiesNumber.setForeground(java.awt.Color.white);
+        lblHomeFacultiesNumber.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblHomeFacultiesNumber.setText("00");
 
-        lblStudentsNumber.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
-        lblStudentsNumber.setForeground(java.awt.Color.white);
-        lblStudentsNumber.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblStudentsNumber.setText("00");
+        lblHomeStudentsNumber.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
+        lblHomeStudentsNumber.setForeground(java.awt.Color.white);
+        lblHomeStudentsNumber.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblHomeStudentsNumber.setText("00");
 
-        javax.swing.GroupLayout pnlFacultiesStudentsLayout = new javax.swing.GroupLayout(pnlFacultiesStudents);
-        pnlFacultiesStudents.setLayout(pnlFacultiesStudentsLayout);
-        pnlFacultiesStudentsLayout.setHorizontalGroup(
-            pnlFacultiesStudentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlFacultiesStudentsLayout.createSequentialGroup()
+        javax.swing.GroupLayout pnlHomeFacultiesStudentsLayout = new javax.swing.GroupLayout(pnlHomeFacultiesStudents);
+        pnlHomeFacultiesStudents.setLayout(pnlHomeFacultiesStudentsLayout);
+        pnlHomeFacultiesStudentsLayout.setHorizontalGroup(
+            pnlHomeFacultiesStudentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlHomeFacultiesStudentsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlFacultiesStudentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblStudentsNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pnlFacultiesStudentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(lblFacultiesNumber, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblFaculties, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblStudents, javax.swing.GroupLayout.Alignment.LEADING)))
+                .addGroup(pnlHomeFacultiesStudentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblHomeStudentsNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnlHomeFacultiesStudentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(lblHomeFacultiesNumber, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblHomeFaculties, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblHomeStudents, javax.swing.GroupLayout.Alignment.LEADING)))
                 .addContainerGap(153, Short.MAX_VALUE))
         );
-        pnlFacultiesStudentsLayout.setVerticalGroup(
-            pnlFacultiesStudentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlFacultiesStudentsLayout.createSequentialGroup()
+        pnlHomeFacultiesStudentsLayout.setVerticalGroup(
+            pnlHomeFacultiesStudentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlHomeFacultiesStudentsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblFacultiesNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblHomeFacultiesNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblFaculties)
+                .addComponent(lblHomeFaculties)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblStudentsNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblHomeStudentsNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblStudents)
+                .addComponent(lblHomeStudents)
+                .addContainerGap())
+        );
+
+        pnlHomeActivityLog.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Activity Log", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Century Gothic", 1, 18))); // NOI18N
+
+        jList1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "This User Delete ID: 000", "This User Edit ID: 000", "This User Create ID: 000", "This User Delete ID: 000", "This User Delete ID: 000", "This User Delete ID: 000", "This User Create ID: 000", "This User Delete ID: 000", "This User Edit ID: 000", "This User Delete ID: 000", "This User Create ID: 000", "This User Delete ID: 000", "This User Create ID: 000", "This User Edit ID: 000", "This User Delete ID: 000", "This User Edit ID: 000" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane2.setViewportView(jList1);
+
+        javax.swing.GroupLayout pnlHomeActivityLogLayout = new javax.swing.GroupLayout(pnlHomeActivityLog);
+        pnlHomeActivityLog.setLayout(pnlHomeActivityLogLayout);
+        pnlHomeActivityLogLayout.setHorizontalGroup(
+            pnlHomeActivityLogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlHomeActivityLogLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2)
+                .addContainerGap())
+        );
+        pnlHomeActivityLogLayout.setVerticalGroup(
+            pnlHomeActivityLogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlHomeActivityLogLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2)
                 .addContainerGap())
         );
 
@@ -367,64 +481,159 @@ public class Dashboard extends javax.swing.JFrame {
             pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlHomeLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addComponent(pnlFacultiesStudents, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlHomeFacultiesStudents, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
-                .addComponent(pnlCreatedSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlHomeCreatedSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(pnlCreatedAccount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addComponent(pnlHomeCreatedAccount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(108, Short.MAX_VALUE))
+            .addGroup(pnlHomeLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pnlHomeActivityLog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         pnlHomeLayout.setVerticalGroup(
             pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlHomeLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(pnlCreatedAccount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnlCreatedSchedule, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnlFacultiesStudents, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(pnlHomeCreatedAccount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlHomeCreatedSchedule, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlHomeFacultiesStudents, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE))
+                .addGap(119, 119, 119)
+                .addComponent(pnlHomeActivityLog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pnlRoomManagement.setBackground(new java.awt.Color(204, 204, 204));
 
-        jTable1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        lblRAMRoomManagement.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        lblRAMRoomManagement.setText("Room Assignment & Management");
+
+        tblRAMShowRoom.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        tblRAMShowRoom.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Room ID", "Subject", "Section", "Days of the Week", "Start Time", "End Time"
             }
-        ));
-        jScrollPane2.setViewportView(jTable1);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
 
-        jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jLabel3.setText("Room Management");
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
-        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jLabel2.setText("UserID");
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        spRAMShowRoom.setViewportView(tblRAMShowRoom);
 
-        jTextField1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jTextField1.setText("000");
+        lblRAMID.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblRAMID.setText("ID");
 
-        jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jLabel4.setText("Name");
+        lblRAMSubject.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblRAMSubject.setText("Subject");
 
-        jTextField2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        lblRAMSection.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblRAMSection.setText("Section");
 
-        jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jLabel5.setText("Status");
+        lblRAMDayOfTheWeek.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblRAMDayOfTheWeek.setText("Day of the Week");
 
-        jComboBox1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Instructor", "Student" }));
+        lblRAMStartTime.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblRAMStartTime.setText("Start Time");
 
-        jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jLabel6.setText("Room Number");
+        lblRAMEndTime.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblRAMEndTime.setText("End Time");
 
-        jTextField3.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtRAMID.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+
+        txtRAMSubject.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+
+        txtRAMSection.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+
+        txtRAMDayOfTheWeek.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+
+        btnRAMSearch.setBackground(new java.awt.Color(218, 104, 70));
+        btnRAMSearch.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnRAMSearch.setText("Search");
+        btnRAMSearch.setBorder(null);
+        btnRAMSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRAMSearchActionPerformed(evt);
+            }
+        });
+
+        btnRAMSave.setBackground(new java.awt.Color(218, 104, 70));
+        btnRAMSave.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnRAMSave.setText("Save");
+        btnRAMSave.setBorder(null);
+        btnRAMSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRAMSaveActionPerformed(evt);
+            }
+        });
+
+        btnRAMAddNew.setBackground(new java.awt.Color(218, 104, 70));
+        btnRAMAddNew.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnRAMAddNew.setText("Add New?");
+        btnRAMAddNew.setBorder(null);
+        btnRAMAddNew.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRAMAddNewActionPerformed(evt);
+            }
+        });
+
+        txtRAMStartTime.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtRAMStartTime.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                txtRAMStartTimeInputMethodTextChanged(evt);
+            }
+        });
+
+        txtRAMEndTime.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+
+        btnRAMStartTime.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RoomAssignment/image/clock.png"))); // NOI18N
+        btnRAMStartTime.setBorder(null);
+        btnRAMStartTime.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRAMStartTimeActionPerformed(evt);
+            }
+        });
+
+        btnRAMEndTime.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RoomAssignment/image/clock.png"))); // NOI18N
+        btnRAMEndTime.setBorder(null);
+        btnRAMEndTime.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRAMEndTimeActionPerformed(evt);
+            }
+        });
+
+        lblRAMError.setForeground(java.awt.Color.red);
+        lblRAMError.setText("[error appear here]");
+
+        btnRAMDeleteRoom.setBackground(new java.awt.Color(218, 104, 70));
+        btnRAMDeleteRoom.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnRAMDeleteRoom.setText("Delete Room?");
+        btnRAMDeleteRoom.setBorder(null);
+        btnRAMDeleteRoom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRAMDeleteRoomActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlRoomManagementLayout = new javax.swing.GroupLayout(pnlRoomManagement);
         pnlRoomManagement.setLayout(pnlRoomManagementLayout);
@@ -433,80 +642,737 @@ public class Dashboard extends javax.swing.JFrame {
             .addGroup(pnlRoomManagementLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlRoomManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 731, Short.MAX_VALUE)
+                    .addComponent(spRAMShowRoom)
                     .addGroup(pnlRoomManagementLayout.createSequentialGroup()
                         .addGroup(pnlRoomManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlRoomManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel3)
-                                .addGroup(pnlRoomManagementLayout.createSequentialGroup()
-                                    .addComponent(jLabel2)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField1))
-                                .addGroup(pnlRoomManagementLayout.createSequentialGroup()
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField2))
-                                .addGroup(pnlRoomManagementLayout.createSequentialGroup()
-                                    .addComponent(jLabel5)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(pnlRoomManagementLayout.createSequentialGroup()
-                                .addComponent(jLabel6)
+                                .addComponent(btnRAMAddNew, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addComponent(btnRAMDeleteRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblRAMRoomManagement)
+                            .addGroup(pnlRoomManagementLayout.createSequentialGroup()
+                                .addGroup(pnlRoomManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(pnlRoomManagementLayout.createSequentialGroup()
+                                        .addGroup(pnlRoomManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblRAMID)
+                                            .addComponent(txtRAMID, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lblRAMStartTime))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(pnlRoomManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtRAMSubject, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lblRAMSubject)))
+                                    .addGroup(pnlRoomManagementLayout.createSequentialGroup()
+                                        .addComponent(txtRAMStartTime, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnRAMStartTime)))
+                                .addGap(18, 18, 18)
+                                .addGroup(pnlRoomManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(pnlRoomManagementLayout.createSequentialGroup()
+                                        .addComponent(txtRAMEndTime, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnRAMEndTime))
+                                    .addGroup(pnlRoomManagementLayout.createSequentialGroup()
+                                        .addGroup(pnlRoomManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblRAMSection)
+                                            .addComponent(txtRAMSection, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(pnlRoomManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblRAMDayOfTheWeek)
+                                            .addGroup(pnlRoomManagementLayout.createSequentialGroup()
+                                                .addComponent(txtRAMDayOfTheWeek, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(btnRAMSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btnRAMSave, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(lblRAMEndTime)))
+                            .addComponent(lblRAMError))
+                        .addGap(0, 165, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pnlRoomManagementLayout.setVerticalGroup(
             pnlRoomManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlRoomManagementLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3)
+                .addComponent(lblRAMRoomManagement)
                 .addGap(18, 18, 18)
+                .addGroup(pnlRoomManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnlRoomManagementLayout.createSequentialGroup()
+                        .addGroup(pnlRoomManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblRAMID)
+                            .addComponent(lblRAMSubject)
+                            .addComponent(lblRAMSection))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlRoomManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtRAMID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtRAMSubject, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtRAMSection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnlRoomManagementLayout.createSequentialGroup()
+                        .addComponent(lblRAMDayOfTheWeek)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlRoomManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtRAMDayOfTheWeek, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnRAMSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnRAMSave, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18)
+                .addGroup(pnlRoomManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnlRoomManagementLayout.createSequentialGroup()
+                        .addComponent(lblRAMStartTime)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlRoomManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnRAMStartTime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtRAMStartTime)))
+                    .addGroup(pnlRoomManagementLayout.createSequentialGroup()
+                        .addComponent(lblRAMEndTime)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlRoomManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtRAMEndTime)
+                            .addComponent(btnRAMEndTime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(28, 28, 28)
                 .addGroup(pnlRoomManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlRoomManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlRoomManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlRoomManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRAMAddNew, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRAMDeleteRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(lblRAMError)
+                .addGap(18, 18, 18)
+                .addComponent(spRAMShowRoom, javax.swing.GroupLayout.DEFAULT_SIZE, 323, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        pnlMembers.setBackground(new java.awt.Color(153, 153, 0));
+        pnlMembers.setBackground(new java.awt.Color(204, 204, 204));
+        pnlMembers.setPreferredSize(new java.awt.Dimension(859, 600));
+
+        lblMMember.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        lblMMember.setText("Members");
+
+        btnMViewHead.setBackground(new java.awt.Color(218, 104, 70));
+        btnMViewHead.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnMViewHead.setText("Vew All Program Head List");
+        btnMViewHead.setBorder(null);
+        btnMViewHead.setHideActionText(true);
+        btnMViewHead.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMViewHeadActionPerformed(evt);
+            }
+        });
+
+        btnMViewTeacher.setBackground(new java.awt.Color(218, 104, 70));
+        btnMViewTeacher.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnMViewTeacher.setText("Vew All Teacher List");
+        btnMViewTeacher.setBorder(null);
+        btnMViewTeacher.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMViewTeacherActionPerformed(evt);
+            }
+        });
+
+        pnlMViewTeacher.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "View All Teacher List", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Century Gothic", 3, 14))); // NOI18N
+        pnlMViewTeacher.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+
+        tblMTeacher.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        tblMTeacher.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Username", "First Name", "Last Name", "Password"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        spMTeacher.setViewportView(tblMTeacher);
+
+        lblMTeacherID.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        lblMTeacherID.setText("ID");
+
+        lblMTeacherUsername.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        lblMTeacherUsername.setText("Username");
+
+        lblMTeacherFirstName.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        lblMTeacherFirstName.setText("First Name");
+
+        lblMTeacherLastName.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        lblMTeacherLastName.setText("Last Name");
+
+        lblMTeacherPassword.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        lblMTeacherPassword.setText("Password");
+
+        txtMTeacherID.setEditable(false);
+        txtMTeacherID.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+
+        txtMTeacherUsername.setEditable(false);
+        txtMTeacherUsername.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+
+        txtMTeacherFirstName.setEditable(false);
+        txtMTeacherFirstName.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+
+        txtMTeacherLastName.setEditable(false);
+        txtMTeacherLastName.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+
+        pfMTeacherPassword.setEditable(false);
+        pfMTeacherPassword.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        pfMTeacherPassword.setText("jPasswordField1");
+
+        cbMTeacherShowPassword.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        cbMTeacherShowPassword.setText("Show Password");
+        cbMTeacherShowPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbMTeacherShowPasswordActionPerformed(evt);
+            }
+        });
+
+        btnMTeacherEdit.setBackground(new java.awt.Color(218, 104, 70));
+        btnMTeacherEdit.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        btnMTeacherEdit.setForeground(new java.awt.Color(51, 51, 51));
+        btnMTeacherEdit.setText("Edit");
+        btnMTeacherEdit.setBorder(null);
+        btnMTeacherEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMTeacherEditActionPerformed(evt);
+            }
+        });
+
+        btnMTeacherSave.setBackground(new java.awt.Color(218, 104, 70));
+        btnMTeacherSave.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        btnMTeacherSave.setForeground(new java.awt.Color(51, 51, 51));
+        btnMTeacherSave.setText("Save");
+        btnMTeacherSave.setBorder(null);
+        btnMTeacherSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMTeacherSaveActionPerformed(evt);
+            }
+        });
+
+        btnMTeacherAddNew.setBackground(new java.awt.Color(218, 104, 70));
+        btnMTeacherAddNew.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        btnMTeacherAddNew.setForeground(new java.awt.Color(51, 51, 51));
+        btnMTeacherAddNew.setText("Add New?");
+        btnMTeacherAddNew.setBorder(null);
+        btnMTeacherAddNew.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMTeacherAddNewActionPerformed(evt);
+            }
+        });
+
+        lblMTeacherError.setForeground(java.awt.Color.red);
+        lblMTeacherError.setText("[error appear here]");
+
+        btnMTeacherDelete.setBackground(new java.awt.Color(204, 0, 0));
+        btnMTeacherDelete.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        btnMTeacherDelete.setForeground(java.awt.Color.white);
+        btnMTeacherDelete.setText("Delete");
+        btnMTeacherDelete.setBorder(null);
+        btnMTeacherDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMTeacherDeleteActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlMViewTeacherLayout = new javax.swing.GroupLayout(pnlMViewTeacher);
+        pnlMViewTeacher.setLayout(pnlMViewTeacherLayout);
+        pnlMViewTeacherLayout.setHorizontalGroup(
+            pnlMViewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlMViewTeacherLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlMViewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(spMTeacher)
+                    .addGroup(pnlMViewTeacherLayout.createSequentialGroup()
+                        .addGroup(pnlMViewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(pnlMViewTeacherLayout.createSequentialGroup()
+                                .addComponent(lblMTeacherFirstName)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtMTeacherFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pnlMViewTeacherLayout.createSequentialGroup()
+                                .addComponent(lblMTeacherID)
+                                .addGap(61, 61, 61)
+                                .addComponent(txtMTeacherID, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pnlMViewTeacherLayout.createSequentialGroup()
+                                .addComponent(lblMTeacherPassword)
+                                .addGap(18, 18, 18)
+                                .addGroup(pnlMViewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cbMTeacherShowPassword)
+                                    .addComponent(pfMTeacherPassword))))
+                        .addGap(18, 18, 18)
+                        .addGroup(pnlMViewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlMViewTeacherLayout.createSequentialGroup()
+                                .addComponent(lblMTeacherLastName)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtMTeacherLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMViewTeacherLayout.createSequentialGroup()
+                                .addGroup(pnlMViewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(pnlMViewTeacherLayout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(btnMTeacherDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(pnlMViewTeacherLayout.createSequentialGroup()
+                                        .addComponent(lblMTeacherUsername)
+                                        .addGap(14, 14, 14)
+                                        .addComponent(txtMTeacherUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                                        .addComponent(btnMTeacherEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(29, 29, 29))))
+                    .addGroup(pnlMViewTeacherLayout.createSequentialGroup()
+                        .addGroup(pnlMViewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlMViewTeacherLayout.createSequentialGroup()
+                                .addComponent(btnMTeacherSave, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnMTeacherAddNew, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblMTeacherError))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        pnlMViewTeacherLayout.setVerticalGroup(
+            pnlMViewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMViewTeacherLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlMViewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblMTeacherID)
+                    .addComponent(txtMTeacherID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblMTeacherUsername)
+                    .addComponent(txtMTeacherUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnMTeacherEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlMViewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblMTeacherFirstName)
+                    .addComponent(txtMTeacherFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblMTeacherLastName)
+                    .addComponent(txtMTeacherLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlMViewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblMTeacherPassword)
+                    .addComponent(pfMTeacherPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cbMTeacherShowPassword)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblMTeacherError)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+                .addGroup(pnlMViewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnMTeacherSave, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnMTeacherAddNew, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnMTeacherDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(spMTeacher, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        pnlMViewHead.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "View All Program Head List", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Century Gothic", 3, 14))); // NOI18N
+        pnlMViewHead.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+
+        lblMHeadFirstName.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        lblMHeadFirstName.setText("First Name");
+
+        lblMHeadLastName.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        lblMHeadLastName.setText("Last Name");
+
+        lblMHeadPassword.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        lblMHeadPassword.setText("Password");
+
+        btnMHeadEdit.setBackground(new java.awt.Color(218, 104, 70));
+        btnMHeadEdit.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        btnMHeadEdit.setForeground(new java.awt.Color(51, 51, 51));
+        btnMHeadEdit.setText("Edit");
+        btnMHeadEdit.setBorder(null);
+        btnMHeadEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMHeadEditActionPerformed(evt);
+            }
+        });
+
+        txtMHeadID.setEditable(false);
+        txtMHeadID.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+
+        btnMHeadSave.setBackground(new java.awt.Color(218, 104, 70));
+        btnMHeadSave.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        btnMHeadSave.setForeground(new java.awt.Color(51, 51, 51));
+        btnMHeadSave.setText("Save");
+        btnMHeadSave.setBorder(null);
+        btnMHeadSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMHeadSaveActionPerformed(evt);
+            }
+        });
+
+        txtMHeadUsername.setEditable(false);
+        txtMHeadUsername.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+
+        txtMHeadFirstName.setEditable(false);
+        txtMHeadFirstName.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+
+        txtMHeadLastName.setEditable(false);
+        txtMHeadLastName.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+
+        btnMHeadAddNew.setBackground(new java.awt.Color(218, 104, 70));
+        btnMHeadAddNew.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        btnMHeadAddNew.setForeground(new java.awt.Color(51, 51, 51));
+        btnMHeadAddNew.setText("Add New?");
+        btnMHeadAddNew.setBorder(null);
+        btnMHeadAddNew.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMHeadAddNewActionPerformed(evt);
+            }
+        });
+
+        tblMHead.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        tblMHead.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Username", "First Name", "Last Name", "Password", "Department"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        spMHead.setViewportView(tblMHead);
+
+        pfMHeadPassword.setEditable(false);
+        pfMHeadPassword.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        pfMHeadPassword.setText("jPasswordField1");
+
+        lblMHeadID.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        lblMHeadID.setText("ID");
+
+        cbMHeadShowPassword.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        cbMHeadShowPassword.setText("Show Password");
+        cbMHeadShowPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbMHeadShowPasswordActionPerformed(evt);
+            }
+        });
+
+        lblMHeadUsername.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        lblMHeadUsername.setText("Username");
+
+        lblMHeadDepartment.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        lblMHeadDepartment.setText("Department");
+
+        txtMHeadDepartment.setEditable(false);
+        txtMHeadDepartment.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+
+        lblMHeadError.setForeground(java.awt.Color.red);
+        lblMHeadError.setText("[error appear here]");
+
+        btnMHeadDelete.setBackground(new java.awt.Color(204, 0, 0));
+        btnMHeadDelete.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        btnMHeadDelete.setForeground(java.awt.Color.white);
+        btnMHeadDelete.setText("Delete");
+        btnMHeadDelete.setBorder(null);
+        btnMHeadDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMHeadDeleteActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlMViewHeadLayout = new javax.swing.GroupLayout(pnlMViewHead);
+        pnlMViewHead.setLayout(pnlMViewHeadLayout);
+        pnlMViewHeadLayout.setHorizontalGroup(
+            pnlMViewHeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlMViewHeadLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlMViewHeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(spMHead)
+                    .addGroup(pnlMViewHeadLayout.createSequentialGroup()
+                        .addComponent(lblMHeadError)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMViewHeadLayout.createSequentialGroup()
+                        .addGroup(pnlMViewHeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(pnlMViewHeadLayout.createSequentialGroup()
+                                .addComponent(btnMHeadSave, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnMHeadAddNew, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnMHeadDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pnlMViewHeadLayout.createSequentialGroup()
+                                .addGroup(pnlMViewHeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(pnlMViewHeadLayout.createSequentialGroup()
+                                        .addComponent(lblMHeadID)
+                                        .addGap(61, 61, 61)
+                                        .addComponent(txtMHeadID, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(pnlMViewHeadLayout.createSequentialGroup()
+                                        .addComponent(lblMHeadPassword)
+                                        .addGap(18, 18, 18)
+                                        .addGroup(pnlMViewHeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(cbMHeadShowPassword)
+                                            .addComponent(pfMHeadPassword)))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMViewHeadLayout.createSequentialGroup()
+                                        .addComponent(lblMHeadFirstName)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtMHeadFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(18, 18, 18)
+                                .addGroup(pnlMViewHeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(pnlMViewHeadLayout.createSequentialGroup()
+                                        .addComponent(lblMHeadUsername)
+                                        .addGap(24, 24, 24)
+                                        .addComponent(txtMHeadUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(pnlMViewHeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(pnlMViewHeadLayout.createSequentialGroup()
+                                            .addComponent(lblMHeadLastName)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(txtMHeadLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(pnlMViewHeadLayout.createSequentialGroup()
+                                            .addComponent(lblMHeadDepartment)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(txtMHeadDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                                .addComponent(btnMHeadEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(29, 29, 29)))
+                .addContainerGap())
+        );
+        pnlMViewHeadLayout.setVerticalGroup(
+            pnlMViewHeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMViewHeadLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlMViewHeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblMHeadID)
+                    .addComponent(txtMHeadID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblMHeadUsername)
+                    .addComponent(txtMHeadUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnMHeadEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlMViewHeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblMHeadFirstName)
+                    .addComponent(txtMHeadFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblMHeadLastName)
+                    .addComponent(txtMHeadLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlMViewHeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblMHeadPassword)
+                    .addComponent(pfMHeadPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblMHeadDepartment)
+                    .addComponent(txtMHeadDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cbMHeadShowPassword)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblMHeadError)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                .addGroup(pnlMViewHeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnMHeadSave, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnMHeadAddNew, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnMHeadDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(spMHead, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout pnlMembersLayout = new javax.swing.GroupLayout(pnlMembers);
         pnlMembers.setLayout(pnlMembersLayout);
         pnlMembersLayout.setHorizontalGroup(
             pnlMembersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 714, Short.MAX_VALUE)
+            .addGroup(pnlMembersLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlMembersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnlMViewHead, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(pnlMembersLayout.createSequentialGroup()
+                        .addComponent(lblMMember)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnMViewHead, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnMViewTeacher, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(pnlMembersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlMembersLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(pnlMViewTeacher, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         pnlMembersLayout.setVerticalGroup(
             pnlMembersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 478, Short.MAX_VALUE)
+            .addGroup(pnlMembersLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlMembersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnMViewHead, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblMMember, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                    .addComponent(btnMViewTeacher, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(pnlMViewHead, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(pnlMembersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlMembersLayout.createSequentialGroup()
+                    .addGap(52, 52, 52)
+                    .addComponent(pnlMViewTeacher, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
 
-        pnlAccount.setBackground(new java.awt.Color(153, 0, 0));
+        pnlAccount.setBackground(new java.awt.Color(204, 204, 204));
+
+        lblRAMRoomManagement1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        lblRAMRoomManagement1.setText("Account");
+
+        pnlAInformation.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Account Information", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Century Gothic", 1, 12))); // NOI18N
+
+        lblAID.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblAID.setText("ID");
+
+        lblAUsername.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblAUsername.setText("Username");
+
+        lblAFirstName.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblAFirstName.setText("First Name");
+
+        lblALastName.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblALastName.setText("Last Name");
+
+        lblADepartment.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblADepartment.setText("Department");
+
+        txtAID.setEditable(false);
+        txtAID.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtAID.setFocusable(false);
+
+        txtAUsername.setEditable(false);
+        txtAUsername.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtAUsername.setFocusable(false);
+
+        txtAFirstName.setEditable(false);
+        txtAFirstName.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtAFirstName.setFocusable(false);
+
+        txtALastName.setEditable(false);
+        txtALastName.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtALastName.setFocusable(false);
+
+        txtADepartment.setEditable(false);
+        txtADepartment.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtADepartment.setFocusable(false);
+
+        btnALogout.setBackground(new java.awt.Color(218, 104, 70));
+        btnALogout.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        btnALogout.setForeground(new java.awt.Color(51, 51, 51));
+        btnALogout.setText("Logout?");
+        btnALogout.setBorder(null);
+        btnALogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnALogoutActionPerformed(evt);
+            }
+        });
+
+        btnAChangePassword.setBackground(new java.awt.Color(218, 104, 70));
+        btnAChangePassword.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        btnAChangePassword.setForeground(new java.awt.Color(51, 51, 51));
+        btnAChangePassword.setText("Change Password?");
+        btnAChangePassword.setBorder(null);
+        btnAChangePassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAChangePasswordActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlAInformationLayout = new javax.swing.GroupLayout(pnlAInformation);
+        pnlAInformation.setLayout(pnlAInformationLayout);
+        pnlAInformationLayout.setHorizontalGroup(
+            pnlAInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAInformationLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlAInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlAInformationLayout.createSequentialGroup()
+                        .addComponent(lblAID)
+                        .addGap(82, 82, 82)
+                        .addComponent(txtAID))
+                    .addGroup(pnlAInformationLayout.createSequentialGroup()
+                        .addComponent(lblADepartment)
+                        .addGap(26, 26, 26)
+                        .addComponent(txtADepartment, javax.swing.GroupLayout.DEFAULT_SIZE, 341, Short.MAX_VALUE))
+                    .addGroup(pnlAInformationLayout.createSequentialGroup()
+                        .addComponent(lblAUsername)
+                        .addGap(35, 35, 35)
+                        .addComponent(txtAUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 341, Short.MAX_VALUE))
+                    .addGroup(pnlAInformationLayout.createSequentialGroup()
+                        .addComponent(lblAFirstName)
+                        .addGap(34, 34, 34)
+                        .addComponent(txtAFirstName, javax.swing.GroupLayout.DEFAULT_SIZE, 341, Short.MAX_VALUE))
+                    .addGroup(pnlAInformationLayout.createSequentialGroup()
+                        .addComponent(lblALastName)
+                        .addGap(34, 34, 34)
+                        .addComponent(txtALastName, javax.swing.GroupLayout.DEFAULT_SIZE, 341, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAInformationLayout.createSequentialGroup()
+                        .addComponent(btnAChangePassword, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnALogout, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        pnlAInformationLayout.setVerticalGroup(
+            pnlAInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAInformationLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlAInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAID)
+                    .addComponent(txtAID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlAInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAUsername)
+                    .addComponent(txtAUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlAInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAFirstName)
+                    .addComponent(txtAFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlAInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblALastName)
+                    .addComponent(txtALastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlAInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblADepartment)
+                    .addComponent(txtADepartment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                .addGroup(pnlAInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnALogout, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAChangePassword, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout pnlAccountLayout = new javax.swing.GroupLayout(pnlAccount);
         pnlAccount.setLayout(pnlAccountLayout);
         pnlAccountLayout.setHorizontalGroup(
             pnlAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 714, Short.MAX_VALUE)
+            .addGroup(pnlAccountLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblRAMRoomManagement1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAccountLayout.createSequentialGroup()
+                .addContainerGap(209, Short.MAX_VALUE)
+                .addComponent(pnlAInformation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(183, 183, 183))
         );
         pnlAccountLayout.setVerticalGroup(
             pnlAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 478, Short.MAX_VALUE)
+            .addGroup(pnlAccountLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblRAMRoomManagement1)
+                .addGap(82, 82, 82)
+                .addComponent(pnlAInformation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(141, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout pnlTabRightLayout = new javax.swing.GroupLayout(pnlTabRight);
@@ -525,7 +1391,7 @@ public class Dashboard extends javax.swing.JFrame {
             .addGroup(pnlTabRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlTabRightLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(pnlMembers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlMembers, javax.swing.GroupLayout.DEFAULT_SIZE, 839, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(pnlTabRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlTabRightLayout.createSequentialGroup()
@@ -547,7 +1413,7 @@ public class Dashboard extends javax.swing.JFrame {
             .addGroup(pnlTabRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlTabRightLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(pnlMembers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlMembers, javax.swing.GroupLayout.DEFAULT_SIZE, 578, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(pnlTabRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlTabRightLayout.createSequentialGroup()
@@ -625,6 +1491,98 @@ public class Dashboard extends javax.swing.JFrame {
         pnlTabMembers.setBackground(new Color(218,104,70));
     }//GEN-LAST:event_pnlTabAccountMouseClicked
 
+    private void btnMViewHeadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMViewHeadActionPerformed
+        pnlMViewHead.setVisible(true);
+        pnlMViewTeacher.setVisible(false);
+    }//GEN-LAST:event_btnMViewHeadActionPerformed
+
+    private void btnMViewTeacherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMViewTeacherActionPerformed
+        pnlMViewHead.setVisible(false);
+        pnlMViewTeacher.setVisible(true);
+    }//GEN-LAST:event_btnMViewTeacherActionPerformed
+
+    private void btnRAMSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRAMSearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRAMSearchActionPerformed
+
+    private void btnRAMSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRAMSaveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRAMSaveActionPerformed
+
+    private void btnRAMAddNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRAMAddNewActionPerformed
+        Add_Room ar = new Add_Room();
+        ar.show();
+    }//GEN-LAST:event_btnRAMAddNewActionPerformed
+
+    private void btnRAMStartTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRAMStartTimeActionPerformed
+        tpRAMStartTime.showPopup(this, 100, 100);
+    }//GEN-LAST:event_btnRAMStartTimeActionPerformed
+
+    private void txtRAMStartTimeInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_txtRAMStartTimeInputMethodTextChanged
+        
+    }//GEN-LAST:event_txtRAMStartTimeInputMethodTextChanged
+
+    private void btnRAMEndTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRAMEndTimeActionPerformed
+        tpRAMEndTime.showPopup(this, 100, 100);
+    }//GEN-LAST:event_btnRAMEndTimeActionPerformed
+
+    private void btnRAMDeleteRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRAMDeleteRoomActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRAMDeleteRoomActionPerformed
+
+    private void btnMTeacherEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMTeacherEditActionPerformed
+        Dashboard db = new Dashboard();
+        db.show(); //For display function only.
+        this.dispose();
+    }//GEN-LAST:event_btnMTeacherEditActionPerformed
+
+    private void btnMTeacherSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMTeacherSaveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMTeacherSaveActionPerformed
+
+    private void cbMTeacherShowPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbMTeacherShowPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbMTeacherShowPasswordActionPerformed
+
+    private void btnMTeacherAddNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMTeacherAddNewActionPerformed
+        Add_Teacher at = new Add_Teacher();
+        at.show();
+    }//GEN-LAST:event_btnMTeacherAddNewActionPerformed
+
+    private void btnMHeadEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMHeadEditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMHeadEditActionPerformed
+
+    private void btnMHeadSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMHeadSaveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMHeadSaveActionPerformed
+
+    private void btnMHeadAddNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMHeadAddNewActionPerformed
+        Add_Program_Head aph = new Add_Program_Head();
+        aph.show();
+    }//GEN-LAST:event_btnMHeadAddNewActionPerformed
+
+    private void cbMHeadShowPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbMHeadShowPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbMHeadShowPasswordActionPerformed
+
+    private void btnALogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnALogoutActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnALogoutActionPerformed
+
+    private void btnMTeacherDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMTeacherDeleteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMTeacherDeleteActionPerformed
+
+    private void btnMHeadDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMHeadDeleteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMHeadDeleteActionPerformed
+
+    private void btnAChangePasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAChangePasswordActionPerformed
+        Change_Password cp = new Change_Password();
+        cp.show();
+    }//GEN-LAST:event_btnAChangePasswordActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -654,6 +1612,18 @@ public class Dashboard extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -664,40 +1634,81 @@ public class Dashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton btnAChangePassword;
+    private javax.swing.JButton btnALogout;
+    private javax.swing.JButton btnMHeadAddNew;
+    private javax.swing.JButton btnMHeadDelete;
+    private javax.swing.JButton btnMHeadEdit;
+    private javax.swing.JButton btnMHeadSave;
+    private javax.swing.JButton btnMTeacherAddNew;
+    private javax.swing.JButton btnMTeacherDelete;
+    private javax.swing.JButton btnMTeacherEdit;
+    private javax.swing.JButton btnMTeacherSave;
+    private javax.swing.JButton btnMViewHead;
+    private javax.swing.JButton btnMViewTeacher;
+    private javax.swing.JButton btnRAMAddNew;
+    private javax.swing.JButton btnRAMDeleteRoom;
+    private javax.swing.JButton btnRAMEndTime;
+    private javax.swing.JButton btnRAMSave;
+    private javax.swing.JButton btnRAMSearch;
+    private javax.swing.JButton btnRAMStartTime;
+    private javax.swing.JCheckBox cbMHeadShowPassword;
+    private javax.swing.JCheckBox cbMTeacherShowPassword;
+    private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JLabel lblAccountNumber;
-    private javax.swing.JLabel lblCreatedAccount;
-    private javax.swing.JLabel lblCreatedSchedule;
-    private javax.swing.JLabel lblFaculties;
-    private javax.swing.JLabel lblFacultiesNumber;
+    private javax.swing.JLabel lblADepartment;
+    private javax.swing.JLabel lblAFirstName;
+    private javax.swing.JLabel lblAID;
+    private javax.swing.JLabel lblALastName;
+    private javax.swing.JLabel lblAUsername;
     private javax.swing.JLabel lblHome;
-    private javax.swing.JLabel lblScheduleNumber;
-    private javax.swing.JLabel lblStudents;
-    private javax.swing.JLabel lblStudentsNumber;
+    private javax.swing.JLabel lblHomeAccountNumber;
+    private javax.swing.JLabel lblHomeCreatedAccount;
+    private javax.swing.JLabel lblHomeCreatedSchedule;
+    private javax.swing.JLabel lblHomeFaculties;
+    private javax.swing.JLabel lblHomeFacultiesNumber;
+    private javax.swing.JLabel lblHomeScheduleNumber;
+    private javax.swing.JLabel lblHomeStudents;
+    private javax.swing.JLabel lblHomeStudentsNumber;
+    private javax.swing.JLabel lblImageOnTop;
+    private javax.swing.JLabel lblMHeadDepartment;
+    private javax.swing.JLabel lblMHeadError;
+    private javax.swing.JLabel lblMHeadFirstName;
+    private javax.swing.JLabel lblMHeadID;
+    private javax.swing.JLabel lblMHeadLastName;
+    private javax.swing.JLabel lblMHeadPassword;
+    private javax.swing.JLabel lblMHeadUsername;
+    private javax.swing.JLabel lblMMember;
+    private javax.swing.JLabel lblMTeacherError;
+    private javax.swing.JLabel lblMTeacherFirstName;
+    private javax.swing.JLabel lblMTeacherID;
+    private javax.swing.JLabel lblMTeacherLastName;
+    private javax.swing.JLabel lblMTeacherPassword;
+    private javax.swing.JLabel lblMTeacherUsername;
+    private javax.swing.JLabel lblRAMDayOfTheWeek;
+    private javax.swing.JLabel lblRAMEndTime;
+    private javax.swing.JLabel lblRAMError;
+    private javax.swing.JLabel lblRAMID;
+    private javax.swing.JLabel lblRAMRoomManagement;
+    private javax.swing.JLabel lblRAMRoomManagement1;
+    private javax.swing.JLabel lblRAMSection;
+    private javax.swing.JLabel lblRAMStartTime;
+    private javax.swing.JLabel lblRAMSubject;
+    private javax.swing.JLabel lblRoomMangementSystem;
     private javax.swing.JLabel lblTabAccount;
     private javax.swing.JLabel lblTabMembers;
     private javax.swing.JLabel lblTabRoomManagement;
-    private javax.swing.JLabel lblWelcomeUser;
+    private javax.swing.JPasswordField pfMHeadPassword;
+    private javax.swing.JPasswordField pfMTeacherPassword;
+    private javax.swing.JPanel pnlAInformation;
     private javax.swing.JPanel pnlAccount;
-    private javax.swing.JPanel pnlCreatedAccount;
-    private javax.swing.JPanel pnlCreatedSchedule;
-    private javax.swing.JPanel pnlFacultiesStudents;
     private javax.swing.JPanel pnlHome;
+    private javax.swing.JPanel pnlHomeActivityLog;
+    private javax.swing.JPanel pnlHomeCreatedAccount;
+    private javax.swing.JPanel pnlHomeCreatedSchedule;
+    private javax.swing.JPanel pnlHomeFacultiesStudents;
+    private javax.swing.JPanel pnlMViewHead;
+    private javax.swing.JPanel pnlMViewTeacher;
     private javax.swing.JPanel pnlMembers;
     private javax.swing.JPanel pnlRoomManagement;
     private javax.swing.JPanel pnlTabAccount;
@@ -706,5 +1717,33 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel pnlTabMembers;
     private javax.swing.JPanel pnlTabRight;
     private javax.swing.JPanel pnlTabRoomManagement;
+    private javax.swing.JScrollPane spMHead;
+    private javax.swing.JScrollPane spMTeacher;
+    private javax.swing.JScrollPane spRAMShowRoom;
+    private javax.swing.JTable tblMHead;
+    private javax.swing.JTable tblMTeacher;
+    private javax.swing.JTable tblRAMShowRoom;
+    private com.raven.swing.TimePicker tpRAMEndTime;
+    private com.raven.swing.TimePicker tpRAMStartTime;
+    private javax.swing.JTextField txtADepartment;
+    private javax.swing.JTextField txtAFirstName;
+    private javax.swing.JTextField txtAID;
+    private javax.swing.JTextField txtALastName;
+    private javax.swing.JTextField txtAUsername;
+    private javax.swing.JTextField txtMHeadDepartment;
+    private javax.swing.JTextField txtMHeadFirstName;
+    private javax.swing.JTextField txtMHeadID;
+    private javax.swing.JTextField txtMHeadLastName;
+    private javax.swing.JTextField txtMHeadUsername;
+    private javax.swing.JTextField txtMTeacherFirstName;
+    private javax.swing.JTextField txtMTeacherID;
+    private javax.swing.JTextField txtMTeacherLastName;
+    private javax.swing.JTextField txtMTeacherUsername;
+    private javax.swing.JTextField txtRAMDayOfTheWeek;
+    private javax.swing.JTextField txtRAMEndTime;
+    private javax.swing.JTextField txtRAMID;
+    private javax.swing.JTextField txtRAMSection;
+    private javax.swing.JTextField txtRAMStartTime;
+    private javax.swing.JTextField txtRAMSubject;
     // End of variables declaration//GEN-END:variables
 }

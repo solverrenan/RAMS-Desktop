@@ -6,3 +6,10 @@ Secondary : White
 
 //Font
 Font : Century Gothic, 14, Plain
+
+//Variable Concept
+Concept on Head Dashboard
+Home : [components]Home[variable]
+Room Management: [components]RAM[variable]
+Members : [components]M[variable]
+Account : [components]A[variable]
