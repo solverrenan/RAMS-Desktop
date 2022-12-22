@@ -1472,6 +1472,8 @@ public class Dashboard extends javax.swing.JFrame {
         pnlHome.setVisible(false);
         pnlRoomManagement.setVisible(false);
         pnlAccount.setVisible(false);
+        pnlMViewHead.setVisible(true);
+        pnlMViewTeacher.setVisible(false);
         
         pnlTabMembers.setBackground(new Color(247, 246, 220));
         pnlTabHome.setBackground(new Color(218,104,70));
