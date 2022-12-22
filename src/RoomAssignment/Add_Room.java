@@ -5,6 +5,8 @@
  */
 package RoomAssignment;
 
+import java.awt.geom.RoundRectangle2D;
+
 /**
  *
  * @author solve
@@ -16,6 +18,7 @@ public class Add_Room extends javax.swing.JFrame {
      */
     public Add_Room() {
         initComponents();
+        setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 20, 20));
     }
 
     /**
@@ -29,45 +32,69 @@ public class Add_Room extends javax.swing.JFrame {
 
         tpStartTime = new com.raven.swing.TimePicker();
         tpEndTime = new com.raven.swing.TimePicker();
-        lblEndTime = new javax.swing.JLabel();
-        txtID = new javax.swing.JTextField();
-        txtSubject = new javax.swing.JTextField();
-        txtSection = new javax.swing.JTextField();
-        btnStartTime = new javax.swing.JButton();
-        btnEndTime = new javax.swing.JButton();
-        btnSave = new javax.swing.JButton();
-        txtDayOfTheWeek = new javax.swing.JTextField();
-        txtStartTime = new javax.swing.JTextField();
+        pnlAddNewRoomSchedule = new javax.swing.JPanel();
         txtEndTime = new javax.swing.JTextField();
         lblID = new javax.swing.JLabel();
+        lblEndTime = new javax.swing.JLabel();
         lblSubject = new javax.swing.JLabel();
+        txtID = new javax.swing.JTextField();
         lblSection = new javax.swing.JLabel();
+        txtSubject = new javax.swing.JTextField();
         lblDayOfTheWeek = new javax.swing.JLabel();
+        txtSection = new javax.swing.JTextField();
         lblStartTime = new javax.swing.JLabel();
-        lblRoomManagement = new javax.swing.JLabel();
+        btnStartTime = new javax.swing.JButton();
+        btnEndTime = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
+        btnSave = new javax.swing.JButton();
         lblError = new javax.swing.JLabel();
+        txtDayOfTheWeek = new javax.swing.JTextField();
+        txtStartTime = new javax.swing.JTextField();
+        lblRoom = new javax.swing.JLabel();
+        txtRoom = new javax.swing.JTextField();
 
         tpStartTime.setForeground(new java.awt.Color(218, 104, 70));
         tpStartTime.setDisplayText(txtStartTime);
         tpStartTime.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
 
         tpEndTime.setForeground(new java.awt.Color(218, 104, 70));
+        tpEndTime.setDisplayText(txtEndTime);
         tpEndTime.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setMinimumSize(new java.awt.Dimension(309, 402));
         setName("Add New Room Schedule"); // NOI18N
+        setUndecorated(true);
         setResizable(false);
+
+        pnlAddNewRoomSchedule.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Add New Room Schedule", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Century Gothic", 3, 14))); // NOI18N
+
+        txtEndTime.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+
+        lblID.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblID.setText("ID");
 
         lblEndTime.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         lblEndTime.setText("End Time");
 
+        lblSubject.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblSubject.setText("Subject");
+
         txtID.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+
+        lblSection.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblSection.setText("Section");
 
         txtSubject.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
 
+        lblDayOfTheWeek.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblDayOfTheWeek.setText("Day of the Week");
+
         txtSection.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+
+        lblStartTime.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblStartTime.setText("Start Time");
 
         btnStartTime.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RoomAssignment/image/clock.png"))); // NOI18N
         btnStartTime.setBorder(null);
@@ -85,6 +112,16 @@ public class Add_Room extends javax.swing.JFrame {
             }
         });
 
+        btnCancel.setBackground(new java.awt.Color(218, 104, 70));
+        btnCancel.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnCancel.setText("Cancel");
+        btnCancel.setBorder(null);
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelActionPerformed(evt);
+            }
+        });
+
         btnSave.setBackground(new java.awt.Color(218, 104, 70));
         btnSave.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         btnSave.setText("Add");
@@ -94,6 +131,9 @@ public class Add_Room extends javax.swing.JFrame {
                 btnSaveActionPerformed(evt);
             }
         });
+
+        lblError.setForeground(java.awt.Color.red);
+        lblError.setText("[error appear here]");
 
         txtDayOfTheWeek.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
 
@@ -106,38 +146,103 @@ public class Add_Room extends javax.swing.JFrame {
             }
         });
 
-        txtEndTime.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        lblRoom.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblRoom.setText("Room");
 
-        lblID.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        lblID.setText("ID");
+        txtRoom.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
 
-        lblSubject.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        lblSubject.setText("Subject");
-
-        lblSection.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        lblSection.setText("Section");
-
-        lblDayOfTheWeek.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        lblDayOfTheWeek.setText("Day of the Week");
-
-        lblStartTime.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        lblStartTime.setText("Start Time");
-
-        lblRoomManagement.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        lblRoomManagement.setText("Add New Room Schedule");
-
-        btnCancel.setBackground(new java.awt.Color(218, 104, 70));
-        btnCancel.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        btnCancel.setText("Cancel");
-        btnCancel.setBorder(null);
-        btnCancel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelActionPerformed(evt);
-            }
-        });
-
-        lblError.setForeground(java.awt.Color.red);
-        lblError.setText("[error appear here]");
+        javax.swing.GroupLayout pnlAddNewRoomScheduleLayout = new javax.swing.GroupLayout(pnlAddNewRoomSchedule);
+        pnlAddNewRoomSchedule.setLayout(pnlAddNewRoomScheduleLayout);
+        pnlAddNewRoomScheduleLayout.setHorizontalGroup(
+            pnlAddNewRoomScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAddNewRoomScheduleLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlAddNewRoomScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlAddNewRoomScheduleLayout.createSequentialGroup()
+                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlAddNewRoomScheduleLayout.createSequentialGroup()
+                        .addGroup(pnlAddNewRoomScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblID)
+                            .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(pnlAddNewRoomScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblRoom)
+                            .addComponent(txtRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnlAddNewRoomScheduleLayout.createSequentialGroup()
+                        .addGroup(pnlAddNewRoomScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlAddNewRoomScheduleLayout.createSequentialGroup()
+                                .addComponent(txtEndTime, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnEndTime))
+                            .addComponent(lblEndTime)
+                            .addComponent(lblError)
+                            .addGroup(pnlAddNewRoomScheduleLayout.createSequentialGroup()
+                                .addGroup(pnlAddNewRoomScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblSection)
+                                    .addComponent(txtSection, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblStartTime)
+                                    .addGroup(pnlAddNewRoomScheduleLayout.createSequentialGroup()
+                                        .addComponent(txtStartTime, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnStartTime))
+                                    .addComponent(lblDayOfTheWeek)
+                                    .addComponent(txtDayOfTheWeek, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(pnlAddNewRoomScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtSubject, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblSubject))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        pnlAddNewRoomScheduleLayout.setVerticalGroup(
+            pnlAddNewRoomScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAddNewRoomScheduleLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlAddNewRoomScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnlAddNewRoomScheduleLayout.createSequentialGroup()
+                        .addComponent(lblID)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlAddNewRoomScheduleLayout.createSequentialGroup()
+                        .addComponent(lblRoom)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtRoom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(pnlAddNewRoomScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnlAddNewRoomScheduleLayout.createSequentialGroup()
+                        .addComponent(lblSection)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtSection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlAddNewRoomScheduleLayout.createSequentialGroup()
+                        .addComponent(lblSubject)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtSubject, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblDayOfTheWeek)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtDayOfTheWeek, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblStartTime)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlAddNewRoomScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnStartTime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtStartTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblEndTime)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlAddNewRoomScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtEndTime)
+                    .addComponent(btnEndTime, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlAddNewRoomScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblError)
+                .addGap(67, 67, 67))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -145,85 +250,14 @@ public class Add_Room extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblID)
-                                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtSubject, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblSubject)))
-                            .addComponent(lblRoomManagement)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblSection)
-                                    .addComponent(txtSection, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblDayOfTheWeek)
-                                    .addComponent(txtDayOfTheWeek, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(lblStartTime)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtStartTime, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnStartTime))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtEndTime, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnEndTime))
-                            .addComponent(lblEndTime)
-                            .addComponent(lblError))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addComponent(pnlAddNewRoomSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblRoomManagement)
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblID)
-                    .addComponent(lblSubject))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtSubject, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblSection)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtSection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblDayOfTheWeek)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtDayOfTheWeek, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(lblStartTime)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnStartTime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtStartTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(lblEndTime)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtEndTime)
-                    .addComponent(btnEndTime, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                .addComponent(lblError)
+                .addComponent(pnlAddNewRoomSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 380, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -239,17 +273,17 @@ public class Add_Room extends javax.swing.JFrame {
         tpEndTime.showPopup(this, 100, 100);
     }//GEN-LAST:event_btnEndTimeActionPerformed
 
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnCancelActionPerformed
+
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void txtStartTimeInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_txtStartTimeInputMethodTextChanged
-
+        // TODO add your handling code here:
     }//GEN-LAST:event_txtStartTimeInputMethodTextChanged
-
-    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_btnCancelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -295,15 +329,17 @@ public class Add_Room extends javax.swing.JFrame {
     private javax.swing.JLabel lblEndTime;
     private javax.swing.JLabel lblError;
     private javax.swing.JLabel lblID;
-    private javax.swing.JLabel lblRoomManagement;
+    private javax.swing.JLabel lblRoom;
     private javax.swing.JLabel lblSection;
     private javax.swing.JLabel lblStartTime;
     private javax.swing.JLabel lblSubject;
+    private javax.swing.JPanel pnlAddNewRoomSchedule;
     private com.raven.swing.TimePicker tpEndTime;
     private com.raven.swing.TimePicker tpStartTime;
     private javax.swing.JTextField txtDayOfTheWeek;
     private javax.swing.JTextField txtEndTime;
     private javax.swing.JTextField txtID;
+    private javax.swing.JTextField txtRoom;
     private javax.swing.JTextField txtSection;
     private javax.swing.JTextField txtStartTime;
     private javax.swing.JTextField txtSubject;

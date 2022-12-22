@@ -9,6 +9,7 @@ package RoomAssignment;
  *
  * @author solve
  */
+import java.awt.geom.RoundRectangle2D;
 public class Signin_Signout extends javax.swing.JFrame {
 
     /**
@@ -16,6 +17,9 @@ public class Signin_Signout extends javax.swing.JFrame {
      */
     public Signin_Signout() {
         initComponents();
+        
+        //Rounded Corners
+        setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 20, 20));
     }
 
     /**
@@ -47,6 +51,7 @@ public class Signin_Signout extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setFont(new java.awt.Font("Century Gothic", 0, 10)); // NOI18N
         setName("SigninSignout"); // NOI18N
+        setUndecorated(true);
         setResizable(false);
 
         pnlLeft.setBackground(new java.awt.Color(205, 203, 214));
