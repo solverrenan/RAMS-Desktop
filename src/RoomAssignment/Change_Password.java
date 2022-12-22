@@ -14,8 +14,10 @@ public class Change_Password extends javax.swing.JFrame {
     /**
      * Creates new form Change_Password
      */
+        
     public Change_Password() {
         initComponents();
+        this.setAlwaysOnTop(true);
     }
 
     /**
@@ -68,6 +70,11 @@ public class Change_Password extends javax.swing.JFrame {
         btnChangePassword.setForeground(new java.awt.Color(51, 51, 51));
         btnChangePassword.setText("Change Password");
         btnChangePassword.setBorder(null);
+        btnChangePassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnChangePasswordActionPerformed(evt);
+            }
+        });
 
         btnCancel.setBackground(new java.awt.Color(218, 104, 70));
         btnCancel.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -149,8 +156,12 @@ public class Change_Password extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
-        this.dispose();
+       this.dispose();
     }//GEN-LAST:event_btnCancelActionPerformed
+
+    private void btnChangePasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangePasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnChangePasswordActionPerformed
 
     /**
      * @param args the command line arguments

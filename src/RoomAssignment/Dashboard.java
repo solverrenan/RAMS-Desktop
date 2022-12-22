@@ -69,8 +69,8 @@ public class Dashboard extends javax.swing.JFrame {
         lblHomeFacultiesNumber = new javax.swing.JLabel();
         lblHomeStudentsNumber = new javax.swing.JLabel();
         pnlHomeActivityLog = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        spActivityLog = new javax.swing.JScrollPane();
+        listActivityLog = new javax.swing.JList<>();
         pnlRoomManagement = new javax.swing.JPanel();
         lblRAMRoomManagement = new javax.swing.JLabel();
         spRAMShowRoom = new javax.swing.JScrollPane();
@@ -467,13 +467,13 @@ public class Dashboard extends javax.swing.JFrame {
 
         pnlHomeActivityLog.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Activity Log", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Century Gothic", 1, 18))); // NOI18N
 
-        jList1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        listActivityLog.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        listActivityLog.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "This User Delete ID: 000", "This User Edit ID: 000", "This User Create ID: 000", "This User Delete ID: 000", "This User Delete ID: 000", "This User Delete ID: 000", "This User Create ID: 000", "This User Delete ID: 000", "This User Edit ID: 000", "This User Delete ID: 000", "This User Create ID: 000", "This User Delete ID: 000", "This User Create ID: 000", "This User Edit ID: 000", "This User Delete ID: 000", "This User Edit ID: 000" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane2.setViewportView(jList1);
+        spActivityLog.setViewportView(listActivityLog);
 
         javax.swing.GroupLayout pnlHomeActivityLogLayout = new javax.swing.GroupLayout(pnlHomeActivityLog);
         pnlHomeActivityLog.setLayout(pnlHomeActivityLogLayout);
@@ -481,14 +481,14 @@ public class Dashboard extends javax.swing.JFrame {
             pnlHomeActivityLogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlHomeActivityLogLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2)
+                .addComponent(spActivityLog)
                 .addContainerGap())
         );
         pnlHomeActivityLogLayout.setVerticalGroup(
             pnlHomeActivityLogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlHomeActivityLogLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2)
+                .addComponent(spActivityLog)
                 .addContainerGap())
         );
 
@@ -516,7 +516,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGroup(pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(pnlHomeCreatedAccount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnlHomeCreatedSchedule, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnlHomeFacultiesStudents, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE))
+                    .addComponent(pnlHomeFacultiesStudents, javax.swing.GroupLayout.PREFERRED_SIZE, 156, Short.MAX_VALUE))
                 .addGap(119, 119, 119)
                 .addComponent(pnlHomeActivityLog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -1649,6 +1649,7 @@ public class Dashboard extends javax.swing.JFrame {
     private void btnMTeacherAddNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMTeacherAddNewActionPerformed
         Add_Teacher at = new Add_Teacher();
         at.show();
+        at.setAlwaysOnTop(true);
     }//GEN-LAST:event_btnMTeacherAddNewActionPerformed
 
     private void btnMHeadEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMHeadEditActionPerformed
@@ -1662,6 +1663,7 @@ public class Dashboard extends javax.swing.JFrame {
     private void btnMHeadAddNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMHeadAddNewActionPerformed
         Add_Program_Head aph = new Add_Program_Head();
         aph.show();
+        aph.setAlwaysOnTop(true);
     }//GEN-LAST:event_btnMHeadAddNewActionPerformed
 
     private void cbMHeadShowPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbMHeadShowPasswordActionPerformed
@@ -1683,6 +1685,8 @@ public class Dashboard extends javax.swing.JFrame {
     private void btnAChangePasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAChangePasswordActionPerformed
         Change_Password cp = new Change_Password();
         cp.show();
+        cp.setAlwaysOnTop(true);
+        this.enable(false);
     }//GEN-LAST:event_btnAChangePasswordActionPerformed
 
     /**
@@ -1756,8 +1760,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JButton btnRAMStartTime;
     private javax.swing.JCheckBox cbMHeadShowPassword;
     private javax.swing.JCheckBox cbMTeacherShowPassword;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblADepartment;
     private javax.swing.JLabel lblAFirstName;
     private javax.swing.JLabel lblAID;
@@ -1806,6 +1808,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel lblTabAccount;
     private javax.swing.JLabel lblTabMembers;
     private javax.swing.JLabel lblTabRoomManagement;
+    private javax.swing.JList<String> listActivityLog;
     private javax.swing.JPasswordField pfMHeadPassword;
     private javax.swing.JPasswordField pfMTeacherPassword;
     private javax.swing.JPanel pnlAInformation;
@@ -1825,6 +1828,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel pnlTabMembers;
     private javax.swing.JPanel pnlTabRight;
     private javax.swing.JPanel pnlTabRoomManagement;
+    private javax.swing.JScrollPane spActivityLog;
     private javax.swing.JScrollPane spMHead;
     private javax.swing.JScrollPane spMTeacher;
     private javax.swing.JScrollPane spRAMShowRoom;
