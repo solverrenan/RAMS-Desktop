@@ -174,29 +174,54 @@ public class View_Schedule extends javax.swing.JFrame {
         lblDepartment.setBounds(16, 147, 73, 16);
 
         txtMiddleName.setEditable(false);
+        txtMiddleName.setBackground(new java.awt.Color(51, 51, 51));
         txtMiddleName.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtMiddleName.setForeground(java.awt.Color.white);
+        txtMiddleName.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
+        txtMiddleName.setFocusable(false);
+        txtMiddleName.setOpaque(false);
         pnlYourInformation.add(txtMiddleName);
-        txtMiddleName.setBounds(100, 88, 251, 22);
+        txtMiddleName.setBounds(100, 88, 251, 17);
 
         txtFirstName.setEditable(false);
+        txtFirstName.setBackground(new java.awt.Color(51, 51, 51));
         txtFirstName.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtFirstName.setForeground(java.awt.Color.white);
+        txtFirstName.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
+        txtFirstName.setFocusable(false);
+        txtFirstName.setOpaque(false);
         pnlYourInformation.add(txtFirstName);
-        txtFirstName.setBounds(100, 60, 251, 22);
+        txtFirstName.setBounds(100, 60, 251, 17);
 
         txtUsername.setEditable(false);
+        txtUsername.setBackground(new java.awt.Color(51, 51, 51));
         txtUsername.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtUsername.setForeground(java.awt.Color.white);
+        txtUsername.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
+        txtUsername.setFocusable(false);
+        txtUsername.setOpaque(false);
         pnlYourInformation.add(txtUsername);
-        txtUsername.setBounds(100, 32, 251, 22);
+        txtUsername.setBounds(100, 32, 251, 17);
 
         txtLastName.setEditable(false);
+        txtLastName.setBackground(new java.awt.Color(51, 51, 51));
         txtLastName.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtLastName.setForeground(java.awt.Color.white);
+        txtLastName.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
+        txtLastName.setFocusable(false);
+        txtLastName.setOpaque(false);
         pnlYourInformation.add(txtLastName);
-        txtLastName.setBounds(100, 116, 251, 22);
+        txtLastName.setBounds(100, 116, 251, 17);
 
         txtDepartment.setEditable(false);
+        txtDepartment.setBackground(new java.awt.Color(51, 51, 51));
         txtDepartment.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtDepartment.setForeground(java.awt.Color.white);
+        txtDepartment.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
+        txtDepartment.setFocusable(false);
+        txtDepartment.setOpaque(false);
         pnlYourInformation.add(txtDepartment);
-        txtDepartment.setBounds(99, 144, 251, 22);
+        txtDepartment.setBounds(99, 144, 251, 17);
 
         lblEmail.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         lblEmail.setForeground(java.awt.Color.white);
@@ -205,9 +230,14 @@ public class View_Schedule extends javax.swing.JFrame {
         lblEmail.setBounds(369, 35, 31, 16);
 
         txtEmail.setEditable(false);
+        txtEmail.setBackground(new java.awt.Color(51, 51, 51));
         txtEmail.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtEmail.setForeground(java.awt.Color.white);
+        txtEmail.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
+        txtEmail.setFocusable(false);
+        txtEmail.setOpaque(false);
         pnlYourInformation.add(txtEmail);
-        txtEmail.setBounds(433, 32, 251, 22);
+        txtEmail.setBounds(433, 32, 251, 17);
 
         lblContact.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         lblContact.setForeground(java.awt.Color.white);
@@ -216,9 +246,14 @@ public class View_Schedule extends javax.swing.JFrame {
         lblContact.setBounds(369, 63, 50, 16);
 
         txtContact.setEditable(false);
+        txtContact.setBackground(new java.awt.Color(51, 51, 51));
         txtContact.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtContact.setForeground(java.awt.Color.white);
+        txtContact.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
+        txtContact.setFocusable(false);
+        txtContact.setOpaque(false);
         pnlYourInformation.add(txtContact);
-        txtContact.setBounds(433, 60, 251, 22);
+        txtContact.setBounds(433, 60, 251, 17);
 
         lblAddress.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         lblAddress.setForeground(java.awt.Color.white);
@@ -227,9 +262,14 @@ public class View_Schedule extends javax.swing.JFrame {
         lblAddress.setBounds(369, 91, 47, 16);
 
         txtAddress.setEditable(false);
+        txtAddress.setBackground(new java.awt.Color(51, 51, 51));
         txtAddress.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtAddress.setForeground(java.awt.Color.white);
+        txtAddress.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
+        txtAddress.setFocusable(false);
+        txtAddress.setOpaque(false);
         pnlYourInformation.add(txtAddress);
-        txtAddress.setBounds(434, 88, 251, 22);
+        txtAddress.setBounds(434, 88, 251, 17);
 
         lblContactAdmin.setFont(new java.awt.Font("Century Gothic", 2, 12)); // NOI18N
         lblContactAdmin.setForeground(java.awt.Color.white);
