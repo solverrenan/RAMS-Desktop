@@ -98,37 +98,6 @@ public class Dashboard extends javax.swing.JFrame {
         txtRAMRoom = new javax.swing.JTextField();
         pnlMembers = new javax.swing.JPanel();
         lblMMember = new javax.swing.JLabel();
-        btnMViewHead = new javax.swing.JButton();
-        btnMViewTeacher = new javax.swing.JButton();
-        pnlMViewTeacher = new javax.swing.JPanel();
-        spMTeacher = new javax.swing.JScrollPane();
-        tblMTeacher = new javax.swing.JTable();
-        lblMTeacherID = new javax.swing.JLabel();
-        lblMTeacherUsername = new javax.swing.JLabel();
-        lblMTeacherFirstName = new javax.swing.JLabel();
-        lblMTeacherLastName = new javax.swing.JLabel();
-        lblMTeacherPassword = new javax.swing.JLabel();
-        txtMTeacherID = new javax.swing.JTextField();
-        txtMTeacherUsername = new javax.swing.JTextField();
-        txtMTeacherFirstName = new javax.swing.JTextField();
-        txtMTeacherLastName = new javax.swing.JTextField();
-        pfMTeacherPassword = new javax.swing.JPasswordField();
-        cbMTeacherShowPassword = new javax.swing.JCheckBox();
-        btnMTeacherEdit = new javax.swing.JButton();
-        btnMTeacherSave = new javax.swing.JButton();
-        btnMTeacherAddNew = new javax.swing.JButton();
-        lblMTeacherError = new javax.swing.JLabel();
-        btnMTeacherDelete = new javax.swing.JButton();
-        lblMTeacherMiddleName = new javax.swing.JLabel();
-        txtMTeacherMiddleName = new javax.swing.JTextField();
-        lblMTeacherEmail = new javax.swing.JLabel();
-        txtMTeacherEmail = new javax.swing.JTextField();
-        lblMTeacherContact = new javax.swing.JLabel();
-        txtMTeacherContact = new javax.swing.JTextField();
-        txtMTeacherAddress = new javax.swing.JTextField();
-        lblMTeacherAddress = new javax.swing.JLabel();
-        lblMTeacherDepartment = new javax.swing.JLabel();
-        txtMTeacherDepartment = new javax.swing.JTextField();
         pnlMViewHead = new javax.swing.JPanel();
         lblMHeadFirstName = new javax.swing.JLabel();
         lblMHeadLastName = new javax.swing.JLabel();
@@ -320,9 +289,9 @@ public class Dashboard extends javax.swing.JFrame {
         pnlTabLeft.setLayout(pnlTabLeftLayout);
         pnlTabLeftLayout.setHorizontalGroup(
             pnlTabLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlTabHome, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
-            .addComponent(pnlTabRoomManagement, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
-            .addComponent(pnlTabMembers, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
+            .addComponent(pnlTabHome, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
+            .addComponent(pnlTabRoomManagement, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
+            .addComponent(pnlTabMembers, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
             .addComponent(pnlTabAccount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTabLeftLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -331,7 +300,7 @@ public class Dashboard extends javax.swing.JFrame {
             .addGroup(pnlTabLeftLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(lblRoomMangementSystem)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         pnlTabLeftLayout.setVerticalGroup(
             pnlTabLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -414,7 +383,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addComponent(lblHomeAccountNumber)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblHomeCreatedAccount)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pnlHomeFacultiesStudents.setBackground(java.awt.Color.darkGray);
@@ -516,7 +485,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGroup(pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(pnlHomeCreatedAccount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnlHomeCreatedSchedule, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnlHomeFacultiesStudents, javax.swing.GroupLayout.PREFERRED_SIZE, 156, Short.MAX_VALUE))
+                    .addComponent(pnlHomeFacultiesStudents, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(119, 119, 119)
                 .addComponent(pnlHomeActivityLog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -614,10 +583,10 @@ public class Dashboard extends javax.swing.JFrame {
 
         txtRAMStartTime.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         txtRAMStartTime.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 txtRAMStartTimeInputMethodTextChanged(evt);
+            }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
 
@@ -772,303 +741,6 @@ public class Dashboard extends javax.swing.JFrame {
 
         lblMMember.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         lblMMember.setText("Members");
-
-        btnMViewHead.setBackground(new java.awt.Color(218, 104, 70));
-        btnMViewHead.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        btnMViewHead.setText("Vew All Program Head List");
-        btnMViewHead.setBorder(null);
-        btnMViewHead.setHideActionText(true);
-        btnMViewHead.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMViewHeadActionPerformed(evt);
-            }
-        });
-
-        btnMViewTeacher.setBackground(new java.awt.Color(218, 104, 70));
-        btnMViewTeacher.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        btnMViewTeacher.setText("Vew All Teacher List");
-        btnMViewTeacher.setBorder(null);
-        btnMViewTeacher.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMViewTeacherActionPerformed(evt);
-            }
-        });
-
-        pnlMViewTeacher.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "View All Teacher List", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Century Gothic", 3, 14))); // NOI18N
-        pnlMViewTeacher.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
-        pnlMViewTeacher.setPreferredSize(new java.awt.Dimension(859, 536));
-
-        tblMTeacher.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        tblMTeacher.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "ID", "Username", "First Name", "Middle Name", "Last Name", "Department", "Email", "Contact", "Password", "Address"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        spMTeacher.setViewportView(tblMTeacher);
-
-        lblMTeacherID.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        lblMTeacherID.setText("ID");
-
-        lblMTeacherUsername.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        lblMTeacherUsername.setText("Username");
-
-        lblMTeacherFirstName.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        lblMTeacherFirstName.setText("First Name");
-
-        lblMTeacherLastName.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        lblMTeacherLastName.setText("Last Name");
-
-        lblMTeacherPassword.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        lblMTeacherPassword.setText("Password");
-
-        txtMTeacherID.setEditable(false);
-        txtMTeacherID.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-
-        txtMTeacherUsername.setEditable(false);
-        txtMTeacherUsername.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-
-        txtMTeacherFirstName.setEditable(false);
-        txtMTeacherFirstName.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-
-        txtMTeacherLastName.setEditable(false);
-        txtMTeacherLastName.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-
-        pfMTeacherPassword.setEditable(false);
-        pfMTeacherPassword.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        pfMTeacherPassword.setText("jPasswordField1");
-
-        cbMTeacherShowPassword.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        cbMTeacherShowPassword.setText("Show Password");
-        cbMTeacherShowPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbMTeacherShowPasswordActionPerformed(evt);
-            }
-        });
-
-        btnMTeacherEdit.setBackground(new java.awt.Color(218, 104, 70));
-        btnMTeacherEdit.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        btnMTeacherEdit.setForeground(new java.awt.Color(51, 51, 51));
-        btnMTeacherEdit.setText("Edit");
-        btnMTeacherEdit.setBorder(null);
-        btnMTeacherEdit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMTeacherEditActionPerformed(evt);
-            }
-        });
-
-        btnMTeacherSave.setBackground(new java.awt.Color(218, 104, 70));
-        btnMTeacherSave.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        btnMTeacherSave.setForeground(new java.awt.Color(51, 51, 51));
-        btnMTeacherSave.setText("Save");
-        btnMTeacherSave.setBorder(null);
-        btnMTeacherSave.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMTeacherSaveActionPerformed(evt);
-            }
-        });
-
-        btnMTeacherAddNew.setBackground(new java.awt.Color(218, 104, 70));
-        btnMTeacherAddNew.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        btnMTeacherAddNew.setForeground(new java.awt.Color(51, 51, 51));
-        btnMTeacherAddNew.setText("Add New?");
-        btnMTeacherAddNew.setBorder(null);
-        btnMTeacherAddNew.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMTeacherAddNewActionPerformed(evt);
-            }
-        });
-
-        lblMTeacherError.setForeground(java.awt.Color.red);
-        lblMTeacherError.setText("[error appear here]");
-
-        btnMTeacherDelete.setBackground(new java.awt.Color(204, 0, 0));
-        btnMTeacherDelete.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        btnMTeacherDelete.setForeground(java.awt.Color.white);
-        btnMTeacherDelete.setText("Delete");
-        btnMTeacherDelete.setBorder(null);
-        btnMTeacherDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMTeacherDeleteActionPerformed(evt);
-            }
-        });
-
-        lblMTeacherMiddleName.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        lblMTeacherMiddleName.setText("Middle Name");
-
-        txtMTeacherMiddleName.setEditable(false);
-        txtMTeacherMiddleName.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-
-        lblMTeacherEmail.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        lblMTeacherEmail.setText("Email");
-
-        txtMTeacherEmail.setEditable(false);
-        txtMTeacherEmail.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-
-        lblMTeacherContact.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        lblMTeacherContact.setText("Contact");
-
-        txtMTeacherContact.setEditable(false);
-        txtMTeacherContact.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-
-        txtMTeacherAddress.setEditable(false);
-        txtMTeacherAddress.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-
-        lblMTeacherAddress.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        lblMTeacherAddress.setText("Address");
-
-        lblMTeacherDepartment.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        lblMTeacherDepartment.setText("Department");
-
-        txtMTeacherDepartment.setEditable(false);
-        txtMTeacherDepartment.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-
-        javax.swing.GroupLayout pnlMViewTeacherLayout = new javax.swing.GroupLayout(pnlMViewTeacher);
-        pnlMViewTeacher.setLayout(pnlMViewTeacherLayout);
-        pnlMViewTeacherLayout.setHorizontalGroup(
-            pnlMViewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlMViewTeacherLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnlMViewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlMViewTeacherLayout.createSequentialGroup()
-                        .addComponent(lblMTeacherError)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(pnlMViewTeacherLayout.createSequentialGroup()
-                        .addGroup(pnlMViewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(spMTeacher)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMViewTeacherLayout.createSequentialGroup()
-                                .addComponent(btnMTeacherSave, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnMTeacherAddNew, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(459, 459, 459)
-                                .addComponent(btnMTeacherDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnlMViewTeacherLayout.createSequentialGroup()
-                                .addGroup(pnlMViewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(pnlMViewTeacherLayout.createSequentialGroup()
-                                        .addComponent(lblMTeacherAddress)
-                                        .addGap(26, 26, 26)
-                                        .addComponent(txtMTeacherAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(pnlMViewTeacherLayout.createSequentialGroup()
-                                        .addGroup(pnlMViewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(pnlMViewTeacherLayout.createSequentialGroup()
-                                                .addComponent(lblMTeacherID)
-                                                .addGap(61, 61, 61)
-                                                .addComponent(txtMTeacherID, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(lblMTeacherContact)
-                                            .addGroup(pnlMViewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(txtMTeacherContact, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGroup(pnlMViewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addGroup(pnlMViewTeacherLayout.createSequentialGroup()
-                                                        .addComponent(lblMTeacherFirstName)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                        .addComponent(txtMTeacherFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                    .addGroup(pnlMViewTeacherLayout.createSequentialGroup()
-                                                        .addComponent(lblMTeacherLastName)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                        .addComponent(txtMTeacherLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(pnlMViewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lblMTeacherEmail)
-                                            .addGroup(pnlMViewTeacherLayout.createSequentialGroup()
-                                                .addGroup(pnlMViewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(lblMTeacherMiddleName)
-                                                    .addComponent(lblMTeacherPassword)
-                                                    .addComponent(lblMTeacherUsername))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(pnlMViewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(cbMTeacherShowPassword)
-                                                    .addGroup(pnlMViewTeacherLayout.createSequentialGroup()
-                                                        .addGroup(pnlMViewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                            .addComponent(txtMTeacherDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addGroup(pnlMViewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                                .addComponent(txtMTeacherEmail, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                .addComponent(txtMTeacherUsername, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                .addComponent(txtMTeacherMiddleName, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                .addComponent(pfMTeacherPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                        .addGap(18, 18, 18)
-                                                        .addComponent(btnMTeacherEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                            .addComponent(lblMTeacherDepartment))))
-                                .addGap(0, 91, Short.MAX_VALUE)))
-                        .addContainerGap())))
-        );
-        pnlMViewTeacherLayout.setVerticalGroup(
-            pnlMViewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMViewTeacherLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pnlMViewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlMViewTeacherLayout.createSequentialGroup()
-                        .addGroup(pnlMViewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblMTeacherID)
-                            .addComponent(txtMTeacherID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlMViewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblMTeacherFirstName)
-                            .addComponent(txtMTeacherFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlMViewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblMTeacherLastName)
-                            .addComponent(txtMTeacherLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(pnlMViewTeacherLayout.createSequentialGroup()
-                        .addGroup(pnlMViewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblMTeacherUsername)
-                            .addComponent(txtMTeacherUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnMTeacherEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlMViewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblMTeacherMiddleName)
-                            .addComponent(txtMTeacherMiddleName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlMViewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblMTeacherEmail)
-                            .addComponent(txtMTeacherEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlMViewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblMTeacherContact)
-                            .addComponent(txtMTeacherContact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblMTeacherDepartment)
-                            .addComponent(txtMTeacherDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlMViewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblMTeacherAddress)
-                    .addComponent(txtMTeacherAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblMTeacherPassword)
-                    .addComponent(pfMTeacherPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlMViewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlMViewTeacherLayout.createSequentialGroup()
-                        .addComponent(lblMTeacherError)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlMViewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnMTeacherSave, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnMTeacherAddNew, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnMTeacherDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(cbMTeacherShowPassword))
-                .addGap(18, 18, 18)
-                .addComponent(spMTeacher, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
-        lblMTeacherContact.getAccessibleContext().setAccessibleName("lblTeacherContact");
 
         pnlMViewHead.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "View All Program Head List", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Century Gothic", 3, 14))); // NOI18N
         pnlMViewHead.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
@@ -1244,7 +916,7 @@ public class Dashboard extends javax.swing.JFrame {
                                             .addComponent(lblMHeadDepartment)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                             .addComponent(txtMHeadDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                                 .addComponent(btnMHeadEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(29, 29, 29)))
                 .addContainerGap())
@@ -1275,7 +947,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addComponent(cbMHeadShowPassword)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblMHeadError)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addGroup(pnlMViewHeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnMHeadSave, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnMHeadAddNew, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1295,34 +967,17 @@ public class Dashboard extends javax.swing.JFrame {
                     .addComponent(pnlMViewHead, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnlMembersLayout.createSequentialGroup()
                         .addComponent(lblMMember)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnMViewHead, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnMViewTeacher, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(pnlMembersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pnlMembersLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(pnlMViewTeacher, javax.swing.GroupLayout.DEFAULT_SIZE, 819, Short.MAX_VALUE)
-                    .addContainerGap()))
         );
         pnlMembersLayout.setVerticalGroup(
             pnlMembersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMembersLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlMembersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(btnMViewHead, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblMMember, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
-                    .addComponent(btnMViewTeacher, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(lblMMember, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(pnlMViewHead, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(pnlMembersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pnlMembersLayout.createSequentialGroup()
-                    .addGap(52, 52, 52)
-                    .addComponent(pnlMViewTeacher, javax.swing.GroupLayout.DEFAULT_SIZE, 515, Short.MAX_VALUE)
-                    .addContainerGap()))
         );
 
         pnlAccount.setBackground(new java.awt.Color(204, 204, 204));
@@ -1491,7 +1146,7 @@ public class Dashboard extends javax.swing.JFrame {
             .addGroup(pnlTabRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlTabRightLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(pnlMembers, javax.swing.GroupLayout.DEFAULT_SIZE, 839, Short.MAX_VALUE)
+                    .addComponent(pnlMembers, javax.swing.GroupLayout.DEFAULT_SIZE, 838, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(pnlTabRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlTabRightLayout.createSequentialGroup()
@@ -1593,16 +1248,6 @@ public class Dashboard extends javax.swing.JFrame {
         pnlTabMembers.setBackground(new Color(218,104,70));
     }//GEN-LAST:event_pnlTabAccountMouseClicked
 
-    private void btnMViewHeadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMViewHeadActionPerformed
-        pnlMViewHead.setVisible(true);
-        pnlMViewTeacher.setVisible(false);
-    }//GEN-LAST:event_btnMViewHeadActionPerformed
-
-    private void btnMViewTeacherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMViewTeacherActionPerformed
-        pnlMViewHead.setVisible(false);
-        pnlMViewTeacher.setVisible(true);
-    }//GEN-LAST:event_btnMViewTeacherActionPerformed
-
     private void btnRAMSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRAMSearchActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRAMSearchActionPerformed
@@ -1632,30 +1277,6 @@ public class Dashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRAMDeleteRoomActionPerformed
 
-    private void btnMTeacherEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMTeacherEditActionPerformed
-        Dashboard db = new Dashboard();
-        db.show(); //For display function only.
-        this.dispose();
-    }//GEN-LAST:event_btnMTeacherEditActionPerformed
-
-    private void btnMTeacherSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMTeacherSaveActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnMTeacherSaveActionPerformed
-
-    private void cbMTeacherShowPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbMTeacherShowPasswordActionPerformed
-         if(cbMTeacherShowPassword.isSelected()){
-            pfMTeacherPassword.setEchoChar((char) 0);
-        }else{
-            pfMTeacherPassword.setEchoChar('*');
-        }
-    }//GEN-LAST:event_cbMTeacherShowPasswordActionPerformed
-
-    private void btnMTeacherAddNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMTeacherAddNewActionPerformed
-        Add_Teacher at = new Add_Teacher();
-        at.show();
-        at.setAlwaysOnTop(true);
-    }//GEN-LAST:event_btnMTeacherAddNewActionPerformed
-
     private void btnMHeadEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMHeadEditActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnMHeadEditActionPerformed
@@ -1681,10 +1302,6 @@ public class Dashboard extends javax.swing.JFrame {
     private void btnALogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnALogoutActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnALogoutActionPerformed
-
-    private void btnMTeacherDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMTeacherDeleteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnMTeacherDeleteActionPerformed
 
     private void btnMHeadDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMHeadDeleteActionPerformed
         // TODO add your handling code here:
@@ -1753,12 +1370,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JButton btnMHeadDelete;
     private javax.swing.JButton btnMHeadEdit;
     private javax.swing.JButton btnMHeadSave;
-    private javax.swing.JButton btnMTeacherAddNew;
-    private javax.swing.JButton btnMTeacherDelete;
-    private javax.swing.JButton btnMTeacherEdit;
-    private javax.swing.JButton btnMTeacherSave;
-    private javax.swing.JButton btnMViewHead;
-    private javax.swing.JButton btnMViewTeacher;
     private javax.swing.JButton btnRAMAddNew;
     private javax.swing.JButton btnRAMDeleteRoom;
     private javax.swing.JButton btnRAMEndTime;
@@ -1766,7 +1377,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JButton btnRAMSearch;
     private javax.swing.JButton btnRAMStartTime;
     private javax.swing.JCheckBox cbMHeadShowPassword;
-    private javax.swing.JCheckBox cbMTeacherShowPassword;
     private javax.swing.JLabel lblADepartment;
     private javax.swing.JLabel lblAFirstName;
     private javax.swing.JLabel lblAID;
@@ -1790,17 +1400,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel lblMHeadPassword;
     private javax.swing.JLabel lblMHeadUsername;
     private javax.swing.JLabel lblMMember;
-    private javax.swing.JLabel lblMTeacherAddress;
-    private javax.swing.JLabel lblMTeacherContact;
-    private javax.swing.JLabel lblMTeacherDepartment;
-    private javax.swing.JLabel lblMTeacherEmail;
-    private javax.swing.JLabel lblMTeacherError;
-    private javax.swing.JLabel lblMTeacherFirstName;
-    private javax.swing.JLabel lblMTeacherID;
-    private javax.swing.JLabel lblMTeacherLastName;
-    private javax.swing.JLabel lblMTeacherMiddleName;
-    private javax.swing.JLabel lblMTeacherPassword;
-    private javax.swing.JLabel lblMTeacherUsername;
     private javax.swing.JLabel lblRAMDayOfTheWeek;
     private javax.swing.JLabel lblRAMEndTime;
     private javax.swing.JLabel lblRAMError;
@@ -1817,7 +1416,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel lblTabRoomManagement;
     private javax.swing.JList<String> listActivityLog;
     private javax.swing.JPasswordField pfMHeadPassword;
-    private javax.swing.JPasswordField pfMTeacherPassword;
     private javax.swing.JPanel pnlAInformation;
     private javax.swing.JPanel pnlAccount;
     private javax.swing.JPanel pnlHome;
@@ -1826,7 +1424,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel pnlHomeCreatedSchedule;
     private javax.swing.JPanel pnlHomeFacultiesStudents;
     private javax.swing.JPanel pnlMViewHead;
-    private javax.swing.JPanel pnlMViewTeacher;
     private javax.swing.JPanel pnlMembers;
     private javax.swing.JPanel pnlRoomManagement;
     private javax.swing.JPanel pnlTabAccount;
@@ -1837,10 +1434,8 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel pnlTabRoomManagement;
     private javax.swing.JScrollPane spActivityLog;
     private javax.swing.JScrollPane spMHead;
-    private javax.swing.JScrollPane spMTeacher;
     private javax.swing.JScrollPane spRAMShowRoom;
     private javax.swing.JTable tblMHead;
-    private javax.swing.JTable tblMTeacher;
     private javax.swing.JTable tblRAMShowRoom;
     private com.raven.swing.TimePicker tpRAMEndTime;
     private com.raven.swing.TimePicker tpRAMStartTime;
@@ -1854,15 +1449,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JTextField txtMHeadID;
     private javax.swing.JTextField txtMHeadLastName;
     private javax.swing.JTextField txtMHeadUsername;
-    private javax.swing.JTextField txtMTeacherAddress;
-    private javax.swing.JTextField txtMTeacherContact;
-    private javax.swing.JTextField txtMTeacherDepartment;
-    private javax.swing.JTextField txtMTeacherEmail;
-    private javax.swing.JTextField txtMTeacherFirstName;
-    private javax.swing.JTextField txtMTeacherID;
-    private javax.swing.JTextField txtMTeacherLastName;
-    private javax.swing.JTextField txtMTeacherMiddleName;
-    private javax.swing.JTextField txtMTeacherUsername;
     private javax.swing.JTextField txtRAMDayOfTheWeek;
     private javax.swing.JTextField txtRAMEndTime;
     private javax.swing.JTextField txtRAMID;
