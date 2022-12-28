@@ -84,7 +84,6 @@ public class Dashboard extends javax.swing.JFrame {
         txtRAMID = new javax.swing.JTextField();
         txtRAMSubject = new javax.swing.JTextField();
         txtRAMSection = new javax.swing.JTextField();
-        txtRAMDayOfTheWeek = new javax.swing.JTextField();
         btnRAMSearch = new javax.swing.JButton();
         btnRAMSave = new javax.swing.JButton();
         btnRAMAddNew = new javax.swing.JButton();
@@ -96,6 +95,7 @@ public class Dashboard extends javax.swing.JFrame {
         btnRAMDeleteRoom = new javax.swing.JButton();
         lblRAMRoom = new javax.swing.JLabel();
         txtRAMRoom = new javax.swing.JTextField();
+        cbRAMDayOfTheWeek = new javax.swing.JComboBox<>();
         pnlMembers = new javax.swing.JPanel();
         lblMMember = new javax.swing.JLabel();
         pnlMViewUser = new javax.swing.JPanel();
@@ -501,20 +501,20 @@ public class Dashboard extends javax.swing.JFrame {
         tblRAMShowRoom.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         tblRAMShowRoom.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Schedule ID", "Room", "Subject", "Section", "Days of the Week", "Start Time", "End Time"
+                "Schedule ID", "Room", "Subject", "Section", "Days of the Week", "Start Time", "End Time", "Teacher"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -551,8 +551,6 @@ public class Dashboard extends javax.swing.JFrame {
 
         txtRAMSection.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
 
-        txtRAMDayOfTheWeek.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-
         btnRAMSearch.setBackground(new java.awt.Color(218, 104, 70));
         btnRAMSearch.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         btnRAMSearch.setText("Search");
@@ -585,10 +583,10 @@ public class Dashboard extends javax.swing.JFrame {
 
         txtRAMStartTime.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         txtRAMStartTime.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 txtRAMStartTimeInputMethodTextChanged(evt);
-            }
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
 
@@ -627,6 +625,9 @@ public class Dashboard extends javax.swing.JFrame {
         lblRAMRoom.setText("Room");
 
         txtRAMRoom.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+
+        cbRAMDayOfTheWeek.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        cbRAMDayOfTheWeek.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" }));
 
         javax.swing.GroupLayout pnlRoomManagementLayout = new javax.swing.GroupLayout(pnlRoomManagement);
         pnlRoomManagement.setLayout(pnlRoomManagementLayout);
@@ -673,14 +674,13 @@ public class Dashboard extends javax.swing.JFrame {
                                     .addComponent(lblRAMSection)
                                     .addComponent(txtRAMSection, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
-                                .addGroup(pnlRoomManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblRAMDayOfTheWeek)
-                                    .addGroup(pnlRoomManagementLayout.createSequentialGroup()
-                                        .addComponent(txtRAMDayOfTheWeek, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btnRAMSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnRAMSave, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                                .addGroup(pnlRoomManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(lblRAMDayOfTheWeek, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cbRAMDayOfTheWeek, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(37, 37, 37)
+                                .addComponent(btnRAMSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnRAMSave, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
         pnlRoomManagementLayout.setVerticalGroup(
@@ -701,12 +701,12 @@ public class Dashboard extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(pnlRoomManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtRAMSubject, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtRAMSection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtRAMSection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbRAMDayOfTheWeek, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(pnlRoomManagementLayout.createSequentialGroup()
                         .addComponent(lblRAMDayOfTheWeek)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(pnlRoomManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtRAMDayOfTheWeek, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnRAMSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnRAMSave, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(pnlRoomManagementLayout.createSequentialGroup()
@@ -804,20 +804,20 @@ public class Dashboard extends javax.swing.JFrame {
         tblMHead.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         tblMHead.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Username", "First Name", "Last Name", "Password", "Department"
+                "ID", "Username", "First Name", "Last Name", "Password", "Department", "Roles"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -1017,22 +1017,27 @@ public class Dashboard extends javax.swing.JFrame {
 
         txtAID.setEditable(false);
         txtAID.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtAID.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         txtAID.setFocusable(false);
 
         txtAUsername.setEditable(false);
         txtAUsername.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtAUsername.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         txtAUsername.setFocusable(false);
 
         txtAFirstName.setEditable(false);
         txtAFirstName.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtAFirstName.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         txtAFirstName.setFocusable(false);
 
         txtALastName.setEditable(false);
         txtALastName.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtALastName.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         txtALastName.setFocusable(false);
 
         txtADepartment.setEditable(false);
         txtADepartment.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtADepartment.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         txtADepartment.setFocusable(false);
 
         btnALogout.setBackground(new java.awt.Color(218, 104, 70));
@@ -1390,6 +1395,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JButton btnRAMStartTime;
     private javax.swing.JComboBox<String> cbMUserRoles;
     private javax.swing.JCheckBox cbMUserShowPassword;
+    private javax.swing.JComboBox<String> cbRAMDayOfTheWeek;
     private javax.swing.JLabel lblADepartment;
     private javax.swing.JLabel lblAFirstName;
     private javax.swing.JLabel lblAID;
@@ -1463,7 +1469,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JTextField txtMUserID;
     private javax.swing.JTextField txtMUserLastName;
     private javax.swing.JTextField txtMUserUsername;
-    private javax.swing.JTextField txtRAMDayOfTheWeek;
     private javax.swing.JTextField txtRAMEndTime;
     private javax.swing.JTextField txtRAMID;
     private javax.swing.JTextField txtRAMRoom;

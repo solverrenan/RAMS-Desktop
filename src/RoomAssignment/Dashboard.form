@@ -815,16 +815,14 @@
                                           <Component id="txtRAMSection" min="-2" pref="114" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="lblRAMDayOfTheWeek" min="-2" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="txtRAMDayOfTheWeek" min="-2" pref="114" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="btnRAMSearch" min="-2" pref="70" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="btnRAMSave" min="-2" pref="70" max="-2" attributes="0"/>
-                                          </Group>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="lblRAMDayOfTheWeek" max="32767" attributes="0"/>
+                                          <Component id="cbRAMDayOfTheWeek" max="32767" attributes="0"/>
                                       </Group>
+                                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                                      <Component id="btnRAMSearch" min="-2" pref="70" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="btnRAMSave" min="-2" pref="70" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -854,13 +852,13 @@
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="txtRAMSubject" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtRAMSection" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cbRAMDayOfTheWeek" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="lblRAMDayOfTheWeek" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="txtRAMDayOfTheWeek" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnRAMSearch" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                                   <Component id="btnRAMSave" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                               </Group>
@@ -926,14 +924,15 @@
                       <Font name="Century Gothic" size="12" style="0"/>
                     </Property>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="7" rowCount="4">
+                      <Table columnCount="8" rowCount="4">
                         <Column editable="false" title="Schedule ID" type="java.lang.String"/>
-                        <Column editable="false" title="Room" type="java.lang.Object"/>
+                        <Column editable="false" title="Room" type="java.lang.String"/>
                         <Column editable="false" title="Subject" type="java.lang.String"/>
                         <Column editable="false" title="Section" type="java.lang.String"/>
                         <Column editable="false" title="Days of the Week" type="java.lang.String"/>
                         <Column editable="false" title="Start Time" type="java.lang.String"/>
                         <Column editable="false" title="End Time" type="java.lang.String"/>
+                        <Column editable="false" title="Teacher" type="java.lang.String"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -1045,13 +1044,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtRAMSection">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Century Gothic" size="12" style="0"/>
-                </Property>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="txtRAMDayOfTheWeek">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Century Gothic" size="12" style="0"/>
@@ -1191,6 +1183,26 @@
                   <Font name="Century Gothic" size="12" style="0"/>
                 </Property>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="cbRAMDayOfTheWeek">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Century Gothic" size="11" style="0"/>
+                </Property>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="6">
+                    <StringItem index="0" value="Monday"/>
+                    <StringItem index="1" value="Tuesday"/>
+                    <StringItem index="2" value="Wednesday"/>
+                    <StringItem index="3" value="Thursday"/>
+                    <StringItem index="4" value="Friday"/>
+                    <StringItem index="5" value="Saturday"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
@@ -1505,13 +1517,14 @@
                           <Font name="Century Gothic" size="12" style="0"/>
                         </Property>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="6" rowCount="4">
+                          <Table columnCount="7" rowCount="4">
                             <Column editable="false" title="ID" type="java.lang.String"/>
                             <Column editable="false" title="Username" type="java.lang.String"/>
                             <Column editable="false" title="First Name" type="java.lang.String"/>
                             <Column editable="false" title="Last Name" type="java.lang.String"/>
                             <Column editable="false" title="Password" type="java.lang.String"/>
                             <Column editable="false" title="Department" type="java.lang.String"/>
+                            <Column editable="false" title="Roles" type="java.lang.String"/>
                           </Table>
                         </Property>
                         <Property name="opaque" type="boolean" value="false"/>
@@ -1806,6 +1819,11 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Century Gothic" size="12" style="0"/>
                     </Property>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                        <MatteColorBorder bottom="1" left="0" right="0" top="0"/>
+                      </Border>
+                    </Property>
                     <Property name="focusable" type="boolean" value="false"/>
                   </Properties>
                 </Component>
@@ -1814,6 +1832,11 @@
                     <Property name="editable" type="boolean" value="false"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Century Gothic" size="12" style="0"/>
+                    </Property>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                        <MatteColorBorder bottom="1" left="0" right="0" top="0"/>
+                      </Border>
                     </Property>
                     <Property name="focusable" type="boolean" value="false"/>
                   </Properties>
@@ -1824,6 +1847,11 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Century Gothic" size="12" style="0"/>
                     </Property>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                        <MatteColorBorder bottom="1" left="0" right="0" top="0"/>
+                      </Border>
+                    </Property>
                     <Property name="focusable" type="boolean" value="false"/>
                   </Properties>
                 </Component>
@@ -1833,6 +1861,11 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Century Gothic" size="12" style="0"/>
                     </Property>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                        <MatteColorBorder bottom="1" left="0" right="0" top="0"/>
+                      </Border>
+                    </Property>
                     <Property name="focusable" type="boolean" value="false"/>
                   </Properties>
                 </Component>
@@ -1841,6 +1874,11 @@
                     <Property name="editable" type="boolean" value="false"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Century Gothic" size="12" style="0"/>
+                    </Property>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                        <MatteColorBorder bottom="1" left="0" right="0" top="0"/>
+                      </Border>
                     </Property>
                     <Property name="focusable" type="boolean" value="false"/>
                   </Properties>
