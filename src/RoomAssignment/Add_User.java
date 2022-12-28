@@ -11,12 +11,12 @@ import java.awt.geom.RoundRectangle2D;
  *
  * @author solve
  */
-public class Add_Program_Head extends javax.swing.JFrame {
+public class Add_User extends javax.swing.JFrame {
 
     /**
      * Creates new form Add_Program_Head
      */
-    public Add_Program_Head() {
+    public Add_User() {
         initComponents();
         setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 20, 20));
     }
@@ -51,14 +51,15 @@ public class Add_Program_Head extends javax.swing.JFrame {
         lblLastName = new javax.swing.JLabel();
         lblMiddleName = new javax.swing.JLabel();
         lblDepartment = new javax.swing.JLabel();
+        lblRoles = new javax.swing.JLabel();
+        cbRoles = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(285, 426));
         setName("frmAddNewProgramHead"); // NOI18N
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(285, 426));
 
-        pnlAddNewTeacher.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Add New Program Head", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Century Gothic", 3, 14))); // NOI18N
+        pnlAddNewTeacher.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Add User", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Century Gothic", 3, 14))); // NOI18N
         pnlAddNewTeacher.setMinimumSize(new java.awt.Dimension(305, 404));
         pnlAddNewTeacher.setPreferredSize(new java.awt.Dimension(305, 404));
 
@@ -135,6 +136,12 @@ public class Add_Program_Head extends javax.swing.JFrame {
         lblDepartment.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         lblDepartment.setText("Department");
 
+        lblRoles.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblRoles.setText("Roles");
+
+        cbRoles.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        cbRoles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Teacher", "Program Head", "Adminstrator", " " }));
+
         javax.swing.GroupLayout pnlAddNewTeacherLayout = new javax.swing.GroupLayout(pnlAddNewTeacher);
         pnlAddNewTeacher.setLayout(pnlAddNewTeacherLayout);
         pnlAddNewTeacherLayout.setHorizontalGroup(
@@ -151,6 +158,7 @@ public class Add_Program_Head extends javax.swing.JFrame {
                         .addGroup(pnlAddNewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(lblError)
                     .addGroup(pnlAddNewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(pnlAddNewTeacherLayout.createSequentialGroup()
                             .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -172,13 +180,14 @@ public class Add_Program_Head extends javax.swing.JFrame {
                             .addGroup(pnlAddNewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(lblMiddleName)
                                 .addComponent(lblLastName)
-                                .addComponent(lblDepartment))
+                                .addComponent(lblDepartment)
+                                .addComponent(lblRoles))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(pnlAddNewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(cbRoles, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txtDepartment)
                                 .addComponent(txtMiddleName)
-                                .addComponent(txtLastName))))
-                    .addComponent(lblError))
+                                .addComponent(txtLastName)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlAddNewTeacherLayout.setVerticalGroup(
@@ -209,6 +218,10 @@ public class Add_Program_Head extends javax.swing.JFrame {
                     .addComponent(lblDepartment)
                     .addComponent(txtDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlAddNewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbRoles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblRoles))
+                .addGap(20, 20, 20)
                 .addGroup(pnlAddNewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblPassword)
                     .addComponent(pfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -224,7 +237,7 @@ public class Add_Program_Head extends javax.swing.JFrame {
                     .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblError)
-                .addGap(139, 139, 139))
+                .addGap(31, 31, 31))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -283,20 +296,21 @@ public class Add_Program_Head extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Add_Program_Head.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Add_User.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Add_Program_Head.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Add_User.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Add_Program_Head.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Add_User.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Add_Program_Head.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Add_User.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Add_Program_Head().setVisible(true);
+                new Add_User().setVisible(true);
             }
         });
     }
@@ -304,6 +318,7 @@ public class Add_Program_Head extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnCancel;
+    private javax.swing.JComboBox<String> cbRoles;
     private javax.swing.JCheckBox cbShowPassword;
     private javax.swing.JLabel lblConfirmPassword;
     private javax.swing.JLabel lblDepartment;
@@ -313,6 +328,7 @@ public class Add_Program_Head extends javax.swing.JFrame {
     private javax.swing.JLabel lblLastName;
     private javax.swing.JLabel lblMiddleName;
     private javax.swing.JLabel lblPassword;
+    private javax.swing.JLabel lblRoles;
     private javax.swing.JLabel lblUsername;
     private javax.swing.JPasswordField pfConfirmPassword;
     private javax.swing.JPasswordField pfPassword;
