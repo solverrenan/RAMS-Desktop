@@ -117,6 +117,11 @@ public class Add_Program_Head extends javax.swing.JFrame {
 
         cbShowPassword.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         cbShowPassword.setText("Show Password");
+        cbShowPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbShowPasswordActionPerformed(evt);
+            }
+        });
 
         lblError.setForeground(java.awt.Color.red);
         lblError.setText("[error appear here]");
@@ -250,6 +255,16 @@ public class Add_Program_Head extends javax.swing.JFrame {
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAddActionPerformed
+
+    private void cbShowPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbShowPasswordActionPerformed
+         if(cbShowPassword.isSelected()){
+            pfPassword.setEchoChar((char) 0);
+            pfConfirmPassword.setEchoChar((char) 0);
+        }else{
+            pfPassword.setEchoChar('*');
+            pfConfirmPassword.setEchoChar('*');
+        }
+    }//GEN-LAST:event_cbShowPasswordActionPerformed
 
     /**
      * @param args the command line arguments

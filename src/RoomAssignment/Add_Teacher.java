@@ -131,6 +131,11 @@ public class Add_Teacher extends javax.swing.JFrame {
 
         cbShowPassword1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         cbShowPassword1.setText("Show Password");
+        cbShowPassword1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbShowPassword1ActionPerformed(evt);
+            }
+        });
 
         lblError1.setForeground(java.awt.Color.red);
         lblError1.setText("[error appear here]");
@@ -284,6 +289,16 @@ public class Add_Teacher extends javax.swing.JFrame {
     private void btnCancel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancel1ActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnCancel1ActionPerformed
+
+    private void cbShowPassword1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbShowPassword1ActionPerformed
+         if(cbShowPassword1.isSelected()){
+            pfPassword1.setEchoChar((char) 0);
+            pfConfirmPassword1.setEchoChar((char) 0);
+        }else{
+            pfPassword1.setEchoChar('*');
+            pfConfirmPassword1.setEchoChar('*');
+        }
+    }//GEN-LAST:event_cbShowPassword1ActionPerformed
 
     /**
      * @param args the command line arguments

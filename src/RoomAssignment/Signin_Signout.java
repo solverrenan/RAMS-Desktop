@@ -127,6 +127,11 @@ public class Signin_Signout extends javax.swing.JFrame {
         cboxShowPassword.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         cboxShowPassword.setForeground(new java.awt.Color(51, 51, 51));
         cboxShowPassword.setLabel("Show Password");
+        cboxShowPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboxShowPasswordActionPerformed(evt);
+            }
+        });
 
         btnExit.setBackground(new java.awt.Color(218, 104, 70));
         btnExit.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -192,7 +197,7 @@ public class Signin_Signout extends javax.swing.JFrame {
                     .addComponent(lblPass))
                 .addGap(18, 18, 18)
                 .addComponent(cboxShowPassword)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29))
             .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -259,6 +264,14 @@ public class Signin_Signout extends javax.swing.JFrame {
         db.show(); //For display function only.
         this.dispose();
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void cboxShowPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxShowPasswordActionPerformed
+        if(cboxShowPassword.isSelected()){
+            pwPassword.setEchoChar((char) 0);
+        }else{
+            pwPassword.setEchoChar('*');
+        }
+    }//GEN-LAST:event_cboxShowPasswordActionPerformed
 
     /**
      * @param args the command line arguments

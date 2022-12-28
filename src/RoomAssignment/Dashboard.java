@@ -1643,7 +1643,11 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMTeacherSaveActionPerformed
 
     private void cbMTeacherShowPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbMTeacherShowPasswordActionPerformed
-        // TODO add your handling code here:
+         if(cbMTeacherShowPassword.isSelected()){
+            pfMTeacherPassword.setEchoChar((char) 0);
+        }else{
+            pfMTeacherPassword.setEchoChar('*');
+        }
     }//GEN-LAST:event_cbMTeacherShowPasswordActionPerformed
 
     private void btnMTeacherAddNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMTeacherAddNewActionPerformed
@@ -1667,7 +1671,11 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMHeadAddNewActionPerformed
 
     private void cbMHeadShowPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbMHeadShowPasswordActionPerformed
-        // TODO add your handling code here:
+         if(cbMHeadShowPassword.isSelected()){
+            pfMHeadPassword.setEchoChar((char) 0);
+        }else{
+            pfMHeadPassword.setEchoChar('*');
+        }
     }//GEN-LAST:event_cbMHeadShowPasswordActionPerformed
 
     private void btnALogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnALogoutActionPerformed
@@ -1686,7 +1694,6 @@ public class Dashboard extends javax.swing.JFrame {
         Change_Password cp = new Change_Password();
         cp.show();
         cp.setAlwaysOnTop(true);
-        this.enable(false);
     }//GEN-LAST:event_btnAChangePasswordActionPerformed
 
     /**
