@@ -152,7 +152,7 @@ public class Add_Room extends javax.swing.JFrame {
         txtRoom.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
 
         cbDayOfTheWeek.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
-        cbDayOfTheWeek.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "" }));
+        cbDayOfTheWeek.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" }));
 
         lblTeacher.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         lblTeacher.setText("Teacher");
