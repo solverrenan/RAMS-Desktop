@@ -140,7 +140,7 @@ public class Add_User extends javax.swing.JFrame {
         lblRoles.setText("Roles");
 
         cbRoles.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
-        cbRoles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Teacher", "Program Head", "Administrator", "" }));
+        cbRoles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Teacher", "Program Head", "Administrator" }));
 
         javax.swing.GroupLayout pnlAddNewTeacherLayout = new javax.swing.GroupLayout(pnlAddNewTeacher);
         pnlAddNewTeacher.setLayout(pnlAddNewTeacherLayout);

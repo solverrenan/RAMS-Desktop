@@ -891,7 +891,7 @@ public class Dashboard extends javax.swing.JFrame {
         lblMUserRoles.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         lblMUserRoles.setText("Roles");
 
-        cbMUserRoles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Teacher", "Program Head", "Administrator", "" }));
+        cbMUserRoles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Teacher", "Program Head", "Administrator" }));
 
         javax.swing.GroupLayout pnlMViewUserLayout = new javax.swing.GroupLayout(pnlMViewUser);
         pnlMViewUser.setLayout(pnlMViewUserLayout);
