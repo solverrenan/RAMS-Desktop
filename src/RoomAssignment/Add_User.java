@@ -31,7 +31,6 @@ public class Add_User extends javax.swing.JFrame {
     private void initComponents() {
 
         pnlAddNewTeacher = new javax.swing.JPanel();
-        txtID = new javax.swing.JTextField();
         txtUsername = new javax.swing.JTextField();
         txtFirstName = new javax.swing.JTextField();
         txtMiddleName = new javax.swing.JTextField();
@@ -40,7 +39,6 @@ public class Add_User extends javax.swing.JFrame {
         btnAdd = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
         lblPassword = new javax.swing.JLabel();
-        lblID = new javax.swing.JLabel();
         pfPassword = new javax.swing.JPasswordField();
         lblUsername = new javax.swing.JLabel();
         lblConfirmPassword = new javax.swing.JLabel();
@@ -53,17 +51,23 @@ public class Add_User extends javax.swing.JFrame {
         lblDepartment = new javax.swing.JLabel();
         lblRoles = new javax.swing.JLabel();
         cbRoles = new javax.swing.JComboBox<>();
+        lblMiddleName1 = new javax.swing.JLabel();
+        txtMiddleName1 = new javax.swing.JTextField();
+        lblMiddleName2 = new javax.swing.JLabel();
+        txtMiddleName2 = new javax.swing.JTextField();
+        lblMiddleName3 = new javax.swing.JLabel();
+        txtMiddleName3 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(285, 426));
+        setMaximumSize(new java.awt.Dimension(649, 272));
+        setMinimumSize(new java.awt.Dimension(649, 272));
         setName("frmAddNewProgramHead"); // NOI18N
         setUndecorated(true);
+        setSize(new java.awt.Dimension(649, 272));
 
         pnlAddNewTeacher.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Add User", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Century Gothic", 3, 14))); // NOI18N
         pnlAddNewTeacher.setMinimumSize(new java.awt.Dimension(305, 404));
-        pnlAddNewTeacher.setPreferredSize(new java.awt.Dimension(305, 404));
-
-        txtID.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        pnlAddNewTeacher.setPreferredSize(new java.awt.Dimension(305, 350));
 
         txtUsername.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
 
@@ -97,9 +101,6 @@ public class Add_User extends javax.swing.JFrame {
 
         lblPassword.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         lblPassword.setText("Password");
-
-        lblID.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        lblID.setText("ID");
 
         pfPassword.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         pfPassword.setText("jPasswordField1");
@@ -142,102 +143,132 @@ public class Add_User extends javax.swing.JFrame {
         cbRoles.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         cbRoles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Teacher", "Program Head", "Administrator" }));
 
+        lblMiddleName1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblMiddleName1.setText("Email");
+
+        txtMiddleName1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+
+        lblMiddleName2.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblMiddleName2.setText("Contact No.");
+
+        txtMiddleName2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+
+        lblMiddleName3.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblMiddleName3.setText("Address");
+
+        txtMiddleName3.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+
         javax.swing.GroupLayout pnlAddNewTeacherLayout = new javax.swing.GroupLayout(pnlAddNewTeacher);
         pnlAddNewTeacher.setLayout(pnlAddNewTeacherLayout);
         pnlAddNewTeacherLayout.setHorizontalGroup(
             pnlAddNewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlAddNewTeacherLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(pnlAddNewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cbShowPassword)
+                    .addGroup(pnlAddNewTeacherLayout.createSequentialGroup()
+                        .addGroup(pnlAddNewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblDepartment)
+                            .addComponent(lblRoles))
+                        .addGap(39, 39, 39)
+                        .addGroup(pnlAddNewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbRoles, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(pnlAddNewTeacherLayout.createSequentialGroup()
                         .addGroup(pnlAddNewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblUsername)
-                            .addComponent(lblID))
-                        .addGap(25, 25, 25)
-                        .addGroup(pnlAddNewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(lblError)
-                    .addGroup(pnlAddNewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(pnlAddNewTeacherLayout.createSequentialGroup()
-                            .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlAddNewTeacherLayout.createSequentialGroup()
-                            .addComponent(lblConfirmPassword)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(pfConfirmPassword))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlAddNewTeacherLayout.createSequentialGroup()
                             .addComponent(lblPassword)
-                            .addGap(52, 52, 52)
-                            .addComponent(pfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlAddNewTeacherLayout.createSequentialGroup()
-                            .addComponent(lblFirstName)
-                            .addGap(24, 24, 24)
-                            .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlAddNewTeacherLayout.createSequentialGroup()
-                            .addGroup(pnlAddNewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblMiddleName)
-                                .addComponent(lblLastName)
-                                .addComponent(lblDepartment)
-                                .addComponent(lblRoles))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(pnlAddNewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(cbRoles, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtDepartment)
-                                .addComponent(txtMiddleName)
-                                .addComponent(txtLastName)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(lblConfirmPassword))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlAddNewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pfConfirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbShowPassword)))
+                    .addComponent(lblError)
+                    .addGroup(pnlAddNewTeacherLayout.createSequentialGroup()
+                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlAddNewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlAddNewTeacherLayout.createSequentialGroup()
+                        .addComponent(lblMiddleName3)
+                        .addGap(37, 37, 37)
+                        .addComponent(txtMiddleName3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblMiddleName2)
+                    .addGroup(pnlAddNewTeacherLayout.createSequentialGroup()
+                        .addComponent(lblFirstName)
+                        .addGap(24, 24, 24)
+                        .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlAddNewTeacherLayout.createSequentialGroup()
+                        .addGroup(pnlAddNewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblMiddleName)
+                            .addComponent(lblLastName)
+                            .addComponent(lblMiddleName1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlAddNewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtMiddleName1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtMiddleName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtMiddleName2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtLastName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(0, 22, Short.MAX_VALUE))
         );
         pnlAddNewTeacherLayout.setVerticalGroup(
             pnlAddNewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlAddNewTeacherLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pnlAddNewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblID)
-                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlAddNewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblUsername)
-                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlAddNewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblFirstName)
-                    .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlAddNewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblMiddleName)
-                    .addComponent(txtMiddleName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlAddNewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblLastName)
-                    .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlAddNewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDepartment)
-                    .addComponent(txtDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlAddNewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbRoles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblRoles))
-                .addGap(20, 20, 20)
                 .addGroup(pnlAddNewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblPassword)
-                    .addComponent(pfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlAddNewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblConfirmPassword)
-                    .addComponent(pfConfirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbShowPassword)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlAddNewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblError)
-                .addGap(31, 31, 31))
+                    .addGroup(pnlAddNewTeacherLayout.createSequentialGroup()
+                        .addGroup(pnlAddNewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblUsername)
+                            .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlAddNewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblPassword)
+                            .addComponent(pfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlAddNewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblConfirmPassword)
+                            .addComponent(pfConfirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbShowPassword)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlAddNewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblDepartment)
+                            .addComponent(txtDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlAddNewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cbRoles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblRoles))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblError)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlAddNewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnlAddNewTeacherLayout.createSequentialGroup()
+                        .addGroup(pnlAddNewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblFirstName)
+                            .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlAddNewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblLastName)
+                            .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlAddNewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblMiddleName)
+                            .addComponent(txtMiddleName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlAddNewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblMiddleName1)
+                            .addComponent(txtMiddleName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlAddNewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblMiddleName2)
+                            .addComponent(txtMiddleName2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlAddNewTeacherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblMiddleName3)
+                            .addComponent(txtMiddleName3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -246,14 +277,14 @@ public class Add_User extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(pnlAddNewTeacher, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(pnlAddNewTeacher, javax.swing.GroupLayout.DEFAULT_SIZE, 629, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(pnlAddNewTeacher, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pnlAddNewTeacher, javax.swing.GroupLayout.PREFERRED_SIZE, 286, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -324,9 +355,11 @@ public class Add_User extends javax.swing.JFrame {
     private javax.swing.JLabel lblDepartment;
     private javax.swing.JLabel lblError;
     private javax.swing.JLabel lblFirstName;
-    private javax.swing.JLabel lblID;
     private javax.swing.JLabel lblLastName;
     private javax.swing.JLabel lblMiddleName;
+    private javax.swing.JLabel lblMiddleName1;
+    private javax.swing.JLabel lblMiddleName2;
+    private javax.swing.JLabel lblMiddleName3;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblRoles;
     private javax.swing.JLabel lblUsername;
@@ -335,9 +368,11 @@ public class Add_User extends javax.swing.JFrame {
     private javax.swing.JPanel pnlAddNewTeacher;
     private javax.swing.JTextField txtDepartment;
     private javax.swing.JTextField txtFirstName;
-    private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtLastName;
     private javax.swing.JTextField txtMiddleName;
+    private javax.swing.JTextField txtMiddleName1;
+    private javax.swing.JTextField txtMiddleName2;
+    private javax.swing.JTextField txtMiddleName3;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }
