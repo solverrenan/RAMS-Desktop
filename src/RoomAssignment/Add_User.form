@@ -379,8 +379,8 @@
               <StringArray count="4">
                 <StringItem index="0" value="Teacher"/>
                 <StringItem index="1" value="Program Head"/>
-                <StringItem index="2" value="Adminstrator"/>
-                <StringItem index="3" value=" "/>
+                <StringItem index="2" value="Administrator"/>
+                <StringItem index="3" value=""/>
               </StringArray>
             </Property>
           </Properties>
