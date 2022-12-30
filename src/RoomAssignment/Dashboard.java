@@ -7,8 +7,13 @@ package RoomAssignment;
 
 import java.awt.Color;
 import java.awt.geom.RoundRectangle2D;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Vector;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -19,12 +24,19 @@ public class Dashboard extends javax.swing.JFrame {
     /**
      * Creates new form Dashboard
      */
+    Account_Queries userData = new Account_Queries();
+    Room_Queries roomData = new Room_Queries();
+    ResultSet tblData;
+    DefaultTableModel tblModel;    
+    Vector<Object> tblRowData;
+
     public Dashboard() {
         initComponents();
         DefaultTab();
-        
+        populateUserJTable();
+        populateRoomJTable();
         //Rounded Corner
-        setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 20, 20));        
+        setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 20, 20));
     }
 
     /**
@@ -193,7 +205,7 @@ public class Dashboard extends javax.swing.JFrame {
             pnlTabHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTabHomeLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblHome, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                .addComponent(lblHome, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -224,7 +236,7 @@ public class Dashboard extends javax.swing.JFrame {
             pnlTabRoomManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTabRoomManagementLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblTabRoomManagement, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                .addComponent(lblTabRoomManagement, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -255,7 +267,7 @@ public class Dashboard extends javax.swing.JFrame {
             pnlTabMembersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTabMembersLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblTabMembers, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                .addComponent(lblTabMembers, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -309,7 +321,7 @@ public class Dashboard extends javax.swing.JFrame {
             .addGroup(pnlTabLeftLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(lblRoomMangementSystem)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
         pnlTabLeftLayout.setVerticalGroup(
             pnlTabLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -619,6 +631,11 @@ public class Dashboard extends javax.swing.JFrame {
 
         txtRAMRoom.setEditable(false);
         txtRAMRoom.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtRAMRoom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRAMRoomActionPerformed(evt);
+            }
+        });
 
         cbRAMDayOfTheWeek.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         cbRAMDayOfTheWeek.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" }));
@@ -792,7 +809,7 @@ public class Dashboard extends javax.swing.JFrame {
                         .addComponent(lblRAMRoomManagement)
                         .addGap(526, 526, 526))
                     .addGroup(pnlRoomManagementLayout.createSequentialGroup()
-                        .addComponent(pnlRAMSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 818, Short.MAX_VALUE)
+                        .addComponent(pnlRAMSchedule, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())))
         );
         pnlRoomManagementLayout.setVerticalGroup(
@@ -814,7 +831,7 @@ public class Dashboard extends javax.swing.JFrame {
         lblMMember.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         lblMMember.setText("Members");
         pnlMembers.add(lblMMember);
-        lblMMember.setBounds(10, 11, 83, 24);
+        lblMMember.setBounds(10, 11, 84, 24);
 
         pnlMViewUser.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "User", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Century Gothic", 3, 14))); // NOI18N
         pnlMViewUser.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
@@ -828,12 +845,12 @@ public class Dashboard extends javax.swing.JFrame {
         lblMUserLastName.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         lblMUserLastName.setText("Last Name");
         pnlMViewUser.add(lblMUserLastName);
-        lblMUserLastName.setBounds(392, 52, 60, 16);
+        lblMUserLastName.setBounds(392, 52, 61, 16);
 
         lblMUserPassword.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         lblMUserPassword.setText("Password");
         pnlMViewUser.add(lblMUserPassword);
-        lblMUserPassword.setBounds(16, 70, 55, 16);
+        lblMUserPassword.setBounds(16, 70, 54, 16);
 
         txtMUserID.setEditable(false);
         txtMUserID.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -934,7 +951,7 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
         pnlMViewUser.add(cbMUserShowPassword);
-        cbMUserShowPassword.setBounds(88, 100, 115, 25);
+        cbMUserShowPassword.setBounds(88, 100, 114, 20);
 
         lblMUserUsername.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         lblMUserUsername.setText("Username");
@@ -944,7 +961,7 @@ public class Dashboard extends javax.swing.JFrame {
         lblMUserDepartment.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         lblMUserDepartment.setText("Department");
         pnlMViewUser.add(lblMUserDepartment);
-        lblMUserDepartment.setBounds(16, 126, 68, 16);
+        lblMUserDepartment.setBounds(16, 126, 70, 16);
 
         txtMUserDepartment.setEditable(false);
         txtMUserDepartment.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -954,7 +971,7 @@ public class Dashboard extends javax.swing.JFrame {
         lblMUserError.setForeground(java.awt.Color.red);
         lblMUserError.setText("[error appear here]");
         pnlMViewUser.add(lblMUserError);
-        lblMUserError.setBounds(16, 199, 360, 14);
+        lblMUserError.setBounds(16, 199, 360, 16);
 
         btnMUserDelete.setBackground(new java.awt.Color(204, 0, 0));
         btnMUserDelete.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
@@ -983,7 +1000,7 @@ public class Dashboard extends javax.swing.JFrame {
         lblMUserMiddleName.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         lblMUserMiddleName.setText("Middle Name");
         pnlMViewUser.add(lblMUserMiddleName);
-        lblMUserMiddleName.setBounds(392, 79, 80, 16);
+        lblMUserMiddleName.setBounds(392, 79, 81, 16);
 
         txtMUserMiddleName.setEditable(false);
         txtMUserMiddleName.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -998,7 +1015,7 @@ public class Dashboard extends javax.swing.JFrame {
         lblMUserEmail.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         lblMUserEmail.setText("Email");
         pnlMViewUser.add(lblMUserEmail);
-        lblMUserEmail.setBounds(392, 107, 31, 16);
+        lblMUserEmail.setBounds(392, 107, 32, 16);
 
         txtMUserEmail.setEditable(false);
         txtMUserEmail.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -1008,7 +1025,7 @@ public class Dashboard extends javax.swing.JFrame {
         lblMUserContactNo.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         lblMUserContactNo.setText("Contact No.");
         pnlMViewUser.add(lblMUserContactNo);
-        lblMUserContactNo.setBounds(392, 135, 69, 16);
+        lblMUserContactNo.setBounds(392, 135, 70, 16);
 
         txtMUserContactNo.setEditable(false);
         txtMUserContactNo.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -1018,7 +1035,7 @@ public class Dashboard extends javax.swing.JFrame {
         lblMUserAddress.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         lblMUserAddress.setText("Address");
         pnlMViewUser.add(lblMUserAddress);
-        lblMUserAddress.setBounds(392, 165, 47, 16);
+        lblMUserAddress.setBounds(392, 165, 46, 16);
 
         txtMUserAddress.setEditable(false);
         txtMUserAddress.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -1278,6 +1295,7 @@ public class Dashboard extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+
     private void pnlTabHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlTabHomeMouseClicked
         HomeTab();
     }//GEN-LAST:event_pnlTabHomeMouseClicked
@@ -1308,7 +1326,7 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRAMStartTimeActionPerformed
 
     private void txtRAMStartTimeInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_txtRAMStartTimeInputMethodTextChanged
-        
+
     }//GEN-LAST:event_txtRAMStartTimeInputMethodTextChanged
 
     private void btnRAMEndTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRAMEndTimeActionPerformed
@@ -1330,9 +1348,9 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMUserAddNewActionPerformed
 
     private void cbMUserShowPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbMUserShowPasswordActionPerformed
-         if(cbMUserShowPassword.isSelected()){
+        if (cbMUserShowPassword.isSelected()) {
             pfMUserPassword.setEchoChar((char) 0);
-        }else{
+        } else {
             pfMUserPassword.setEchoChar('*');
         }
     }//GEN-LAST:event_cbMUserShowPasswordActionPerformed
@@ -1371,66 +1389,116 @@ public class Dashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMUserMiddleNameActionPerformed
 
+    private void txtRAMRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRAMRoomActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRAMRoomActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public void DefaultTab(){
+    // Displays all records of users within the database
+    private void populateUserJTable() {
+        try {
+            tblData = userData.getAllUserAccountsInformation();
+            tblModel = (DefaultTableModel) tblMHead.getModel();
+            while (tblData.next()) {
+                tblRowData = new Vector<Object>();
+                for (int columnNumber = 1; columnNumber < 12; columnNumber++) {
+                    if (columnNumber == 1) {
+                        tblRowData.add(tblData.getInt(columnNumber));//User ID data  
+                        continue;
+                    } 
+                    tblRowData.add(tblData.getString(columnNumber));//Rest of the column of strings data type data
+                }
+                tblModel.addRow(tblRowData);
+            }
+        } catch (SQLException sqlex) {
+            JOptionPane.showMessageDialog(null, sqlex.toString(), "SQL Query Error!", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+        // Displays all records of schedules within the database
+        private void populateRoomJTable() {
+        try {
+            tblData = roomData.getAllRoomSchedulesInformation();            
+            tblModel = (DefaultTableModel) tblRAMShowRoom.getModel();
+            while (tblData.next()) {
+                tblRowData = new Vector<Object>();
+                for (int columnNumber = 1; columnNumber < 9; columnNumber++) {
+                    if (columnNumber == 1) {
+                        tblRowData.add(tblData.getInt(columnNumber));//Schedule ID data  
+                        continue;
+                    } 
+                    tblRowData.add(tblData.getString(columnNumber));//Rest of the column of strings data type data
+                }
+                tblModel.addRow(tblRowData);
+            }
+        } catch (SQLException sqlex) {
+            JOptionPane.showMessageDialog(null, sqlex.toString(), "SQL Query Error!", JOptionPane.ERROR_MESSAGE);
+        }
+    }    
+
+    public void DefaultTab() {
         pnlHome.setVisible(true);
         pnlRoomManagement.setVisible(false);
         pnlMembers.setVisible(false);
         pnlAccount.setVisible(false);
-        
+
         pnlTabHome.setBackground(new Color(247, 246, 220));
-        pnlTabRoomManagement.setBackground(new Color(218,104,70));
-        pnlTabMembers.setBackground(new Color(218,104,70));
-        pnlTabAccount.setBackground(new Color(218,104,70));
+        pnlTabRoomManagement.setBackground(new Color(218, 104, 70));
+        pnlTabMembers.setBackground(new Color(218, 104, 70));
+        pnlTabAccount.setBackground(new Color(218, 104, 70));
     }
-    public void HomeTab(){
+
+    public void HomeTab() {
         pnlHome.setVisible(true);
         pnlRoomManagement.setVisible(false);
         pnlMembers.setVisible(false);
         pnlAccount.setVisible(false);
-        
+
         pnlTabHome.setBackground(new Color(247, 246, 220));
-        pnlTabRoomManagement.setBackground(new Color(218,104,70));
-        pnlTabMembers.setBackground(new Color(218,104,70));
-        pnlTabAccount.setBackground(new Color(218,104,70));
+        pnlTabRoomManagement.setBackground(new Color(218, 104, 70));
+        pnlTabMembers.setBackground(new Color(218, 104, 70));
+        pnlTabAccount.setBackground(new Color(218, 104, 70));
     }
-    public void RoomManagementTab(){
+
+    public void RoomManagementTab() {
         pnlRoomManagement.setVisible(true);
         pnlHome.setVisible(false);
         pnlMembers.setVisible(false);
         pnlAccount.setVisible(false);
-        
+
         pnlTabRoomManagement.setBackground(new Color(247, 246, 220));
-        pnlTabHome.setBackground(new Color(218,104,70));
-        pnlTabMembers.setBackground(new Color(218,104,70));
-        pnlTabAccount.setBackground(new Color(218,104,70));
+        pnlTabHome.setBackground(new Color(218, 104, 70));
+        pnlTabMembers.setBackground(new Color(218, 104, 70));
+        pnlTabAccount.setBackground(new Color(218, 104, 70));
     }
-    public void MemberTab(){
+
+    public void MemberTab() {
         pnlMembers.setVisible(true);
         pnlHome.setVisible(false);
         pnlRoomManagement.setVisible(false);
         pnlAccount.setVisible(false);
         pnlMViewUser.setVisible(true);
-        
+
         pnlTabMembers.setBackground(new Color(247, 246, 220));
-        pnlTabHome.setBackground(new Color(218,104,70));
-        pnlTabRoomManagement.setBackground(new Color(218,104,70));
-        pnlTabAccount.setBackground(new Color(218,104,70));
+        pnlTabHome.setBackground(new Color(218, 104, 70));
+        pnlTabRoomManagement.setBackground(new Color(218, 104, 70));
+        pnlTabAccount.setBackground(new Color(218, 104, 70));
     }
-    public void AccountTab(){
+
+    public void AccountTab() {
         pnlAccount.setVisible(true);
         pnlHome.setVisible(false);
         pnlRoomManagement.setVisible(false);
         pnlMembers.setVisible(false);
-        
+
         pnlTabAccount.setBackground(new Color(247, 246, 220));
-        pnlTabHome.setBackground(new Color(218,104,70));
-        pnlTabRoomManagement.setBackground(new Color(218,104,70));
-        pnlTabMembers.setBackground(new Color(218,104,70));
+        pnlTabHome.setBackground(new Color(218, 104, 70));
+        pnlTabRoomManagement.setBackground(new Color(218, 104, 70));
+        pnlTabMembers.setBackground(new Color(218, 104, 70));
     }
-    public void RAMEdit(){
+
+    public void RAMEdit() {
         boolean ID = txtRAMID.isEditable();
         boolean Room = txtRAMRoom.isEditable();
         boolean Subject = txtRAMSubject.isEditable();
@@ -1441,13 +1509,13 @@ public class Dashboard extends javax.swing.JFrame {
         boolean et = txtRAMEndTime.isEditable();
         boolean btnST = btnRAMStartTime.isEnabled();
         boolean btnET = btnRAMEndTime.isEnabled();
-        
+
         Icon unlock = new ImageIcon("C:\\Users\\solve\\Documents\\NetBeansProjects\\RoomAssignmentManagementSystem\\src\\RoomAssignment\\image\\unlock.png");
         Icon lock = new ImageIcon("C:\\Users\\solve\\Documents\\NetBeansProjects\\RoomAssignmentManagementSystem\\src\\RoomAssignment\\image\\lock.png");
-        
-        if(ID == false && Room == false && Subject == false && Section == false && Teacher == false && dotw == false && st == false && et == false && btnST == false && btnET == false){
+
+        if (ID == false && Room == false && Subject == false && Section == false && Teacher == false && dotw == false && st == false && et == false && btnST == false && btnET == false) {
             btnRAMEdit.setIcon(unlock);
-            btnRAMEdit.setBackground(new Color(153,153,153));
+            btnRAMEdit.setBackground(new Color(153, 153, 153));
             txtRAMID.setEditable(true);
             txtRAMRoom.setEditable(true);
             txtRAMSubject.setEditable(true);
@@ -1459,9 +1527,9 @@ public class Dashboard extends javax.swing.JFrame {
             txtRAMEndTime.setEditable(true);
             btnRAMStartTime.setEnabled(true);
             btnRAMEndTime.setEnabled(true);
-        }else if(ID == true && Room == true && Subject == true && Section == true && Teacher == true && dotw == true && st == true && et == true && btnST == true && btnET == true){
+        } else if (ID == true && Room == true && Subject == true && Section == true && Teacher == true && dotw == true && st == true && et == true && btnST == true && btnET == true) {
             btnRAMEdit.setIcon(lock);
-            btnRAMEdit.setBackground(new Color(218,104,70));
+            btnRAMEdit.setBackground(new Color(218, 104, 70));
             txtRAMID.setEditable(false);
             txtRAMRoom.setEditable(false);
             txtRAMSubject.setEditable(false);
@@ -1474,18 +1542,18 @@ public class Dashboard extends javax.swing.JFrame {
             btnRAMStartTime.setEnabled(false);
             btnRAMEndTime.setEnabled(false);
         }
-        
-        
+
     }
-    public void MEdit(){
+
+    public void MEdit() {
         boolean userID = txtMUserID.isEditable();
-        
+
         Icon unlock = new ImageIcon("C:\\Users\\solve\\Documents\\NetBeansProjects\\RoomAssignmentManagementSystem\\src\\RoomAssignment\\image\\unlock.png");
         Icon lock = new ImageIcon("C:\\Users\\solve\\Documents\\NetBeansProjects\\RoomAssignmentManagementSystem\\src\\RoomAssignment\\image\\lock.png");
-        
-        if(userID == false){
+
+        if (userID == false) {
             btnMUserEdit.setIcon(unlock);
-            btnMUserEdit.setBackground(new Color(153,153,153));
+            btnMUserEdit.setBackground(new Color(153, 153, 153));
             txtMUserAddress.setEditable(true);
             txtMUserContactNo.setEditable(true);
             txtMUserDepartment.setEditable(true);
@@ -1498,9 +1566,9 @@ public class Dashboard extends javax.swing.JFrame {
             cbMUserRole.setEditable(true);
             cbMUserRole.setEnabled(true);
             pfMUserPassword.setEditable(true);
-        }else if(userID == true){
+        } else if (userID == true) {
             btnMUserEdit.setIcon(lock);
-            btnMUserEdit.setBackground(new Color(218,104,70));
+            btnMUserEdit.setBackground(new Color(218, 104, 70));
             txtMUserAddress.setEditable(false);
             txtMUserContactNo.setEditable(false);
             txtMUserDepartment.setEditable(false);
@@ -1515,6 +1583,7 @@ public class Dashboard extends javax.swing.JFrame {
             pfMUserPassword.setEditable(false);
         }
     }
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -1532,7 +1601,7 @@ public class Dashboard extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
             java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-         } catch (IllegalAccessException ex) {
+        } catch (IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
