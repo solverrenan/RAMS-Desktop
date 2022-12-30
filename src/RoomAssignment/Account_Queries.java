@@ -30,4 +30,14 @@ public class Account_Queries extends SQLConnection {
             return null;
         }
     }
+    public void insertUserAccountInformation(String username, String password, String department, String role, String firstName, String lastName, String middleName, String email, String contactNo, String address){
+        try {
+            sqlStatement = sqlConnection.createStatement();
+            query = "INSERT INTO UserAccounts (Username,Password,Department,[Role],FirstName,LastName,MiddleName,Email,ContactNo,Address) " +
+                    "VALUES ('"+username+"','"+password+"','"+department+"','"+role+"','"+firstName+"','"+lastName+"','"+middleName+"','"+email+"','"+contactNo+"','"+address+"')";
+            rs = sqlStatement.executeQuery(query);
+        } catch (SQLException sqlex) {
+            JOptionPane.showMessageDialog(null,sqlex.toString(),"SQL Query Error!",JOptionPane.ERROR_MESSAGE);
+        }
+    }
 }

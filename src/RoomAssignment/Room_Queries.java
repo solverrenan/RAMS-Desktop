@@ -7,6 +7,7 @@ package RoomAssignment;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import java.util.Date;
 
 /**
  *
@@ -29,5 +30,15 @@ public class Room_Queries extends SQLConnection {
             JOptionPane.showMessageDialog(null,sqlex.toString(),"SQL Query Error!",JOptionPane.ERROR_MESSAGE);
             return null;
         }  
+    }
+    public void insertRoomScheduleInformation(String room, String subject, String section, String teacher, String dayOfTheWeek, Date startTime, Date endTime){
+        try {
+            sqlStatement = sqlConnection.createStatement();
+            query = "INSERT INTO TeacherSchedules (ScheduleID,Room,Subject,[Section],Teacher,DayOfTheWeek,StartTime,EndTime) " +
+                    "VALUES ('"+room+"','"+subject+"','"+section+"','"+teacher+"','"+dayOfTheWeek+"','"+startTime+"','"+endTime+"')";
+            rs = sqlStatement.executeQuery(query);
+        } catch (SQLException sqlex) {
+            JOptionPane.showMessageDialog(null,sqlex.toString(),"SQL Query Error!",JOptionPane.ERROR_MESSAGE);
+        }
     }
 }
