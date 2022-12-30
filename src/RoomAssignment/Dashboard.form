@@ -1005,11 +1005,6 @@
                           <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                         </Property>
                       </Properties>
-                      <AccessibilityProperties>
-                        <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                          <ComponentRef name="default"/>
-                        </Property>
-                      </AccessibilityProperties>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -1020,11 +1015,6 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Schedule ID"/>
                   </Properties>
-                  <AccessibilityProperties>
-                    <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                      <ComponentRef name="default"/>
-                    </Property>
-                  </AccessibilityProperties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblRAMSubject">
                   <Properties>
@@ -1033,11 +1023,6 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Subject"/>
                   </Properties>
-                  <AccessibilityProperties>
-                    <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                      <ComponentRef name="default"/>
-                    </Property>
-                  </AccessibilityProperties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblRAMSection">
                   <Properties>
@@ -1046,11 +1031,6 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Section"/>
                   </Properties>
-                  <AccessibilityProperties>
-                    <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                      <ComponentRef name="default"/>
-                    </Property>
-                  </AccessibilityProperties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblRAMDayOfTheWeek">
                   <Properties>
@@ -1059,11 +1039,6 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Day of the Week"/>
                   </Properties>
-                  <AccessibilityProperties>
-                    <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                      <ComponentRef name="default"/>
-                    </Property>
-                  </AccessibilityProperties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblRAMStartTime">
                   <Properties>
@@ -1072,11 +1047,6 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Start Time"/>
                   </Properties>
-                  <AccessibilityProperties>
-                    <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                      <ComponentRef name="default"/>
-                    </Property>
-                  </AccessibilityProperties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblRAMEndTime">
                   <Properties>
@@ -1085,11 +1055,6 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="End Time"/>
                   </Properties>
-                  <AccessibilityProperties>
-                    <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                      <ComponentRef name="default"/>
-                    </Property>
-                  </AccessibilityProperties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtRAMID">
                   <Properties>
@@ -1098,11 +1063,6 @@
                       <Font name="Century Gothic" size="12" style="0"/>
                     </Property>
                   </Properties>
-                  <AccessibilityProperties>
-                    <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                      <ComponentRef name="default"/>
-                    </Property>
-                  </AccessibilityProperties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtRAMSubject">
                   <Properties>
@@ -1111,11 +1071,6 @@
                       <Font name="Century Gothic" size="12" style="0"/>
                     </Property>
                   </Properties>
-                  <AccessibilityProperties>
-                    <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                      <ComponentRef name="default"/>
-                    </Property>
-                  </AccessibilityProperties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtRAMSection">
                   <Properties>
@@ -1124,11 +1079,6 @@
                       <Font name="Century Gothic" size="12" style="0"/>
                     </Property>
                   </Properties>
-                  <AccessibilityProperties>
-                    <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                      <ComponentRef name="default"/>
-                    </Property>
-                  </AccessibilityProperties>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnRAMSave">
                   <Properties>
@@ -1143,11 +1093,6 @@
                       <Border info="null"/>
                     </Property>
                   </Properties>
-                  <AccessibilityProperties>
-                    <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                      <ComponentRef name="default"/>
-                    </Property>
-                  </AccessibilityProperties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRAMSaveActionPerformed"/>
                   </Events>
@@ -1165,11 +1110,6 @@
                       <Border info="null"/>
                     </Property>
                   </Properties>
-                  <AccessibilityProperties>
-                    <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                      <ComponentRef name="default"/>
-                    </Property>
-                  </AccessibilityProperties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRAMAddNewActionPerformed"/>
                   </Events>
@@ -1181,11 +1121,6 @@
                       <Font name="Century Gothic" size="12" style="0"/>
                     </Property>
                   </Properties>
-                  <AccessibilityProperties>
-                    <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                      <ComponentRef name="default"/>
-                    </Property>
-                  </AccessibilityProperties>
                   <Events>
                     <EventHandler event="inputMethodTextChanged" listener="java.awt.event.InputMethodListener" parameters="java.awt.event.InputMethodEvent" handler="txtRAMStartTimeInputMethodTextChanged"/>
                   </Events>
@@ -1197,11 +1132,6 @@
                       <Font name="Century Gothic" size="12" style="0"/>
                     </Property>
                   </Properties>
-                  <AccessibilityProperties>
-                    <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                      <ComponentRef name="default"/>
-                    </Property>
-                  </AccessibilityProperties>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnRAMStartTime">
                   <Properties>
@@ -1213,11 +1143,6 @@
                     </Property>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
-                  <AccessibilityProperties>
-                    <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                      <ComponentRef name="default"/>
-                    </Property>
-                  </AccessibilityProperties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRAMStartTimeActionPerformed"/>
                   </Events>
@@ -1232,11 +1157,6 @@
                     </Property>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
-                  <AccessibilityProperties>
-                    <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                      <ComponentRef name="default"/>
-                    </Property>
-                  </AccessibilityProperties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRAMEndTimeActionPerformed"/>
                   </Events>
@@ -1248,11 +1168,6 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="[error appear here]"/>
                   </Properties>
-                  <AccessibilityProperties>
-                    <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                      <ComponentRef name="default"/>
-                    </Property>
-                  </AccessibilityProperties>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnRAMDeleteRoom">
                   <Properties>
@@ -1270,11 +1185,6 @@
                       <Border info="null"/>
                     </Property>
                   </Properties>
-                  <AccessibilityProperties>
-                    <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                      <ComponentRef name="default"/>
-                    </Property>
-                  </AccessibilityProperties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRAMDeleteRoomActionPerformed"/>
                   </Events>
@@ -1286,11 +1196,6 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Room"/>
                   </Properties>
-                  <AccessibilityProperties>
-                    <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                      <ComponentRef name="default"/>
-                    </Property>
-                  </AccessibilityProperties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtRAMRoom">
                   <Properties>
@@ -1299,11 +1204,6 @@
                       <Font name="Century Gothic" size="12" style="0"/>
                     </Property>
                   </Properties>
-                  <AccessibilityProperties>
-                    <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                      <ComponentRef name="default"/>
-                    </Property>
-                  </AccessibilityProperties>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="cbRAMDayOfTheWeek">
                   <Properties>
@@ -1320,12 +1220,8 @@
                         <StringItem index="5" value="Saturday"/>
                       </StringArray>
                     </Property>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
-                  <AccessibilityProperties>
-                    <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                      <ComponentRef name="default"/>
-                    </Property>
-                  </AccessibilityProperties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
@@ -1337,11 +1233,6 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Teacher"/>
                   </Properties>
-                  <AccessibilityProperties>
-                    <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                      <ComponentRef name="default"/>
-                    </Property>
-                  </AccessibilityProperties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtRAMTeacher">
                   <Properties>
@@ -1350,11 +1241,6 @@
                       <Font name="Century Gothic" size="12" style="0"/>
                     </Property>
                   </Properties>
-                  <AccessibilityProperties>
-                    <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                      <ComponentRef name="default"/>
-                    </Property>
-                  </AccessibilityProperties>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnRAMEdit">
                   <Properties>
@@ -1375,11 +1261,6 @@
                       <Border info="null"/>
                     </Property>
                   </Properties>
-                  <AccessibilityProperties>
-                    <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                      <ComponentRef name="default"/>
-                    </Property>
-                  </AccessibilityProperties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRAMEditActionPerformed"/>
                   </Events>
@@ -1798,6 +1679,7 @@
                         <StringItem index="2" value="Administrator"/>
                       </StringArray>
                     </Property>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -1808,7 +1690,7 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lblMUserDepartment1">
+                <Component class="javax.swing.JLabel" name="lblMUserMiddleName">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Century Gothic" size="12" style="1"/>
@@ -1821,13 +1703,16 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtMUserDepartment1">
+                <Component class="javax.swing.JTextField" name="txtMUserMiddleName">
                   <Properties>
                     <Property name="editable" type="boolean" value="false"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Century Gothic" size="12" style="0"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtMUserMiddleNameActionPerformed"/>
+                  </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="476" y="76" width="259" height="-1"/>

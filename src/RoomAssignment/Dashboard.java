@@ -117,8 +117,8 @@ public class Dashboard extends javax.swing.JFrame {
         btnMUserDelete = new javax.swing.JButton();
         lblMUserRole = new javax.swing.JLabel();
         cbMUserRole = new javax.swing.JComboBox<>();
-        lblMUserDepartment1 = new javax.swing.JLabel();
-        txtMUserDepartment1 = new javax.swing.JTextField();
+        lblMUserMiddleName = new javax.swing.JLabel();
+        txtMUserMiddleName = new javax.swing.JTextField();
         lblMUserEmail = new javax.swing.JLabel();
         txtMUserEmail = new javax.swing.JTextField();
         lblMUserContactNo = new javax.swing.JLabel();
@@ -572,10 +572,10 @@ public class Dashboard extends javax.swing.JFrame {
         txtRAMStartTime.setEditable(false);
         txtRAMStartTime.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         txtRAMStartTime.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 txtRAMStartTimeInputMethodTextChanged(evt);
-            }
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
 
@@ -622,6 +622,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         cbRAMDayOfTheWeek.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         cbRAMDayOfTheWeek.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" }));
+        cbRAMDayOfTheWeek.setEnabled(false);
 
         lblRAMTeacher.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         lblRAMTeacher.setText("Teacher");
@@ -975,18 +976,24 @@ public class Dashboard extends javax.swing.JFrame {
 
         cbMUserRole.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         cbMUserRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Teacher", "Program Head", "Administrator" }));
+        cbMUserRole.setEnabled(false);
         pnlMViewUser.add(cbMUserRole);
         cbMUserRole.setBounds(88, 158, 259, 21);
 
-        lblMUserDepartment1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        lblMUserDepartment1.setText("Middle Name");
-        pnlMViewUser.add(lblMUserDepartment1);
-        lblMUserDepartment1.setBounds(392, 79, 80, 16);
+        lblMUserMiddleName.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblMUserMiddleName.setText("Middle Name");
+        pnlMViewUser.add(lblMUserMiddleName);
+        lblMUserMiddleName.setBounds(392, 79, 80, 16);
 
-        txtMUserDepartment1.setEditable(false);
-        txtMUserDepartment1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        pnlMViewUser.add(txtMUserDepartment1);
-        txtMUserDepartment1.setBounds(476, 76, 259, 22);
+        txtMUserMiddleName.setEditable(false);
+        txtMUserMiddleName.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtMUserMiddleName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMUserMiddleNameActionPerformed(evt);
+            }
+        });
+        pnlMViewUser.add(txtMUserMiddleName);
+        txtMUserMiddleName.setBounds(476, 76, 259, 22);
 
         lblMUserEmail.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         lblMUserEmail.setText("Email");
@@ -1360,6 +1367,10 @@ public class Dashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRAMSearchActionPerformed
 
+    private void txtMUserMiddleNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMUserMiddleNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtMUserMiddleNameActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1443,6 +1454,7 @@ public class Dashboard extends javax.swing.JFrame {
             txtRAMSection.setEditable(true);
             txtRAMTeacher.setEditable(true);
             cbRAMDayOfTheWeek.setEditable(true);
+            cbRAMDayOfTheWeek.setEnabled(true);
             txtRAMStartTime.setEditable(true);
             txtRAMEndTime.setEditable(true);
             btnRAMStartTime.setEnabled(true);
@@ -1456,6 +1468,7 @@ public class Dashboard extends javax.swing.JFrame {
             txtRAMSection.setEditable(false);
             txtRAMTeacher.setEditable(false);
             cbRAMDayOfTheWeek.setEditable(false);
+            cbRAMDayOfTheWeek.setEnabled(false);
             txtRAMStartTime.setEditable(false);
             txtRAMEndTime.setEditable(false);
             btnRAMStartTime.setEnabled(false);
@@ -1465,7 +1478,42 @@ public class Dashboard extends javax.swing.JFrame {
         
     }
     public void MEdit(){
+        boolean userID = txtMUserID.isEditable();
         
+        Icon unlock = new ImageIcon("C:\\Users\\solve\\Documents\\NetBeansProjects\\RoomAssignmentManagementSystem\\src\\RoomAssignment\\image\\unlock.png");
+        Icon lock = new ImageIcon("C:\\Users\\solve\\Documents\\NetBeansProjects\\RoomAssignmentManagementSystem\\src\\RoomAssignment\\image\\lock.png");
+        
+        if(userID == false){
+            btnMUserEdit.setIcon(unlock);
+            btnMUserEdit.setBackground(new Color(153,153,153));
+            txtMUserAddress.setEditable(true);
+            txtMUserContactNo.setEditable(true);
+            txtMUserDepartment.setEditable(true);
+            txtMUserEmail.setEditable(true);
+            txtMUserFirstName.setEditable(true);
+            txtMUserID.setEditable(true);
+            txtMUserLastName.setEditable(true);
+            txtMUserMiddleName.setEditable(true);
+            txtMUserUsername.setEditable(true);
+            cbMUserRole.setEditable(true);
+            cbMUserRole.setEnabled(true);
+            pfMUserPassword.setEditable(true);
+        }else if(userID == true){
+            btnMUserEdit.setIcon(lock);
+            btnMUserEdit.setBackground(new Color(218,104,70));
+            txtMUserAddress.setEditable(false);
+            txtMUserContactNo.setEditable(false);
+            txtMUserDepartment.setEditable(false);
+            txtMUserEmail.setEditable(false);
+            txtMUserFirstName.setEditable(false);
+            txtMUserID.setEditable(false);
+            txtMUserLastName.setEditable(false);
+            txtMUserMiddleName.setEditable(false);
+            txtMUserUsername.setEditable(false);
+            cbMUserRole.setEditable(false);
+            cbMUserRole.setEnabled(false);
+            pfMUserPassword.setEditable(false);
+        }
     }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -1554,12 +1602,12 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel lblMUserAddress;
     private javax.swing.JLabel lblMUserContactNo;
     private javax.swing.JLabel lblMUserDepartment;
-    private javax.swing.JLabel lblMUserDepartment1;
     private javax.swing.JLabel lblMUserEmail;
     private javax.swing.JLabel lblMUserError;
     private javax.swing.JLabel lblMUserFirstName;
     private javax.swing.JLabel lblMUserID;
     private javax.swing.JLabel lblMUserLastName;
+    private javax.swing.JLabel lblMUserMiddleName;
     private javax.swing.JLabel lblMUserPassword;
     private javax.swing.JLabel lblMUserRole;
     private javax.swing.JLabel lblMUserUsername;
@@ -1607,11 +1655,11 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JTextField txtMUserAddress;
     private javax.swing.JTextField txtMUserContactNo;
     private javax.swing.JTextField txtMUserDepartment;
-    private javax.swing.JTextField txtMUserDepartment1;
     private javax.swing.JTextField txtMUserEmail;
     private javax.swing.JTextField txtMUserFirstName;
     private javax.swing.JTextField txtMUserID;
     private javax.swing.JTextField txtMUserLastName;
+    private javax.swing.JTextField txtMUserMiddleName;
     private javax.swing.JTextField txtMUserSearch;
     private javax.swing.JTextField txtMUserUsername;
     private javax.swing.JTextField txtRAMEndTime;
