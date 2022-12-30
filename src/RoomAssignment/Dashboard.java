@@ -580,10 +580,10 @@ public class Dashboard extends javax.swing.JFrame {
         txtRAMStartTime.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         txtRAMStartTime.setEnabled(false);
         txtRAMStartTime.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 txtRAMStartTimeInputMethodTextChanged(evt);
+            }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
 
@@ -802,13 +802,12 @@ public class Dashboard extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnRAMSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
-                    .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtRAMID, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblRAMID)
-                            .addComponent(btnRAMSave, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnRAMDeleteRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(txtRAMSearch)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtRAMID, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblRAMID)
+                        .addComponent(btnRAMSave, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnRAMDeleteRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtRAMSearch, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(18, 18, 18)
                 .addComponent(spRAMShowRoom, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
                 .addContainerGap())
@@ -858,9 +857,9 @@ public class Dashboard extends javax.swing.JFrame {
         lblMUserPassword.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         lblMUserPassword.setText("Password");
 
-        txtMUserID.setEditable(false);
         txtMUserID.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         txtMUserID.setToolTipText("UserID only allows updating and deleting of information.");
+        txtMUserID.setEnabled(false);
 
         btnMUserSave.setBackground(new java.awt.Color(218, 104, 70));
         btnMUserSave.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
@@ -1550,6 +1549,12 @@ public class Dashboard extends javax.swing.JFrame {
         pnlTabHome.setBackground(new Color(218,104,70));
         pnlTabMembers.setBackground(new Color(218,104,70));
         pnlTabAccount.setBackground(new Color(218,104,70));
+        
+        boolean ID = txtMUserID.isEnabled();
+        
+        if(ID == true){
+            MEdit();
+        }
     }
     public void MemberTab(){
         pnlMembers.setVisible(true);
@@ -1562,6 +1567,12 @@ public class Dashboard extends javax.swing.JFrame {
         pnlTabHome.setBackground(new Color(218,104,70));
         pnlTabRoomManagement.setBackground(new Color(218,104,70));
         pnlTabAccount.setBackground(new Color(218,104,70));
+        
+        boolean ID = txtRAMID.isEnabled();
+        
+        if(ID == true){
+            RAMEdit();
+        }
     }
     public void AccountTab(){
         pnlAccount.setVisible(true);
