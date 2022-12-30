@@ -30,7 +30,7 @@ public class Dashboard extends javax.swing.JFrame {
         pnlTabAccount.setBackground(new Color(218,104,70));
         
         //Rounded Corner
-        setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 20, 20));
+        setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 20, 20));        
     }
 
     /**
