@@ -15,30 +15,43 @@ import java.util.Date;
  */
 //Queries for schedules
 public class Room_Queries extends SQLConnection {
-    
-    public Room_Queries(){
+
+    public Room_Queries() {
         super();
     }
-          
-    public ResultSet getAllRoomSchedulesInformation(){
+
+    public ResultSet getAllRoomSchedulesInformation() {
         try {
             sqlStatement = sqlConnection.createStatement();
             query = "SELECT ScheduleID,Room,Subject,[Section],Teacher,DayOfTheWeek,FORMAT(CAST(StartTime AS datetime),'hh:mm tt')'StartTime',FORMAT(CAST(EndTime AS datetime),'hh:mm tt') 'EndTime' FROM TeacherSchedules";
             rs = sqlStatement.executeQuery(query);
             return rs;
         } catch (SQLException sqlex) {
-            JOptionPane.showMessageDialog(null,sqlex.toString(),"SQL Query Error!",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, sqlex.toString(), "SQL Query Error!", JOptionPane.ERROR_MESSAGE);
             return null;
-        }  
+        }
     }
-    public void insertRoomScheduleInformation(String room, String subject, String section, String teacher, String dayOfTheWeek, Date startTime, Date endTime){
+    
+      public ResultSet getRoomScheduleInformation(int ScheduleID){
         try {
             sqlStatement = sqlConnection.createStatement();
-            query = "INSERT INTO TeacherSchedules (ScheduleID,Room,Subject,[Section],Teacher,DayOfTheWeek,StartTime,EndTime) " +
-                    "VALUES ('"+room+"','"+subject+"','"+section+"','"+teacher+"','"+dayOfTheWeek+"','"+startTime+"','"+endTime+"')";
+            query = "SELECT ScheduleID,Room,Subject,[Section],Teacher,DayOfTheWeek,FORMAT(CAST(StartTime AS datetime),'hh:mm tt')'StartTime',FORMAT(CAST(EndTime AS datetime),'hh:mm tt') 'EndTime' FROM TeacherSchedules WHERE ScheduleID ="+ScheduleID+"";
             rs = sqlStatement.executeQuery(query);
+            return rs;
         } catch (SQLException sqlex) {
             JOptionPane.showMessageDialog(null,sqlex.toString(),"SQL Query Error!",JOptionPane.ERROR_MESSAGE);
+            return null;
+        }
+    }
+
+    public void insertRoomScheduleInformation(String room, String subject, String section, String teacher, String dayOfTheWeek, String startTime, String endTime) {
+        try {
+            query = "INSERT INTO TeacherSchedules (Room,Subject,[Section],Teacher,DayOfTheWeek,StartTime,EndTime) "
+                    + "VALUES ('" + room + "','" + subject + "','" + section + "','" + teacher + "','" + dayOfTheWeek + "','" + startTime + "','" + endTime + "')";
+            sqlPreparedStatement = sqlConnection.prepareStatement(query);
+            sqlPreparedStatement.executeUpdate();
+        } catch (SQLException sqlex) {
+            JOptionPane.showMessageDialog(null, sqlex.toString(), "SQL Query Error!", JOptionPane.ERROR_MESSAGE);
         }
     }
 }
