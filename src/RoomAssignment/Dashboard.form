@@ -819,7 +819,8 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
+                                      <Component id="lblRAMError" min="-2" pref="614" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Component id="lblRAMRoom" min="-2" max="-2" attributes="0"/>
@@ -877,7 +878,6 @@
                                               </Group>
                                           </Group>
                                       </Group>
-                                      <Component id="lblRAMError" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="0" pref="202" max="32767" attributes="0"/>
                               </Group>
@@ -1214,6 +1214,9 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblRAMError">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Century Gothic" size="14" style="0"/>
+                    </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="0" green="0" id="red" palette="1" red="ff" type="palette"/>
                     </Property>
@@ -1442,52 +1445,56 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="lblMUserUsername" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="lblMUserPassword" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="lblMUserRole" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="lblMUserDepartment" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="txtMUserUsername" alignment="0" min="-2" pref="259" max="-2" attributes="0"/>
+                                                      <Component id="pfMUserPassword" alignment="0" min="-2" pref="259" max="-2" attributes="0"/>
+                                                      <Component id="txtMUserDepartment" alignment="0" min="-2" pref="259" max="-2" attributes="0"/>
+                                                      <Component id="cbMUserRole" alignment="0" min="-2" pref="259" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="lblMUserFirstName" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="lblMUserLastName" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="lblMUserMiddleName" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="lblMUserEmail" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="lblMUserContactNo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="82" pref="82" max="-2" attributes="0"/>
+                                                  <Component id="cbMUserShowPassword" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                                  <Component id="btnMUserAdd" min="-2" pref="89" max="-2" attributes="0"/>
+                                                  <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                                  <Component id="btnMUserEdit" min="-2" pref="89" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <EmptySpace pref="21" max="32767" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="txtMUserContactNo" alignment="0" min="-2" pref="259" max="-2" attributes="0"/>
+                                              <Component id="txtMUserLastName" alignment="0" min="-2" pref="259" max="-2" attributes="0"/>
+                                              <Component id="txtMUserFirstName" alignment="0" min="-2" pref="259" max="-2" attributes="0"/>
+                                              <Component id="txtMUserMiddleName" alignment="0" min="-2" pref="259" max="-2" attributes="0"/>
+                                              <Component id="txtMUserEmail" alignment="0" min="-2" pref="259" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" attributes="0">
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="lblMUserUsername" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblMUserPassword" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblMUserRole" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblMUserDepartment" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="txtMUserUsername" alignment="0" min="-2" pref="259" max="-2" attributes="0"/>
-                                              <Component id="pfMUserPassword" alignment="0" min="-2" pref="259" max="-2" attributes="0"/>
-                                              <Component id="txtMUserDepartment" alignment="0" min="-2" pref="259" max="-2" attributes="0"/>
-                                              <Component id="cbMUserRole" alignment="0" min="-2" pref="259" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="lblMUserFirstName" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblMUserLastName" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblMUserMiddleName" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblMUserEmail" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblMUserContactNo" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="lblMUserError" max="32767" attributes="0"/>
                                       </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                                          <Component id="lblMUserError" min="-2" pref="360" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="82" pref="82" max="-2" attributes="0"/>
-                                          <Component id="cbMUserShowPassword" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                                          <Component id="btnMUserAdd" min="-2" pref="89" max="-2" attributes="0"/>
-                                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                          <Component id="btnMUserEdit" min="-2" pref="89" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtMUserContactNo" alignment="0" min="-2" pref="259" max="-2" attributes="0"/>
-                                      <Component id="txtMUserLastName" alignment="0" min="-2" pref="259" max="-2" attributes="0"/>
-                                      <Component id="txtMUserFirstName" alignment="0" min="-2" pref="259" max="-2" attributes="0"/>
-                                      <Component id="txtMUserMiddleName" alignment="0" min="-2" pref="259" max="-2" attributes="0"/>
-                                      <Component id="txtMUserEmail" alignment="0" min="-2" pref="259" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="lblMUserAddress" min="-2" max="-2" attributes="0"/>
@@ -1795,6 +1802,9 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblMUserError">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Century Gothic" size="14" style="0"/>
+                    </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="0" green="0" id="red" palette="1" red="ff" type="palette"/>
                     </Property>
