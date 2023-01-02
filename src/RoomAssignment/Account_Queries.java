@@ -45,7 +45,7 @@ public class Account_Queries extends SQLConnection {
      
     public void insertUserAccountInformation(String username, String password, String department, String role, String firstName, String lastName, String middleName, String email, String contactNo, String address){
         try {
-            query = "SET NOCOUNT ON INSERT INTO UserAccounts (Username,Password,Department,[Role],FirstName,LastName,MiddleName,Email,ContactNo,Address) " +
+            query = "INSERT INTO UserAccounts (Username,Password,Department,[Role],FirstName,LastName,MiddleName,Email,ContactNo,Address) " +
                     "VALUES ('"+username+"','"+password+"','"+department+"','"+role+"','"+firstName+"','"+lastName+"','"+middleName+"','"+email+"','"+contactNo+"','"+address+"')";
             sqlPreparedStatement = sqlConnection.prepareStatement(query);      
             sqlPreparedStatement.executeUpdate();
