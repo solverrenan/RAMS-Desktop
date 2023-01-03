@@ -16,5 +16,5 @@ public class Account_Validator {
     protected boolean isUserIDInputValid(String userID) {
         inputPattern = Pattern.compile("[0-9]+");// Restriction to only allow number input
         return inputPattern.matcher(userID).matches();
-    }
+    }     
 }

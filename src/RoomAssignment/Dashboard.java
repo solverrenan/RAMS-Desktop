@@ -12,6 +12,8 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.Vector;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -1503,8 +1505,12 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMUserSaveActionPerformed
 
     private void btnMUserAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMUserAddActionPerformed
-        insertUserJTable(txtMUserUsername.getText().trim(), new String(pfMUserPassword.getPassword()).trim(), txtMUserDepartment.getText().trim(), cbMUserRole.getSelectedItem().toString().trim(), txtMUserFirstName.getText().trim(), txtMUserLastName.getText().trim(), txtMUserMiddleName.getText().trim(), txtMUserEmail.getText().trim(), txtMUserContactNo.getText().trim(), txtMUserAddress.getText().trim());
-        populateUserJTable();
+        if (txtMUserUsername.getText().trim().isEmpty() || new String(pfMUserPassword.getPassword()).trim().isEmpty() || txtMUserDepartment.getText().trim().isEmpty() || txtMUserFirstName.getText().trim().isEmpty() || txtMUserLastName.getText().trim().isEmpty() || txtMUserMiddleName.getText().trim().isEmpty() || txtMUserEmail.getText().trim().isEmpty() || txtMUserContactNo.getText().trim().isEmpty() || txtMUserAddress.getText().trim().isEmpty()) {
+            lblMUserError.setText("All fields must me filled!");
+            clearErrorMessageMembers();
+        }
+        //insertUserJTable(txtMUserUsername.getText().trim(), new String(pfMUserPassword.getPassword()).trim(), txtMUserDepartment.getText().trim(), cbMUserRole.getSelectedItem().toString().trim(), txtMUserFirstName.getText().trim(), txtMUserLastName.getText().trim(), txtMUserMiddleName.getText().trim(), txtMUserEmail.getText().trim(), txtMUserContactNo.getText().trim(), txtMUserAddress.getText().trim());
+        //populateUserJTable();
     }//GEN-LAST:event_btnMUserAddActionPerformed
 
     private void cbMUserShowPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbMUserShowPasswordActionPerformed
@@ -1540,9 +1546,11 @@ public class Dashboard extends javax.swing.JFrame {
     private void btnMUserSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMUserSearchActionPerformed
         if (txtMUserSearch.getText().trim().isEmpty()) {
             lblMUserError.setText("Field for searching must not be blank!");
-        }else if (userValidation.isUserIDInputValid(txtMUserSearch.getText().trim()) == false) {
+            clearErrorMessageMembers();
+        } else if (userValidation.isUserIDInputValid(txtMUserSearch.getText().trim()) == false) {
             lblMUserError.setText("Field for searching must only contain numbers!");
-        }else {
+            clearErrorMessageMembers();
+        } else {
             searchUserJTable(Integer.parseInt(txtMUserSearch.getText().trim()));
         }
     }//GEN-LAST:event_btnMUserSearchActionPerformed
@@ -1550,9 +1558,11 @@ public class Dashboard extends javax.swing.JFrame {
     private void btnRAMSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRAMSearchActionPerformed
         if (txtRAMSearch.getText().trim().isEmpty()) {
             lblRAMError.setText("Field for searching must not be blank!");
-        }else if (roomValidation.isScheduleIDInputValid(txtRAMSearch.getText().trim()) == false) {
+            clearErrorMessageRAM();
+        } else if (roomValidation.isScheduleIDInputValid(txtRAMSearch.getText().trim()) == false) {
             lblRAMError.setText("Field for searching must only contain numbers!");
-        }else {
+            clearErrorMessageRAM();
+        } else {
             searchRoomJTable(Integer.parseInt(txtRAMSearch.getText().trim()));
         }
     }//GEN-LAST:event_btnRAMSearchActionPerformed
@@ -1576,6 +1586,29 @@ public class Dashboard extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    // Clears error message after 3 seconds in members panel
+    private void clearErrorMessageMembers() {
+        Timer errorClearTimer = new Timer();
+        TimerTask errorClearDelay = new TimerTask() {
+            @Override
+            public void run() {
+                lblMUserError.setText("");
+            }
+        };
+        errorClearTimer.schedule(errorClearDelay, 3000);
+    }
+    // Clears error message after 3 seconds in RAM panel
+    private void clearErrorMessageRAM() {
+        Timer errorClearTimer = new Timer();
+        TimerTask errorClearDelay = new TimerTask() {
+            @Override
+            public void run() {
+                lblRAMError.setText("");
+            }
+        };
+        errorClearTimer.schedule(errorClearDelay, 3000);
+    }
+
     // Displays all records of users within the database
     private void populateUserJTable() {
         try {
