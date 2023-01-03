@@ -6,15 +6,18 @@
 package RoomAssignment;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.geom.RoundRectangle2D;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Timer;
-import java.util.TimerTask;
+import javax.swing.Timer;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -36,6 +39,7 @@ public class Dashboard extends javax.swing.JFrame {
     ResultSet tblData;
     DefaultTableModel tblModel;
     Vector<Object> tblRowData;
+    Timer clearErrorTimer;
 
     public Dashboard() {
         initComponents();
@@ -1588,25 +1592,28 @@ public class Dashboard extends javax.swing.JFrame {
      */
     // Clears error message after 3 seconds in members panel
     private void clearErrorMessageMembers() {
-        Timer errorClearTimer = new Timer();
-        TimerTask errorClearDelay = new TimerTask() {
+        clearErrorTimer = new Timer(3000, new ActionListener() {
             @Override
-            public void run() {
+            public void actionPerformed(ActionEvent e) {
                 lblMUserError.setText("");
+                clearErrorTimer.stop();
             }
-        };
-        errorClearTimer.schedule(errorClearDelay, 3000);
+        });
+        clearErrorTimer.setRepeats(false);
+        clearErrorTimer.start();     
     }
+
     // Clears error message after 3 seconds in RAM panel
     private void clearErrorMessageRAM() {
-        Timer errorClearTimer = new Timer();
-        TimerTask errorClearDelay = new TimerTask() {
+        clearErrorTimer = new Timer(3000, new ActionListener() {
             @Override
-            public void run() {
+            public void actionPerformed(ActionEvent e) {
                 lblRAMError.setText("");
+                clearErrorTimer.stop();
             }
-        };
-        errorClearTimer.schedule(errorClearDelay, 3000);
+        });
+        clearErrorTimer.setRepeats(false);
+        clearErrorTimer.start();     
     }
 
     // Displays all records of users within the database
