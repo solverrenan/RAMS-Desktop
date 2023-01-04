@@ -16,8 +16,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.Timer;
 import java.util.Vector;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -1512,9 +1510,22 @@ public class Dashboard extends javax.swing.JFrame {
         if (txtMUserUsername.getText().trim().isEmpty() || new String(pfMUserPassword.getPassword()).trim().isEmpty() || txtMUserDepartment.getText().trim().isEmpty() || txtMUserFirstName.getText().trim().isEmpty() || txtMUserLastName.getText().trim().isEmpty() || txtMUserMiddleName.getText().trim().isEmpty() || txtMUserEmail.getText().trim().isEmpty() || txtMUserContactNo.getText().trim().isEmpty() || txtMUserAddress.getText().trim().isEmpty()) {
             lblMUserError.setText("All fields must me filled!");
             clearErrorMessageMembers();
+        } else if (userValidation.isUsernameExisting(txtMUserUsername.getText().trim()) == true) {
+            lblMUserError.setText("Username already exists!");
+            clearErrorMessageMembers();
+        } else if (userValidation.isDepartmentInputValid(txtMUserDepartment.getText().trim()) == false) {
+            lblMUserError.setText("Department field must only contain letters with no spaces in between letters!");
+            clearErrorMessageMembers();
+        } else if (userValidation.isNameInputValid(txtMUserFirstName.getText().trim(), txtMUserLastName.getText().trim(), txtMUserMiddleName.getText().trim()) == false) {
+            lblMUserError.setText("Name fields must only contain letters with no spaces in between letters!");
+            clearErrorMessageMembers();
+        } else if (userValidation.isNameExisting(txtMUserFirstName.getText().trim(), txtMUserLastName.getText().trim(), txtMUserMiddleName.getText().trim()) == true) {
+            lblMUserError.setText("Name already exists!");
+            clearErrorMessageMembers();
+        } else {
+            //insertUserJTable(txtMUserUsername.getText().trim(), new String(pfMUserPassword.getPassword()).trim(), txtMUserDepartment.getText().trim(), cbMUserRole.getSelectedItem().toString().trim(), txtMUserFirstName.getText().trim(), txtMUserLastName.getText().trim(), txtMUserMiddleName.getText().trim(), txtMUserEmail.getText().trim(), txtMUserContactNo.getText().trim(), txtMUserAddress.getText().trim());
+            //populateUserJTable();
         }
-        //insertUserJTable(txtMUserUsername.getText().trim(), new String(pfMUserPassword.getPassword()).trim(), txtMUserDepartment.getText().trim(), cbMUserRole.getSelectedItem().toString().trim(), txtMUserFirstName.getText().trim(), txtMUserLastName.getText().trim(), txtMUserMiddleName.getText().trim(), txtMUserEmail.getText().trim(), txtMUserContactNo.getText().trim(), txtMUserAddress.getText().trim());
-        //populateUserJTable();
     }//GEN-LAST:event_btnMUserAddActionPerformed
 
     private void cbMUserShowPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbMUserShowPasswordActionPerformed
@@ -1600,7 +1611,7 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
         clearErrorTimer.setRepeats(false);
-        clearErrorTimer.start();     
+        clearErrorTimer.start();
     }
 
     // Clears error message after 3 seconds in RAM panel
@@ -1613,7 +1624,7 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
         clearErrorTimer.setRepeats(false);
-        clearErrorTimer.start();     
+        clearErrorTimer.start();
     }
 
     // Displays all records of users within the database
