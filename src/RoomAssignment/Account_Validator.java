@@ -45,14 +45,16 @@ public class Account_Validator {
     
     protected boolean isNameInputValid(String firstName, String lastName, String middleName) {
         inputPattern = Pattern.compile("[a-zA-Z]+");// Restriction to only allow alphabet input
-        return inputPattern.matcher(firstName).matches() == true && inputPattern.matcher(lastName).matches() == true && inputPattern.matcher(middleName).matches() == true;
+        return inputPattern.matcher(firstName).matches() && inputPattern.matcher(lastName).matches() && inputPattern.matcher(middleName).matches();
     }
     
     protected boolean isNameExisting(String firstName, String lastName, String middleName) {
             tblData = userData.getAllUserAccountsInformation();
         try {
             while (tblData.next()) {
-                return firstName.equals(tblData.getString(6)) && lastName.equals(tblData.getString(7))  && middleName.equals(tblData.getString(8));                  
+                if (firstName.equalsIgnoreCase(tblData.getString(6)) == true && lastName.equalsIgnoreCase(tblData.getString(7)) == true && middleName.equalsIgnoreCase(tblData.getString(8)) == true) {
+                    return true;
+                }
             }
         } catch (SQLException sqlex) {
             JOptionPane.showMessageDialog(null, sqlex.toString(), "SQL Query Error!", JOptionPane.ERROR_MESSAGE);
