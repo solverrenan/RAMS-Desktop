@@ -93,11 +93,11 @@ public class Dashboard extends javax.swing.JFrame {
         txtRAMRoom = new javax.swing.JTextField();
         cbRAMDayOfTheWeek = new javax.swing.JComboBox<>();
         lblRAMTeacher = new javax.swing.JLabel();
-        txtRAMTeacher = new javax.swing.JTextField();
         btnRAMEdit = new javax.swing.JButton();
         txtRAMSearch = new javax.swing.JTextField();
         btnRAMSearch = new javax.swing.JButton();
         btnRAMViewAll = new javax.swing.JButton();
+        txtRAMTeacher = new javax.swing.JComboBox<>();
         pnlMembers = new javax.swing.JPanel();
         lblMMember = new javax.swing.JLabel();
         pnlMViewUser = new javax.swing.JPanel();
@@ -684,9 +684,6 @@ public class Dashboard extends javax.swing.JFrame {
         lblRAMTeacher.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         lblRAMTeacher.setText("Teacher");
 
-        txtRAMTeacher.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        txtRAMTeacher.setEnabled(false);
-
         btnRAMEdit.setBackground(new java.awt.Color(218, 104, 70));
         btnRAMEdit.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         btnRAMEdit.setForeground(new java.awt.Color(51, 51, 51));
@@ -727,6 +724,9 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
+        txtRAMTeacher.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtRAMTeacher.setEnabled(false);
+
         javax.swing.GroupLayout pnlRAMScheduleLayout = new javax.swing.GroupLayout(pnlRAMSchedule);
         pnlRAMSchedule.setLayout(pnlRAMScheduleLayout);
         pnlRAMScheduleLayout.setHorizontalGroup(
@@ -738,40 +738,45 @@ public class Dashboard extends javax.swing.JFrame {
                     .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
                         .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
-                                .addComponent(lblRAMRoom)
-                                .addGap(40, 40, 40)
-                                .addComponent(txtRAMRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
+                                        .addComponent(lblRAMRoom)
+                                        .addGap(40, 40, 40)
+                                        .addComponent(txtRAMRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
+                                        .addComponent(lblRAMSubject)
+                                        .addGap(31, 31, 31)
+                                        .addComponent(txtRAMSubject, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
+                                        .addComponent(lblRAMSection)
+                                        .addGap(31, 31, 31)
+                                        .addComponent(txtRAMSection, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(18, 18, 18)
+                                .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblRAMTeacher)
+                                    .addComponent(lblRAMDayOfTheWeek)
+                                    .addComponent(lblRAMStartTime)
+                                    .addComponent(lblRAMEndTime))
+                                .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
+                                        .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(txtRAMEndTime, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
+                                                .addGap(4, 4, 4)
+                                                .addComponent(txtRAMStartTime, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(6, 6, 6)
+                                        .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(btnRAMEndTime)
+                                            .addComponent(btnRAMStartTime)))
+                                    .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
+                                        .addGap(4, 4, 4)
+                                        .addComponent(txtRAMTeacher, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
-                                .addComponent(lblRAMSubject)
-                                .addGap(31, 31, 31)
-                                .addComponent(txtRAMSubject, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
-                                .addComponent(lblRAMSection)
-                                .addGap(31, 31, 31)
-                                .addComponent(txtRAMSection, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblRAMTeacher)
-                            .addComponent(lblRAMDayOfTheWeek)
-                            .addComponent(lblRAMStartTime)
-                            .addComponent(lblRAMEndTime))
-                        .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtRAMEndTime, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
-                                .addGap(4, 4, 4)
-                                .addComponent(txtRAMStartTime, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(6, 6, 6)
-                        .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnRAMEndTime)
-                            .addComponent(btnRAMStartTime))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
-                        .addGap(391, 391, 391)
-                        .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbRAMDayOfTheWeek, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtRAMTeacher, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGap(391, 391, 391)
+                                .addComponent(cbRAMDayOfTheWeek, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -792,21 +797,19 @@ public class Dashboard extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnRAMSave, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnRAMDeleteRoom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnRAMDeleteRoom, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE))
                     .addComponent(spRAMShowRoom))
                 .addContainerGap())
         );
         pnlRAMScheduleLayout.setVerticalGroup(
             pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
-                .addGap(11, 11, 11)
                 .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
-                        .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtRAMTeacher, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
-                                .addGap(3, 3, 3)
-                                .addComponent(lblRAMTeacher)))
+                        .addGap(11, 11, 11)
+                        .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblRAMTeacher)
+                            .addComponent(txtRAMTeacher, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(6, 6, 6)
                         .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(cbRAMDayOfTheWeek, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -828,7 +831,7 @@ public class Dashboard extends javax.swing.JFrame {
                                 .addGap(3, 3, 3)
                                 .addComponent(lblRAMEndTime))))
                     .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
-                        .addGap(3, 3, 3)
+                        .addGap(14, 14, 14)
                         .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtRAMRoom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
@@ -1910,6 +1913,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JTextField txtRAMSection;
     private javax.swing.JTextField txtRAMStartTime;
     private javax.swing.JTextField txtRAMSubject;
-    private javax.swing.JTextField txtRAMTeacher;
+    private javax.swing.JComboBox<String> txtRAMTeacher;
     // End of variables declaration//GEN-END:variables
 }

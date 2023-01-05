@@ -873,52 +873,61 @@
                               <Component id="lblRAMError" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="lblRAMRoom" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
-                                          <Component id="txtRAMRoom" min="-2" pref="200" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="lblRAMRoom" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
+                                                  <Component id="txtRAMRoom" min="-2" pref="200" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="lblRAMSubject" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="31" pref="31" max="-2" attributes="0"/>
+                                                  <Component id="txtRAMSubject" min="-2" pref="200" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="lblRAMSection" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="31" pref="31" max="-2" attributes="0"/>
+                                                  <Component id="txtRAMSection" min="-2" pref="200" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="lblRAMTeacher" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblRAMDayOfTheWeek" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblRAMStartTime" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblRAMEndTime" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                                                          <Component id="txtRAMEndTime" min="-2" pref="200" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                                                          <Component id="txtRAMStartTime" min="-2" pref="200" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                                  <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="btnRAMEndTime" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="btnRAMStartTime" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                                                  <Component id="txtRAMTeacher" min="-2" pref="200" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
                                       </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="lblRAMSubject" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="31" pref="31" max="-2" attributes="0"/>
-                                          <Component id="txtRAMSubject" min="-2" pref="200" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="391" pref="391" max="-2" attributes="0"/>
+                                          <Component id="cbRAMDayOfTheWeek" min="-2" pref="200" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="lblRAMSection" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="31" pref="31" max="-2" attributes="0"/>
-                                          <Component id="txtRAMSection" min="-2" pref="200" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblRAMTeacher" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblRAMDayOfTheWeek" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblRAMStartTime" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblRAMEndTime" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtRAMEndTime" min="-2" pref="200" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                                          <Component id="txtRAMStartTime" min="-2" pref="200" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="btnRAMEndTime" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnRAMStartTime" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="391" pref="391" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="cbRAMDayOfTheWeek" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                                      <Component id="txtRAMTeacher" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                                  </Group>
                               </Group>
                           </Group>
                       </Group>
@@ -943,7 +952,7 @@
                                   <EmptySpace min="-2" max="-2" attributes="0"/>
                                   <Component id="btnRAMSave" min="-2" pref="70" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btnRAMDeleteRoom" max="32767" attributes="0"/>
+                                  <Component id="btnRAMDeleteRoom" pref="89" max="32767" attributes="0"/>
                               </Group>
                               <Component id="spRAMShowRoom" alignment="0" max="32767" attributes="0"/>
                           </Group>
@@ -954,17 +963,14 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtRAMTeacher" min="-2" max="-2" attributes="0"/>
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
-                                          <Component id="lblRAMTeacher" min="-2" max="-2" attributes="0"/>
-                                      </Group>
+                                  <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="lblRAMTeacher" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtRAMTeacher" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="cbRAMDayOfTheWeek" min="-2" max="-2" attributes="0"/>
                                       <Group type="102" attributes="0">
@@ -992,7 +998,7 @@
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="txtRAMRoom" min="-2" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
@@ -1348,14 +1354,6 @@
                     <Property name="text" type="java.lang.String" value="Teacher"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtRAMTeacher">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Century Gothic" size="12" style="0"/>
-                    </Property>
-                    <Property name="enabled" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
                 <Component class="javax.swing.JButton" name="btnRAMEdit">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -1429,6 +1427,20 @@
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRAMViewAllActionPerformed"/>
                   </Events>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="txtRAMTeacher">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Century Gothic" size="12" style="0"/>
+                    </Property>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="0"/>
+                    </Property>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
