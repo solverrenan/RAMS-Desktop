@@ -1482,8 +1482,23 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRAMSaveActionPerformed
 
     private void btnRAMAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRAMAddActionPerformed
-        insertRoomJTable(txtRAMRoom.getText().trim(), txtRAMSubject.getText().trim(), txtRAMSection.getText().trim(), txtRAMTeacher.getText().trim(), cbRAMDayOfTheWeek.getSelectedItem().toString().trim(), tpRAMStartTime.getSelectedTime(), tpRAMEndTime.getSelectedTime());
-        populateRoomJTable();
+        if (txtRAMRoom.getText().trim().isEmpty() || txtRAMSubject.getText().trim().isEmpty() || txtRAMSection.getText().trim().isEmpty() || txtRAMTeacher.getText().trim().isEmpty() || txtRAMStartTime.getText().trim().isEmpty() || txtRAMEndTime.getText().trim().isEmpty()) {
+            lblRAMError.setText("All fields must be filled!");
+            clearErrorMessageRAM();
+        } else if (roomValidation.isRoomInputValid(txtRAMRoom.getText().trim()) == false) {
+            lblRAMError.setText("Room field must only contain letters and numbers!");
+            clearErrorMessageRAM();
+        } else if (roomValidation.isSubjectInputValid(txtRAMSubject.getText().trim()) == false) {
+            lblRAMError.setText("Subject field must only contain letters and numbers!");
+            clearErrorMessageRAM();
+        } else if (roomValidation.isSectionInputValid(txtRAMSection.getText().trim()) == false) {
+            lblRAMError.setText("Section field must only contain uppercase letters and numbers!");
+            clearErrorMessageRAM();
+        }
+        else {
+            //insertRoomJTable(txtRAMRoom.getText().trim(), txtRAMSubject.getText().trim(), txtRAMSection.getText().trim(), txtRAMTeacher.getText().trim(), cbRAMDayOfTheWeek.getSelectedItem().toString().trim(), tpRAMStartTime.getSelectedTime(), tpRAMEndTime.getSelectedTime());
+            //populateRoomJTable();
+        }
     }//GEN-LAST:event_btnRAMAddActionPerformed
 
     private void btnRAMStartTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRAMStartTimeActionPerformed
@@ -1517,14 +1532,26 @@ public class Dashboard extends javax.swing.JFrame {
             lblMUserError.setText("Department field must only contain letters with no spaces in between letters!");
             clearErrorMessageMembers();
         } else if (userValidation.isNameInputValid(txtMUserFirstName.getText().trim(), txtMUserLastName.getText().trim(), txtMUserMiddleName.getText().trim()) == false) {
-            lblMUserError.setText("Name fields must only contain letters with no spaces in between letters!");
+            lblMUserError.setText("Name fields must only contain letters with only one spacing between letters!");
             clearErrorMessageMembers();
         } else if (userValidation.isNameExisting(txtMUserFirstName.getText().trim(), txtMUserLastName.getText().trim(), txtMUserMiddleName.getText().trim()) == true) {
             lblMUserError.setText("Name already exists!");
             clearErrorMessageMembers();
+        } else if (userValidation.isEmailInputValid(txtMUserEmail.getText().trim()) == false) {
+            lblMUserError.setText("Invalid email format!");
+            clearErrorMessageMembers();
+        } else if (userValidation.isEmailExisting(txtMUserEmail.getText().trim()) == true) {
+            lblMUserError.setText("Email already exists!");
+            clearErrorMessageMembers();
+        } else if (userValidation.isContactNoInputValid(txtMUserContactNo.getText().trim()) == false) {
+            lblMUserError.setText("Contact no. field must only contain numbers and must have 11 digits exact!");
+            clearErrorMessageMembers();
+        } else if (userValidation.isContactNoExisting(txtMUserContactNo.getText().trim()) == true) {
+            lblMUserError.setText("Contact No. already exists!");
+            clearErrorMessageMembers();
         } else {
-            //insertUserJTable(txtMUserUsername.getText().trim(), new String(pfMUserPassword.getPassword()).trim(), txtMUserDepartment.getText().trim(), cbMUserRole.getSelectedItem().toString().trim(), txtMUserFirstName.getText().trim(), txtMUserLastName.getText().trim(), txtMUserMiddleName.getText().trim(), txtMUserEmail.getText().trim(), txtMUserContactNo.getText().trim(), txtMUserAddress.getText().trim());
-            //populateUserJTable();
+            insertUserJTable(txtMUserUsername.getText().trim(), new String(pfMUserPassword.getPassword()).trim(), txtMUserDepartment.getText().trim(), cbMUserRole.getSelectedItem().toString().trim(), txtMUserFirstName.getText().trim(), txtMUserLastName.getText().trim(), txtMUserMiddleName.getText().trim(), txtMUserEmail.getText().trim(), txtMUserContactNo.getText().trim(), txtMUserAddress.getText().trim());
+            populateUserJTable();
         }
     }//GEN-LAST:event_btnMUserAddActionPerformed
 
@@ -1766,8 +1793,8 @@ public class Dashboard extends javax.swing.JFrame {
         pnlTabRoomManagement.setBackground(new Color(247, 246, 220));
         pnlTabHome.setBackground(new Color(218, 104, 70));
         pnlTabMembers.setBackground(new Color(218, 104, 70));
-        pnlTabAccount.setBackground(new Color(218, 104, 70));
-
+        pnlTabAccount.setBackground(new Color(218, 104, 70));   
+        
         boolean ID = txtMUserID.isEnabled();
 
         if (ID == true) {

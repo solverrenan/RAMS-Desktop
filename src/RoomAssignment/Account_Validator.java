@@ -28,28 +28,28 @@ public class Account_Validator {
         tblData = userData.getAllUserAccountsInformation();
         try {
             while (tblData.next()) {
-                if(username.equals(tblData.getString(2))) {
+                if (username.equals(tblData.getString(2))) {
                     return true;
-                }                  
+                }
             }
         } catch (SQLException sqlex) {
             JOptionPane.showMessageDialog(null, sqlex.toString(), "SQL Query Error!", JOptionPane.ERROR_MESSAGE);
         }
         return false;
     }
-    
+
     protected boolean isDepartmentInputValid(String department) {
         inputPattern = Pattern.compile("[a-zA-Z]+");// Restriction to only allow alphabet input
         return inputPattern.matcher(department).matches();
     }
-    
+
     protected boolean isNameInputValid(String firstName, String lastName, String middleName) {
-        inputPattern = Pattern.compile("[a-zA-Z]+");// Restriction to only allow alphabet input
+        inputPattern = Pattern.compile("^[a-zA-Z_]+( [a-zA-Z_]+)*$");// Restriction to only allow alphabet input
         return inputPattern.matcher(firstName).matches() && inputPattern.matcher(lastName).matches() && inputPattern.matcher(middleName).matches();
     }
-    
+
     protected boolean isNameExisting(String firstName, String lastName, String middleName) {
-            tblData = userData.getAllUserAccountsInformation();
+        tblData = userData.getAllUserAccountsInformation();
         try {
             while (tblData.next()) {
                 if (firstName.equalsIgnoreCase(tblData.getString(6)) == true && lastName.equalsIgnoreCase(tblData.getString(7)) == true && middleName.equalsIgnoreCase(tblData.getString(8)) == true) {
@@ -61,4 +61,43 @@ public class Account_Validator {
         }
         return false;
     }
+
+    protected boolean isEmailInputValid(String email) {
+        inputPattern = Pattern.compile("^[a-zA-Z0-9_!#$%&amp;'*+/=?`{|}~^-]+(?:\\.[a-zA-Z0-9_!#$%&amp;'*+/=?`{|}~^-]+)*@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$");// Restriction for valid email format input
+        return inputPattern.matcher(email).matches();
+    }
+
+    protected boolean isEmailExisting(String email) {
+        tblData = userData.getAllUserAccountsInformation();
+        try {
+            while (tblData.next()) {
+                if (email.equalsIgnoreCase(tblData.getString(9))) {
+                    return true;
+                }
+            }
+        } catch (SQLException sqlex) {
+            JOptionPane.showMessageDialog(null, sqlex.toString(), "SQL Query Error!", JOptionPane.ERROR_MESSAGE);
+        }
+        return false;
+    }
+
+    protected boolean isContactNoInputValid(String contactNo) {
+        inputPattern = Pattern.compile("^\\d{11}$");// Restriction for valid contact no. format input
+        return inputPattern.matcher(contactNo).matches();
+    }
+
+    protected boolean isContactNoExisting(String contactNo) {
+        tblData = userData.getAllUserAccountsInformation();
+        try {
+            while (tblData.next()) {
+                if (contactNo.equals(tblData.getString(10))) {
+                    return true;
+                }
+            }
+        } catch (SQLException sqlex) {
+            JOptionPane.showMessageDialog(null, sqlex.toString(), "SQL Query Error!", JOptionPane.ERROR_MESSAGE);
+        }
+        return false;
+    }
+
 }
