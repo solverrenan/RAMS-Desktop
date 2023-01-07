@@ -7,6 +7,7 @@ package RoomAssignment;
 
 import java.awt.Color;
 import java.awt.geom.RoundRectangle2D;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,6 +19,7 @@ public class View_Schedule extends javax.swing.JFrame {
     /**
      * Creates new form View_Schedule
      */
+    private int mouseX,mouseY;
     public View_Schedule() {
         initComponents();
         
@@ -38,6 +40,7 @@ public class View_Schedule extends javax.swing.JFrame {
         pnlNavigatorBar = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         lblInfo = new javax.swing.JLabel();
+        lblMinimize = new javax.swing.JLabel();
         lblLogout = new javax.swing.JLabel();
         lblWelcome = new javax.swing.JLabel();
         lblNotice = new javax.swing.JLabel();
@@ -79,6 +82,16 @@ public class View_Schedule extends javax.swing.JFrame {
 
         pnlNavigatorBar.setBackground(new java.awt.Color(205, 203, 214));
         pnlNavigatorBar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        pnlNavigatorBar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                pnlNavigatorBarMouseDragged(evt);
+            }
+        });
+        pnlNavigatorBar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                pnlNavigatorBarMousePressed(evt);
+            }
+        });
 
         lblTitle.setFont(new java.awt.Font("Copperplate Gothic Bold", 3, 12)); // NOI18N
         lblTitle.setText("Room Assignment & Management | View Schedule");
@@ -88,6 +101,14 @@ public class View_Schedule extends javax.swing.JFrame {
         lblInfo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblInfoMouseClicked(evt);
+            }
+        });
+
+        lblMinimize.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblMinimize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RoomAssignment/image/minimize.png"))); // NOI18N
+        lblMinimize.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblMinimizeMouseClicked(evt);
             }
         });
 
@@ -106,20 +127,26 @@ public class View_Schedule extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlNavigatorBarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblTitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 483, Short.MAX_VALUE)
                 .addComponent(lblInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblMinimize, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         pnlNavigatorBarLayout.setVerticalGroup(
             pnlNavigatorBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblMinimize, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(pnlNavigatorBarLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblTitle)
+                .addContainerGap()
+                .addGroup(pnlNavigatorBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlNavigatorBarLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(lblTitle))
+                    .addComponent(lblLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
-            .addComponent(lblLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(lblInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pnlViewSchedule.add(pnlNavigatorBar);
@@ -179,7 +206,6 @@ public class View_Schedule extends javax.swing.JFrame {
         txtMiddleName.setForeground(java.awt.Color.white);
         txtMiddleName.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
         txtMiddleName.setFocusable(false);
-        txtMiddleName.setOpaque(false);
         pnlYourInformation.add(txtMiddleName);
         txtMiddleName.setBounds(100, 88, 251, 17);
 
@@ -189,7 +215,6 @@ public class View_Schedule extends javax.swing.JFrame {
         txtFirstName.setForeground(java.awt.Color.white);
         txtFirstName.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
         txtFirstName.setFocusable(false);
-        txtFirstName.setOpaque(false);
         pnlYourInformation.add(txtFirstName);
         txtFirstName.setBounds(100, 60, 251, 17);
 
@@ -199,7 +224,6 @@ public class View_Schedule extends javax.swing.JFrame {
         txtUsername.setForeground(java.awt.Color.white);
         txtUsername.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
         txtUsername.setFocusable(false);
-        txtUsername.setOpaque(false);
         pnlYourInformation.add(txtUsername);
         txtUsername.setBounds(100, 32, 251, 17);
 
@@ -209,7 +233,6 @@ public class View_Schedule extends javax.swing.JFrame {
         txtLastName.setForeground(java.awt.Color.white);
         txtLastName.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
         txtLastName.setFocusable(false);
-        txtLastName.setOpaque(false);
         pnlYourInformation.add(txtLastName);
         txtLastName.setBounds(100, 116, 251, 17);
 
@@ -219,7 +242,6 @@ public class View_Schedule extends javax.swing.JFrame {
         txtDepartment.setForeground(java.awt.Color.white);
         txtDepartment.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
         txtDepartment.setFocusable(false);
-        txtDepartment.setOpaque(false);
         pnlYourInformation.add(txtDepartment);
         txtDepartment.setBounds(99, 144, 251, 17);
 
@@ -235,7 +257,6 @@ public class View_Schedule extends javax.swing.JFrame {
         txtEmail.setForeground(java.awt.Color.white);
         txtEmail.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
         txtEmail.setFocusable(false);
-        txtEmail.setOpaque(false);
         pnlYourInformation.add(txtEmail);
         txtEmail.setBounds(433, 32, 251, 17);
 
@@ -251,7 +272,6 @@ public class View_Schedule extends javax.swing.JFrame {
         txtContact.setForeground(java.awt.Color.white);
         txtContact.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
         txtContact.setFocusable(false);
-        txtContact.setOpaque(false);
         pnlYourInformation.add(txtContact);
         txtContact.setBounds(433, 60, 251, 17);
 
@@ -267,7 +287,6 @@ public class View_Schedule extends javax.swing.JFrame {
         txtAddress.setForeground(java.awt.Color.white);
         txtAddress.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
         txtAddress.setFocusable(false);
-        txtAddress.setOpaque(false);
         pnlYourInformation.add(txtAddress);
         txtAddress.setBounds(434, 88, 251, 17);
 
@@ -286,7 +305,7 @@ public class View_Schedule extends javax.swing.JFrame {
             }
         });
         pnlYourInformation.add(jButton1);
-        jButton1.setBounds(793, 20, 150, 25);
+        jButton1.setBounds(793, 20, 150, 23);
 
         pnlViewSchedule.add(pnlYourInformation);
         pnlYourInformation.setBounds(10, 128, 960, 200);
@@ -375,15 +394,6 @@ public class View_Schedule extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lblLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLogoutMouseClicked
-        int option = JOptionPane.showConfirmDialog(null, "Are you sure to logout?", "Logout", JOptionPane.YES_NO_OPTION);
-        if(option == JOptionPane.YES_OPTION){
-            Signin_Signout ss = new Signin_Signout();
-            ss.show();
-            this.dispose();
-        }
-    }//GEN-LAST:event_lblLogoutMouseClicked
-
     private void lblInfoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblInfoMouseClicked
         JOptionPane.showMessageDialog(null, "Contact our administration for wrong information. For conflict schedule,\ncontact the head program.\nAdmin: admin@laspinas.sti.edu.ph\nHead: head@laspinas.sti.edu.ph");
     }//GEN-LAST:event_lblInfoMouseClicked
@@ -392,6 +402,25 @@ public class View_Schedule extends javax.swing.JFrame {
         Change_Password cp = new Change_Password();
         cp.show();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void lblLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLogoutMouseClicked
+        Signin_Signout ss = new Signin_Signout();
+        ss.show();
+        this.dispose();
+    }//GEN-LAST:event_lblLogoutMouseClicked
+
+    private void lblMinimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMinimizeMouseClicked
+       setState(JFrame.ICONIFIED);
+    }//GEN-LAST:event_lblMinimizeMouseClicked
+
+    private void pnlNavigatorBarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlNavigatorBarMousePressed
+        mouseX = evt.getX();
+        mouseY = evt.getY();
+    }//GEN-LAST:event_pnlNavigatorBarMousePressed
+
+    private void pnlNavigatorBarMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlNavigatorBarMouseDragged
+        this.setLocation(this.getX() + evt.getX() - mouseX, this.getY() + evt.getY() - mouseY);
+    }//GEN-LAST:event_pnlNavigatorBarMouseDragged
 
     /**
      * @param args the command line arguments
@@ -442,6 +471,7 @@ public class View_Schedule extends javax.swing.JFrame {
     private javax.swing.JLabel lblLastName;
     private javax.swing.JLabel lblLogout;
     private javax.swing.JLabel lblMiddleName;
+    private javax.swing.JLabel lblMinimize;
     private javax.swing.JLabel lblNotice;
     private javax.swing.JLabel lblSearch;
     private javax.swing.JLabel lblTitle;

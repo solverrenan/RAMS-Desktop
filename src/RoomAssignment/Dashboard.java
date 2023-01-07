@@ -6,6 +6,7 @@
 package RoomAssignment;
 
 import java.awt.Color;
+import java.awt.Toolkit;
 import java.awt.geom.RoundRectangle2D;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -42,6 +43,7 @@ public class Dashboard extends javax.swing.JFrame {
         DefaultTab();
         populateUserJTable();
         populateRoomJTable();
+        
         //Rounded Corner
         setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 20, 20));
     }
@@ -114,7 +116,7 @@ public class Dashboard extends javax.swing.JFrame {
         txtRAMSearch = new javax.swing.JTextField();
         btnRAMSearch = new javax.swing.JButton();
         btnRAMViewAll = new javax.swing.JButton();
-        txtRAMTeacher = new javax.swing.JComboBox<>();
+        cbRAMTeacher = new javax.swing.JComboBox<>();
         cbRAMUpdateTeacher = new javax.swing.JCheckBox();
         cbRAMUpdateDayOfTheWeek = new javax.swing.JCheckBox();
         pnlMembers = new javax.swing.JPanel();
@@ -373,7 +375,7 @@ public class Dashboard extends javax.swing.JFrame {
             .addGroup(pnlTabLeftLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(lblRoomMangementSystem)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
         pnlTabLeftLayout.setVerticalGroup(
             pnlTabLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -540,7 +542,7 @@ public class Dashboard extends javax.swing.JFrame {
                         .addComponent(pnlHomeCreatedSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(pnlHomeCreatedAccount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 183, Short.MAX_VALUE))))
+                        .addGap(0, 187, Short.MAX_VALUE))))
         );
         pnlHomeLayout.setVerticalGroup(
             pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -754,14 +756,19 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        txtRAMTeacher.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        txtRAMTeacher.setEnabled(false);
+        cbRAMTeacher.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        cbRAMTeacher.setEnabled(false);
 
         cbRAMUpdateTeacher.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         cbRAMUpdateTeacher.setText("Update Teacher?");
 
         cbRAMUpdateDayOfTheWeek.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         cbRAMUpdateDayOfTheWeek.setText("Update Day of the Week?");
+        cbRAMUpdateDayOfTheWeek.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbRAMUpdateDayOfTheWeekActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlRAMScheduleLayout = new javax.swing.GroupLayout(pnlRAMSchedule);
         pnlRAMSchedule.setLayout(pnlRAMScheduleLayout);
@@ -795,7 +802,7 @@ public class Dashboard extends javax.swing.JFrame {
                             .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
                                 .addGap(4, 4, 4)
                                 .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtRAMTeacher, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cbRAMTeacher, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(cbRAMDayOfTheWeek, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
                                 .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -809,11 +816,6 @@ public class Dashboard extends javax.swing.JFrame {
                                 .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnRAMEndTime)
                                     .addComponent(btnRAMStartTime))))
-                        .addGap(25, 25, 25)
-                        .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnRAMSave, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbRAMUpdateDayOfTheWeek)
-                            .addComponent(cbRAMUpdateTeacher))
                         .addContainerGap())))
             .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
                 .addContainerGap()
@@ -821,10 +823,6 @@ public class Dashboard extends javax.swing.JFrame {
                     .addComponent(spRAMShowRoom)
                     .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
                         .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
-                                .addComponent(btnRAMAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnRAMEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
                                 .addComponent(txtRAMSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -834,9 +832,19 @@ public class Dashboard extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(lblRAMID)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtRAMID, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtRAMID, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
+                                .addComponent(btnRAMAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnRAMDeleteRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btnRAMEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
+                                .addComponent(btnRAMSave, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnRAMDeleteRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cbRAMUpdateDayOfTheWeek)
+                            .addComponent(cbRAMUpdateTeacher))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -845,28 +853,24 @@ public class Dashboard extends javax.swing.JFrame {
             .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
                 .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
+                        .addGap(11, 11, 11)
                         .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblRAMTeacher)
-                            .addComponent(txtRAMTeacher, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbRAMUpdateTeacher))
-                        .addGap(3, 3, 3)
+                            .addComponent(cbRAMTeacher, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(5, 5, 5)
                         .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(cbRAMDayOfTheWeek, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(cbRAMUpdateDayOfTheWeek))
+                            .addComponent(cbRAMDayOfTheWeek, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
                                 .addGap(3, 3, 3)
                                 .addComponent(lblRAMDayOfTheWeek)))
-                        .addGap(4, 4, 4)
+                        .addGap(6, 6, 6)
                         .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtRAMStartTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnRAMStartTime, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
                                 .addGap(3, 3, 3)
-                                .addComponent(lblRAMStartTime))
-                            .addComponent(btnRAMSave, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblRAMStartTime)))
+                        .addGap(10, 10, 10)
                         .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtRAMEndTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnRAMEndTime, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -898,14 +902,19 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRAMAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnRAMEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(cbRAMUpdateTeacher)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cbRAMUpdateDayOfTheWeek)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnRAMSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
                         .addComponent(btnRAMViewAll, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtRAMID, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(lblRAMID)
-                        .addComponent(btnRAMDeleteRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnRAMDeleteRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnRAMSave, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(txtRAMSearch, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(18, 18, 18)
                 .addComponent(spRAMShowRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1173,8 +1182,7 @@ public class Dashboard extends javax.swing.JFrame {
                                     .addComponent(pfMUserPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtMUserDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(cbMUserRole, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cbMUserShowPassword)
-                                    .addComponent(cbMUserUpdateRole))
+                                    .addComponent(cbMUserShowPassword))
                                 .addGap(41, 41, 41)
                                 .addGroup(pnlMViewUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblMUserFirstName)
@@ -1182,7 +1190,7 @@ public class Dashboard extends javax.swing.JFrame {
                                     .addComponent(lblMUserMiddleName)
                                     .addComponent(lblMUserEmail)
                                     .addComponent(lblMUserContactNo))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                                 .addGroup(pnlMViewUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtMUserContactNo, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtMUserLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1197,13 +1205,6 @@ public class Dashboard extends javax.swing.JFrame {
                     .addGroup(pnlMViewUserLayout.createSequentialGroup()
                         .addGroup(pnlMViewUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlMViewUserLayout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(btnMUserAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(6, 6, 6)
-                                .addComponent(btnMUserEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnMUserSave, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnlMViewUserLayout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(txtMUserSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(6, 6, 6)
@@ -1213,7 +1214,17 @@ public class Dashboard extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(lblMUserID)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtMUserID, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtMUserID, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pnlMViewUserLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(btnMUserAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addComponent(btnMUserEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlMViewUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbMUserUpdateRole)
+                            .addGroup(pnlMViewUserLayout.createSequentialGroup()
+                                .addComponent(btnMUserSave, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnMUserDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -1276,16 +1287,14 @@ public class Dashboard extends javax.swing.JFrame {
                                     .addComponent(lblMUserRole)))))
                     .addComponent(lblMUserAddress, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(5, 5, 5)
-                .addComponent(cbMUserUpdateRole)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(31, 31, 31)
                 .addComponent(lblMUserError)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlMViewUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnMUserAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlMViewUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnMUserEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnMUserSave, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cbMUserUpdateRole)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlMViewUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtMUserSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1294,9 +1303,10 @@ public class Dashboard extends javax.swing.JFrame {
                         .addComponent(btnMUserViewAll, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtMUserID, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(lblMUserID)
-                        .addComponent(btnMUserDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnMUserDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnMUserSave, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addComponent(spMUser, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
+                .addComponent(spMUser, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1474,7 +1484,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addComponent(lblRAMRoomManagement1)
                 .addGap(95, 95, 95)
                 .addComponent(pnlAInformation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(229, Short.MAX_VALUE))
+                .addContainerGap(187, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout pnlTabRightLayout = new javax.swing.GroupLayout(pnlTabRight);
@@ -1510,17 +1520,17 @@ public class Dashboard extends javax.swing.JFrame {
             .addGroup(pnlTabRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlTabRightLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(pnlRoomManagement, javax.swing.GroupLayout.DEFAULT_SIZE, 677, Short.MAX_VALUE)
+                    .addComponent(pnlRoomManagement, javax.swing.GroupLayout.DEFAULT_SIZE, 682, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(pnlTabRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlTabRightLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(pnlMembers, javax.swing.GroupLayout.DEFAULT_SIZE, 677, Short.MAX_VALUE)
+                    .addComponent(pnlMembers, javax.swing.GroupLayout.DEFAULT_SIZE, 682, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(pnlTabRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlTabRightLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(pnlAccount, javax.swing.GroupLayout.DEFAULT_SIZE, 677, Short.MAX_VALUE)
+                    .addComponent(pnlAccount, javax.swing.GroupLayout.DEFAULT_SIZE, 682, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
@@ -1572,7 +1582,7 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRAMSaveActionPerformed
 
     private void btnRAMAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRAMAddActionPerformed
-        insertRoomJTable(txtRAMRoom.getText().trim(), txtRAMSubject.getText().trim(), txtRAMSection.getText().trim(), txtRAMTeacher.getText().trim(), cbRAMDayOfTheWeek.getSelectedItem().toString().trim(), tpRAMStartTime.getSelectedTime(), tpRAMEndTime.getSelectedTime());
+        insertRoomJTable(txtRAMRoom.getText().trim(), txtRAMSubject.getText().trim(), txtRAMSection.getText().trim(), cbRAMTeacher.getSelectedItem().toString().trim(), cbRAMDayOfTheWeek.getSelectedItem().toString().trim(), tpRAMStartTime.getSelectedTime(), tpRAMEndTime.getSelectedTime());
         populateRoomJTable();
     }//GEN-LAST:event_btnRAMAddActionPerformed
 
@@ -1610,6 +1620,8 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_cbMUserShowPasswordActionPerformed
 
     private void btnALogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnALogoutActionPerformed
+        Signin_Signout ss = new Signin_Signout();
+        ss.show();
         this.dispose();
     }//GEN-LAST:event_btnALogoutActionPerformed
 
@@ -1683,10 +1695,13 @@ public class Dashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMUserSearchActionPerformed
 
-    private void txtRAMSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRAMSearchActionPerformed
+    private void cbRAMUpdateDayOfTheWeekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbRAMUpdateDayOfTheWeekActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtRAMSearchActionPerforme
-    d
+    }//GEN-LAST:event_cbRAMUpdateDayOfTheWeekActionPerformed
+
+    private void txtRAMSearchActionPerformed(java.awt.event.ActionEvent evt) {                                             
+        // TODO add your handling code here:
+    } 
     /**
      * @param args the command line arguments
      */
@@ -1883,7 +1898,7 @@ public class Dashboard extends javax.swing.JFrame {
             txtRAMRoom.setEnabled(true);
             txtRAMSubject.setEnabled(true);
             txtRAMSection.setEnabled(true);
-            txtRAMTeacher.setEnabled(true);
+            cbRAMTeacher.setEnabled(true);
             cbRAMDayOfTheWeek.setEnabled(true);
             cbRAMDayOfTheWeek.setEnabled(true);
             txtRAMStartTime.setEnabled(true);
@@ -1897,7 +1912,7 @@ public class Dashboard extends javax.swing.JFrame {
             txtRAMRoom.setEnabled(false);
             txtRAMSubject.setEnabled(false);
             txtRAMSection.setEnabled(false);
-            txtRAMTeacher.setEnabled(false);
+            cbRAMTeacher.setEnabled(false);
             cbRAMDayOfTheWeek.setEnabled(false);
             cbRAMDayOfTheWeek.setEnabled(false);
             txtRAMStartTime.setEnabled(false);
@@ -1945,7 +1960,7 @@ public class Dashboard extends javax.swing.JFrame {
             cbMUserRole.setEnabled(false);
             pfMUserPassword.setEnabled(false);
         }
-    }   
+    }
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -2015,6 +2030,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JCheckBox cbMUserShowPassword;
     private javax.swing.JCheckBox cbMUserUpdateRole;
     private javax.swing.JComboBox<String> cbRAMDayOfTheWeek;
+    private javax.swing.JComboBox<String> cbRAMTeacher;
     private javax.swing.JCheckBox cbRAMUpdateDayOfTheWeek;
     private javax.swing.JCheckBox cbRAMUpdateTeacher;
     private javax.swing.JScrollPane jScrollPane1;
@@ -2109,6 +2125,5 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JTextField txtRAMSection;
     private javax.swing.JTextField txtRAMStartTime;
     private javax.swing.JTextField txtRAMSubject;
-    private javax.swing.JComboBox<String> txtRAMTeacher;
     // End of variables declaration//GEN-END:variables
 }
