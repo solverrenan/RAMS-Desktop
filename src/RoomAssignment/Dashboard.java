@@ -49,6 +49,7 @@ public class Dashboard extends javax.swing.JFrame {
         populateTeacherJComboBox();
         //Rounded Corner
         setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 20, 20));
+
     }
 
     /**
@@ -658,6 +659,11 @@ public class Dashboard extends javax.swing.JFrame {
 
         txtRAMEndTime.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         txtRAMEndTime.setEnabled(false);
+        txtRAMEndTime.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRAMEndTimeActionPerformed(evt);
+            }
+        });
 
         btnRAMStartTime.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RoomAssignment/image/clock.png"))); // NOI18N
         btnRAMStartTime.setBorder(null);
@@ -829,7 +835,7 @@ public class Dashboard extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnRAMSave, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnRAMDeleteRoom, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE))
+                        .addComponent(btnRAMDeleteRoom, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE))
                     .addComponent(spRAMShowRoom))
                 .addContainerGap())
         );
@@ -887,7 +893,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRAMAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnRAMEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnRAMSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
@@ -1279,7 +1285,7 @@ public class Dashboard extends javax.swing.JFrame {
                         .addComponent(txtMUserID, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(lblMUserID)))
                 .addGap(18, 18, 18)
-                .addComponent(spMUser, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE)
+                .addComponent(spMUser, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1567,6 +1573,18 @@ public class Dashboard extends javax.swing.JFrame {
         } else if (roomValidation.isSectionInputValid(txtRAMSection.getText().trim()) == false) {
             lblRAMError.setText("Section field must only contain uppercase letters and numbers!");
             clearErrorMessageRAM();
+        } else if (roomValidation.isScheduleTimeValid(tpRAMStartTime.getSelectedTime(), tpRAMEndTime.getSelectedTime()) == false) {
+            lblRAMError.setText("Time schedule for a room can only be between 7:00 AM and 7:00 PM!");
+            clearErrorMessageRAM();
+        } else if (roomValidation.isStartTimeGreaterThanOrEqualToEndTime(tpRAMStartTime.getSelectedTime(), tpRAMEndTime.getSelectedTime()) == false) {
+            lblRAMError.setText("Start time must not be greater than or equal to end time!");
+            clearErrorMessageRAM();
+        } else if (roomValidation.isScheduleTimeFree(cbRAMDayOfTheWeek.getSelectedItem().toString().trim(), txtRAMRoom.getText().trim(), tpRAMStartTime.getSelectedTime(), tpRAMEndTime.getSelectedTime()) == false) {
+            lblRAMError.setText("Time schedule has conflicted with another schedule!");
+            clearErrorMessageRAM();
+        } else if (roomValidation.isTeacherScheduleTimeFree(cbRAMDayOfTheWeek.getSelectedItem().toString().trim(), cbRAMTeacher.getSelectedItem().toString().trim(), tpRAMStartTime.getSelectedTime(), tpRAMEndTime.getSelectedTime()) == false) {
+            lblRAMError.setText("The teacher's schedule is occupied on that day and time!");
+            clearErrorMessageRAM();
         } else {
             insertRoomJTable(txtRAMRoom.getText().trim(), txtRAMSubject.getText().trim(), txtRAMSection.getText().trim(), cbRAMTeacher.getSelectedItem().toString().trim(), cbRAMDayOfTheWeek.getSelectedItem().toString().trim(), tpRAMStartTime.getSelectedTime(), tpRAMEndTime.getSelectedTime());
             populateRoomJTable();
@@ -1714,6 +1732,10 @@ public class Dashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMUserSearchActionPerformed
 
+    private void txtRAMEndTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRAMEndTimeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRAMEndTimeActionPerformed
+
     private void txtRAMSearchActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
@@ -1823,7 +1845,7 @@ public class Dashboard extends javax.swing.JFrame {
         cbRAMTeacher.removeAllItems();
         try {
             tblData = userData.getAllTeacherAccountsInformation();
-            while(tblData.next()) {
+            while (tblData.next()) {
                 cbRAMTeacher.addItem(tblData.getString(7) + ", " + tblData.getString(6) + " " + tblData.getString(8));
             }
         } catch (SQLException sqlex) {

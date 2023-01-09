@@ -952,7 +952,7 @@
                                   <EmptySpace min="-2" max="-2" attributes="0"/>
                                   <Component id="btnRAMSave" min="-2" pref="70" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btnRAMDeleteRoom" pref="89" max="32767" attributes="0"/>
+                                  <Component id="btnRAMDeleteRoom" pref="92" max="32767" attributes="0"/>
                               </Group>
                               <Component id="spRAMShowRoom" alignment="0" max="32767" attributes="0"/>
                           </Group>
@@ -1031,7 +1031,7 @@
                               <Component id="btnRAMAdd" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                               <Component id="btnRAMEdit" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="88" max="32767" attributes="0"/>
+                          <EmptySpace pref="45" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="btnRAMSearch" alignment="3" pref="27" max="32767" attributes="0"/>
@@ -1248,6 +1248,9 @@
                     </Property>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtRAMEndTimeActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnRAMStartTime">
                   <Properties>
