@@ -859,6 +859,7 @@ public class Dashboard extends javax.swing.JFrame {
                             .addComponent(cbRAMUpdateTeacher)
                             .addComponent(cbRAMUpdateTime))
                         .addGap(0, 125, Short.MAX_VALUE)))
+            .addContainerGap()))
         );
         pnlRAMScheduleLayout.setVerticalGroup(
             pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
