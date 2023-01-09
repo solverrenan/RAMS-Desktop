@@ -81,7 +81,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="pnlTabTop" max="32767" attributes="0"/>
-                  <Component id="pnlTabRight" pref="1074" max="32767" attributes="0"/>
+                  <Component id="pnlTabRight" pref="1098" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -160,7 +160,6 @@
               <Component id="pnlTabHome" pref="186" max="32767" attributes="0"/>
               <Component id="pnlTabRoomManagement" pref="186" max="32767" attributes="0"/>
               <Component id="pnlTabMembers" alignment="0" pref="186" max="32767" attributes="0"/>
-
               <Component id="pnlTabAccount" alignment="0" max="32767" attributes="0"/>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
@@ -427,27 +426,27 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="pnlHome" pref="1062" max="32767" attributes="0"/>         
+                  <Component id="pnlHome" pref="1086" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="pnlRoomManagement" pref="1062" max="32767" attributes="0"/>
+                      <Component id="pnlRoomManagement" pref="1086" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
               <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="pnlMembers" pref="1062" max="32767" attributes="0"/>
+                      <Component id="pnlMembers" pref="1086" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
               <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="pnlAccount" pref="1062" max="32767" attributes="0"/>
+                      <Component id="pnlAccount" pref="1086" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
