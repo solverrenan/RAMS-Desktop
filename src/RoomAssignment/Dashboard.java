@@ -826,7 +826,6 @@ public class Dashboard extends javax.swing.JFrame {
                                     .addComponent(btnRAMStartTime))))
                         .addContainerGap())))
                                         .addComponent(cbRAMTeacher, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
                             .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
                                 .addGap(391, 391, 391)
                                 .addComponent(cbRAMDayOfTheWeek, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
