@@ -8,6 +8,8 @@ package RoomAssignment;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.geom.RoundRectangle2D;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,6 +17,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import javax.swing.Timer;
 import java.util.Vector;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -39,6 +42,7 @@ public class Dashboard extends javax.swing.JFrame {
     ResultSet tblData;
     DefaultTableModel tblModel;
     Vector<Object> tblRowData;
+    Timer clearErrorTimer;
 
     public Dashboard() {
         initComponents();
@@ -47,9 +51,10 @@ public class Dashboard extends javax.swing.JFrame {
         //AdminAccess(); //For View Admin
         populateUserJTable();
         populateRoomJTable();
-        
+        populateTeacherJComboBox();
         //Rounded Corner
         setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 20, 20));
+
     }
 
     /**
@@ -653,6 +658,11 @@ public class Dashboard extends javax.swing.JFrame {
 
         txtRAMEndTime.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         txtRAMEndTime.setEnabled(false);
+        txtRAMEndTime.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRAMEndTimeActionPerformed(evt);
+            }
+        });
 
         btnRAMStartTime.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RoomAssignment/image/clock.png"))); // NOI18N
         btnRAMStartTime.setBorder(null);
@@ -815,6 +825,11 @@ public class Dashboard extends javax.swing.JFrame {
                                     .addComponent(btnRAMEndTime)
                                     .addComponent(btnRAMStartTime))))
                         .addContainerGap())))
+                                        .addComponent(cbRAMTeacher, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
+                                .addGap(391, 391, 391)
+                                .addComponent(cbRAMDayOfTheWeek, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1494,7 +1509,7 @@ public class Dashboard extends javax.swing.JFrame {
             pnlTabRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTabRightLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(pnlHome, javax.swing.GroupLayout.DEFAULT_SIZE, 1062, Short.MAX_VALUE)
+]                .addComponent(pnlHome, javax.swing.GroupLayout.DEFAULT_SIZE, 1062, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(pnlTabRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlTabRightLayout.createSequentialGroup()
@@ -1583,8 +1598,34 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRAMSaveActionPerformed
 
     private void btnRAMAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRAMAddActionPerformed
-        insertRoomJTable(txtRAMRoom.getText().trim(), txtRAMSubject.getText().trim(), txtRAMSection.getText().trim(), cbRAMTeacher.getSelectedItem().toString().trim(), cbRAMDayOfTheWeek.getSelectedItem().toString().trim(), tpRAMStartTime.getSelectedTime(), tpRAMEndTime.getSelectedTime());
-        populateRoomJTable();
+        if (txtRAMRoom.getText().trim().isEmpty() || txtRAMSubject.getText().trim().isEmpty() || txtRAMSection.getText().trim().isEmpty() || cbRAMTeacher.getSelectedItem().toString().trim().isEmpty() || txtRAMStartTime.getText().trim().isEmpty() || txtRAMEndTime.getText().trim().isEmpty()) {
+            lblRAMError.setText("All fields must be filled!");
+            clearErrorMessageRAM();
+        } else if (roomValidation.isRoomInputValid(txtRAMRoom.getText().trim()) == false) {
+            lblRAMError.setText("Room field must only contain letters and numbers!");
+            clearErrorMessageRAM();
+        } else if (roomValidation.isSubjectInputValid(txtRAMSubject.getText().trim()) == false) {
+            lblRAMError.setText("Subject field must only contain letters and numbers!");
+            clearErrorMessageRAM();
+        } else if (roomValidation.isSectionInputValid(txtRAMSection.getText().trim()) == false) {
+            lblRAMError.setText("Section field must only contain uppercase letters and numbers!");
+            clearErrorMessageRAM();
+        } else if (roomValidation.isScheduleTimeValid(tpRAMStartTime.getSelectedTime(), tpRAMEndTime.getSelectedTime()) == false) {
+            lblRAMError.setText("Time schedule for a room can only be between 7:00 AM and 7:00 PM!");
+            clearErrorMessageRAM();
+        } else if (roomValidation.isStartTimeGreaterThanOrEqualToEndTime(tpRAMStartTime.getSelectedTime(), tpRAMEndTime.getSelectedTime()) == false) {
+            lblRAMError.setText("Start time must not be greater than or equal to end time!");
+            clearErrorMessageRAM();
+        } else if (roomValidation.isScheduleTimeFree(cbRAMDayOfTheWeek.getSelectedItem().toString().trim(), txtRAMRoom.getText().trim(), tpRAMStartTime.getSelectedTime(), tpRAMEndTime.getSelectedTime()) == false) {
+            lblRAMError.setText("Time schedule has conflicted with another schedule!");
+            clearErrorMessageRAM();
+        } else if (roomValidation.isTeacherScheduleTimeFree(cbRAMDayOfTheWeek.getSelectedItem().toString().trim(), cbRAMTeacher.getSelectedItem().toString().trim(), tpRAMStartTime.getSelectedTime(), tpRAMEndTime.getSelectedTime()) == false) {
+            lblRAMError.setText("The teacher's schedule is occupied on that day and time!");
+            clearErrorMessageRAM();
+        } else {
+            insertRoomJTable(txtRAMRoom.getText().trim(), txtRAMSubject.getText().trim(), txtRAMSection.getText().trim(), cbRAMTeacher.getSelectedItem().toString().trim(), cbRAMDayOfTheWeek.getSelectedItem().toString().trim(), tpRAMStartTime.getSelectedTime(), tpRAMEndTime.getSelectedTime());
+            populateRoomJTable();
+        }
     }//GEN-LAST:event_btnRAMAddActionPerformed
 
     private void btnRAMStartTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRAMStartTimeActionPerformed
@@ -1608,8 +1649,38 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMUserSaveActionPerformed
 
     private void btnMUserAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMUserAddActionPerformed
-        insertUserJTable(txtMUserUsername.getText().trim(), new String(pfMUserPassword.getPassword()).trim(), txtMUserDepartment.getText().trim(), cbMUserRole.getSelectedItem().toString().trim(), txtMUserFirstName.getText().trim(), txtMUserLastName.getText().trim(), txtMUserMiddleName.getText().trim(), txtMUserEmail.getText().trim(), txtMUserContactNo.getText().trim(), txtMUserAddress.getText().trim());
-        populateUserJTable();
+        if (txtMUserUsername.getText().trim().isEmpty() || new String(pfMUserPassword.getPassword()).trim().isEmpty() || txtMUserDepartment.getText().trim().isEmpty() || txtMUserFirstName.getText().trim().isEmpty() || txtMUserLastName.getText().trim().isEmpty() || txtMUserMiddleName.getText().trim().isEmpty() || txtMUserEmail.getText().trim().isEmpty() || txtMUserContactNo.getText().trim().isEmpty() || txtMUserAddress.getText().trim().isEmpty()) {
+            lblMUserError.setText("All fields must me filled!");
+            clearErrorMessageMembers();
+        } else if (userValidation.isUsernameExisting(txtMUserUsername.getText().trim()) == true) {
+            lblMUserError.setText("Username already exists!");
+            clearErrorMessageMembers();
+        } else if (userValidation.isDepartmentInputValid(txtMUserDepartment.getText().trim()) == false) {
+            lblMUserError.setText("Department field must only contain letters with no spaces in between letters!");
+            clearErrorMessageMembers();
+        } else if (userValidation.isNameInputValid(txtMUserFirstName.getText().trim(), txtMUserLastName.getText().trim(), txtMUserMiddleName.getText().trim()) == false) {
+            lblMUserError.setText("Name fields must only contain letters with only one spacing between letters!");
+            clearErrorMessageMembers();
+        } else if (userValidation.isNameExisting(txtMUserFirstName.getText().trim(), txtMUserLastName.getText().trim(), txtMUserMiddleName.getText().trim()) == true) {
+            lblMUserError.setText("Name already exists!");
+            clearErrorMessageMembers();
+        } else if (userValidation.isEmailInputValid(txtMUserEmail.getText().trim()) == false) {
+            lblMUserError.setText("Invalid email format!");
+            clearErrorMessageMembers();
+        } else if (userValidation.isEmailExisting(txtMUserEmail.getText().trim()) == true) {
+            lblMUserError.setText("Email already exists!");
+            clearErrorMessageMembers();
+        } else if (userValidation.isContactNoInputValid(txtMUserContactNo.getText().trim()) == false) {
+            lblMUserError.setText("Contact no. field must only contain numbers and must have 11 digits exact!");
+            clearErrorMessageMembers();
+        } else if (userValidation.isContactNoExisting(txtMUserContactNo.getText().trim()) == true) {
+            lblMUserError.setText("Contact No. already exists!");
+            clearErrorMessageMembers();
+        } else {
+            insertUserJTable(txtMUserUsername.getText().trim(), new String(pfMUserPassword.getPassword()).trim(), txtMUserDepartment.getText().trim(), cbMUserRole.getSelectedItem().toString().trim(), txtMUserFirstName.getText().trim(), txtMUserLastName.getText().trim(), txtMUserMiddleName.getText().trim(), txtMUserEmail.getText().trim(), txtMUserContactNo.getText().trim(), txtMUserAddress.getText().trim());
+            populateUserJTable();
+            populateTeacherJComboBox();
+        }
     }//GEN-LAST:event_btnMUserAddActionPerformed
 
     private void cbMUserShowPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbMUserShowPasswordActionPerformed
@@ -1647,9 +1718,11 @@ public class Dashboard extends javax.swing.JFrame {
     private void btnMUserSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMUserSearchActionPerformed
         if (txtMUserSearch.getText().trim().isEmpty()) {
             lblMUserError.setText("Field for searching must not be blank!");
-        }else if (userValidation.isUserIDInputValid(txtMUserSearch.getText().trim()) == false) {
+            clearErrorMessageMembers();
+        } else if (userValidation.isUserIDInputValid(txtMUserSearch.getText().trim()) == false) {
             lblMUserError.setText("Field for searching must only contain numbers!");
-        }else {
+            clearErrorMessageMembers();
+        } else {
             searchUserJTable(Integer.parseInt(txtMUserSearch.getText().trim()));
         }
     }//GEN-LAST:event_btnMUserSearchActionPerformed
@@ -1657,9 +1730,11 @@ public class Dashboard extends javax.swing.JFrame {
     private void btnRAMSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRAMSearchActionPerformed
         if (txtRAMSearch.getText().trim().isEmpty()) {
             lblRAMError.setText("Field for searching must not be blank!");
-        }else if (roomValidation.isScheduleIDInputValid(txtRAMSearch.getText().trim()) == false) {
+            clearErrorMessageRAM();
+        } else if (roomValidation.isScheduleIDInputValid(txtRAMSearch.getText().trim()) == false) {
             lblRAMError.setText("Field for searching must only contain numbers!");
-        }else {
+            clearErrorMessageRAM();
+        } else {
             searchRoomJTable(Integer.parseInt(txtRAMSearch.getText().trim()));
         }
     }//GEN-LAST:event_btnRAMSearchActionPerformed
@@ -1669,15 +1744,15 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_txtMUserMiddleNameActionPerformed
 
     private void btnRAMViewAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRAMViewAllActionPerformed
-        // TODO add your handling code here:
+        populateRoomJTable();
     }//GEN-LAST:event_btnRAMViewAllActionPerformed
 
     private void btnMUserViewAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMUserViewAllActionPerformed
-        // TODO add your handling code here:
+        populateUserJTable();
     }//GEN-LAST:event_btnMUserViewAllActionPerformed
 
     private void lblMinimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMinimizeMouseClicked
-       setState(JFrame.ICONIFIED);
+        setState(JFrame.ICONIFIED);
     }//GEN-LAST:event_lblMinimizeMouseClicked
 
     private void pnlTabTopMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlTabTopMouseDragged
@@ -1703,10 +1778,40 @@ public class Dashboard extends javax.swing.JFrame {
     private void txtRAMSearchActionPerformed(java.awt.event.ActionEvent evt) {                                             
         // TODO add your handling code here:
     } 
+    private void txtRAMEndTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRAMEndTimeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRAMEndTimeActionPerformed
+
+
     /**
      * @param args the command line arguments
      */
-    
+    // Clears error message after 3 seconds in members panel
+    private void clearErrorMessageMembers() {
+        clearErrorTimer = new Timer(3000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                lblMUserError.setText("");
+                clearErrorTimer.stop();
+            }
+        });
+        clearErrorTimer.setRepeats(false);
+        clearErrorTimer.start();
+    }
+
+    // Clears error message after 3 seconds in RAM panel
+    private void clearErrorMessageRAM() {
+        clearErrorTimer = new Timer(3000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                lblRAMError.setText("");
+                clearErrorTimer.stop();
+            }
+        });
+        clearErrorTimer.setRepeats(false);
+        clearErrorTimer.start();
+    }
+
     // Displays all records of users within the database
     private void populateUserJTable() {
         try {
@@ -1772,6 +1877,19 @@ public class Dashboard extends javax.swing.JFrame {
                     tblRowData.add(tblData.getString(columnNumber));//Rest of the column of strings data type data
                 }
                 tblModel.addRow(tblRowData);
+            }
+        } catch (SQLException sqlex) {
+            JOptionPane.showMessageDialog(null, sqlex.toString(), "SQL Query Error!", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    // Sets all of the existing teachers from the account table
+    private void populateTeacherJComboBox() {
+        cbRAMTeacher.removeAllItems();
+        try {
+            tblData = userData.getAllTeacherAccountsInformation();
+            while (tblData.next()) {
+                cbRAMTeacher.addItem(tblData.getString(7) + ", " + tblData.getString(6) + " " + tblData.getString(8));
             }
         } catch (SQLException sqlex) {
             JOptionPane.showMessageDialog(null, sqlex.toString(), "SQL Query Error!", JOptionPane.ERROR_MESSAGE);
@@ -1920,7 +2038,7 @@ public class Dashboard extends javax.swing.JFrame {
             txtRAMEndTime.setEnabled(false);
             btnRAMStartTime.setEnabled(false);
             btnRAMEndTime.setEnabled(false);
-        }         
+        }
 
     }
 
