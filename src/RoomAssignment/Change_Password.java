@@ -5,6 +5,10 @@
  */
 package RoomAssignment;
 
+import java.awt.Image;
+import java.awt.geom.RoundRectangle2D;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author solve
@@ -17,7 +21,11 @@ public class Change_Password extends javax.swing.JFrame {
         
     public Change_Password() {
         initComponents();
+        SetLogo();
         this.setAlwaysOnTop(true);
+        
+        //Rounded Corners
+        setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 20, 20));
     }
 
     /**
@@ -40,26 +48,31 @@ public class Change_Password extends javax.swing.JFrame {
         btnCancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(102, 102, 102));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setUndecorated(true);
         setResizable(false);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Change Password", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Century Gothic", 1, 14))); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Change Password", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Century Gothic", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
 
         lblCurrentPassword.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblCurrentPassword.setForeground(new java.awt.Color(255, 255, 255));
         lblCurrentPassword.setText("Current Password");
 
         txtCurrentPassword.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         txtCurrentPassword.setFocusable(false);
 
         lblNewPassword.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblNewPassword.setForeground(new java.awt.Color(255, 255, 255));
         lblNewPassword.setText("New Password");
 
         txtNewPassword.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         txtNewPassword.setFocusable(false);
 
         lblConfirmPassword.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblConfirmPassword.setForeground(new java.awt.Color(255, 255, 255));
         lblConfirmPassword.setText("Confirm Password");
 
         txtConfirmPassword.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -163,6 +176,10 @@ public class Change_Password extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnChangePasswordActionPerformed
 
+    private void SetLogo() {
+        Image logo = (new ImageIcon(Dashboard.class.getResource("\\logo.jpg")).getImage());
+        this.setIconImage(logo);
+    }
     /**
      * @param args the command line arguments
      */

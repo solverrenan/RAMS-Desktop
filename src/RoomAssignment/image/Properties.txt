@@ -13,3 +13,6 @@ Home : [components]Home[variable]
 Room Management: [components]RAM[variable]
 Members : [components]M[variable]
 Account : [components]A[variable]
+
+
+solver-token: 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

@@ -33,6 +33,6 @@ public class SQLConnection {
             sqlConnection = DriverManager.getConnection(connectionURL);            
         } catch (SQLException sqlex) {
             JOptionPane.showMessageDialog(null,sqlex.toString(),"SQL Connection Error!",JOptionPane.ERROR_MESSAGE);
-        }        
+        }       
     }
 }
