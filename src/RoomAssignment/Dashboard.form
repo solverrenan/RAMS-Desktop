@@ -81,7 +81,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="pnlTabTop" max="32767" attributes="0"/>
-                  <Component id="pnlTabRight" pref="1074" max="32767" attributes="0"/>
+                  <Component id="pnlTabRight" pref="1098" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -426,27 +426,27 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="pnlHome" pref="1062" max="32767" attributes="0"/>
+                  <Component id="pnlHome" pref="1086" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="pnlRoomManagement" pref="1062" max="32767" attributes="0"/>
+                      <Component id="pnlRoomManagement" pref="1086" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
               <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="pnlMembers" pref="1062" max="32767" attributes="0"/>
+                      <Component id="pnlMembers" pref="1086" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
               <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="pnlAccount" pref="1062" max="32767" attributes="0"/>
+                      <Component id="pnlAccount" pref="1086" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -945,7 +945,7 @@
                                       <Component id="cbRAMUpdateTeacher" min="-2" max="-2" attributes="0"/>
                                       <Component id="cbRAMUpdateTime" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="0" pref="125" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="121" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -1023,7 +1023,7 @@
                               <Component id="btnRAMAdd" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                               <Component id="btnRAMEdit" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="24" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Component id="cbRAMUpdateTime" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="cbRAMUpdateTeacher" min="-2" max="-2" attributes="0"/>

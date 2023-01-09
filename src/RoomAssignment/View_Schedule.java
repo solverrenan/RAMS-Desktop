@@ -22,7 +22,7 @@ public class View_Schedule extends javax.swing.JFrame {
     private int mouseX,mouseY;
     public View_Schedule() {
         initComponents();
-        
+        this.setTitle("RAMS - View Schedule");
         //Rounded Corners
         setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 20, 20));
     }
@@ -299,6 +299,7 @@ public class View_Schedule extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(218, 104, 70));
         jButton1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jButton1.setText("Change Password");
+        jButton1.setToolTipText("Change Password");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);

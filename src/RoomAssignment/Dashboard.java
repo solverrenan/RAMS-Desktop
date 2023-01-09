@@ -5,7 +5,11 @@
  */
 package RoomAssignment;
 
+import com.sbix.jnotify.NPosition;
+import com.sbix.jnotify.NoticeType;
+import com.sbix.jnotify.NoticeWindow;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.geom.RoundRectangle2D;
@@ -15,6 +19,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.Vector;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -44,7 +49,8 @@ public class Dashboard extends javax.swing.JFrame {
         initComponents();
         DefaultTab();
         SetLogo();
-        //AdminAccess(); //For View Admin
+        this.setTitle("RAMS - Dashboard");
+        //ProgramHeadAccess() //For View Admin
         populateUserJTable();
         populateRoomJTable();
         
@@ -844,7 +850,7 @@ public class Dashboard extends javax.swing.JFrame {
                             .addComponent(cbRAMUpdateDayOfTheWeek)
                             .addComponent(cbRAMUpdateTeacher)
                             .addComponent(cbRAMUpdateTime))
-                        .addGap(0, 125, Short.MAX_VALUE)))
+                        .addGap(0, 121, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pnlRAMScheduleLayout.setVerticalGroup(
@@ -901,7 +907,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRAMAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnRAMEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(cbRAMUpdateTime)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cbRAMUpdateTeacher)
@@ -1494,22 +1500,22 @@ public class Dashboard extends javax.swing.JFrame {
             pnlTabRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTabRightLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(pnlHome, javax.swing.GroupLayout.DEFAULT_SIZE, 1062, Short.MAX_VALUE)
+                .addComponent(pnlHome, javax.swing.GroupLayout.DEFAULT_SIZE, 1086, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(pnlTabRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlTabRightLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(pnlRoomManagement, javax.swing.GroupLayout.DEFAULT_SIZE, 1062, Short.MAX_VALUE)
+                    .addComponent(pnlRoomManagement, javax.swing.GroupLayout.DEFAULT_SIZE, 1086, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(pnlTabRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlTabRightLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(pnlMembers, javax.swing.GroupLayout.DEFAULT_SIZE, 1062, Short.MAX_VALUE)
+                    .addComponent(pnlMembers, javax.swing.GroupLayout.DEFAULT_SIZE, 1086, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(pnlTabRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlTabRightLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(pnlAccount, javax.swing.GroupLayout.DEFAULT_SIZE, 1062, Short.MAX_VALUE)
+                    .addComponent(pnlAccount, javax.swing.GroupLayout.DEFAULT_SIZE, 1086, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         pnlTabRightLayout.setVerticalGroup(
@@ -1544,7 +1550,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnlTabTop, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnlTabRight, javax.swing.GroupLayout.DEFAULT_SIZE, 1074, Short.MAX_VALUE)))
+                    .addComponent(pnlTabRight, javax.swing.GroupLayout.DEFAULT_SIZE, 1098, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1579,12 +1585,13 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_pnlTabAccountMouseClicked
 
     private void btnRAMSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRAMSaveActionPerformed
-        // TODO add your handling code here:
+        Success("Updated Room Schedule!");
     }//GEN-LAST:event_btnRAMSaveActionPerformed
 
     private void btnRAMAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRAMAddActionPerformed
         insertRoomJTable(txtRAMRoom.getText().trim(), txtRAMSubject.getText().trim(), txtRAMSection.getText().trim(), cbRAMTeacher.getSelectedItem().toString().trim(), cbRAMDayOfTheWeek.getSelectedItem().toString().trim(), tpRAMStartTime.getSelectedTime(), tpRAMEndTime.getSelectedTime());
         populateRoomJTable();
+        Success("Added Room Schedule!");
     }//GEN-LAST:event_btnRAMAddActionPerformed
 
     private void btnRAMStartTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRAMStartTimeActionPerformed
@@ -1600,7 +1607,7 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRAMEndTimeActionPerformed
 
     private void btnRAMDeleteRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRAMDeleteRoomActionPerformed
-        // TODO add your handling code here:
+        Error("Delete Room Schedule!");
     }//GEN-LAST:event_btnRAMDeleteRoomActionPerformed
 
     private void btnMUserSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMUserSaveActionPerformed
@@ -1610,6 +1617,7 @@ public class Dashboard extends javax.swing.JFrame {
     private void btnMUserAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMUserAddActionPerformed
         insertUserJTable(txtMUserUsername.getText().trim(), new String(pfMUserPassword.getPassword()).trim(), txtMUserDepartment.getText().trim(), cbMUserRole.getSelectedItem().toString().trim(), txtMUserFirstName.getText().trim(), txtMUserLastName.getText().trim(), txtMUserMiddleName.getText().trim(), txtMUserEmail.getText().trim(), txtMUserContactNo.getText().trim(), txtMUserAddress.getText().trim());
         populateUserJTable();
+        Success("Added User!");
     }//GEN-LAST:event_btnMUserAddActionPerformed
 
     private void cbMUserShowPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbMUserShowPasswordActionPerformed
@@ -1624,6 +1632,7 @@ public class Dashboard extends javax.swing.JFrame {
         Signin_Signout ss = new Signin_Signout();
         ss.show();
         this.dispose();
+        forLoginLogout("Logout Successfully!");
     }//GEN-LAST:event_btnALogoutActionPerformed
 
     private void btnMUserDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMUserDeleteActionPerformed
@@ -1889,8 +1898,8 @@ public class Dashboard extends javax.swing.JFrame {
     public void RAMEdit() {
         boolean ID = txtRAMID.isEnabled();
 
-        Icon unlock = new ImageIcon("unlock.png");
-        Icon lock = new ImageIcon("lock.png");
+        Icon unlock = new ImageIcon(Dashboard.class.getResource("image\\unlock.png"));
+        Icon lock = new ImageIcon(Dashboard.class.getResource("image\\lock.png"));;
 
         if (ID == false) {
             btnRAMEdit.setIcon(unlock);
@@ -1927,8 +1936,8 @@ public class Dashboard extends javax.swing.JFrame {
     public void MEdit() {
         boolean userID = txtMUserID.isEnabled();
 
-        Icon unlock = new ImageIcon("C:\\Users\\solve\\Documents\\NetBeansProjects\\RoomAssignmentManagementSystem\\src\\RoomAssignment\\image\\unlock.png");
-        Icon lock = new ImageIcon("C:\\Users\\solve\\Documents\\NetBeansProjects\\RoomAssignmentManagementSystem\\src\\RoomAssignment\\image\\lock.png");
+        Icon unlock = new ImageIcon(Dashboard.class.getResource("image\\unlock.png"));
+        Icon lock = new ImageIcon(Dashboard.class.getResource("image\\lock.png"));
 
         if (userID == false) {
             btnMUserEdit.setIcon(unlock);
@@ -1963,7 +1972,7 @@ public class Dashboard extends javax.swing.JFrame {
         }
     }
     //Admin Access on Dashboard
-    public void AdminAccess(){
+    public void ProgramHeadAccess(){
         pnlTabHome.setVisible(false);
         pnlTabMembers.setVisible(false);
         pnlHome.setVisible(false);
@@ -1977,6 +1986,24 @@ public class Dashboard extends javax.swing.JFrame {
         Image logo = (new ImageIcon(Dashboard.class.getResource("\\logo.jpg")).getImage());
         this.setIconImage(logo);
     }
+    
+    public void Success(String message) {
+        new NoticeWindow(NoticeType.SUCCESS_NOTIFICATION, message, NoticeWindow.NORMAL_DELAY, NPosition.BOTTOM_RIGHT);
+    }
+    public void Warning(String message) {
+        new NoticeWindow(NoticeType.WARNING_NOTIFICATION, message, NoticeWindow.NORMAL_DELAY, NPosition.BOTTOM_RIGHT);
+    }
+    public void Error(String message) {
+        new NoticeWindow(NoticeType.ERROR_NOTIFICATION,message, NoticeWindow.NORMAL_DELAY, NPosition.BOTTOM_RIGHT);
+        
+    }
+    public void Info(String message) {
+        new NoticeWindow(NoticeType.DEFAULT_NOTIFICATION, message, NoticeWindow.NORMAL_DELAY, NPosition.BOTTOM_RIGHT);
+    }
+    public void forLoginLogout(String message) {
+        new NoticeWindow(NoticeType.DEFAULT_NOTIFICATION, message, NoticeWindow.SHORT_DELAY, NPosition.BOTTOM_RIGHT);
+    }
+    
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
