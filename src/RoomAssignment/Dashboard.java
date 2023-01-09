@@ -829,10 +829,8 @@ public class Dashboard extends javax.swing.JFrame {
                             .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
                                 .addGap(391, 391, 391)
                                 .addComponent(cbRAMDayOfTheWeek, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)
-                .addContainerGap())))
-                .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(spRAMShowRoom)
+                        .addGap(0, 0, Short.MAX_VALUE))))
+                .addContainerGap()               
                     .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
                         .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
@@ -858,8 +856,8 @@ public class Dashboard extends javax.swing.JFrame {
                             .addComponent(cbRAMUpdateDayOfTheWeek)
                             .addComponent(cbRAMUpdateTeacher)
                             .addComponent(cbRAMUpdateTime))
-                        .addGap(0, 125, Short.MAX_VALUE)))
-            .addContainerGap())))
+                        .addGap(0, 125, Short.MAX_VALUE)
+            .addContainerGap()
         );
         pnlRAMScheduleLayout.setVerticalGroup(
             pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
