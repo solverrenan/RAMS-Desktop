@@ -6,6 +6,7 @@
 package RoomAssignment;
 
 import java.awt.Color;
+import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.geom.RoundRectangle2D;
 import java.sql.ResultSet;
@@ -13,6 +14,7 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Vector;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -41,6 +43,8 @@ public class Dashboard extends javax.swing.JFrame {
     public Dashboard() {
         initComponents();
         DefaultTab();
+        SetLogo();
+        //AdminAccess(); //For View Admin
         populateUserJTable();
         populateRoomJTable();
         
@@ -70,8 +74,7 @@ public class Dashboard extends javax.swing.JFrame {
         lblTabMembers = new javax.swing.JLabel();
         pnlTabAccount = new javax.swing.JPanel();
         lblTabAccount = new javax.swing.JLabel();
-        lblImageOnTop = new javax.swing.JLabel();
-        lblRoomMangementSystem = new javax.swing.JLabel();
+        lblTabRAMS = new javax.swing.JLabel();
         pnlTabRight = new javax.swing.JPanel();
         pnlHome = new javax.swing.JPanel();
         pnlHomeCreatedSchedule = new javax.swing.JPanel();
@@ -119,6 +122,7 @@ public class Dashboard extends javax.swing.JFrame {
         cbRAMTeacher = new javax.swing.JComboBox<>();
         cbRAMUpdateTeacher = new javax.swing.JCheckBox();
         cbRAMUpdateDayOfTheWeek = new javax.swing.JCheckBox();
+        cbRAMUpdateTime = new javax.swing.JCheckBox();
         pnlMembers = new javax.swing.JPanel();
         lblMMember = new javax.swing.JLabel();
         pnlMViewUser = new javax.swing.JPanel();
@@ -283,7 +287,7 @@ public class Dashboard extends javax.swing.JFrame {
             pnlTabRoomManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTabRoomManagementLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblTabRoomManagement, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblTabRoomManagement, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pnlTabRoomManagementLayout.setVerticalGroup(
@@ -355,36 +359,27 @@ public class Dashboard extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        lblImageOnTop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RoomAssignment/image/undraw_Launching.png"))); // NOI18N
-
-        lblRoomMangementSystem.setFont(new java.awt.Font("Copperplate Gothic Bold", 2, 12)); // NOI18N
-        lblRoomMangementSystem.setText("Room Management System");
+        lblTabRAMS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RoomAssignment/image/RAMS.png"))); // NOI18N
 
         javax.swing.GroupLayout pnlTabLeftLayout = new javax.swing.GroupLayout(pnlTabLeft);
         pnlTabLeft.setLayout(pnlTabLeftLayout);
         pnlTabLeftLayout.setHorizontalGroup(
             pnlTabLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlTabHome, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-            .addComponent(pnlTabRoomManagement, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-            .addComponent(pnlTabMembers, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+            .addComponent(pnlTabHome, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+            .addComponent(pnlTabRoomManagement, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+            .addComponent(pnlTabMembers, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
             .addComponent(pnlTabAccount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTabLeftLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblImageOnTop)
-                .addGap(61, 61, 61))
-            .addGroup(pnlTabLeftLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(lblRoomMangementSystem)
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addComponent(lblTabRAMS)
+                .addGap(41, 41, 41))
         );
         pnlTabLeftLayout.setVerticalGroup(
             pnlTabLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTabLeftLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(lblImageOnTop)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblRoomMangementSystem)
-                .addGap(134, 134, 134)
+                .addGap(46, 46, 46)
+                .addComponent(lblTabRAMS)
+                .addGap(65, 65, 65)
                 .addComponent(pnlTabHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlTabRoomManagement, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -542,7 +537,7 @@ public class Dashboard extends javax.swing.JFrame {
                         .addComponent(pnlHomeCreatedSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(pnlHomeCreatedAccount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 187, Short.MAX_VALUE))))
+                        .addGap(0, 191, Short.MAX_VALUE))))
         );
         pnlHomeLayout.setVerticalGroup(
             pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -770,6 +765,9 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
+        cbRAMUpdateTime.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        cbRAMUpdateTime.setText("Update Time?");
+
         javax.swing.GroupLayout pnlRAMScheduleLayout = new javax.swing.GroupLayout(pnlRAMSchedule);
         pnlRAMSchedule.setLayout(pnlRAMScheduleLayout);
         pnlRAMScheduleLayout.setHorizontalGroup(
@@ -844,8 +842,9 @@ public class Dashboard extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnRAMDeleteRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(cbRAMUpdateDayOfTheWeek)
-                            .addComponent(cbRAMUpdateTeacher))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                            .addComponent(cbRAMUpdateTeacher)
+                            .addComponent(cbRAMUpdateTime))
+                        .addGap(0, 125, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pnlRAMScheduleLayout.setVerticalGroup(
@@ -902,7 +901,9 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRAMAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnRAMEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addComponent(cbRAMUpdateTime)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cbRAMUpdateTeacher)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cbRAMUpdateDayOfTheWeek)
@@ -1493,22 +1494,22 @@ public class Dashboard extends javax.swing.JFrame {
             pnlTabRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTabRightLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(pnlHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pnlHome, javax.swing.GroupLayout.DEFAULT_SIZE, 1062, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(pnlTabRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlTabRightLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(pnlRoomManagement, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlRoomManagement, javax.swing.GroupLayout.DEFAULT_SIZE, 1062, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(pnlTabRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlTabRightLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(pnlMembers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlMembers, javax.swing.GroupLayout.DEFAULT_SIZE, 1062, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(pnlTabRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlTabRightLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(pnlAccount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlAccount, javax.swing.GroupLayout.DEFAULT_SIZE, 1062, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         pnlTabRightLayout.setVerticalGroup(
@@ -1888,8 +1889,8 @@ public class Dashboard extends javax.swing.JFrame {
     public void RAMEdit() {
         boolean ID = txtRAMID.isEnabled();
 
-        Icon unlock = new ImageIcon("C:\\Users\\solve\\Documents\\NetBeansProjects\\RoomAssignmentManagementSystem\\src\\RoomAssignment\\image\\unlock.png");
-        Icon lock = new ImageIcon("C:\\Users\\solve\\Documents\\NetBeansProjects\\RoomAssignmentManagementSystem\\src\\RoomAssignment\\image\\lock.png");
+        Icon unlock = new ImageIcon("unlock.png");
+        Icon lock = new ImageIcon("lock.png");
 
         if (ID == false) {
             btnRAMEdit.setIcon(unlock);
@@ -1960,6 +1961,21 @@ public class Dashboard extends javax.swing.JFrame {
             cbMUserRole.setEnabled(false);
             pfMUserPassword.setEnabled(false);
         }
+    }
+    //Admin Access on Dashboard
+    public void AdminAccess(){
+        pnlTabHome.setVisible(false);
+        pnlTabMembers.setVisible(false);
+        pnlHome.setVisible(false);
+        pnlMembers.setVisible(false);
+        
+        pnlTabRoomManagement.setLocation(pnlTabHome.getX(), pnlTabHome.getY());
+        pnlTabAccount.setLocation(pnlTabRoomManagement.getX(), pnlTabRoomManagement.getY());
+        RoomManagementTab();
+    }
+    private void SetLogo() {
+        Image logo = (new ImageIcon(Dashboard.class.getResource("\\logo.jpg")).getImage());
+        this.setIconImage(logo);
     }
 
     public static void main(String args[]) {
@@ -2033,6 +2049,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbRAMTeacher;
     private javax.swing.JCheckBox cbRAMUpdateDayOfTheWeek;
     private javax.swing.JCheckBox cbRAMUpdateTeacher;
+    private javax.swing.JCheckBox cbRAMUpdateTime;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelADepartment;
     private javax.swing.JLabel labelAFirstName;
@@ -2051,7 +2068,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel lblHomeFaculties;
     private javax.swing.JLabel lblHomeFacultiesNumber;
     private javax.swing.JLabel lblHomeScheduleNumber;
-    private javax.swing.JLabel lblImageOnTop;
     private javax.swing.JLabel lblMMember;
     private javax.swing.JLabel lblMUserAddress;
     private javax.swing.JLabel lblMUserContactNo;
@@ -2077,9 +2093,9 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel lblRAMStartTime;
     private javax.swing.JLabel lblRAMSubject;
     private javax.swing.JLabel lblRAMTeacher;
-    private javax.swing.JLabel lblRoomMangementSystem;
     private javax.swing.JLabel lblTabAccount;
     private javax.swing.JLabel lblTabMembers;
+    private javax.swing.JLabel lblTabRAMS;
     private javax.swing.JLabel lblTabRoomManagement;
     private javax.swing.JList<String> listActivityLog;
     private javax.swing.JPasswordField pfMUserPassword;

@@ -5,7 +5,9 @@
  */
 package RoomAssignment;
 
+import java.awt.Image;
 import java.awt.geom.RoundRectangle2D;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -19,6 +21,7 @@ public class Change_Password extends javax.swing.JFrame {
         
     public Change_Password() {
         initComponents();
+        SetLogo();
         this.setAlwaysOnTop(true);
         
         //Rounded Corners
@@ -173,6 +176,10 @@ public class Change_Password extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnChangePasswordActionPerformed
 
+    private void SetLogo() {
+        Image logo = (new ImageIcon(Dashboard.class.getResource("\\logo.jpg")).getImage());
+        this.setIconImage(logo);
+    }
     /**
      * @param args the command line arguments
      */

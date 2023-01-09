@@ -9,7 +9,9 @@ package RoomAssignment;
  *
  * @author solve
  */
+import java.awt.Image;
 import java.awt.geom.RoundRectangle2D;
+import javax.swing.ImageIcon;
 public class Signin_Signout extends javax.swing.JFrame {
 
     /**
@@ -17,7 +19,7 @@ public class Signin_Signout extends javax.swing.JFrame {
      */
     public Signin_Signout() {
         initComponents();
-        
+        SetLogo();
         //Rounded Corners
         setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 20, 20));
     }
@@ -60,7 +62,7 @@ public class Signin_Signout extends javax.swing.JFrame {
 
         lblWelcomeText.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
         lblWelcomeText.setForeground(new java.awt.Color(51, 51, 51));
-        lblWelcomeText.setText("Welcome, ");
+        lblWelcomeText.setText("Welcome to RAMS!");
 
         lblWelcomeLoginText.setFont(new java.awt.Font("Century Gothic", 3, 12)); // NOI18N
         lblWelcomeLoginText.setForeground(new java.awt.Color(51, 51, 51));
@@ -273,6 +275,10 @@ public class Signin_Signout extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cboxShowPasswordActionPerformed
 
+    private void SetLogo() {
+        Image logo = (new ImageIcon(Dashboard.class.getResource("\\logo.jpg")).getImage());
+        this.setIconImage(logo);
+    }
     /**
      * @param args the command line arguments
      */
