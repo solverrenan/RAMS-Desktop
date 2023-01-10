@@ -1653,7 +1653,7 @@ public class Dashboard extends javax.swing.JFrame {
 
             if (txtMUserAddress.getText().trim().isEmpty()) {
             } else if (userValidation.isAddressInputValid(txtMUserAddress.getText().trim()) == false) {
-                lblMUserError.setText("Address must only contain one white between characters!");
+                lblMUserError.setText("Invalid address format!");
                 clearErrorMessageMembers();
             } else {
                 // Update Address
@@ -1661,9 +1661,9 @@ public class Dashboard extends javax.swing.JFrame {
 
             if (txtMUserContactNo.getText().trim().isEmpty()) {
             } else if (userValidation.isContactNoInputValid(txtMUserContactNo.getText().trim()) == false) {
-                lblMUserError.setText("Contact no. field must only contain numbers and must have 11 digits exact!");
+                lblMUserError.setText("Contact no. field must start with 09. only contain numbers, and must have 11 digits exact!");
                 clearErrorMessageMembers();
-            } else if (userValidation.isNewContactNoSameAsOldContactNo(txtMUserContactNo.getText().trim(), Integer.parseInt(txtMUserID.getText().toString().trim())) == true) {
+            } else if (userValidation.isNewContactNoSameAsOldContactNo(txtMUserContactNo.getText().trim(), Integer.parseInt(txtMUserID.getText().trim())) == true) {
                 lblMUserError.setText("New contact no. cannot be the same as old contact no.!");
                 clearErrorMessageMembers();
             } else if (userValidation.isContactNoExisting(txtMUserContactNo.getText().trim()) == true) {
@@ -1701,6 +1701,7 @@ public class Dashboard extends javax.swing.JFrame {
                 clearErrorMessageMembers();
             } else {
                 //Update last name
+
             }
 
             if (txtMUserFirstName.getText().trim().isEmpty()) {
@@ -1711,8 +1712,12 @@ public class Dashboard extends javax.swing.JFrame {
                 //Update first name
             }
 
+            if (!txtMUserFirstName.getText().trim().isEmpty() || !txtMUserFirstName.getText().trim().isEmpty() || !txtMUserFirstName.getText().trim().isEmpty()) {
+                populateTeacherJComboBox();
+            }
+
             if (cbMUserUpdateRole.isSelected()) {
-                if (userValidation.isNewRoleSameAsOldRole(cbMUserRole.getSelectedItem().toString().trim(), Integer.parseInt(txtMUserID.getText().toString().trim())) == true) {
+                if (userValidation.isNewRoleSameAsOldRole(cbMUserRole.getSelectedItem().toString().trim(), Integer.parseInt(txtMUserID.getText().trim())) == true) {
                     lblMUserError.setText("Old role must not be the same as old role!");
                     clearErrorMessageMembers();
                 } else {
@@ -1732,6 +1737,9 @@ public class Dashboard extends javax.swing.JFrame {
             } else if (userValidation.isNewPasswordSameAsOldPassword(new String(pfMUserPassword.getPassword()).trim(), Integer.parseInt(txtMUserID.getText().toString().trim())) == true) {
                 lblMUserError.setText("New password must not be the same as old password!");
                 clearErrorMessageMembers();
+            } else if (userValidation.isUsernameOrPasswordInputValid(new String(pfMUserPassword.getPassword()).trim()) == false) {
+                lblMUserError.setText("Password should contain no white spaces!");
+                clearErrorMessageMembers();
             } else {
                 // Update password
             }
@@ -1739,6 +1747,9 @@ public class Dashboard extends javax.swing.JFrame {
             if (txtMUserUsername.getText().trim().isEmpty()) {
             } else if (userValidation.isNewUsernameSameAsOldUsername(txtMUserUsername.getText().trim(), ERROR)) {
                 lblMUserError.setText("New username must not be the same as old username!");
+                clearErrorMessageMembers();
+            } else if (userValidation.isUsernameOrPasswordInputValid(txtMUserUsername.getText().trim()) == false) {
+                lblMUserError.setText("Username should contain no white spaces!");
                 clearErrorMessageMembers();
             } else if (userValidation.isUsernameExisting(txtMUserUsername.getText().trim()) == true) {
                 lblMUserError.setText("Username already exists!");
@@ -1753,8 +1764,14 @@ public class Dashboard extends javax.swing.JFrame {
         if (txtMUserUsername.getText().trim().isEmpty() || new String(pfMUserPassword.getPassword()).trim().isEmpty() || txtMUserDepartment.getText().trim().isEmpty() || txtMUserFirstName.getText().trim().isEmpty() || txtMUserLastName.getText().trim().isEmpty() || txtMUserMiddleName.getText().trim().isEmpty() || txtMUserEmail.getText().trim().isEmpty() || txtMUserContactNo.getText().trim().isEmpty() || txtMUserAddress.getText().trim().isEmpty()) {
             lblMUserError.setText("All fields must me filled!");
             clearErrorMessageMembers();
+        } else if (userValidation.isUsernameOrPasswordInputValid(txtMUserUsername.getText().trim()) == false) {
+            lblMUserError.setText("Username should contain no white spaces!");
+            clearErrorMessageMembers();
         } else if (userValidation.isUsernameExisting(txtMUserUsername.getText().trim()) == true) {
             lblMUserError.setText("Username already exists!");
+            clearErrorMessageMembers();
+        } else if (userValidation.isUsernameOrPasswordInputValid(new String(pfMUserPassword.getPassword()).trim()) == false) {
+            lblMUserError.setText("Password should contain no white spaces!");
             clearErrorMessageMembers();
         } else if (userValidation.isDepartmentInputValid(txtMUserDepartment.getText().trim()) == false) {
             lblMUserError.setText("Department field must only contain letters with no spaces in between letters!");
@@ -1772,10 +1789,13 @@ public class Dashboard extends javax.swing.JFrame {
             lblMUserError.setText("Email already exists!");
             clearErrorMessageMembers();
         } else if (userValidation.isContactNoInputValid(txtMUserContactNo.getText().trim()) == false) {
-            lblMUserError.setText("Contact no. field must only contain numbers and must have 11 digits exact!");
+            lblMUserError.setText("Contact no. field must start with 09, only contain numbers, and must have 11 digits exact!");
             clearErrorMessageMembers();
         } else if (userValidation.isContactNoExisting(txtMUserContactNo.getText().trim()) == true) {
             lblMUserError.setText("Contact No. already exists!");
+            clearErrorMessageMembers();
+        } else if (userValidation.isAddressInputValid(txtMUserAddress.getText().trim()) == false) {
+            lblMUserError.setText("Invalid address format!");
             clearErrorMessageMembers();
         } else {
             insertUserJTable(txtMUserUsername.getText().trim(), new String(pfMUserPassword.getPassword()).trim(), txtMUserDepartment.getText().trim(), cbMUserRole.getSelectedItem().toString().trim(), txtMUserFirstName.getText().trim(), txtMUserLastName.getText().trim(), txtMUserMiddleName.getText().trim(), txtMUserEmail.getText().trim(), txtMUserContactNo.getText().trim(), txtMUserAddress.getText().trim());

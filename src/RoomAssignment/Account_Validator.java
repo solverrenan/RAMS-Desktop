@@ -28,6 +28,11 @@ public class Account_Validator {
         return inputPattern.matcher(userID).matches();
     }
 
+    protected boolean isUsernameOrPasswordInputValid(String usernameOrPassword) {
+        inputPattern = Pattern.compile("\\S*");// Restriction for valid usernames and passwords
+        return inputPattern.matcher(usernameOrPassword).matches();
+    }
+
     protected boolean isUsernameExisting(String username) {
         tblData = userData.getAllUserAccountsInformation();
         try {
@@ -55,7 +60,7 @@ public class Account_Validator {
         }
         return false;
     }
-
+    
     protected boolean isNewPasswordSameAsOldPassword(String password, int userID) {
         tblData = userData.getUserAccountInformation(userID);
         try {
@@ -157,7 +162,7 @@ public class Account_Validator {
     }
 
     protected boolean isContactNoInputValid(String contactNo) {
-        inputPattern = Pattern.compile("^\\d{11}$");// Restriction for valid contact no. format input
+        inputPattern = Pattern.compile("^(09)\\d{9}$");// Restriction for valid contact no. format input
         return inputPattern.matcher(contactNo).matches();
     }
 
@@ -190,7 +195,7 @@ public class Account_Validator {
     }
     
     protected boolean isAddressInputValid(String address) {
-        inputPattern = Pattern.compile("^[a-zA-Z0-9.,_]+( [a-zA-Z0-9.,])*$");// Restriction to only allow one white space between characters
+        inputPattern = Pattern.compile("^[a-zA-Z0-9.,]+( [a-zA-Z0-9.,]+)*$");// Restriction to only allow one white space between characters
         return inputPattern.matcher(address).matches();
     }
 
