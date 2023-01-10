@@ -31,6 +31,18 @@ public class Account_Queries extends SQLConnection {
         }
     }
     
+       public ResultSet getAllTeacherAccountsInformation(){
+        try {
+            sqlStatement = sqlConnection.createStatement();
+            query = "SELECT * FROM UserAccounts WHERE Role = 'Teacher' ORDER BY LastName ASC";
+            rs = sqlStatement.executeQuery(query);
+            return rs;
+        } catch (SQLException sqlex) {
+            JOptionPane.showMessageDialog(null,sqlex.toString(),"SQL Query Error!",JOptionPane.ERROR_MESSAGE);
+            return null;
+        }
+    }
+    
      public ResultSet getUserAccountInformation(int UserID){
         try {
             sqlStatement = sqlConnection.createStatement();
