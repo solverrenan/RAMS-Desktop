@@ -107,7 +107,7 @@ public class Room_Validator {
                         while (newScheduleTimeModified.getTime().compareTo(newEndTime) != 0) {
                             System.out.println("Logic goes until here!" + " " + sdf12.format(newScheduleTimeModified.getTime()));
                             if (newScheduleTimeModified.getTime().after(existingStartTime) && newScheduleTimeModified.getTime().before(existingEndTime)) {
-                                return false;// Revise logic here!
+                                return false;
                             }
                             newScheduleTimeModified.add(Calendar.MINUTE, 1);
                         }
@@ -151,7 +151,7 @@ public class Room_Validator {
                         while (newScheduleTimeModified.getTime().compareTo(newEndTime) != 0) {
                             System.out.println("Logic goes until here!" + " " + sdf12.format(newScheduleTimeModified.getTime()));
                             if (newScheduleTimeModified.getTime().after(existingStartTime) && newScheduleTimeModified.getTime().before(existingEndTime)) {
-                                return false;// Revise logic here!
+                                return false;
                             }
                             newScheduleTimeModified.add(Calendar.MINUTE, 1);
                         }
