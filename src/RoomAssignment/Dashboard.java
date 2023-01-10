@@ -1656,7 +1656,7 @@ public class Dashboard extends javax.swing.JFrame {
                 lblMUserError.setText("Invalid address format!");
                 clearErrorMessageMembers();
             } else {
-                // Update Address
+                userData.updateUserAccountAddress((txtMUserAddress.getText().trim()), Integer.parseInt(txtMUserID.getText().trim()));
             }
 
             if (txtMUserContactNo.getText().trim().isEmpty()) {
@@ -1670,7 +1670,7 @@ public class Dashboard extends javax.swing.JFrame {
                 lblMUserError.setText("Contact No. already exists!");
                 clearErrorMessageMembers();
             } else {
-                //Update contact no.
+                userData.updateUserAccountContactNo((txtMUserContactNo.getText().trim()), Integer.parseInt(txtMUserID.getText().trim()));
             }
 
             if (txtMUserEmail.getText().trim().isEmpty()) {
@@ -1684,7 +1684,7 @@ public class Dashboard extends javax.swing.JFrame {
                 lblMUserError.setText("Email already exists!");
                 clearErrorMessageMembers();
             } else {
-                // Update email
+                userData.updateUserAccountEmail((txtMUserEmail.getText().trim()), Integer.parseInt(txtMUserID.getText().trim()));
             }
 
             if (txtMUserMiddleName.getText().trim().isEmpty()) {
@@ -1692,7 +1692,7 @@ public class Dashboard extends javax.swing.JFrame {
                 lblMUserError.setText("Middle name field must only contain letters with only one spacing between letters!");
                 clearErrorMessageMembers();
             } else {
-                //Update middle name
+                userData.updateUserAccountMiddleName((txtMUserMiddleName.getText().trim()), Integer.parseInt(txtMUserID.getText().trim()));
             }
 
             if (txtMUserLastName.getText().trim().isEmpty()) {
@@ -1700,8 +1700,7 @@ public class Dashboard extends javax.swing.JFrame {
                 lblMUserError.setText("Last name field must only contain letters with only one spacing between letters!");
                 clearErrorMessageMembers();
             } else {
-                //Update last name
-
+                userData.updateUserAccountLastName((txtMUserLastName.getText().trim()), Integer.parseInt(txtMUserID.getText().trim()));
             }
 
             if (txtMUserFirstName.getText().trim().isEmpty()) {
@@ -1709,7 +1708,7 @@ public class Dashboard extends javax.swing.JFrame {
                 lblMUserError.setText("First name field must only contain letters with only one spacing between letters!");
                 clearErrorMessageMembers();
             } else {
-                //Update first name
+                userData.updateUserAccountFirstName(txtMUserFirstName.getText().trim(), Integer.parseInt(txtMUserID.getText().trim()));
             }
 
             if (!txtMUserFirstName.getText().trim().isEmpty() || !txtMUserFirstName.getText().trim().isEmpty() || !txtMUserFirstName.getText().trim().isEmpty()) {
@@ -1721,7 +1720,7 @@ public class Dashboard extends javax.swing.JFrame {
                     lblMUserError.setText("Old role must not be the same as old role!");
                     clearErrorMessageMembers();
                 } else {
-                    //Update role
+                    userData.updateUserAccountRole(cbMUserRole.getSelectedItem().toString().trim(), Integer.parseInt(txtMUserID.getText().trim()));
                 }
             }
 
@@ -1730,18 +1729,18 @@ public class Dashboard extends javax.swing.JFrame {
                 lblMUserError.setText("Department field must only contain letters with no spaces in between letters!");
                 clearErrorMessageMembers();
             } else {
-                //Update department
+                userData.updateUserAccountDepartment(txtMUserDepartment.getText().trim(), Integer.parseInt(txtMUserID.getText().trim()));
             }
 
             if (new String(pfMUserPassword.getPassword()).trim().isEmpty()) {
-            } else if (userValidation.isNewPasswordSameAsOldPassword(new String(pfMUserPassword.getPassword()).trim(), Integer.parseInt(txtMUserID.getText().toString().trim())) == true) {
+            } else if (userValidation.isNewPasswordSameAsOldPassword(new String(pfMUserPassword.getPassword()).trim(), Integer.parseInt(txtMUserID.getText().trim())) == true) {
                 lblMUserError.setText("New password must not be the same as old password!");
                 clearErrorMessageMembers();
             } else if (userValidation.isUsernameOrPasswordInputValid(new String(pfMUserPassword.getPassword()).trim()) == false) {
                 lblMUserError.setText("Password should contain no white spaces!");
                 clearErrorMessageMembers();
             } else {
-                // Update password
+                userData.updateUserAccountPassword(new String(pfMUserPassword.getPassword()).trim(), Integer.parseInt(txtMUserID.getText().trim()));
             }
 
             if (txtMUserUsername.getText().trim().isEmpty()) {
@@ -1755,7 +1754,11 @@ public class Dashboard extends javax.swing.JFrame {
                 lblMUserError.setText("Username already exists!");
                 clearErrorMessageMembers();
             } else {
-                // Update username
+                userData.updateUserAccountUsername(txtMUserUsername.getText().trim(), Integer.parseInt(txtMUserID.getText().trim()));
+            }
+
+            if (!txtMUserUsername.getText().trim().isEmpty() || !new String(pfMUserPassword.getPassword()).trim().isEmpty() || !txtMUserDepartment.getText().trim().isEmpty() || !txtMUserFirstName.getText().trim().isEmpty() || !txtMUserLastName.getText().trim().isEmpty() || !txtMUserMiddleName.getText().trim().isEmpty() || !txtMUserEmail.getText().trim().isEmpty() || !txtMUserContactNo.getText().trim().isEmpty() || !txtMUserAddress.getText().trim().isEmpty()) {
+                populateUserJTable();
             }
         }
     }//GEN-LAST:event_btnMUserSaveActionPerformed
