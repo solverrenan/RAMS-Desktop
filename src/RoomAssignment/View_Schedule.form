@@ -587,6 +587,7 @@
                   <Font name="Century Gothic" size="12" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Change Password"/>
+                <Property name="toolTipText" type="java.lang.String" value="Change Password"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>

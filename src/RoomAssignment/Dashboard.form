@@ -935,17 +935,10 @@
                                       </Group>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="btnRAMSave" min="-2" pref="70" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="btnRAMDeleteRoom" min="-2" pref="83" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="cbRAMUpdateDayOfTheWeek" min="-2" max="-2" attributes="0"/>
-                                      <Component id="cbRAMUpdateTeacher" min="-2" max="-2" attributes="0"/>
-                                      <Component id="cbRAMUpdateTime" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="0" pref="125" max="32767" attributes="0"/>
+                                  <Component id="btnRAMSave" min="-2" pref="70" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="btnRAMDeleteRoom" min="-2" pref="83" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="139" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -1023,13 +1016,7 @@
                               <Component id="btnRAMAdd" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                               <Component id="btnRAMEdit" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="cbRAMUpdateTime" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="cbRAMUpdateTeacher" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="cbRAMUpdateDayOfTheWeek" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace pref="42" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="btnRAMSearch" alignment="3" pref="27" max="32767" attributes="0"/>
@@ -1448,33 +1435,6 @@
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
-                </Component>
-                <Component class="javax.swing.JCheckBox" name="cbRAMUpdateTeacher">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Century Gothic" size="12" style="0"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Update Teacher?"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JCheckBox" name="cbRAMUpdateDayOfTheWeek">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Century Gothic" size="12" style="0"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Update Day of the Week?"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbRAMUpdateDayOfTheWeekActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JCheckBox" name="cbRAMUpdateTime">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Century Gothic" size="12" style="0"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Update Time?"/>
-                  </Properties>
                 </Component>
               </SubComponents>
             </Container>

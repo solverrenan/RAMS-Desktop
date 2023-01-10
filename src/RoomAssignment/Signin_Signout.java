@@ -20,6 +20,7 @@ public class Signin_Signout extends javax.swing.JFrame {
     public Signin_Signout() {
         initComponents();
         SetLogo();
+        this.setTitle("RAMS - Login");
         //Rounded Corners
         setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 20, 20));
     }
@@ -139,7 +140,7 @@ public class Signin_Signout extends javax.swing.JFrame {
         btnExit.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         btnExit.setForeground(new java.awt.Color(51, 51, 51));
         btnExit.setText("Exit");
-        btnExit.setToolTipText("");
+        btnExit.setToolTipText("Exit");
         btnExit.setBorder(null);
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,6 +152,7 @@ public class Signin_Signout extends javax.swing.JFrame {
         btnLogin.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         btnLogin.setForeground(new java.awt.Color(51, 51, 51));
         btnLogin.setText("Login");
+        btnLogin.setToolTipText("Login");
         btnLogin.setBorder(null);
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -265,6 +267,8 @@ public class Signin_Signout extends javax.swing.JFrame {
         Dashboard db = new Dashboard();
         db.show(); //For display function only.
         this.dispose();
+        Dashboard d = new Dashboard();
+        d.forLoginLogout("Login Successfully!");
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void cboxShowPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxShowPasswordActionPerformed
