@@ -22,6 +22,7 @@ public class Change_Password extends javax.swing.JFrame {
     public Change_Password() {
         initComponents();
         SetLogo();
+        this.setTitle("RAMS - Change Password");
         this.setAlwaysOnTop(true);
         
         //Rounded Corners
