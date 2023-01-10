@@ -8,7 +8,9 @@ package RoomAssignment;
 import com.sbix.jnotify.NPosition;
 import com.sbix.jnotify.NoticeType;
 import com.sbix.jnotify.NoticeWindow;
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -131,9 +133,6 @@ public class Dashboard extends javax.swing.JFrame {
         btnRAMSearch = new javax.swing.JButton();
         btnRAMViewAll = new javax.swing.JButton();
         cbRAMTeacher = new javax.swing.JComboBox<>();
-        cbRAMUpdateTeacher = new javax.swing.JCheckBox();
-        cbRAMUpdateDayOfTheWeek = new javax.swing.JCheckBox();
-        cbRAMUpdateTime = new javax.swing.JCheckBox();
         pnlMembers = new javax.swing.JPanel();
         lblMMember = new javax.swing.JLabel();
         pnlMViewUser = new javax.swing.JPanel();
@@ -770,20 +769,6 @@ public class Dashboard extends javax.swing.JFrame {
         cbRAMTeacher.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         cbRAMTeacher.setEnabled(false);
 
-        cbRAMUpdateTeacher.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        cbRAMUpdateTeacher.setText("Update Teacher?");
-
-        cbRAMUpdateDayOfTheWeek.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        cbRAMUpdateDayOfTheWeek.setText("Update Day of the Week?");
-        cbRAMUpdateDayOfTheWeek.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbRAMUpdateDayOfTheWeekActionPerformed(evt);
-            }
-        });
-
-        cbRAMUpdateTime.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        cbRAMUpdateTime.setText("Update Time?");
-
         javax.swing.GroupLayout pnlRAMScheduleLayout = new javax.swing.GroupLayout(pnlRAMSchedule);
         pnlRAMSchedule.setLayout(pnlRAMScheduleLayout);
         pnlRAMScheduleLayout.setHorizontalGroup(
@@ -852,15 +837,10 @@ public class Dashboard extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnRAMEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
-                                .addComponent(btnRAMSave, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnRAMDeleteRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(cbRAMUpdateDayOfTheWeek)
-                            .addComponent(cbRAMUpdateTeacher)
-                            .addComponent(cbRAMUpdateTime))
-                        .addGap(0, 121, Short.MAX_VALUE)))
+                        .addComponent(btnRAMSave, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnRAMDeleteRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 167, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pnlRAMScheduleLayout.setVerticalGroup(
@@ -917,13 +897,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRAMAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnRAMEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cbRAMUpdateTime)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbRAMUpdateTeacher)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbRAMUpdateDayOfTheWeek)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
                 .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnRAMSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
@@ -1626,6 +1600,7 @@ public class Dashboard extends javax.swing.JFrame {
         } else {
             insertRoomJTable(txtRAMRoom.getText().trim(), txtRAMSubject.getText().trim(), txtRAMSection.getText().trim(), cbRAMTeacher.getSelectedItem().toString().trim(), cbRAMDayOfTheWeek.getSelectedItem().toString().trim(), tpRAMStartTime.getSelectedTime(), tpRAMEndTime.getSelectedTime());
             populateRoomJTable();
+            Success("Added Room Successfully!");
         }
     }//GEN-LAST:event_btnRAMAddActionPerformed
 
@@ -1646,7 +1621,7 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRAMDeleteRoomActionPerformed
 
     private void btnMUserSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMUserSaveActionPerformed
-        // TODO add your handling code here:
+        Success("Update User Successfully!");
     }//GEN-LAST:event_btnMUserSaveActionPerformed
 
     private void btnMUserAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMUserAddActionPerformed
@@ -1681,6 +1656,7 @@ public class Dashboard extends javax.swing.JFrame {
             insertUserJTable(txtMUserUsername.getText().trim(), new String(pfMUserPassword.getPassword()).trim(), txtMUserDepartment.getText().trim(), cbMUserRole.getSelectedItem().toString().trim(), txtMUserFirstName.getText().trim(), txtMUserLastName.getText().trim(), txtMUserMiddleName.getText().trim(), txtMUserEmail.getText().trim(), txtMUserContactNo.getText().trim(), txtMUserAddress.getText().trim());
             populateUserJTable();
             populateTeacherJComboBox();
+            Success("Added User Succefully!");
         }
     }//GEN-LAST:event_btnMUserAddActionPerformed
 
@@ -1700,7 +1676,7 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btnALogoutActionPerformed
 
     private void btnMUserDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMUserDeleteActionPerformed
-        // TODO add your handling code here:
+        Error("Delete User Successfully!");
     }//GEN-LAST:event_btnMUserDeleteActionPerformed
 
     private void btnAChangePasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAChangePasswordActionPerformed
@@ -1726,6 +1702,7 @@ public class Dashboard extends javax.swing.JFrame {
             clearErrorMessageMembers();
         } else {
             searchUserJTable(Integer.parseInt(txtMUserSearch.getText().trim()));
+            Info("Search Completed!");
         }
     }//GEN-LAST:event_btnMUserSearchActionPerformed
 
@@ -1738,6 +1715,7 @@ public class Dashboard extends javax.swing.JFrame {
             clearErrorMessageRAM();
         } else {
             searchRoomJTable(Integer.parseInt(txtRAMSearch.getText().trim()));
+            Info("Search Completed!");
         }
     }//GEN-LAST:event_btnRAMSearchActionPerformed
 
@@ -1772,10 +1750,6 @@ public class Dashboard extends javax.swing.JFrame {
     private void txtMUserSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMUserSearchActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMUserSearchActionPerformed
-
-    private void cbRAMUpdateDayOfTheWeekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbRAMUpdateDayOfTheWeekActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbRAMUpdateDayOfTheWeekActionPerformed
 
     private void txtRAMSearchActionPerformed(java.awt.event.ActionEvent evt) {                                             
         // TODO add your handling code here:
@@ -2117,7 +2091,6 @@ public class Dashboard extends javax.swing.JFrame {
     public void forLoginLogout(String message) {
         new NoticeWindow(NoticeType.DEFAULT_NOTIFICATION, message, NoticeWindow.SHORT_DELAY, NPosition.BOTTOM_RIGHT);
     }
-    
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -2188,9 +2161,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JCheckBox cbMUserUpdateRole;
     private javax.swing.JComboBox<String> cbRAMDayOfTheWeek;
     private javax.swing.JComboBox<String> cbRAMTeacher;
-    private javax.swing.JCheckBox cbRAMUpdateDayOfTheWeek;
-    private javax.swing.JCheckBox cbRAMUpdateTeacher;
-    private javax.swing.JCheckBox cbRAMUpdateTime;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelADepartment;
     private javax.swing.JLabel labelAFirstName;
