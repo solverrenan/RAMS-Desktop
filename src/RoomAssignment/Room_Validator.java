@@ -105,7 +105,6 @@ public class Room_Validator {
                     existingEndTime = existingEndTimeModified.getTime();// Reassign new value of end time from calendar object 
                     if ((newStartTime.before(existingStartTime) || newStartTime.after(existingEndTime)) && (newEndTime.before(existingStartTime) || newEndTime.after(existingEndTime))) {
                         while (newScheduleTimeModified.getTime().compareTo(newEndTime) != 0) {
-                            System.out.println("Logic goes until here!" + " " + sdf12.format(newScheduleTimeModified.getTime()));
                             if (newScheduleTimeModified.getTime().after(existingStartTime) && newScheduleTimeModified.getTime().before(existingEndTime)) {
                                 return false;
                             }
@@ -149,7 +148,98 @@ public class Room_Validator {
                     existingEndTime = existingEndTimeModified.getTime();// Reassign new value of end time from calendar object 
                     if ((newStartTime.before(existingStartTime) || newStartTime.after(existingEndTime)) && (newEndTime.before(existingStartTime) || newEndTime.after(existingEndTime))) {
                         while (newScheduleTimeModified.getTime().compareTo(newEndTime) != 0) {
-                            System.out.println("Logic goes until here!" + " " + sdf12.format(newScheduleTimeModified.getTime()));
+                            if (newScheduleTimeModified.getTime().after(existingStartTime) && newScheduleTimeModified.getTime().before(existingEndTime)) {
+                                return false;
+                            }
+                            newScheduleTimeModified.add(Calendar.MINUTE, 1);
+                        }
+                    } else {
+                        return false;
+                    }
+                }
+                return true;
+            } else {
+                return true;
+            }
+        } catch (ParseException peex) {
+            JOptionPane.showMessageDialog(null, peex.toString(), "Date Parse Error!", JOptionPane.ERROR_MESSAGE);
+        } catch (SQLException sqlex) {
+            JOptionPane.showMessageDialog(null, sqlex.toString(), "SQL Query Error!", JOptionPane.ERROR_MESSAGE);
+        }
+        return false;
+    }
+
+    protected boolean isScheduleTimeFree(String dayOfTheWeek, String room, String startTime, String endTime, int scheduleID) {
+        try {
+            tblData = roomData.getSpecificRoomScheduleInformation(dayOfTheWeek, room);
+            sdf12 = new SimpleDateFormat("hh:mm aa");
+            newStartTime = sdf12.parse(startTime);
+            newEndTime = sdf12.parse(endTime);
+            existingStartTimeModified = Calendar.getInstance();// Modifies start time
+            existingEndTimeModified = Calendar.getInstance();// Modifies end time
+            newScheduleTimeModified = Calendar.getInstance();
+            if (tblData.isBeforeFirst()) {
+                while (tblData.next()) {
+                    if (tblData.getInt(1) == scheduleID) {
+                        continue;
+                    }
+                    newScheduleTimeModified.setTime(newStartTime);
+                    existingStartTime = sdf12.parse(tblData.getString(7));// Get start time from table
+                    existingEndTime = sdf12.parse(tblData.getString(8));// Get end time from table
+                    existingStartTimeModified.setTime(existingStartTime);// Pass start time to Calendar object
+                    existingEndTimeModified.setTime(existingEndTime);// Pass end time to Calendar object          
+                    existingStartTimeModified.add(Calendar.MINUTE, 1);// Adds a minute to start time
+                    existingEndTimeModified.add(Calendar.MINUTE, -1);// Subtracts a minute to end time
+                    existingStartTime = existingStartTimeModified.getTime();// Reassign new value of start time from calendar object
+                    existingEndTime = existingEndTimeModified.getTime();// Reassign new value of end time from calendar object 
+                    if ((newStartTime.before(existingStartTime) || newStartTime.after(existingEndTime)) && (newEndTime.before(existingStartTime) || newEndTime.after(existingEndTime))) {
+                        while (newScheduleTimeModified.getTime().compareTo(newEndTime) != 0) {
+                            if (newScheduleTimeModified.getTime().after(existingStartTime) && newScheduleTimeModified.getTime().before(existingEndTime)) {
+                                return false;
+                            }
+                            newScheduleTimeModified.add(Calendar.MINUTE, 1);
+                        }
+                    } else {
+                        return false;
+                    }
+                }
+                return true;
+            } else {
+                return true;
+            }
+        } catch (ParseException peex) {
+            JOptionPane.showMessageDialog(null, peex.toString(), "Date Parse Error!", JOptionPane.ERROR_MESSAGE);
+        } catch (SQLException sqlex) {
+            JOptionPane.showMessageDialog(null, sqlex.toString(), "SQL Query Error!", JOptionPane.ERROR_MESSAGE);
+        }
+        return false;
+    }
+    
+      protected boolean isTeacherScheduleTimeFree(String dayOfTheWeek, String teacher, String startTime, String endTime, int scheduleID) {
+        try {
+            tblData = roomData.getSpecificTeacherScheduleInformation(dayOfTheWeek, teacher);
+            sdf12 = new SimpleDateFormat("hh:mm aa");
+            newStartTime = sdf12.parse(startTime);
+            newEndTime = sdf12.parse(endTime);
+            existingStartTimeModified = Calendar.getInstance();// Modifies start time
+            existingEndTimeModified = Calendar.getInstance();// Modifies end time
+            newScheduleTimeModified = Calendar.getInstance();
+            if (tblData.isBeforeFirst()) {
+                while (tblData.next()) {
+                    if(tblData.getInt(1) == scheduleID) {
+                        continue;
+                    }
+                    newScheduleTimeModified.setTime(newStartTime);
+                    existingStartTime = sdf12.parse(tblData.getString(7));// Get start time from table
+                    existingEndTime = sdf12.parse(tblData.getString(8));// Get end time from table
+                    existingStartTimeModified.setTime(existingStartTime);// Pass start time to Calendar object
+                    existingEndTimeModified.setTime(existingEndTime);// Pass end time to Calendar object          
+                    existingStartTimeModified.add(Calendar.MINUTE, 1);// Adds a minute to start time
+                    existingEndTimeModified.add(Calendar.MINUTE, -1);// Subtracts a minute to end time
+                    existingStartTime = existingStartTimeModified.getTime();// Reassign new value of start time from calendar object
+                    existingEndTime = existingEndTimeModified.getTime();// Reassign new value of end time from calendar object 
+                    if ((newStartTime.before(existingStartTime) || newStartTime.after(existingEndTime)) && (newEndTime.before(existingStartTime) || newEndTime.after(existingEndTime))) {
+                        while (newScheduleTimeModified.getTime().compareTo(newEndTime) != 0) {
                             if (newScheduleTimeModified.getTime().after(existingStartTime) && newScheduleTimeModified.getTime().before(existingEndTime)) {
                                 return false;
                             }

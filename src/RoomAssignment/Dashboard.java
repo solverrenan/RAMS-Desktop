@@ -1589,7 +1589,56 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_pnlTabAccountMouseClicked
 
     private void btnRAMSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRAMSaveActionPerformed
-        // TODO add your handling code here:
+        if (txtRAMID.getText().trim().isEmpty()) {
+            lblRAMError.setText("Schedule ID field must not be empty!");
+            clearErrorMessageRAM();
+        } else if (roomValidation.isScheduleIDInputValid(txtRAMID.getText().trim()) == false) {
+            lblRAMError.setText("Schedule ID field must only contain numbers!");
+            clearErrorMessageRAM();
+        } else if (Integer.parseInt(txtRAMID.getText().trim()) < 1) {
+            lblRAMError.setText("Schedule ID input must be greater than 0");
+            clearErrorMessageRAM();
+        } else {
+            if (txtRAMSubject.getText().trim().isEmpty()) {
+            } else if (roomValidation.isSubjectInputValid(txtRAMSubject.getText().trim()) == false) {
+                lblRAMError.setText("Subject field must only contain letters and numbers!");
+                clearErrorMessageRAM();
+            } else {
+                roomData.updateRoomScheduleSubject(txtRAMSubject.getText().trim(), Integer.parseInt(txtRAMID.getText().trim()));
+            }
+
+            if (txtRAMSection.getText().trim().isEmpty()) {
+            } else if (roomValidation.isSectionInputValid(txtRAMSection.getText().trim()) == false) {
+                lblRAMError.setText("Section field must only contain uppercase letters and numbers!");
+                clearErrorMessageRAM();
+            } else {
+                roomData.updateRoomScheduleSection(txtRAMSection.getText().trim(), Integer.parseInt(txtRAMID.getText().trim()));
+            }
+
+            if (txtRAMRoom.getText().trim().isEmpty()) {
+            } else if (roomValidation.isRoomInputValid(txtRAMRoom.getText().trim()) == false) {
+                lblRAMError.setText("Room field must only contain letters and numbers!");
+                clearErrorMessageRAM();
+            } else if (roomValidation.isScheduleTimeValid(tpRAMStartTime.getSelectedTime(), tpRAMEndTime.getSelectedTime()) == false) {
+                lblRAMError.setText("Time schedule for a room can only be between 7:00 AM and 7:00 PM!");
+                clearErrorMessageRAM();
+            } else if (roomValidation.isStartTimeGreaterThanOrEqualToEndTime(tpRAMStartTime.getSelectedTime(), tpRAMEndTime.getSelectedTime()) == false) {
+                lblRAMError.setText("Start time must not be greater than or equal to end time!");
+                clearErrorMessageRAM();
+            } else if (roomValidation.isScheduleTimeFree(cbRAMDayOfTheWeek.getSelectedItem().toString().trim(), txtRAMRoom.getText().trim(), tpRAMStartTime.getSelectedTime(), tpRAMEndTime.getSelectedTime(), Integer.parseInt(txtRAMID.getText().trim())) == false) {
+                lblRAMError.setText("Time schedule has conflicted with another schedule!");
+                clearErrorMessageRAM();
+            } else if (roomValidation.isTeacherScheduleTimeFree(cbRAMDayOfTheWeek.getSelectedItem().toString().trim(), cbRAMTeacher.getSelectedItem().toString().trim(), tpRAMStartTime.getSelectedTime(), tpRAMEndTime.getSelectedTime(), Integer.parseInt(txtRAMID.getText().trim())) == false) {
+                lblRAMError.setText("The teacher's schedule is occupied on that day and time!");
+                clearErrorMessageRAM();
+            } else {
+                updateRoomTimeInformationJTable(txtRAMRoom.getText().trim(), cbRAMTeacher.getSelectedItem().toString().trim(), cbRAMDayOfTheWeek.getSelectedItem().toString().trim(), tpRAMStartTime.getSelectedTime(), tpRAMEndTime.getSelectedTime(), Integer.parseInt(txtRAMID.getText().trim()));
+            }
+
+            if (!txtRAMRoom.getText().trim().isEmpty() || !txtRAMSubject.getText().trim().isEmpty() || !txtRAMSection.getText().trim().isEmpty()) {
+                populateRoomJTable();
+            }
+        }
     }//GEN-LAST:event_btnRAMSaveActionPerformed
 
     private void btnRAMAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRAMAddActionPerformed
@@ -2049,6 +2098,18 @@ public class Dashboard extends javax.swing.JFrame {
             Date convertedStartTime = sdf12.parse(startTime);
             Date convertedEndTime = sdf12.parse(endTime);
             roomData.insertRoomScheduleInformation(room, subject, section, teacher, dayOfTheWeek, sdf24.format(convertedStartTime), sdf24.format(convertedEndTime));
+        } catch (ParseException peex) {
+            JOptionPane.showMessageDialog(null, peex.toString(), "Date Parse Error!", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void updateRoomTimeInformationJTable(String room, String teacher, String dayOfTheWeek, String startTime, String endTime, int scheduleID) {
+        try {
+            SimpleDateFormat sdf12 = new SimpleDateFormat("hh:mm aa");// Takes the time text to convert into date 12 hour format with am/pm
+            SimpleDateFormat sdf24 = new SimpleDateFormat("HH:mm");// Takes date 12 hour format with am/pm to convert into 24 hour format
+            Date convertedStartTime = sdf12.parse(startTime);
+            Date convertedEndTime = sdf12.parse(endTime);
+            roomData.updateRoomScheduleTimeInformation(room, teacher, dayOfTheWeek, startTime, endTime, scheduleID);
         } catch (ParseException peex) {
             JOptionPane.showMessageDialog(null, peex.toString(), "Date Parse Error!", JOptionPane.ERROR_MESSAGE);
         }
