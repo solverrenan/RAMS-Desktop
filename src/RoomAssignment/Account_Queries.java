@@ -165,4 +165,14 @@ public class Account_Queries extends SQLConnection {
             JOptionPane.showMessageDialog(null, sqlex.toString(), "SQL Query Error!", JOptionPane.ERROR_MESSAGE);
         }
     }
+    
+    public void deleteUserAccountInformation(int userID) {
+        try {
+            query = "DELETE FROM UserAccounts WHERE UserID = " + userID + "";
+            sqlPreparedStatement = sqlConnection.prepareStatement(query);
+            sqlPreparedStatement.executeUpdate();
+        } catch (SQLException sqlex) {
+            JOptionPane.showMessageDialog(null, sqlex.toString(), "SQL Query Error!", JOptionPane.ERROR_MESSAGE);
+        }
+    }
 }

@@ -67,6 +67,30 @@ public class Room_Queries extends SQLConnection {
         }
     }
 
+    public ResultSet getTeacherScheduleInformationThisDay(String teacher) {
+        try {
+            sqlStatement = sqlConnection.createStatement();
+            query = "SELECT ScheduleID,Room,Subject,[Section],Teacher,DayOfTheWeek,FORMAT(CAST(StartTime AS datetime),'hh:mm tt')'StartTime',FORMAT(CAST(EndTime AS datetime),'hh:mm tt') 'EndTime' FROM TeacherSchedules WHERE DayOfTheWeek = DATENAME(WEEKDAY,GETDATE()) AND Teacher = '" + teacher + "' ORDER BY FORMAT(CAST(StartTime AS datetime),'HH:MM') ASC";
+            rs = sqlStatement.executeQuery(query);
+            return rs;
+        } catch (SQLException sqlex) {
+            JOptionPane.showMessageDialog(null, sqlex.toString(), "SQL Query Error!", JOptionPane.ERROR_MESSAGE);
+            return null;
+        }
+    }
+
+    public ResultSet getSearchedTeacherRoomScheduleInformation(String teacher, int scheduleID) {
+        try {
+            sqlStatement = sqlConnection.createStatement();
+            query = "SELECT ScheduleID,Room,Subject,[Section],Teacher,DayOfTheWeek,FORMAT(CAST(StartTime AS datetime),'hh:mm tt')'StartTime',FORMAT(CAST(EndTime AS datetime),'hh:mm tt') 'EndTime' FROM TeacherSchedules WHERE ScheduleID = " + scheduleID + " AND Teacher = '" + teacher + "'";
+            rs = sqlStatement.executeQuery(query);
+            return rs;
+        } catch (SQLException sqlex) {
+            JOptionPane.showMessageDialog(null, sqlex.toString(), "SQL Query Error!", JOptionPane.ERROR_MESSAGE);
+            return null;
+        }
+    }
+
     public void insertRoomScheduleInformation(String room, String subject, String section, String teacher, String dayOfTheWeek, String startTime, String endTime) {
         try {
             query = "INSERT INTO TeacherSchedules (Room,Subject,[Section],Teacher,DayOfTheWeek,StartTime,EndTime) "
@@ -80,31 +104,41 @@ public class Room_Queries extends SQLConnection {
 
     public void updateRoomScheduleSubject(String subject, int scheduleID) {
         try {
-            query = "UPDATE TeacherSchedules SET Subject = '"+subject+"' WHERE ScheduleID = "+scheduleID+"";
+            query = "UPDATE TeacherSchedules SET Subject = '" + subject + "' WHERE ScheduleID = " + scheduleID + "";
             sqlPreparedStatement = sqlConnection.prepareStatement(query);
             sqlPreparedStatement.executeUpdate();
         } catch (SQLException sqlex) {
             JOptionPane.showMessageDialog(null, sqlex.toString(), "SQL Query Error!", JOptionPane.ERROR_MESSAGE);
         }
     }
-    
+
     public void updateRoomScheduleSection(String section, int scheduleID) {
         try {
-            query = "UPDATE TeacherSchedules SET Section = '"+section+"' WHERE ScheduleID = "+scheduleID+"";
+            query = "UPDATE TeacherSchedules SET Section = '" + section + "' WHERE ScheduleID = " + scheduleID + "";
             sqlPreparedStatement = sqlConnection.prepareStatement(query);
             sqlPreparedStatement.executeUpdate();
         } catch (SQLException sqlex) {
             JOptionPane.showMessageDialog(null, sqlex.toString(), "SQL Query Error!", JOptionPane.ERROR_MESSAGE);
         }
     }
-    
+
     public void updateRoomScheduleTimeInformation(String room, String teacher, String dayOfTheWeek, String startTime, String endTime, int scheduleID) {
         try {
-            query = "UPDATE TeacherSchedules SET Room = '"+room+"', Teacher = '"+teacher+"', DayOfTheWeek = '"+dayOfTheWeek+"', StartTime = '"+startTime+"', EndTime = '"+endTime+"' WHERE ScheduleID = "+scheduleID+"";
+            query = "UPDATE TeacherSchedules SET Room = '" + room + "', Teacher = '" + teacher + "', DayOfTheWeek = '" + dayOfTheWeek + "', StartTime = '" + startTime + "', EndTime = '" + endTime + "' WHERE ScheduleID = " + scheduleID + "";
             sqlPreparedStatement = sqlConnection.prepareStatement(query);
             sqlPreparedStatement.executeUpdate();
         } catch (SQLException sqlex) {
             JOptionPane.showMessageDialog(null, sqlex.toString(), "SQL Query Error!", JOptionPane.ERROR_MESSAGE);
         }
-    }        
+    }
+
+    public void deleteRoomScheduleInformation(int scheduleID) {
+        try {
+            query = "DELETE FROM TeacherSchedules WHERE ScheduleID = " + scheduleID + "";
+            sqlPreparedStatement = sqlConnection.prepareStatement(query);
+            sqlPreparedStatement.executeUpdate();
+        } catch (SQLException sqlex) {
+            JOptionPane.showMessageDialog(null, sqlex.toString(), "SQL Query Error!", JOptionPane.ERROR_MESSAGE);
+        }
+    }
 }

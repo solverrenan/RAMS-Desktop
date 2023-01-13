@@ -9,17 +9,27 @@ package RoomAssignment;
  *
  * @author solve
  */
+import com.sbix.jnotify.NPosition;
+import com.sbix.jnotify.NoticeType;
+import com.sbix.jnotify.NoticeWindow;
 import java.awt.Image;
 import java.awt.geom.RoundRectangle2D;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+
 public class Signin_Signout extends javax.swing.JFrame {
 
     /**
      * Creates new form SigninSignout
      */
+    Account_Queries userData = new Account_Queries();
+    Activity_Log_Queries activityData = new Activity_Log_Queries();
+    ResultSet tblData;
+
     public Signin_Signout() {
         initComponents();
-        SetLogo();
         this.setTitle("RAMS - Login");
         //Rounded Corners
         setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 20, 20));
@@ -264,25 +274,46 @@ public class Signin_Signout extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        Dashboard db = new Dashboard();
-        db.show(); //For display function only.
-        this.dispose();
-        Dashboard d = new Dashboard();
-        d.forLoginLogout("Login Successfully!");
+        login();
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void cboxShowPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxShowPasswordActionPerformed
-        if(cboxShowPassword.isSelected()){
+        if (cboxShowPassword.isSelected()) {
             pwPassword.setEchoChar((char) 0);
-        }else{
+        } else {
             pwPassword.setEchoChar('*');
         }
     }//GEN-LAST:event_cboxShowPasswordActionPerformed
 
-    private void SetLogo() {
-        Image logo = (new ImageIcon(Dashboard.class.getResource("\\logo.jpg")).getImage());
-        this.setIconImage(logo);
+    private void login() {
+        try {
+            tblData = userData.getAllUserAccountsInformation();
+            while (tblData.next()) {
+                if (txtUser.getText().trim().equals(tblData.getString(2)) && new String(pwPassword.getPassword()).trim().equals(tblData.getString(3))) {
+                    if (tblData.getString(5).equalsIgnoreCase("Teacher")) {
+                        activityData.insertActivity(tblData.getString(7) + ", " + tblData.getString(6) + " " + tblData.getString(8), "Logged in.", tblData.getInt(1));
+                        View_Schedule vs = new View_Schedule(tblData.getInt(1));
+                        vs.show();
+                        vs.forLoginLogout("Login Successfully!");                        
+                        this.dispose();
+                    } else {
+                        activityData.insertActivity(tblData.getString(7) + ", " + tblData.getString(6) + " " + tblData.getString(8), "Logged in.", tblData.getInt(1));
+                        Dashboard db = new Dashboard(tblData.getInt(1));
+                        db.show(); //For display function only.
+                        db.forLoginLogout("Login Successfully!");
+                        this.dispose();
+                    }
+                }
+            }
+            if (this.isShowing()) {
+                new NoticeWindow(NoticeType.ERROR_NOTIFICATION, "Username/password is incorrect!", NoticeWindow.NORMAL_DELAY, NPosition.BOTTOM_RIGHT);
+            }
+        } catch (SQLException sqlex) {
+            JOptionPane.showMessageDialog(null, sqlex.toString(), "SQL Query Error!", JOptionPane.ERROR_MESSAGE);
+        }
     }
+
+
     /**
      * @param args the command line arguments
      */
