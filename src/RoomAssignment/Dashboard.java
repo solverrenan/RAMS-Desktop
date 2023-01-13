@@ -26,6 +26,7 @@ import java.util.Locale;
 import javax.swing.Timer;
 import java.util.Objects;
 import java.util.Vector;
+import javax.swing.DefaultListModel;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -46,23 +47,31 @@ public class Dashboard extends javax.swing.JFrame {
     Account_Validator userValidation = new Account_Validator();
     Room_Queries roomData = new Room_Queries();
     Room_Validator roomValidation = new Room_Validator();
+    Activity_Log_Queries activityData = new Activity_Log_Queries();
     ResultSet tblData;
     DefaultTableModel tblModel;
     Vector<Object> tblRowData;
     Timer clearErrorTimer;
+    private static int userID;
+    private String userRole;
+    private String name;
 
-    public Dashboard() {
+    public Dashboard(int userID) {
+        this.userID = userID;
+
         initComponents();
-        DefaultTab();
-        SetLogo();
+        DefaultTab();       
         this.setTitle("RAMS - Dashboard");
-        //ProgramHeadAccess() //For View Admin
+        if (userRole.equalsIgnoreCase("Program Head")) {
+            ProgramHeadAccess();
+        }
         populateUserJTable();
         populateRoomJTable();
         populateTeacherJComboBox();
+        populateDashboardStatistics();
+
         //Rounded Corner
         setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 20, 20));
-
     }
 
     /**
@@ -547,7 +556,7 @@ public class Dashboard extends javax.swing.JFrame {
                         .addComponent(pnlHomeCreatedSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(pnlHomeCreatedAccount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 191, Short.MAX_VALUE))))
+                        .addGap(0, 187, Short.MAX_VALUE))))
         );
         pnlHomeLayout.setVerticalGroup(
             pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -840,7 +849,7 @@ public class Dashboard extends javax.swing.JFrame {
                         .addComponent(btnRAMSave, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnRAMDeleteRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 167, Short.MAX_VALUE)))
+                        .addGap(0, 139, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pnlRAMScheduleLayout.setVerticalGroup(
@@ -897,7 +906,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRAMAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnRAMEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnRAMSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
@@ -1569,7 +1578,6 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_pnlTabAccountMouseClicked
 
     private void btnRAMSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRAMSaveActionPerformed
-        Success("Updated Room Schedule!");
         if (txtRAMID.getText().trim().isEmpty()) {
             lblRAMError.setText("Schedule ID field must not be empty!");
             clearErrorMessageRAM();
@@ -1618,6 +1626,8 @@ public class Dashboard extends javax.swing.JFrame {
 
             if (!txtRAMRoom.getText().trim().isEmpty() || !txtRAMSubject.getText().trim().isEmpty() || !txtRAMSection.getText().trim().isEmpty()) {
                 populateRoomJTable();
+                Success("Updated Room Schedule!");
+                activityData.insertActivity(name, "Updated room schedule data.", userID);
             }
         }
     }//GEN-LAST:event_btnRAMSaveActionPerformed
@@ -1651,6 +1661,7 @@ public class Dashboard extends javax.swing.JFrame {
             insertRoomJTable(txtRAMRoom.getText().trim(), txtRAMSubject.getText().trim(), txtRAMSection.getText().trim(), cbRAMTeacher.getSelectedItem().toString().trim(), cbRAMDayOfTheWeek.getSelectedItem().toString().trim(), tpRAMStartTime.getSelectedTime(), tpRAMEndTime.getSelectedTime());
             populateRoomJTable();
             Success("Added Room Successfully!");
+            activityData.insertActivity(name, "Added room schedule data.", userID);
         }
     }//GEN-LAST:event_btnRAMAddActionPerformed
 
@@ -1667,11 +1678,25 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRAMEndTimeActionPerformed
 
     private void btnRAMDeleteRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRAMDeleteRoomActionPerformed
-        Error("Delete Room Schedule!");
+        if (txtRAMID.getText().trim().isEmpty()) {
+            lblRAMError.setText("Schedule ID field must not be empty!");
+            clearErrorMessageRAM();
+        } else if (roomValidation.isScheduleIDInputValid(txtRAMID.getText().trim()) == false) {
+            lblRAMError.setText("Schedule ID field must only contain numbers!");
+            clearErrorMessageRAM();
+        } else if (Integer.parseInt(txtRAMID.getText().trim()) < 1) {
+            lblRAMError.setText("Schedule ID input must be greater than 0");
+            clearErrorMessageRAM();
+        } else {
+            roomData.deleteRoomScheduleInformation(Integer.parseInt(txtRAMID.getText().trim()));
+            populateRoomJTable();
+            Error("Delete Room Schedule!");
+            activityData.insertActivity(name, "Deleted room schedule data.", userID);
+
+        }
     }//GEN-LAST:event_btnRAMDeleteRoomActionPerformed
 
     private void btnMUserSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMUserSaveActionPerformed
-        Success("Update User Successfully!");
         if (txtMUserID.getText().trim().isEmpty()) {
             lblMUserError.setText("User ID field must not be empty!");
             clearErrorMessageMembers();
@@ -1789,8 +1814,10 @@ public class Dashboard extends javax.swing.JFrame {
                 userData.updateUserAccountUsername(txtMUserUsername.getText().trim(), Integer.parseInt(txtMUserID.getText().trim()));
             }
 
-            if (!txtMUserUsername.getText().trim().isEmpty() || !new String(pfMUserPassword.getPassword()).trim().isEmpty() || !txtMUserDepartment.getText().trim().isEmpty() || !txtMUserFirstName.getText().trim().isEmpty() || !txtMUserLastName.getText().trim().isEmpty() || !txtMUserMiddleName.getText().trim().isEmpty() || !txtMUserEmail.getText().trim().isEmpty() || !txtMUserContactNo.getText().trim().isEmpty() || !txtMUserAddress.getText().trim().isEmpty()) {
+            if (!txtMUserUsername.getText().trim().isEmpty() || !new String(pfMUserPassword.getPassword()).trim().isEmpty() || !txtMUserDepartment.getText().trim().isEmpty() || cbMUserUpdateRole.isSelected() || !txtMUserFirstName.getText().trim().isEmpty() || !txtMUserLastName.getText().trim().isEmpty() || !txtMUserMiddleName.getText().trim().isEmpty() || !txtMUserEmail.getText().trim().isEmpty() || !txtMUserContactNo.getText().trim().isEmpty() || !txtMUserAddress.getText().trim().isEmpty()) {
                 populateUserJTable();
+                Success("Update User Successfully!");
+                activityData.insertActivity(name, "Updated user data.", userID);
             }
         }
     }//GEN-LAST:event_btnMUserSaveActionPerformed
@@ -1837,6 +1864,7 @@ public class Dashboard extends javax.swing.JFrame {
             populateUserJTable();
             populateTeacherJComboBox();
             Success("Added User Succefully!");
+            activityData.insertActivity(name, "Added room data.", userID);
         }
     }//GEN-LAST:event_btnMUserAddActionPerformed
 
@@ -1852,17 +1880,33 @@ public class Dashboard extends javax.swing.JFrame {
         Signin_Signout ss = new Signin_Signout();
         ss.show();
         this.dispose();
+        activityData.insertActivity(name, "Logged out.", userID);
         forLoginLogout("Logout Successfully!");
     }//GEN-LAST:event_btnALogoutActionPerformed
 
     private void btnMUserDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMUserDeleteActionPerformed
-        Error("Delete User Successfully!");
+        if (txtMUserID.getText().trim().isEmpty()) {
+            lblMUserError.setText("User ID field must not be empty!");
+            clearErrorMessageMembers();
+        } else if (userValidation.isUserIDInputValid(txtMUserID.getText().trim()) == false) {
+            lblMUserError.setText("User ID field must only contain numbers!");
+            clearErrorMessageMembers();
+        } else if (Integer.parseInt(txtMUserID.getText().trim()) < 1) {
+            lblMUserError.setText("User ID input must be greater than 0");
+            clearErrorMessageMembers();
+        } else {
+            userData.deleteUserAccountInformation(Integer.parseInt(txtMUserID.getText().trim()));
+            populateUserJTable();
+            Error("Delete User Successfully!");
+            activityData.insertActivity(name, "Deleted user data.", userID);
+        }
     }//GEN-LAST:event_btnMUserDeleteActionPerformed
 
     private void btnAChangePasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAChangePasswordActionPerformed
-        Change_Password cp = new Change_Password();
+        Change_Password cp = new Change_Password(userID,this);
         cp.show();
         cp.setAlwaysOnTop(true);
+        this.setEnabled(false);
     }//GEN-LAST:event_btnAChangePasswordActionPerformed
 
     private void btnMUserEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMUserEditActionPerformed
@@ -1880,9 +1924,13 @@ public class Dashboard extends javax.swing.JFrame {
         } else if (userValidation.isUserIDInputValid(txtMUserSearch.getText().trim()) == false) {
             lblMUserError.setText("Field for searching must only contain numbers!");
             clearErrorMessageMembers();
+        } else if ((Integer.parseInt(txtMUserSearch.getText().trim()) < 1)) {
+            lblMUserError.setText("Field for searching must be greater than 0!");
+            clearErrorMessageMembers();
         } else {
             searchUserJTable(Integer.parseInt(txtMUserSearch.getText().trim()));
             Info("Search Completed!");
+            activityData.insertActivity(name, "Searched user data.", userID);
         }
     }//GEN-LAST:event_btnMUserSearchActionPerformed
 
@@ -1893,9 +1941,13 @@ public class Dashboard extends javax.swing.JFrame {
         } else if (roomValidation.isScheduleIDInputValid(txtRAMSearch.getText().trim()) == false) {
             lblRAMError.setText("Field for searching must only contain numbers!");
             clearErrorMessageRAM();
+        } else if ((Integer.parseInt(txtRAMSearch.getText().trim()) < 1)) {
+            lblRAMError.setText("Field for searching must be greater than 0!");
+            clearErrorMessageRAM();
         } else {
             searchRoomJTable(Integer.parseInt(txtRAMSearch.getText().trim()));
             Info("Search Completed!");
+            activityData.insertActivity(name, "Searched room schedule data.", userID);
         }
     }//GEN-LAST:event_btnRAMSearchActionPerformed
 
@@ -1931,7 +1983,7 @@ public class Dashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMUserSearchActionPerformed
 
-    private void txtRAMSearchActionPerformed(java.awt.event.ActionEvent evt) {                                             
+    private void txtRAMSearchActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
     private void txtRAMEndTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRAMEndTimeActionPerformed
@@ -1965,6 +2017,21 @@ public class Dashboard extends javax.swing.JFrame {
         });
         clearErrorTimer.setRepeats(false);
         clearErrorTimer.start();
+    }
+
+    //Populates Dashboard Statistics
+    protected void populateDashboardStatistics() {
+        try {
+            tblData = activityData.getAllActivityLogInformation();
+            DefaultListModel<String> listModel = new DefaultListModel<>();
+            listModel.removeAllElements();
+            while (tblData.next()) {
+                listModel.addElement(tblData.getString(4) + ":" + tblData.getString(5) + ": " + tblData.getString(2) + ", " + tblData.getString(3) + " ID:" + String.valueOf(tblData.getInt(6)));
+            }
+            listActivityLog.setModel(listModel);
+        } catch (SQLException sqlex) {
+            JOptionPane.showMessageDialog(null, sqlex.toString(), "SQL Query Error!", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     // Displays all records of users within the database
@@ -2006,7 +2073,6 @@ public class Dashboard extends javax.swing.JFrame {
                 }
                 tblModel.addRow(tblRowData);
             }
-            Info("Search Completed!");
         } catch (SQLException sqlex) {
             JOptionPane.showMessageDialog(null, sqlex.toString(), "SQL Query Error!", JOptionPane.ERROR_MESSAGE);
         }
@@ -2069,7 +2135,6 @@ public class Dashboard extends javax.swing.JFrame {
                 }
                 tblModel.addRow(tblRowData);
             }
-            Info("Search Completed!");
         } catch (SQLException sqlex) {
             JOptionPane.showMessageDialog(null, sqlex.toString(), "SQL Query Error!", JOptionPane.ERROR_MESSAGE);
         }
@@ -2083,7 +2148,6 @@ public class Dashboard extends javax.swing.JFrame {
             Date convertedStartTime = sdf12.parse(startTime);
             Date convertedEndTime = sdf12.parse(endTime);
             roomData.insertRoomScheduleInformation(room, subject, section, teacher, dayOfTheWeek, sdf24.format(convertedStartTime), sdf24.format(convertedEndTime));
-            Success("Added Room Successfully!");
         } catch (ParseException peex) {
             JOptionPane.showMessageDialog(null, peex.toString(), "Date Parse Error!", JOptionPane.ERROR_MESSAGE);
         }
@@ -2111,6 +2175,20 @@ public class Dashboard extends javax.swing.JFrame {
         pnlTabRoomManagement.setBackground(new Color(218, 104, 70));
         pnlTabMembers.setBackground(new Color(218, 104, 70));
         pnlTabAccount.setBackground(new Color(218, 104, 70));
+
+        try {
+            tblData = userData.getUserAccountInformation(userID);
+            tblData.next();
+            lblAID.setText(String.valueOf(tblData.getInt(1)));
+            lbAlUsername.setText(tblData.getString(2));
+            lblADepartment.setText(tblData.getString(4));
+            lblAFirstname.setText(tblData.getString(6));
+            lblALastname.setText(tblData.getString(7));
+            userRole = tblData.getString(5);
+            name = tblData.getString(7) + ", " + tblData.getString(6) + " " + tblData.getString(8);
+        } catch (SQLException sqlex) {
+            JOptionPane.showMessageDialog(null, sqlex.toString(), "SQL Query Error!", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     public void HomeTab() {
@@ -2172,6 +2250,7 @@ public class Dashboard extends javax.swing.JFrame {
         pnlTabHome.setBackground(new Color(218, 104, 70));
         pnlTabRoomManagement.setBackground(new Color(218, 104, 70));
         pnlTabMembers.setBackground(new Color(218, 104, 70));
+
     }
 
     public void RAMEdit() {
@@ -2252,7 +2331,7 @@ public class Dashboard extends javax.swing.JFrame {
     }
 
     //Admin Access on Dashboard
-    public void ProgramHeadAccess(){
+    public void ProgramHeadAccess() {
         pnlTabHome.setVisible(false);
         pnlTabMembers.setVisible(false);
         pnlHome.setVisible(false);
@@ -2262,25 +2341,25 @@ public class Dashboard extends javax.swing.JFrame {
         pnlTabAccount.setLocation(pnlTabRoomManagement.getX(), pnlTabRoomManagement.getY());
         RoomManagementTab();
     }
-
-    private void SetLogo() {
-        Image logo = (new ImageIcon(Dashboard.class.getResource("\\logo.jpg")).getImage());
-        this.setIconImage(logo);
-    }
     
+
     public void Success(String message) {
         new NoticeWindow(NoticeType.SUCCESS_NOTIFICATION, message, NoticeWindow.NORMAL_DELAY, NPosition.BOTTOM_RIGHT);
     }
+
     public void Warning(String message) {
         new NoticeWindow(NoticeType.WARNING_NOTIFICATION, message, NoticeWindow.NORMAL_DELAY, NPosition.BOTTOM_RIGHT);
     }
+
     public void Error(String message) {
-        new NoticeWindow(NoticeType.ERROR_NOTIFICATION,message, NoticeWindow.NORMAL_DELAY, NPosition.BOTTOM_RIGHT);
-        
+        new NoticeWindow(NoticeType.ERROR_NOTIFICATION, message, NoticeWindow.NORMAL_DELAY, NPosition.BOTTOM_RIGHT);
+
     }
+
     public void Info(String message) {
         new NoticeWindow(NoticeType.DEFAULT_NOTIFICATION, message, NoticeWindow.NORMAL_DELAY, NPosition.BOTTOM_RIGHT);
     }
+
     public void forLoginLogout(String message) {
         new NoticeWindow(NoticeType.DEFAULT_NOTIFICATION, message, NoticeWindow.SHORT_DELAY, NPosition.BOTTOM_RIGHT);
     }
@@ -2327,7 +2406,7 @@ public class Dashboard extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Dashboard().setVisible(true);
+                new Dashboard(userID).setVisible(true);
             }
         });
     }
