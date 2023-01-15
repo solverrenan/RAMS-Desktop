@@ -8,12 +8,7 @@ package RoomAssignment;
 import com.sbix.jnotify.NPosition;
 import com.sbix.jnotify.NoticeType;
 import com.sbix.jnotify.NoticeWindow;
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Image;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.RoundRectangle2D;
@@ -22,9 +17,7 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
 import javax.swing.Timer;
-import java.util.Objects;
 import java.util.Vector;
 import javax.swing.DefaultListModel;
 import javax.swing.Icon;
@@ -48,6 +41,7 @@ public class Dashboard extends javax.swing.JFrame {
     Room_Queries roomData = new Room_Queries();
     Room_Validator roomValidation = new Room_Validator();
     Activity_Log_Queries activityData = new Activity_Log_Queries();
+    Statistics_Queries statisticsData = new Statistics_Queries();
     ResultSet tblData;
     DefaultTableModel tblModel;
     Vector<Object> tblRowData;
@@ -60,7 +54,10 @@ public class Dashboard extends javax.swing.JFrame {
         this.userID = userID;
 
         initComponents();
-        DefaultTab();       
+        DefaultTab();
+        displayUserAccountInformation();
+        populateDashboardActivityLog();
+        displayStatisticsInformation();
         this.setTitle("RAMS - Dashboard");
         if (userRole.equalsIgnoreCase("Program Head")) {
             ProgramHeadAccess();
@@ -68,7 +65,6 @@ public class Dashboard extends javax.swing.JFrame {
         populateUserJTable();
         populateRoomJTable();
         populateTeacherJComboBox();
-        populateDashboardStatistics();
 
         //Rounded Corner
         setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 20, 20));
@@ -1628,6 +1624,7 @@ public class Dashboard extends javax.swing.JFrame {
                 populateRoomJTable();
                 Success("Updated Room Schedule!");
                 activityData.insertActivity(name, "Updated room schedule data.", userID);
+                populateDashboardActivityLog();
             }
         }
     }//GEN-LAST:event_btnRAMSaveActionPerformed
@@ -1662,6 +1659,9 @@ public class Dashboard extends javax.swing.JFrame {
             populateRoomJTable();
             Success("Added Room Successfully!");
             activityData.insertActivity(name, "Added room schedule data.", userID);
+            statisticsData.updateTotalCreatedSchedulesCount();
+            displayStatisticsInformation();
+            populateDashboardActivityLog();
         }
     }//GEN-LAST:event_btnRAMAddActionPerformed
 
@@ -1692,7 +1692,7 @@ public class Dashboard extends javax.swing.JFrame {
             populateRoomJTable();
             Error("Delete Room Schedule!");
             activityData.insertActivity(name, "Deleted room schedule data.", userID);
-
+            populateDashboardActivityLog();
         }
     }//GEN-LAST:event_btnRAMDeleteRoomActionPerformed
 
@@ -1818,6 +1818,7 @@ public class Dashboard extends javax.swing.JFrame {
                 populateUserJTable();
                 Success("Update User Successfully!");
                 activityData.insertActivity(name, "Updated user data.", userID);
+                populateDashboardActivityLog();
             }
         }
     }//GEN-LAST:event_btnMUserSaveActionPerformed
@@ -1865,6 +1866,10 @@ public class Dashboard extends javax.swing.JFrame {
             populateTeacherJComboBox();
             Success("Added User Succefully!");
             activityData.insertActivity(name, "Added room data.", userID);
+            statisticsData.incrementCurrentFacultiesCount();
+            statisticsData.updateTotalCreatedAccountsCount();
+            displayStatisticsInformation();
+            populateDashboardActivityLog();
         }
     }//GEN-LAST:event_btnMUserAddActionPerformed
 
@@ -1899,11 +1904,14 @@ public class Dashboard extends javax.swing.JFrame {
             populateUserJTable();
             Error("Delete User Successfully!");
             activityData.insertActivity(name, "Deleted user data.", userID);
+            statisticsData.decrementCurrentFacultiesCount();
+            displayStatisticsInformation();
+            populateDashboardActivityLog();
         }
     }//GEN-LAST:event_btnMUserDeleteActionPerformed
 
     private void btnAChangePasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAChangePasswordActionPerformed
-        Change_Password cp = new Change_Password(userID,this);
+        Change_Password cp = new Change_Password(userID, this);
         cp.show();
         cp.setAlwaysOnTop(true);
         this.setEnabled(false);
@@ -1931,6 +1939,7 @@ public class Dashboard extends javax.swing.JFrame {
             searchUserJTable(Integer.parseInt(txtMUserSearch.getText().trim()));
             Info("Search Completed!");
             activityData.insertActivity(name, "Searched user data.", userID);
+            populateDashboardActivityLog();
         }
     }//GEN-LAST:event_btnMUserSearchActionPerformed
 
@@ -1948,6 +1957,7 @@ public class Dashboard extends javax.swing.JFrame {
             searchRoomJTable(Integer.parseInt(txtRAMSearch.getText().trim()));
             Info("Search Completed!");
             activityData.insertActivity(name, "Searched room schedule data.", userID);
+            populateDashboardActivityLog();
         }
     }//GEN-LAST:event_btnRAMSearchActionPerformed
 
@@ -2020,7 +2030,7 @@ public class Dashboard extends javax.swing.JFrame {
     }
 
     //Populates Dashboard Statistics
-    protected void populateDashboardStatistics() {
+    protected void populateDashboardActivityLog() {
         try {
             tblData = activityData.getAllActivityLogInformation();
             DefaultListModel<String> listModel = new DefaultListModel<>();
@@ -2165,17 +2175,20 @@ public class Dashboard extends javax.swing.JFrame {
         }
     }
 
-    public void DefaultTab() {
-        pnlHome.setVisible(true);
-        pnlRoomManagement.setVisible(false);
-        pnlMembers.setVisible(false);
-        pnlAccount.setVisible(false);
+    private void displayStatisticsInformation() {
+        statisticsData.insertStatisticsInformation();
+        try {
+            tblData = statisticsData.getAllStatisticsInformation();
+            tblData.next();
+            lblHomeFacultiesNumber.setText(String.valueOf(tblData.getInt(3)));
+            lblHomeAccountNumber.setText(String.valueOf(tblData.getInt(4)));
+            lblHomeScheduleNumber.setText(String.valueOf(tblData.getInt(5)));
+        } catch (SQLException sqlex) {
+            JOptionPane.showMessageDialog(null, sqlex.toString(), "SQL Query Error!", JOptionPane.ERROR_MESSAGE);
+        }
+    }
 
-        pnlTabHome.setBackground(new Color(247, 246, 220));
-        pnlTabRoomManagement.setBackground(new Color(218, 104, 70));
-        pnlTabMembers.setBackground(new Color(218, 104, 70));
-        pnlTabAccount.setBackground(new Color(218, 104, 70));
-
+    private void displayUserAccountInformation() {
         try {
             tblData = userData.getUserAccountInformation(userID);
             tblData.next();
@@ -2189,6 +2202,18 @@ public class Dashboard extends javax.swing.JFrame {
         } catch (SQLException sqlex) {
             JOptionPane.showMessageDialog(null, sqlex.toString(), "SQL Query Error!", JOptionPane.ERROR_MESSAGE);
         }
+    }
+
+    public void DefaultTab() {
+        pnlHome.setVisible(true);
+        pnlRoomManagement.setVisible(false);
+        pnlMembers.setVisible(false);
+        pnlAccount.setVisible(false);
+
+        pnlTabHome.setBackground(new Color(247, 246, 220));
+        pnlTabRoomManagement.setBackground(new Color(218, 104, 70));
+        pnlTabMembers.setBackground(new Color(218, 104, 70));
+        pnlTabAccount.setBackground(new Color(218, 104, 70));
     }
 
     public void HomeTab() {
@@ -2341,7 +2366,6 @@ public class Dashboard extends javax.swing.JFrame {
         pnlTabAccount.setLocation(pnlTabRoomManagement.getX(), pnlTabRoomManagement.getY());
         RoomManagementTab();
     }
-    
 
     public void Success(String message) {
         new NoticeWindow(NoticeType.SUCCESS_NOTIFICATION, message, NoticeWindow.NORMAL_DELAY, NPosition.BOTTOM_RIGHT);

@@ -12,11 +12,9 @@ package RoomAssignment;
 import com.sbix.jnotify.NPosition;
 import com.sbix.jnotify.NoticeType;
 import com.sbix.jnotify.NoticeWindow;
-import java.awt.Image;
 import java.awt.geom.RoundRectangle2D;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class Signin_Signout extends javax.swing.JFrame {

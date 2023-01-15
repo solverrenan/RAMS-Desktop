@@ -231,11 +231,13 @@ public class Change_Password extends javax.swing.JFrame {
                 new NoticeWindow(NoticeType.ERROR_NOTIFICATION, "Old password is incorrect!", NoticeWindow.NORMAL_DELAY, NPosition.BOTTOM_RIGHT);
             } else if (!txtNewPassword.getText().trim().equals(txtConfirmPassword.getText().trim())) {
                 new NoticeWindow(NoticeType.ERROR_NOTIFICATION, "New password does not match confirmation password!", NoticeWindow.NORMAL_DELAY, NPosition.BOTTOM_RIGHT);
+            } else if (txtNewPassword.getText().trim().equals(tblData.getString(3))) {
+                new NoticeWindow(NoticeType.ERROR_NOTIFICATION, "New password must not be the same as old password!", NoticeWindow.NORMAL_DELAY, NPosition.BOTTOM_RIGHT);
             } else {
                 userData.updateUserAccountPassword(txtConfirmPassword.getText().trim(), userID);
                 activityData.insertActivity(tblData.getString(7) + ", " + tblData.getString(6) + " " + tblData.getString(8), "Changed password.", tblData.getInt(1));
                 if (db != null) {
-                    db.populateDashboardStatistics();
+                    db.populateDashboardActivityLog();
                 }
                 new NoticeWindow(NoticeType.SUCCESS_NOTIFICATION, "Password changed!", NoticeWindow.NORMAL_DELAY, NPosition.BOTTOM_RIGHT);
             }
