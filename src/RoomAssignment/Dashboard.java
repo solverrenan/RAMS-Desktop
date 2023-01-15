@@ -8,13 +8,13 @@ package RoomAssignment;
 import com.sbix.jnotify.NPosition;
 import com.sbix.jnotify.NoticeType;
 import com.sbix.jnotify.NoticeWindow;
-import static com.sun.tools.jdeprscan.Main.call;
-import java.awt.BorderLayout;
+//import static com.sun.tools.jdeprscan.Main.call;
+//import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Image;
-import java.awt.Toolkit;
+//import java.awt.Dimension;
+//import java.awt.Font;
+//import java.awt.Image;
+//import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.RoundRectangle2D;
@@ -25,9 +25,9 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.Locale;
+//import java.util.Locale;
 import javax.swing.Timer;
-import java.util.Objects;
+//import java.util.Objects;
 import java.util.Vector;
 import javax.swing.DefaultListModel;
 import javax.swing.Icon;
@@ -1624,58 +1624,7 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_pnlTabAccountMouseClicked
 
     private void btnRAMSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRAMSaveActionPerformed
-        if (txtRAMID.getText().trim().isEmpty()) {
-            lblRAMError.setText("Schedule ID field must not be empty!");
-            clearErrorMessageRAM();
-        } else if (roomValidation.isScheduleIDInputValid(txtRAMID.getText().trim()) == false) {
-            lblRAMError.setText("Schedule ID field must only contain numbers!");
-            clearErrorMessageRAM();
-        } else if (Integer.parseInt(txtRAMID.getText().trim()) < 1) {
-            lblRAMError.setText("Schedule ID input must be greater than 0");
-            clearErrorMessageRAM();
-        } else {
-            if (txtRAMSubject.getText().trim().isEmpty()) {
-            } else if (roomValidation.isSubjectInputValid(txtRAMSubject.getText().trim()) == false) {
-                lblRAMError.setText("Subject field must only contain letters and numbers!");
-                clearErrorMessageRAM();
-            } else {
-                roomData.updateRoomScheduleSubject(txtRAMSubject.getText().trim(), Integer.parseInt(txtRAMID.getText().trim()));
-            }
-
-            if (txtRAMSection.getText().trim().isEmpty()) {
-            } else if (roomValidation.isSectionInputValid(txtRAMSection.getText().trim()) == false) {
-                lblRAMError.setText("Section field must only contain uppercase letters and numbers!");
-                clearErrorMessageRAM();
-            } else {
-                roomData.updateRoomScheduleSection(txtRAMSection.getText().trim(), Integer.parseInt(txtRAMID.getText().trim()));
-            }
-
-            if (txtRAMRoom.getText().trim().isEmpty()) {
-            } else if (roomValidation.isRoomInputValid(txtRAMRoom.getText().trim()) == false) {
-                lblRAMError.setText("Room field must only contain letters and numbers!");
-                clearErrorMessageRAM();
-            } else if (roomValidation.isScheduleTimeValid(tpRAMStartTime.getSelectedTime(), tpRAMEndTime.getSelectedTime()) == false) {
-                lblRAMError.setText("Time schedule for a room can only be between 7:00 AM and 7:00 PM!");
-                clearErrorMessageRAM();
-            } else if (roomValidation.isStartTimeGreaterThanOrEqualToEndTime(tpRAMStartTime.getSelectedTime(), tpRAMEndTime.getSelectedTime()) == false) {
-                lblRAMError.setText("Start time must not be greater than or equal to end time!");
-                clearErrorMessageRAM();
-            } else if (roomValidation.isScheduleTimeFree(cbRAMDayOfTheWeek.getSelectedItem().toString().trim(), txtRAMRoom.getText().trim(), tpRAMStartTime.getSelectedTime(), tpRAMEndTime.getSelectedTime(), Integer.parseInt(txtRAMID.getText().trim())) == false) {
-                lblRAMError.setText("Time schedule has conflicted with another schedule!");
-                clearErrorMessageRAM();
-            } else if (roomValidation.isTeacherScheduleTimeFree(cbRAMDayOfTheWeek.getSelectedItem().toString().trim(), cbRAMTeacher.getSelectedItem().toString().trim(), tpRAMStartTime.getSelectedTime(), tpRAMEndTime.getSelectedTime(), Integer.parseInt(txtRAMID.getText().trim())) == false) {
-                lblRAMError.setText("The teacher's schedule is occupied on that day and time!");
-                clearErrorMessageRAM();
-            } else {
-                updateRoomTimeInformationJTable(txtRAMRoom.getText().trim(), cbRAMTeacher.getSelectedItem().toString().trim(), cbRAMDayOfTheWeek.getSelectedItem().toString().trim(), tpRAMStartTime.getSelectedTime(), tpRAMEndTime.getSelectedTime(), Integer.parseInt(txtRAMID.getText().trim()));
-            }
-
-            if (!txtRAMRoom.getText().trim().isEmpty() || !txtRAMSubject.getText().trim().isEmpty() || !txtRAMSection.getText().trim().isEmpty()) {
-                populateRoomJTable();
-                Success("Updated Room Schedule!");
-                activityData.insertActivity(name, "Updated room schedule data.", userID);
-            }
-        }
+        RAMSave();
     }//GEN-LAST:event_btnRAMSaveActionPerformed
 
     private void btnRAMAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRAMAddActionPerformed
@@ -1718,7 +1667,7 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMUserDeleteActionPerformed
 
     private void btnAChangePasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAChangePasswordActionPerformed
-        Change_Password cp = new Change_Password();
+        Change_Password cp = new Change_Password(userID, this);
         cp.show();
         cp.setAlwaysOnTop(true);
     }//GEN-LAST:event_btnAChangePasswordActionPerformed
@@ -1776,6 +1725,60 @@ public class Dashboard extends javax.swing.JFrame {
         GetRAMTableSelectedValue();
     }//GEN-LAST:event_tblRAMShowRoomMouseClicked
 
+    private void RAMSave(){
+        if (txtRAMID.getText().trim().isEmpty()) {
+            lblRAMError.setText("Schedule ID field must not be empty!");
+            clearErrorMessageRAM();
+        } else if (roomValidation.isScheduleIDInputValid(txtRAMID.getText().trim()) == false) {
+            lblRAMError.setText("Schedule ID field must only contain numbers!");
+            clearErrorMessageRAM();
+        } else if (Integer.parseInt(txtRAMID.getText().trim()) < 1) {
+            lblRAMError.setText("Schedule ID input must be greater than 0");
+            clearErrorMessageRAM();
+        } else {
+            if (txtRAMSubject.getText().trim().isEmpty()) {
+            } else if (roomValidation.isSubjectInputValid(txtRAMSubject.getText().trim()) == false) {
+                lblRAMError.setText("Subject field must only contain letters and numbers!");
+                clearErrorMessageRAM();
+            } else {
+                roomData.updateRoomScheduleSubject(txtRAMSubject.getText().trim(), Integer.parseInt(txtRAMID.getText().trim()));
+            }
+
+            if (txtRAMSection.getText().trim().isEmpty()) {
+            } else if (roomValidation.isSectionInputValid(txtRAMSection.getText().trim()) == false) {
+                lblRAMError.setText("Section field must only contain uppercase letters and numbers!");
+                clearErrorMessageRAM();
+            } else {
+                roomData.updateRoomScheduleSection(txtRAMSection.getText().trim(), Integer.parseInt(txtRAMID.getText().trim()));
+            }
+
+            if (txtRAMRoom.getText().trim().isEmpty()) {
+            } else if (roomValidation.isRoomInputValid(txtRAMRoom.getText().trim()) == false) {
+                lblRAMError.setText("Room field must only contain letters and numbers!");
+                clearErrorMessageRAM();
+            } else if (roomValidation.isScheduleTimeValid(tpRAMStartTime.getSelectedTime(), tpRAMEndTime.getSelectedTime()) == false) {
+                lblRAMError.setText("Time schedule for a room can only be between 7:00 AM and 7:00 PM!");
+                clearErrorMessageRAM();
+            } else if (roomValidation.isStartTimeGreaterThanOrEqualToEndTime(tpRAMStartTime.getSelectedTime(), tpRAMEndTime.getSelectedTime()) == false) {
+                lblRAMError.setText("Start time must not be greater than or equal to end time!");
+                clearErrorMessageRAM();
+            } else if (roomValidation.isScheduleTimeFree(cbRAMDayOfTheWeek.getSelectedItem().toString().trim(), txtRAMRoom.getText().trim(), tpRAMStartTime.getSelectedTime(), tpRAMEndTime.getSelectedTime(), Integer.parseInt(txtRAMID.getText().trim())) == false) {
+                lblRAMError.setText("Time schedule has conflicted with another schedule!");
+                clearErrorMessageRAM();
+            } else if (roomValidation.isTeacherScheduleTimeFree(cbRAMDayOfTheWeek.getSelectedItem().toString().trim(), cbRAMTeacher.getSelectedItem().toString().trim(), tpRAMStartTime.getSelectedTime(), tpRAMEndTime.getSelectedTime(), Integer.parseInt(txtRAMID.getText().trim())) == false) {
+                lblRAMError.setText("The teacher's schedule is occupied on that day and time!");
+                clearErrorMessageRAM();
+            } else {
+                updateRoomTimeInformationJTable(txtRAMRoom.getText().trim(), cbRAMTeacher.getSelectedItem().toString().trim(), cbRAMDayOfTheWeek.getSelectedItem().toString().trim(), tpRAMStartTime.getSelectedTime(), tpRAMEndTime.getSelectedTime(), Integer.parseInt(txtRAMID.getText().trim()));
+            }
+
+            if (!txtRAMRoom.getText().trim().isEmpty() || !txtRAMSubject.getText().trim().isEmpty() || !txtRAMSection.getText().trim().isEmpty()) {
+                populateRoomJTable();
+                Success("Updated Room Schedule!");
+                activityData.insertActivity(name, "Updated room schedule data.", userID);
+            }
+        }
+    }
     private void RAMAdd(){
         if (txtRAMRoom.getText().trim().isEmpty() || txtRAMSubject.getText().trim().isEmpty() || txtRAMSection.getText().trim().isEmpty() || cbRAMTeacher.getSelectedItem().toString().trim().isEmpty() || txtRAMStartTime.getText().trim().isEmpty() || txtRAMEndTime.getText().trim().isEmpty()) {
             lblRAMError.setText("All fields must be filled!");
