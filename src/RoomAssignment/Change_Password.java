@@ -5,9 +5,15 @@
  */
 package RoomAssignment;
 
+import com.sbix.jnotify.NPosition;
+import com.sbix.jnotify.NoticeType;
+import com.sbix.jnotify.NoticeWindow;
 import java.awt.Image;
 import java.awt.geom.RoundRectangle2D;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,13 +24,31 @@ public class Change_Password extends javax.swing.JFrame {
     /**
      * Creates new form Change_Password
      */
-        
-    public Change_Password() {
+    private static int userID;
+    private static Dashboard db;
+    private static View_Schedule vs;
+    Account_Queries userData = new Account_Queries();
+    Activity_Log_Queries activityData = new Activity_Log_Queries();
+    ResultSet tblData;
+
+    public Change_Password(int userID, Dashboard db) {
         initComponents();
+        this.userID = userID;
+        this.db = db;
         SetLogo();
         this.setTitle("RAMS - Change Password");
         this.setAlwaysOnTop(true);
-        
+        //Rounded Corners
+        setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 20, 20));
+    }
+
+    public Change_Password(int userID, View_Schedule vs) {
+        initComponents();
+        this.userID = userID;
+        this.vs = vs;
+        SetLogo();
+        this.setTitle("RAMS - Change Password");
+        this.setAlwaysOnTop(true);
         //Rounded Corners
         setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 20, 20));
     }
@@ -64,11 +88,22 @@ public class Change_Password extends javax.swing.JFrame {
         lblCurrentPassword.setText("Current Password");
 
         txtCurrentPassword.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        txtCurrentPassword.setFocusable(false);
+        txtCurrentPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCurrentPasswordActionPerformed(evt);
+            }
+        });
 
         lblNewPassword.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         lblNewPassword.setForeground(new java.awt.Color(255, 255, 255));
         lblNewPassword.setText("New Password");
+
+        txtNewPassword.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtNewPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNewPasswordActionPerformed(evt);
+            }
+        });
 
         lblConfirmPassword.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         lblConfirmPassword.setForeground(new java.awt.Color(255, 255, 255));
@@ -176,11 +211,17 @@ public class Change_Password extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
-       this.dispose();
+        if (db != null) {
+            db.setEnabled(true);
+        }
+        if (vs != null) {
+            vs.setEnabled(true);
+        }
+        this.dispose();
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnChangePasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangePasswordActionPerformed
-        // TODO add your handling code here:
+        confirmChangePassword();
     }//GEN-LAST:event_btnChangePasswordActionPerformed
 
     private void cbShowPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbShowPasswordActionPerformed
@@ -193,10 +234,34 @@ public class Change_Password extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cbShowPasswordActionPerformed
 
+    private void confirmChangePassword() {
+        try {
+
+            tblData = userData.getUserAccountInformation(userID);
+            tblData.next();
+            if (!txtCurrentPassword.getText().trim().equals(tblData.getString(3))) {
+                new NoticeWindow(NoticeType.ERROR_NOTIFICATION, "Old password is incorrect!", NoticeWindow.NORMAL_DELAY, NPosition.BOTTOM_RIGHT);
+            } else if (!txtNewPassword.getText().trim().equals(txtConfirmPassword.getText().trim())) {
+                new NoticeWindow(NoticeType.ERROR_NOTIFICATION, "New password does not match confirmation password!", NoticeWindow.NORMAL_DELAY, NPosition.BOTTOM_RIGHT);
+            } else {
+                userData.updateUserAccountPassword(txtConfirmPassword.getText().trim(), userID);
+                activityData.insertActivity(tblData.getString(7) + ", " + tblData.getString(6) + " " + tblData.getString(8), "Changed password.", tblData.getInt(1));
+                if (db != null) {
+                    db.populateDashboardStatistics();
+                }
+                new NoticeWindow(NoticeType.SUCCESS_NOTIFICATION, "Password changed!", NoticeWindow.NORMAL_DELAY, NPosition.BOTTOM_RIGHT);
+            }
+
+        } catch (SQLException sqlex) {
+            JOptionPane.showMessageDialog(null, sqlex.toString(), "SQL Query Error!", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
     private void SetLogo() {
         Image logo = (new ImageIcon(Dashboard.class.getResource("\\logo.jpg")).getImage());
         this.setIconImage(logo);
     }
+
     /**
      * @param args the command line arguments
      */
@@ -227,7 +292,8 @@ public class Change_Password extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Change_Password().setVisible(true);
+                new Change_Password(userID, db).setVisible(true);
+                new Change_Password(userID, vs).setVisible(true);
             }
         });
     }

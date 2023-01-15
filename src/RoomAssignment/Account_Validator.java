@@ -18,10 +18,19 @@ public class Account_Validator {
     Account_Queries userData = new Account_Queries();
     ResultSet tblData;
     Pattern inputPattern;
+    String updatedName;
+
+    public Account_Validator() {
+    }
 
     protected boolean isUserIDInputValid(String userID) {
         inputPattern = Pattern.compile("[0-9]+");// Restriction to only allow number input
         return inputPattern.matcher(userID).matches();
+    }
+
+    protected boolean isUsernameOrPasswordInputValid(String usernameOrPassword) {
+        inputPattern = Pattern.compile("\\S*");// Restriction for valid usernames and passwords
+        return inputPattern.matcher(usernameOrPassword).matches();
     }
 
     protected boolean isUsernameExisting(String username) {
@@ -29,6 +38,48 @@ public class Account_Validator {
         try {
             while (tblData.next()) {
                 if (username.equals(tblData.getString(2))) {
+                    return true;
+                }
+            }
+        } catch (SQLException sqlex) {
+            JOptionPane.showMessageDialog(null, sqlex.toString(), "SQL Query Error!", JOptionPane.ERROR_MESSAGE);
+        }
+        return false;
+    }
+
+    protected boolean isNewUsernameSameAsOldUsername(String username, int userID) {
+        tblData = userData.getUserAccountInformation(userID);
+        try {
+            while (tblData.next()) {
+                if (username.equals(tblData.getString(2))) {
+                    return true;
+                }
+            }
+        } catch (SQLException sqlex) {
+            JOptionPane.showMessageDialog(null, sqlex.toString(), "SQL Query Error!", JOptionPane.ERROR_MESSAGE);
+        }
+        return false;
+    }
+    
+    protected boolean isNewPasswordSameAsOldPassword(String password, int userID) {
+        tblData = userData.getUserAccountInformation(userID);
+        try {
+            while (tblData.next()) {
+                if (password.equals(tblData.getString(3))) {
+                    return true;
+                }
+            }
+        } catch (SQLException sqlex) {
+            JOptionPane.showMessageDialog(null, sqlex.toString(), "SQL Query Error!", JOptionPane.ERROR_MESSAGE);
+        }
+        return false;
+    }
+
+    protected boolean isNewRoleSameAsOldRole(String role, int userID) {
+        tblData = userData.getUserAccountInformation(userID);
+        try {
+            while (tblData.next()) {
+                if (role.equalsIgnoreCase(tblData.getString(5))) {
                     return true;
                 }
             }
@@ -46,6 +97,21 @@ public class Account_Validator {
     protected boolean isNameInputValid(String firstName, String lastName, String middleName) {
         inputPattern = Pattern.compile("^[a-zA-Z_]+( [a-zA-Z_]+)*$");// Restriction to only allow alphabet input
         return inputPattern.matcher(firstName).matches() && inputPattern.matcher(lastName).matches() && inputPattern.matcher(middleName).matches();
+    }
+
+    protected boolean isFirstNameInputValid(String firstName) {
+        inputPattern = Pattern.compile("^[a-zA-Z_]+( [a-zA-Z_]+)*$");// Restriction to only allow alphabet input
+        return inputPattern.matcher(firstName).matches();
+    }
+
+    protected boolean isLastNameInputValid(String lastName) {
+        inputPattern = Pattern.compile("^[a-zA-Z_]+( [a-zA-Z_]+)*$");// Restriction to only allow alphabet input
+        return inputPattern.matcher(lastName).matches();
+    }
+
+    protected boolean isMiddleNameInputValid(String middleName) {
+        inputPattern = Pattern.compile("^[a-zA-Z_]+( [a-zA-Z_]+)*$");// Restriction to only allow alphabet input
+        return inputPattern.matcher(middleName).matches();
     }
 
     protected boolean isNameExisting(String firstName, String lastName, String middleName) {
@@ -81,8 +147,22 @@ public class Account_Validator {
         return false;
     }
 
+    protected boolean isNewEmailSameAsOldEmail(String email, int userID) {
+        tblData = userData.getUserAccountInformation(userID);
+        try {
+            while (tblData.next()) {
+                if (email.equalsIgnoreCase(tblData.getString(9))) {
+                    return true;
+                }
+            }
+        } catch (SQLException sqlex) {
+            JOptionPane.showMessageDialog(null, sqlex.toString(), "SQL Query Error!", JOptionPane.ERROR_MESSAGE);
+        }
+        return false;
+    }
+
     protected boolean isContactNoInputValid(String contactNo) {
-        inputPattern = Pattern.compile("^\\d{11}$");// Restriction for valid contact no. format input
+        inputPattern = Pattern.compile("^(09)\\d{9}$");// Restriction for valid contact no. format input
         return inputPattern.matcher(contactNo).matches();
     }
 
@@ -98,6 +178,25 @@ public class Account_Validator {
             JOptionPane.showMessageDialog(null, sqlex.toString(), "SQL Query Error!", JOptionPane.ERROR_MESSAGE);
         }
         return false;
+    }
+    
+    protected boolean isNewContactNoSameAsOldContactNo(String contactNo, int userID) {
+        tblData = userData.getUserAccountInformation(userID);
+        try {
+            while (tblData.next()) {
+                if (contactNo.equalsIgnoreCase(tblData.getString(10))) {
+                    return true;
+                }
+            }
+        } catch (SQLException sqlex) {
+            JOptionPane.showMessageDialog(null, sqlex.toString(), "SQL Query Error!", JOptionPane.ERROR_MESSAGE);
+        }
+        return false;
+    }
+    
+    protected boolean isAddressInputValid(String address) {
+        inputPattern = Pattern.compile("^[a-zA-Z0-9.,]+( [a-zA-Z0-9.,]+)*$");// Restriction to only allow one white space between characters
+        return inputPattern.matcher(address).matches();
     }
 
 }
