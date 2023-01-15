@@ -66,11 +66,12 @@ public class Change_Password extends javax.swing.JFrame {
         lblCurrentPassword = new javax.swing.JLabel();
         txtCurrentPassword = new javax.swing.JTextField();
         lblNewPassword = new javax.swing.JLabel();
-        txtNewPassword = new javax.swing.JTextField();
         lblConfirmPassword = new javax.swing.JLabel();
-        txtConfirmPassword = new javax.swing.JTextField();
         btnChangePassword = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
+        txtNewPassword = new javax.swing.JPasswordField();
+        txtConfirmPassword = new javax.swing.JPasswordField();
+        cbShowPassword = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 102, 102));
@@ -108,8 +109,6 @@ public class Change_Password extends javax.swing.JFrame {
         lblConfirmPassword.setForeground(new java.awt.Color(255, 255, 255));
         lblConfirmPassword.setText("Confirm Password");
 
-        txtConfirmPassword.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-
         btnChangePassword.setBackground(new java.awt.Color(218, 104, 70));
         btnChangePassword.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         btnChangePassword.setForeground(new java.awt.Color(51, 51, 51));
@@ -132,6 +131,14 @@ public class Change_Password extends javax.swing.JFrame {
             }
         });
 
+        cbShowPassword.setForeground(java.awt.Color.white);
+        cbShowPassword.setText("Show Password");
+        cbShowPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbShowPasswordActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -140,21 +147,22 @@ public class Change_Password extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblCurrentPassword)
-                        .addGap(21, 21, 21)
-                        .addComponent(txtCurrentPassword))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblNewPassword)
-                        .addGap(36, 36, 36)
-                        .addComponent(txtNewPassword))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblConfirmPassword)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtConfirmPassword))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnChangePassword, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 165, Short.MAX_VALUE)
-                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNewPassword)
+                            .addComponent(lblConfirmPassword)
+                            .addComponent(lblCurrentPassword))
+                        .addGap(16, 16, 16)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(cbShowPassword)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(txtCurrentPassword)
+                            .addComponent(txtNewPassword)
+                            .addComponent(txtConfirmPassword))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -172,11 +180,13 @@ public class Change_Password extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblConfirmPassword)
                     .addComponent(txtConfirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(2, 2, 2)
+                .addComponent(cbShowPassword)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnChangePassword, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -214,13 +224,15 @@ public class Change_Password extends javax.swing.JFrame {
         confirmChangePassword();
     }//GEN-LAST:event_btnChangePasswordActionPerformed
 
-    private void txtCurrentPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCurrentPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCurrentPasswordActionPerformed
-
-    private void txtNewPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNewPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNewPasswordActionPerformed
+    private void cbShowPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbShowPasswordActionPerformed
+        if (cbShowPassword.isSelected()) {
+            txtNewPassword.setEchoChar((char) 0);
+            txtConfirmPassword.setEchoChar((char) 0);
+        } else {
+            txtNewPassword.setEchoChar('*');
+            txtConfirmPassword.setEchoChar('*');
+        }
+    }//GEN-LAST:event_cbShowPasswordActionPerformed
 
     private void confirmChangePassword() {
         try {
@@ -289,12 +301,13 @@ public class Change_Password extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnChangePassword;
+    private javax.swing.JCheckBox cbShowPassword;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblConfirmPassword;
     private javax.swing.JLabel lblCurrentPassword;
     private javax.swing.JLabel lblNewPassword;
-    private javax.swing.JTextField txtConfirmPassword;
+    private javax.swing.JPasswordField txtConfirmPassword;
     private javax.swing.JTextField txtCurrentPassword;
-    private javax.swing.JTextField txtNewPassword;
+    private javax.swing.JPasswordField txtNewPassword;
     // End of variables declaration//GEN-END:variables
 }
