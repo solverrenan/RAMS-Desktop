@@ -5,10 +5,18 @@
  */
 package RoomAssignment;
 
+import com.sbix.jnotify.NPosition;
+import com.sbix.jnotify.NoticeType;
+import com.sbix.jnotify.NoticeWindow;
 import java.awt.Color;
 import java.awt.geom.RoundRectangle2D;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.HashSet;
+import java.util.Vector;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -19,10 +27,24 @@ public class View_Schedule extends javax.swing.JFrame {
     /**
      * Creates new form View_Schedule
      */
-    private int mouseX,mouseY;
-    public View_Schedule() {
+    private int mouseX, mouseY;
+    private static int userID;
+    private String teacher;
+    Account_Queries userData = new Account_Queries();
+    Activity_Log_Queries activityData = new Activity_Log_Queries();
+    Room_Queries roomData = new Room_Queries();
+    DefaultTableModel tblModel;
+    Vector<Object> tblRowData;
+    ResultSet tblData;
+    Account_Validator userValidation = new Account_Validator();
+
+    public View_Schedule(int userID) {
         initComponents();
+        this.userID = userID;
         this.setTitle("RAMS - View Schedule");
+        displayTeacherInformation();
+        displayTeacherScheduleThisDay();
+
         //Rounded Corners
         setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 20, 20));
     }
@@ -165,7 +187,6 @@ public class View_Schedule extends javax.swing.JFrame {
         lblNotice.setText("Check your schedule carefully. Contact your program head when you have conflict on schedule.");
         pnlViewSchedule.add(lblNotice);
         lblNotice.setBounds(10, 85, 520, 16);
-
         pnlYourInformation.setBackground(new java.awt.Color(245, 245, 245));
         pnlYourInformation.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Your Information", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Century Gothic", 3, 14), java.awt.Color.white)); // NOI18N
         pnlYourInformation.setForeground(java.awt.Color.white);
@@ -189,7 +210,6 @@ public class View_Schedule extends javax.swing.JFrame {
         lblMiddleName.setText("Middle Name");
         pnlYourInformation.add(lblMiddleName);
         lblMiddleName.setBounds(16, 91, 73, 16);
-
         lblLastName.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         lblLastName.setForeground(java.awt.Color.white);
         lblLastName.setText("Last Name");
@@ -201,7 +221,6 @@ public class View_Schedule extends javax.swing.JFrame {
         lblDepartment.setText("Department");
         pnlYourInformation.add(lblDepartment);
         lblDepartment.setBounds(16, 147, 65, 16);
-
         txtMiddleName.setEditable(false);
         txtMiddleName.setBackground(new java.awt.Color(51, 51, 51));
         txtMiddleName.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -252,7 +271,6 @@ public class View_Schedule extends javax.swing.JFrame {
         lblEmail.setText("Email");
         pnlYourInformation.add(lblEmail);
         lblEmail.setBounds(369, 35, 32, 16);
-
         txtEmail.setEditable(false);
         txtEmail.setBackground(new java.awt.Color(51, 51, 51));
         txtEmail.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -267,7 +285,6 @@ public class View_Schedule extends javax.swing.JFrame {
         lblContact.setText("Contact");
         pnlYourInformation.add(lblContact);
         lblContact.setBounds(369, 63, 42, 16);
-
         txtContact.setEditable(false);
         txtContact.setBackground(new java.awt.Color(51, 51, 51));
         txtContact.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -297,7 +314,6 @@ public class View_Schedule extends javax.swing.JFrame {
         lblContactAdmin.setText("Wrong information? Contact our administrator for correction of your information.");
         pnlYourInformation.add(lblContactAdmin);
         lblContactAdmin.setBounds(470, 150, 431, 16);
-
         jButton1.setBackground(new java.awt.Color(218, 104, 70));
         jButton1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jButton1.setText("Change Password");
@@ -330,9 +346,9 @@ public class View_Schedule extends javax.swing.JFrame {
         lblSearch.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         lblSearch.setForeground(java.awt.Color.white);
         lblSearch.setText("Search");
-
+        pnlYourSchedule.add(lblSearch);
+        lblSearch.setBounds(16, 35, 41, 16);
         txtSearch.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-
         tblShowSchedule.setBackground(new java.awt.Color(245, 245, 245));
         tblShowSchedule.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         tblShowSchedule.setModel(new javax.swing.table.DefaultTableModel(
@@ -419,7 +435,13 @@ public class View_Schedule extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(spShowSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+        pnlYourSchedule.add(btnSearch);
+        btnSearch.setBounds(333, 32, 28, 22);
         pnlViewSchedule.add(pnlYourSchedule);
         pnlYourSchedule.setBounds(10, 331, 960, 280);
 
@@ -453,18 +475,21 @@ public class View_Schedule extends javax.swing.JFrame {
     }//GEN-LAST:event_lblInfoMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Change_Password cp = new Change_Password();
+        Change_Password cp = new Change_Password(userID, this);
+        this.setEnabled(false);
         cp.show();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void lblLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLogoutMouseClicked
         Signin_Signout ss = new Signin_Signout();
         ss.show();
+        activityData.insertActivity(teacher, "Logged out.", userID);
+        forLoginLogout("Logout Successfully!");
         this.dispose();
     }//GEN-LAST:event_lblLogoutMouseClicked
 
     private void lblMinimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMinimizeMouseClicked
-       setState(JFrame.ICONIFIED);
+        setState(JFrame.ICONIFIED);
     }//GEN-LAST:event_lblMinimizeMouseClicked
 
     private void pnlNavigatorBarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlNavigatorBarMousePressed
@@ -483,6 +508,88 @@ public class View_Schedule extends javax.swing.JFrame {
     private void btnViewTodayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewTodayActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnViewTodayActionPerformed
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        if (txtSearch.getText().trim().isEmpty()) {
+            Error("Field for searching must not be blank!");
+        } else if (userValidation.isUserIDInputValid(txtSearch.getText().trim()) == false) {
+            Error("Field for searching must only contain numbers!");
+        } else if ((Integer.parseInt(txtSearch.getText().trim()) < 1)) {
+            Error("Field for searching must be greater than 0!");
+        } else {
+            searchTeacherJTable(teacher, Integer.parseInt(txtSearch.getText().trim()));
+            Info("Search Completed!");
+            activityData.insertActivity(teacher, "Searched user data.", userID);
+        }
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    public void forLoginLogout(String message) {
+        new NoticeWindow(NoticeType.DEFAULT_NOTIFICATION, message, NoticeWindow.SHORT_DELAY, NPosition.BOTTOM_RIGHT);
+    }
+
+    public void Info(String message) {
+        new NoticeWindow(NoticeType.DEFAULT_NOTIFICATION, message, NoticeWindow.NORMAL_DELAY, NPosition.BOTTOM_RIGHT);
+    }
+
+    public void Error(String message) {
+        new NoticeWindow(NoticeType.ERROR_NOTIFICATION, message, NoticeWindow.NORMAL_DELAY, NPosition.BOTTOM_RIGHT);
+
+    }
+
+    private void displayTeacherScheduleThisDay() {
+        try {
+            tblData = roomData.getTeacherScheduleInformationThisDay(teacher);
+            tblModel = (DefaultTableModel) tblShowSchedule.getModel();
+            tblModel.setRowCount(0);// Resets the JTable Contents
+            while (tblData.next()) {
+                tblRowData = new Vector<Object>();
+                for (int columnNumber = 1; columnNumber < 9; columnNumber++) {
+                    if (columnNumber != 1 && columnNumber != 5) {
+                        tblRowData.add(tblData.getString(columnNumber));//Rest of the column of strings data type data
+                    }
+                }
+                tblModel.addRow(tblRowData);
+            }
+        } catch (SQLException sqlex) {
+            JOptionPane.showMessageDialog(null, sqlex.toString(), "SQL Query Error!", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void displayTeacherInformation() {
+        try {
+            tblData = userData.getUserAccountInformation(userID);
+            tblData.next();
+            txtUsername.setText(tblData.getString(2));
+            txtDepartment.setText(tblData.getString(4));
+            txtFirstName.setText(tblData.getString(6));
+            txtLastName.setText(tblData.getString(7));
+            txtMiddleName.setText(tblData.getString(8));
+            txtEmail.setText(tblData.getString(9));
+            txtContact.setText(tblData.getString(10));
+            txtAddress.setText(tblData.getString(11));
+            teacher = txtLastName.getText() + ", " + txtFirstName.getText() + " " + txtMiddleName.getText();
+        } catch (SQLException sqlex) {
+            JOptionPane.showMessageDialog(null, sqlex.toString(), "SQL Query Error!", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void searchTeacherJTable(String teacher, int scheduleID) {
+        try {
+            tblData = roomData.getSearchedTeacherRoomScheduleInformation(teacher, scheduleID);
+            tblModel = (DefaultTableModel) tblShowSchedule.getModel();
+            tblModel.setRowCount(0);// Resets the JTable Contents
+            while (tblData.next()) {
+                tblRowData = new Vector<Object>();
+                for (int columnNumber = 1; columnNumber < 9; columnNumber++) {
+                    if (columnNumber != 1 && columnNumber != 5) {
+                        tblRowData.add(tblData.getString(columnNumber));//Rest of the column of strings data type data
+                    }
+                }
+                tblModel.addRow(tblRowData);
+            }
+        } catch (SQLException sqlex) {
+            JOptionPane.showMessageDialog(null, sqlex.toString(), "SQL Query Error!", JOptionPane.ERROR_MESSAGE);
+        }
+    }
 
     /**
      * @param args the command line arguments
@@ -514,7 +621,7 @@ public class View_Schedule extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new View_Schedule().setVisible(true);
+                new View_Schedule(userID).setVisible(true);
             }
         });
     }
