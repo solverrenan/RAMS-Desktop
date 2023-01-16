@@ -86,11 +86,13 @@ public class View_Schedule extends javax.swing.JFrame {
         lblContactAdmin = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         pnlYourSchedule = new javax.swing.JPanel();
+        btnViewAll = new javax.swing.JButton();
         lblSearch = new javax.swing.JLabel();
         txtSearch = new javax.swing.JTextField();
         spShowSchedule = new javax.swing.JScrollPane();
         tblShowSchedule = new javax.swing.JTable();
         btnSearch = new javax.swing.JButton();
+        btnViewToday = new javax.swing.JButton();
         lblImageBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -178,14 +180,13 @@ public class View_Schedule extends javax.swing.JFrame {
         lblWelcome.setForeground(java.awt.Color.white);
         lblWelcome.setText("Welcome, User!");
         pnlViewSchedule.add(lblWelcome);
-        lblWelcome.setBounds(10, 56, 190, 31);
+        lblWelcome.setBounds(10, 56, 190, 32);
 
         lblNotice.setFont(new java.awt.Font("Century Gothic", 2, 12)); // NOI18N
         lblNotice.setForeground(java.awt.Color.white);
         lblNotice.setText("Check your schedule carefully. Contact your program head when you have conflict on schedule.");
         pnlViewSchedule.add(lblNotice);
-        lblNotice.setBounds(10, 85, 569, 16);
-
+        lblNotice.setBounds(10, 85, 520, 16);
         pnlYourInformation.setBackground(new java.awt.Color(245, 245, 245));
         pnlYourInformation.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Your Information", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Century Gothic", 3, 14), java.awt.Color.white)); // NOI18N
         pnlYourInformation.setForeground(java.awt.Color.white);
@@ -202,14 +203,13 @@ public class View_Schedule extends javax.swing.JFrame {
         lblFirstName.setForeground(java.awt.Color.white);
         lblFirstName.setText("First Name");
         pnlYourInformation.add(lblFirstName);
-        lblFirstName.setBounds(16, 63, 59, 16);
+        lblFirstName.setBounds(16, 63, 61, 16);
 
         lblMiddleName.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         lblMiddleName.setForeground(java.awt.Color.white);
         lblMiddleName.setText("Middle Name");
         pnlYourInformation.add(lblMiddleName);
-        lblMiddleName.setBounds(16, 91, 79, 16);
-
+        lblMiddleName.setBounds(16, 91, 73, 16);
         lblLastName.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         lblLastName.setForeground(java.awt.Color.white);
         lblLastName.setText("Last Name");
@@ -220,8 +220,7 @@ public class View_Schedule extends javax.swing.JFrame {
         lblDepartment.setForeground(java.awt.Color.white);
         lblDepartment.setText("Department");
         pnlYourInformation.add(lblDepartment);
-        lblDepartment.setBounds(16, 147, 70, 16);
-
+        lblDepartment.setBounds(16, 147, 65, 16);
         txtMiddleName.setEditable(false);
         txtMiddleName.setBackground(new java.awt.Color(51, 51, 51));
         txtMiddleName.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -271,8 +270,7 @@ public class View_Schedule extends javax.swing.JFrame {
         lblEmail.setForeground(java.awt.Color.white);
         lblEmail.setText("Email");
         pnlYourInformation.add(lblEmail);
-        lblEmail.setBounds(369, 35, 30, 16);
-
+        lblEmail.setBounds(369, 35, 32, 16);
         txtEmail.setEditable(false);
         txtEmail.setBackground(new java.awt.Color(51, 51, 51));
         txtEmail.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -286,8 +284,7 @@ public class View_Schedule extends javax.swing.JFrame {
         lblContact.setForeground(java.awt.Color.white);
         lblContact.setText("Contact");
         pnlYourInformation.add(lblContact);
-        lblContact.setBounds(369, 63, 49, 16);
-
+        lblContact.setBounds(369, 63, 42, 16);
         txtContact.setEditable(false);
         txtContact.setBackground(new java.awt.Color(51, 51, 51));
         txtContact.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -316,8 +313,7 @@ public class View_Schedule extends javax.swing.JFrame {
         lblContactAdmin.setForeground(java.awt.Color.white);
         lblContactAdmin.setText("Wrong information? Contact our administrator for correction of your information.");
         pnlYourInformation.add(lblContactAdmin);
-        lblContactAdmin.setBounds(470, 150, 477, 16);
-
+        lblContactAdmin.setBounds(470, 150, 431, 16);
         jButton1.setBackground(new java.awt.Color(218, 104, 70));
         jButton1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jButton1.setText("Change Password");
@@ -336,18 +332,23 @@ public class View_Schedule extends javax.swing.JFrame {
         pnlYourSchedule.setBackground(new java.awt.Color(245, 245, 245));
         pnlYourSchedule.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Your Schedule", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Century Gothic", 3, 14), java.awt.Color.white)); // NOI18N
         pnlYourSchedule.setOpaque(false);
-        pnlYourSchedule.setLayout(null);
+
+        btnViewAll.setBackground(new java.awt.Color(218, 104, 70));
+        btnViewAll.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnViewAll.setText("View All");
+        btnViewAll.setToolTipText("View all schedules.");
+        btnViewAll.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewAllActionPerformed(evt);
+            }
+        });
 
         lblSearch.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         lblSearch.setForeground(java.awt.Color.white);
         lblSearch.setText("Search");
         pnlYourSchedule.add(lblSearch);
         lblSearch.setBounds(16, 35, 41, 16);
-
         txtSearch.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        pnlYourSchedule.add(txtSearch);
-        txtSearch.setBounds(76, 32, 251, 22);
-
         tblShowSchedule.setBackground(new java.awt.Color(245, 245, 245));
         tblShowSchedule.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         tblShowSchedule.setModel(new javax.swing.table.DefaultTableModel(
@@ -380,12 +381,60 @@ public class View_Schedule extends javax.swing.JFrame {
         tblShowSchedule.setName(""); // NOI18N
         spShowSchedule.setViewportView(tblShowSchedule);
 
-        pnlYourSchedule.add(spShowSchedule);
-        spShowSchedule.setBounds(16, 72, 931, 187);
-
         btnSearch.setBackground(new java.awt.Color(218, 104, 70));
         btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RoomAssignment/image/search.png"))); // NOI18N
         btnSearch.setBorder(null);
+
+        btnViewToday.setBackground(new java.awt.Color(218, 104, 70));
+        btnViewToday.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnViewToday.setText("View Today");
+        btnViewToday.setToolTipText("View today schedules.");
+        btnViewToday.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewTodayActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlYourScheduleLayout = new javax.swing.GroupLayout(pnlYourSchedule);
+        pnlYourSchedule.setLayout(pnlYourScheduleLayout);
+        pnlYourScheduleLayout.setHorizontalGroup(
+            pnlYourScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlYourScheduleLayout.createSequentialGroup()
+                .addGap(11, 11, 11)
+                .addGroup(pnlYourScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlYourScheduleLayout.createSequentialGroup()
+                        .addComponent(lblSearch)
+                        .addGap(21, 21, 21)
+                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 396, Short.MAX_VALUE)
+                        .addComponent(btnViewToday, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnViewAll, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(spShowSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 931, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+        pnlYourScheduleLayout.setVerticalGroup(
+            pnlYourScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlYourScheduleLayout.createSequentialGroup()
+                .addGroup(pnlYourScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlYourScheduleLayout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(lblSearch))
+                    .addGroup(pnlYourScheduleLayout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlYourScheduleLayout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addGroup(pnlYourScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(pnlYourScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(btnViewAll, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addComponent(btnViewToday, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                            .addComponent(btnSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE))))
+                .addGap(18, 18, 18)
+                .addComponent(spShowSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSearchActionPerformed(evt);
@@ -393,7 +442,6 @@ public class View_Schedule extends javax.swing.JFrame {
         });
         pnlYourSchedule.add(btnSearch);
         btnSearch.setBounds(333, 32, 28, 22);
-
         pnlViewSchedule.add(pnlYourSchedule);
         pnlYourSchedule.setBounds(10, 331, 960, 280);
 
@@ -453,18 +501,19 @@ public class View_Schedule extends javax.swing.JFrame {
         this.setLocation(this.getX() + evt.getX() - mouseX, this.getY() + evt.getY() - mouseY);
     }//GEN-LAST:event_pnlNavigatorBarMouseDragged
 
+    private void btnViewAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewAllActionPerformed
+        displayAllTeacherSchedules();
+    }//GEN-LAST:event_btnViewAllActionPerformed
+
+    private void btnViewTodayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewTodayActionPerformed
+        displayTeacherScheduleThisDay();
+    }//GEN-LAST:event_btnViewTodayActionPerformed
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        if (txtSearch.getText().trim().isEmpty()) {
-            Error("Field for searching must not be blank!");
-        } else if (userValidation.isUserIDInputValid(txtSearch.getText().trim()) == false) {
-            Error("Field for searching must only contain numbers!");
-        } else if ((Integer.parseInt(txtSearch.getText().trim()) < 1)) {
-            Error("Field for searching must be greater than 0!");
-        } else {
-            searchTeacherJTable(teacher, Integer.parseInt(txtSearch.getText().trim()));
+       
+            searchTeacherJTable(txtSearch.getText().trim());
             Info("Search Completed!");
             activityData.insertActivity(teacher, "Searched user data.", userID);
-        }
+        
     }//GEN-LAST:event_btnSearchActionPerformed
 
     public void forLoginLogout(String message) {
@@ -483,6 +532,25 @@ public class View_Schedule extends javax.swing.JFrame {
     private void displayTeacherScheduleThisDay() {
         try {
             tblData = roomData.getTeacherScheduleInformationThisDay(teacher);
+            tblModel = (DefaultTableModel) tblShowSchedule.getModel();
+            tblModel.setRowCount(0);// Resets the JTable Contents
+            while (tblData.next()) {
+                tblRowData = new Vector<Object>();
+                for (int columnNumber = 1; columnNumber < 9; columnNumber++) {
+                    if (columnNumber != 1 && columnNumber != 5) {
+                        tblRowData.add(tblData.getString(columnNumber));//Rest of the column of strings data type data
+                    }
+                }
+                tblModel.addRow(tblRowData);
+            }
+        } catch (SQLException sqlex) {
+            JOptionPane.showMessageDialog(null, sqlex.toString(), "SQL Query Error!", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    private void displayAllTeacherSchedules() {
+        try {
+            tblData = roomData.getAllRoomSchedulesInformation();
             tblModel = (DefaultTableModel) tblShowSchedule.getModel();
             tblModel.setRowCount(0);// Resets the JTable Contents
             while (tblData.next()) {
@@ -517,9 +585,9 @@ public class View_Schedule extends javax.swing.JFrame {
         }
     }
 
-    private void searchTeacherJTable(String teacher, int scheduleID) {
+    private void searchTeacherJTable(String searchQuery) {
         try {
-            tblData = roomData.getSearchedTeacherRoomScheduleInformation(teacher, scheduleID);
+            tblData = roomData.getSearchedRoomScheduleInformation(searchQuery);
             tblModel = (DefaultTableModel) tblShowSchedule.getModel();
             tblModel.setRowCount(0);// Resets the JTable Contents
             while (tblData.next()) {
@@ -573,6 +641,8 @@ public class View_Schedule extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSearch;
+    private javax.swing.JButton btnViewAll;
+    private javax.swing.JButton btnViewToday;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblContact;

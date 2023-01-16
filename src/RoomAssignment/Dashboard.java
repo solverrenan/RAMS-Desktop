@@ -58,6 +58,7 @@ public class Dashboard extends javax.swing.JFrame {
         displayUserAccountInformation();
         populateDashboardActivityLog();
         displayStatisticsInformation();
+        displayCurrentDate();
         this.setTitle("RAMS - Dashboard");
         if (userRole.equalsIgnoreCase("Program Head")) {
             ProgramHeadAccess();
@@ -65,7 +66,7 @@ public class Dashboard extends javax.swing.JFrame {
         populateUserJTable();
         populateRoomJTable();
         populateTeacherJComboBox();
-
+        
         //Rounded Corner
         setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 20, 20));
     }
@@ -95,6 +96,7 @@ public class Dashboard extends javax.swing.JFrame {
         lblTabRAMS = new javax.swing.JLabel();
         pnlTabRight = new javax.swing.JPanel();
         pnlHome = new javax.swing.JPanel();
+        lblHomeWelcomeUser = new javax.swing.JLabel();
         pnlHomeCreatedSchedule = new javax.swing.JPanel();
         lblHomeCreatedSchedule = new javax.swing.JLabel();
         lblHomeScheduleNumber = new javax.swing.JLabel();
@@ -107,6 +109,7 @@ public class Dashboard extends javax.swing.JFrame {
         pnlHomeActivityLog = new javax.swing.JPanel();
         spActivityLog = new javax.swing.JScrollPane();
         listActivityLog = new javax.swing.JList<>();
+        lblHomeCurrentTimeDate = new javax.swing.JLabel();
         pnlRoomManagement = new javax.swing.JPanel();
         lblRAMRoomManagement = new javax.swing.JLabel();
         pnlRAMSchedule = new javax.swing.JPanel();
@@ -415,7 +418,11 @@ public class Dashboard extends javax.swing.JFrame {
         pnlHome.setMinimumSize(new java.awt.Dimension(1058, 622));
         pnlHome.setPreferredSize(new java.awt.Dimension(1058, 622));
 
+        lblHomeWelcomeUser.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        lblHomeWelcomeUser.setText("Welcome to RAMS, User!");
+
         pnlHomeCreatedSchedule.setBackground(java.awt.Color.darkGray);
+        pnlHomeCreatedSchedule.setPreferredSize(new java.awt.Dimension(307, 127));
 
         lblHomeCreatedSchedule.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
         lblHomeCreatedSchedule.setForeground(java.awt.Color.white);
@@ -434,7 +441,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGroup(pnlHomeCreatedScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblHomeScheduleNumber)
                     .addComponent(lblHomeCreatedSchedule))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
         pnlHomeCreatedScheduleLayout.setVerticalGroup(
             pnlHomeCreatedScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -443,7 +450,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addComponent(lblHomeScheduleNumber)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblHomeCreatedSchedule)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         pnlHomeCreatedAccount.setBackground(java.awt.Color.darkGray);
@@ -478,6 +485,7 @@ public class Dashboard extends javax.swing.JFrame {
         );
 
         pnlHomeFacultiesStudents.setBackground(java.awt.Color.darkGray);
+        pnlHomeFacultiesStudents.setPreferredSize(new java.awt.Dimension(307, 127));
 
         lblHomeFaculties.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
         lblHomeFaculties.setForeground(java.awt.Color.white);
@@ -497,7 +505,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGroup(pnlHomeFacultiesStudentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblHomeFaculties)
                     .addComponent(lblHomeFacultiesNumber))
-                .addContainerGap(153, Short.MAX_VALUE))
+                .addContainerGap(200, Short.MAX_VALUE))
         );
         pnlHomeFacultiesStudentsLayout.setVerticalGroup(
             pnlHomeFacultiesStudentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -506,7 +514,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addComponent(lblHomeFacultiesNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblHomeFaculties)
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         pnlHomeActivityLog.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Activity Log", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Century Gothic", 1, 18))); // NOI18N
@@ -536,33 +544,43 @@ public class Dashboard extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        lblHomeCurrentTimeDate.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        lblHomeCurrentTimeDate.setText("[CurrentTime]");
+
         javax.swing.GroupLayout pnlHomeLayout = new javax.swing.GroupLayout(pnlHome);
         pnlHome.setLayout(pnlHomeLayout);
         pnlHomeLayout.setHorizontalGroup(
             pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlHomeLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addGroup(pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(pnlHomeActivityLog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnlHomeLayout.createSequentialGroup()
-                        .addComponent(pnlHomeActivityLog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(pnlHomeLayout.createSequentialGroup()
-                        .addComponent(pnlHomeFacultiesStudents, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addComponent(pnlHomeCreatedSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(pnlHomeCreatedAccount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 187, Short.MAX_VALUE))))
+                        .addGroup(pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlHomeLayout.createSequentialGroup()
+                                .addComponent(pnlHomeFacultiesStudents, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(64, 64, 64)
+                                .addComponent(pnlHomeCreatedSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblHomeWelcomeUser))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                        .addGroup(pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pnlHomeCreatedAccount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblHomeCurrentTimeDate))))
+                .addGap(17, 17, 17))
         );
         pnlHomeLayout.setVerticalGroup(
             pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlHomeLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblHomeWelcomeUser)
+                    .addComponent(lblHomeCurrentTimeDate))
+                .addGap(42, 42, 42)
                 .addGroup(pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(pnlHomeCreatedAccount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnlHomeCreatedSchedule, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnlHomeFacultiesStudents, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlHomeCreatedSchedule, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
+                    .addComponent(pnlHomeFacultiesStudents, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
                 .addComponent(pnlHomeActivityLog, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
         );
@@ -694,7 +712,6 @@ public class Dashboard extends javax.swing.JFrame {
 
         lblRAMError.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         lblRAMError.setForeground(java.awt.Color.red);
-        lblRAMError.setText("[error appear here]");
 
         btnRAMDeleteRoom.setBackground(new java.awt.Color(204, 0, 0));
         btnRAMDeleteRoom.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
@@ -787,16 +804,16 @@ public class Dashboard extends javax.swing.JFrame {
                             .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
                                 .addComponent(lblRAMRoom)
                                 .addGap(40, 40, 40)
-                                .addComponent(txtRAMRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtRAMRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
                                 .addComponent(lblRAMSubject)
                                 .addGap(31, 31, 31)
-                                .addComponent(txtRAMSubject, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtRAMSubject, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
                                 .addComponent(lblRAMSection)
                                 .addGap(31, 31, 31)
-                                .addComponent(txtRAMSection, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
+                                .addComponent(txtRAMSection, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblRAMTeacher)
                             .addComponent(lblRAMDayOfTheWeek)
@@ -806,21 +823,21 @@ public class Dashboard extends javax.swing.JFrame {
                             .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
                                 .addGap(4, 4, 4)
                                 .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cbRAMTeacher, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cbRAMDayOfTheWeek, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(cbRAMTeacher, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cbRAMDayOfTheWeek, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
                                 .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtRAMEndTime, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(txtRAMEndTime, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
                                         .addGap(4, 4, 4)
-                                        .addComponent(txtRAMStartTime, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(txtRAMStartTime, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(6, 6, 6)
                                 .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnRAMEndTime)
                                     .addComponent(btnRAMStartTime))))
-                        .addContainerGap())))
+                        .addGap(164, 164, 164))))
             .addGroup(pnlRAMScheduleLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -845,7 +862,7 @@ public class Dashboard extends javax.swing.JFrame {
                         .addComponent(btnRAMSave, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnRAMDeleteRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 139, Short.MAX_VALUE)))
+                        .addGap(0, 142, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pnlRAMScheduleLayout.setVerticalGroup(
@@ -902,7 +919,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRAMAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnRAMEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(pnlRAMScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnRAMSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
@@ -1029,7 +1046,6 @@ public class Dashboard extends javax.swing.JFrame {
         spMUser.setViewportView(tblMHead);
 
         pfMUserPassword.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        pfMUserPassword.setText("jPasswordField1");
         pfMUserPassword.setEnabled(false);
 
         lblMUserID.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
@@ -1054,7 +1070,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         lblMUserError.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         lblMUserError.setForeground(java.awt.Color.red);
-        lblMUserError.setText("[error appear here]");
+        lblMUserError.setText(" ");
 
         btnMUserDelete.setBackground(new java.awt.Color(204, 0, 0));
         btnMUserDelete.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
@@ -1926,39 +1942,18 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRAMEditActionPerformed
 
     private void btnMUserSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMUserSearchActionPerformed
-        if (txtMUserSearch.getText().trim().isEmpty()) {
-            lblMUserError.setText("Field for searching must not be blank!");
-            clearErrorMessageMembers();
-        } else if (userValidation.isUserIDInputValid(txtMUserSearch.getText().trim()) == false) {
-            lblMUserError.setText("Field for searching must only contain numbers!");
-            clearErrorMessageMembers();
-        } else if ((Integer.parseInt(txtMUserSearch.getText().trim()) < 1)) {
-            lblMUserError.setText("Field for searching must be greater than 0!");
-            clearErrorMessageMembers();
-        } else {
-            searchUserJTable(Integer.parseInt(txtMUserSearch.getText().trim()));
+            
+            searchUserJTable(txtMUserSearch.getText().trim());
             Info("Search Completed!");
             activityData.insertActivity(name, "Searched user data.", userID);
-            populateDashboardActivityLog();
-        }
+            populateDashboardActivityLog();        
     }//GEN-LAST:event_btnMUserSearchActionPerformed
 
     private void btnRAMSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRAMSearchActionPerformed
-        if (txtRAMSearch.getText().trim().isEmpty()) {
-            lblRAMError.setText("Field for searching must not be blank!");
-            clearErrorMessageRAM();
-        } else if (roomValidation.isScheduleIDInputValid(txtRAMSearch.getText().trim()) == false) {
-            lblRAMError.setText("Field for searching must only contain numbers!");
-            clearErrorMessageRAM();
-        } else if ((Integer.parseInt(txtRAMSearch.getText().trim()) < 1)) {
-            lblRAMError.setText("Field for searching must be greater than 0!");
-            clearErrorMessageRAM();
-        } else {
-            searchRoomJTable(Integer.parseInt(txtRAMSearch.getText().trim()));
+            searchRoomJTable(txtRAMSearch.getText().trim());
             Info("Search Completed!");
             activityData.insertActivity(name, "Searched room schedule data.", userID);
-            populateDashboardActivityLog();
-        }
+            populateDashboardActivityLog();       
     }//GEN-LAST:event_btnRAMSearchActionPerformed
 
     private void txtMUserMiddleNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMUserMiddleNameActionPerformed
@@ -2067,9 +2062,9 @@ public class Dashboard extends javax.swing.JFrame {
     }
 
     // Searches User Accounts table via User ID
-    private void searchUserJTable(int userID) {
+    private void searchUserJTable(String searchQuery) {
         try {
-            tblData = userData.getUserAccountInformation(userID);
+            tblData = userData.getSearchedUserAccountInformation(searchQuery);
             tblModel = (DefaultTableModel) tblMHead.getModel();
             tblModel.setRowCount(0);// Resets the JTable Contents
             while (tblData.next()) {
@@ -2129,9 +2124,9 @@ public class Dashboard extends javax.swing.JFrame {
     }
 
     // Searches Room Schedules table via Schedule ID
-    private void searchRoomJTable(int scheduleID) {
+    private void searchRoomJTable(String searchQuery) {
         try {
-            tblData = roomData.getRoomScheduleInformation(scheduleID);
+            tblData = roomData.getSearchedRoomScheduleInformation(searchQuery);
             tblModel = (DefaultTableModel) tblRAMShowRoom.getModel();
             tblModel.setRowCount(0);// Resets the JTable Contents
             while (tblData.next()) {
@@ -2214,6 +2209,21 @@ public class Dashboard extends javax.swing.JFrame {
         pnlTabRoomManagement.setBackground(new Color(218, 104, 70));
         pnlTabMembers.setBackground(new Color(218, 104, 70));
         pnlTabAccount.setBackground(new Color(218, 104, 70));
+
+        try {
+            tblData = userData.getUserAccountInformation(userID);
+            tblData.next();
+            lblAID.setText(String.valueOf(tblData.getInt(1)));
+            lbAlUsername.setText(tblData.getString(2));
+            lblADepartment.setText(tblData.getString(4));
+            lblAFirstname.setText(tblData.getString(6));
+            lblALastname.setText(tblData.getString(7));
+            userRole = tblData.getString(5);
+            name = tblData.getString(7) + ", " + tblData.getString(6) + " " + tblData.getString(8);
+            lblHomeWelcomeUser.setText("Welcome " + name + "!");
+        } catch (SQLException sqlex) {
+            JOptionPane.showMessageDialog(null, sqlex.toString(), "SQL Query Error!", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     public void HomeTab() {
@@ -2226,6 +2236,7 @@ public class Dashboard extends javax.swing.JFrame {
         pnlTabRoomManagement.setBackground(new Color(218, 104, 70));
         pnlTabMembers.setBackground(new Color(218, 104, 70));
         pnlTabAccount.setBackground(new Color(218, 104, 70));
+        lblHomeWelcomeUser.setText("Welcome " + name + "!");
     }
 
     public void RoomManagementTab() {
@@ -2388,6 +2399,12 @@ public class Dashboard extends javax.swing.JFrame {
         new NoticeWindow(NoticeType.DEFAULT_NOTIFICATION, message, NoticeWindow.SHORT_DELAY, NPosition.BOTTOM_RIGHT);
     }
 
+    private void displayCurrentDate() {
+        SimpleDateFormat currentDateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        Date currentDate = new Date();
+        lblHomeCurrentTimeDate.setText(currentDateFormat.format(currentDate));
+    }
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -2472,9 +2489,11 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel lblHomeAccountNumber;
     private javax.swing.JLabel lblHomeCreatedAccount;
     private javax.swing.JLabel lblHomeCreatedSchedule;
+    private javax.swing.JLabel lblHomeCurrentTimeDate;
     private javax.swing.JLabel lblHomeFaculties;
     private javax.swing.JLabel lblHomeFacultiesNumber;
     private javax.swing.JLabel lblHomeScheduleNumber;
+    private javax.swing.JLabel lblHomeWelcomeUser;
     private javax.swing.JLabel lblMMember;
     private javax.swing.JLabel lblMUserAddress;
     private javax.swing.JLabel lblMUserContactNo;

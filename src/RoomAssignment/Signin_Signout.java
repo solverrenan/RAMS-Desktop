@@ -124,6 +124,7 @@ public class Signin_Signout extends javax.swing.JFrame {
         txtUser.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         txtUser.setToolTipText("");
         txtUser.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
+        txtUser.setName(""); // NOI18N
 
         lblPass.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         lblPass.setForeground(new java.awt.Color(51, 51, 51));
@@ -131,7 +132,6 @@ public class Signin_Signout extends javax.swing.JFrame {
 
         pwPassword.setBackground(new java.awt.Color(222, 222, 222));
         pwPassword.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        pwPassword.setText("jPasswordField1");
         pwPassword.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
 
         cboxShowPassword.setBackground(new java.awt.Color(255, 255, 255));
@@ -189,7 +189,7 @@ public class Signin_Signout extends javax.swing.JFrame {
                     .addGroup(pnlLoginLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
             .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLoginLayout.createSequentialGroup()
                     .addContainerGap(174, Short.MAX_VALUE)
