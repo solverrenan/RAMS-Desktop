@@ -502,24 +502,18 @@ public class View_Schedule extends javax.swing.JFrame {
     }//GEN-LAST:event_pnlNavigatorBarMouseDragged
 
     private void btnViewAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewAllActionPerformed
-        // TODO add your handling code here:
+        displayAllTeacherSchedules();
     }//GEN-LAST:event_btnViewAllActionPerformed
 
     private void btnViewTodayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewTodayActionPerformed
-        // TODO add your handling code here:
+        displayTeacherScheduleThisDay();
     }//GEN-LAST:event_btnViewTodayActionPerformed
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        if (txtSearch.getText().trim().isEmpty()) {
-            Error("Field for searching must not be blank!");
-        } else if (userValidation.isUserIDInputValid(txtSearch.getText().trim()) == false) {
-            Error("Field for searching must only contain numbers!");
-        } else if ((Integer.parseInt(txtSearch.getText().trim()) < 1)) {
-            Error("Field for searching must be greater than 0!");
-        } else {
-            searchTeacherJTable(teacher, Integer.parseInt(txtSearch.getText().trim()));
+       
+            searchTeacherJTable(txtSearch.getText().trim());
             Info("Search Completed!");
             activityData.insertActivity(teacher, "Searched user data.", userID);
-        }
+        
     }//GEN-LAST:event_btnSearchActionPerformed
 
     public void forLoginLogout(String message) {
@@ -538,6 +532,25 @@ public class View_Schedule extends javax.swing.JFrame {
     private void displayTeacherScheduleThisDay() {
         try {
             tblData = roomData.getTeacherScheduleInformationThisDay(teacher);
+            tblModel = (DefaultTableModel) tblShowSchedule.getModel();
+            tblModel.setRowCount(0);// Resets the JTable Contents
+            while (tblData.next()) {
+                tblRowData = new Vector<Object>();
+                for (int columnNumber = 1; columnNumber < 9; columnNumber++) {
+                    if (columnNumber != 1 && columnNumber != 5) {
+                        tblRowData.add(tblData.getString(columnNumber));//Rest of the column of strings data type data
+                    }
+                }
+                tblModel.addRow(tblRowData);
+            }
+        } catch (SQLException sqlex) {
+            JOptionPane.showMessageDialog(null, sqlex.toString(), "SQL Query Error!", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    private void displayAllTeacherSchedules() {
+        try {
+            tblData = roomData.getAllRoomSchedulesInformation();
             tblModel = (DefaultTableModel) tblShowSchedule.getModel();
             tblModel.setRowCount(0);// Resets the JTable Contents
             while (tblData.next()) {
@@ -572,9 +585,9 @@ public class View_Schedule extends javax.swing.JFrame {
         }
     }
 
-    private void searchTeacherJTable(String teacher, int scheduleID) {
+    private void searchTeacherJTable(String searchQuery) {
         try {
-            tblData = roomData.getSearchedTeacherRoomScheduleInformation(teacher, scheduleID);
+            tblData = roomData.getSearchedRoomScheduleInformation(searchQuery);
             tblModel = (DefaultTableModel) tblShowSchedule.getModel();
             tblModel.setRowCount(0);// Resets the JTable Contents
             while (tblData.next()) {

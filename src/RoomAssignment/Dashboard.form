@@ -576,7 +576,7 @@
                               <Component id="lblHomeScheduleNumber" min="-2" max="-2" attributes="0"/>
                               <Component id="lblHomeCreatedSchedule" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="86" max="32767" attributes="0"/>
+                          <EmptySpace pref="79" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -693,7 +693,7 @@
                               <Component id="lblHomeFaculties" min="-2" max="-2" attributes="0"/>
                               <Component id="lblHomeFacultiesNumber" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="197" max="32767" attributes="0"/>
+                          <EmptySpace pref="200" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>

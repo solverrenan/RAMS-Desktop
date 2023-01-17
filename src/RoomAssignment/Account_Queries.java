@@ -55,6 +55,18 @@ public class Account_Queries extends SQLConnection {
         }
     }
 
+     public ResultSet getSearchedUserAccountInformation(String searchQuery) {
+        try {
+            sqlStatement = sqlConnection.createStatement();
+            query = "SELECT * FROM UserAccounts WHERE CAST(UserID AS VARCHAR) = '"+searchQuery+"' AND CAST(UserID AS VARCHAR) LIKE '"+searchQuery+"%' OR Username LIKE '"+searchQuery+"%' OR Password LIKE '"+searchQuery+"%'  OR Department LIKE '"+searchQuery+"%' OR [Role] LIKE '"+searchQuery+"%' OR LastName LIKE '"+searchQuery+"%' OR FirstName LIKE '"+searchQuery+"%' OR MiddleName LIKE '"+searchQuery+"%' OR Email LIKE '"+searchQuery+"%' OR ContactNo LIKE '"+searchQuery+"%' OR Address LIKE '%"+searchQuery+"%'";
+            rs = sqlStatement.executeQuery(query);
+            return rs;
+        } catch (SQLException sqlex) {
+            JOptionPane.showMessageDialog(null, sqlex.toString(), "SQL Query Error!", JOptionPane.ERROR_MESSAGE);
+            return null;
+        }
+    }
+
     public void insertUserAccountInformation(String username, String password, String department, String role, String firstName, String lastName, String middleName, String email, String contactNo, String address) {
         try {
             query = "INSERT INTO UserAccounts (Username,Password,Department,[Role],FirstName,LastName,MiddleName,Email,ContactNo,Address) "

@@ -23,7 +23,6 @@ public class Change_Password extends javax.swing.JFrame {
         initComponents();
         this.userID = userID;
         this.db = db;
-        SetLogo();
         this.setTitle("RAMS - Change Password");
         this.setAlwaysOnTop(true);
         //Rounded Corners
@@ -34,7 +33,6 @@ public class Change_Password extends javax.swing.JFrame {
         initComponents();
         this.userID = userID;
         this.vs = vs;
-        SetLogo();
         this.setTitle("RAMS - Change Password");
         this.setAlwaysOnTop(true);
         //Rounded Corners
@@ -70,7 +68,7 @@ public class Change_Password extends javax.swing.JFrame {
         lblCurrentPassword.setText("Current Password");
 
         txtCurrentPassword.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-
+        
         lblNewPassword.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         lblNewPassword.setForeground(new java.awt.Color(255, 255, 255));
         lblNewPassword.setText("New Password");
@@ -214,7 +212,7 @@ public class Change_Password extends javax.swing.JFrame {
                 userData.updateUserAccountPassword(txtConfirmPassword.getText().trim(), userID);
                 activityData.insertActivity(tblData.getString(7) + ", " + tblData.getString(6) + " " + tblData.getString(8), "Changed password.", tblData.getInt(1));
                 if (db != null) {
-                    db.populateDashboardStatistics();
+                    db.populateDashboardActivityLog();
                 }
                 new NoticeWindow(NoticeType.SUCCESS_NOTIFICATION, "Password changed!", NoticeWindow.NORMAL_DELAY, NPosition.BOTTOM_RIGHT);
             }
@@ -224,10 +222,6 @@ public class Change_Password extends javax.swing.JFrame {
         }
     }
 
-    private void SetLogo() {
-        Image logo = (new ImageIcon(Dashboard.class.getResource("\\logo.jpg")).getImage());
-        this.setIconImage(logo);
-    }
     private void ShowPassword(){
         if (cbShowPassword.isSelected()) {
             txtNewPassword.setEchoChar((char) 0);
