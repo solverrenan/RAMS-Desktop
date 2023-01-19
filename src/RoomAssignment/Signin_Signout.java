@@ -16,6 +16,7 @@ import java.awt.geom.RoundRectangle2D;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 
 public class Signin_Signout extends javax.swing.JFrame {
 
@@ -31,6 +32,7 @@ public class Signin_Signout extends javax.swing.JFrame {
         this.setTitle("RAMS - Login");
         //Rounded Corners
         setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 20, 20));
+
     }
 
     /**
@@ -120,7 +122,6 @@ public class Signin_Signout extends javax.swing.JFrame {
         lblUser.setForeground(new java.awt.Color(51, 51, 51));
         lblUser.setText("Username: ");
 
-        txtUser.setBackground(new java.awt.Color(222, 222, 222));
         txtUser.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         txtUser.setToolTipText("");
         txtUser.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
@@ -130,7 +131,6 @@ public class Signin_Signout extends javax.swing.JFrame {
         lblPass.setForeground(new java.awt.Color(51, 51, 51));
         lblPass.setText("Password:");
 
-        pwPassword.setBackground(new java.awt.Color(222, 222, 222));
         pwPassword.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pwPassword.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
 
@@ -269,6 +269,7 @@ public class Signin_Signout extends javax.swing.JFrame {
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         this.dispose();
+        System.exit(0);
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
@@ -323,7 +324,7 @@ public class Signin_Signout extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
