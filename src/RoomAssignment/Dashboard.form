@@ -403,27 +403,27 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="pnlHome" pref="1086" max="32767" attributes="0"/>
+                  <Component id="pnlHome" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="pnlRoomManagement" pref="1086" max="32767" attributes="0"/>
+                      <Component id="pnlRoomManagement" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
               <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="pnlMembers" pref="1086" max="32767" attributes="0"/>
+                      <Component id="pnlMembers" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
               <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="pnlAccount" pref="1086" max="32767" attributes="0"/>
+                      <Component id="pnlAccount" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -431,29 +431,29 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
-                  <Component id="pnlHome" pref="611" max="32767" attributes="0"/>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="pnlHome" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="pnlRoomManagement" pref="682" max="32767" attributes="0"/>
+                      <Component id="pnlRoomManagement" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
               <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="pnlMembers" pref="682" max="32767" attributes="0"/>
+                      <Component id="pnlMembers" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
               <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="pnlAccount" pref="682" max="32767" attributes="0"/>
+                      <Component id="pnlAccount" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -485,12 +485,12 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="pnlHomeFacultiesStudents" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                                       <Component id="pnlHomeCreatedSchedule" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="lblHomeWelcomeUser" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="58" max="32767" attributes="0"/>
+                              <EmptySpace pref="50" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="pnlHomeCreatedAccount" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblHomeCurrentTimeDate" min="-2" max="-2" attributes="0"/>
@@ -509,14 +509,14 @@
                           <Component id="lblHomeWelcomeUser" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblHomeCurrentTimeDate" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="pnlHomeCreatedAccount" max="32767" attributes="0"/>
                           <Component id="pnlHomeCreatedSchedule" pref="171" max="32767" attributes="0"/>
-                          <Component id="pnlHomeFacultiesStudents" alignment="0" pref="171" max="32767" attributes="0"/>
+                          <Component id="pnlHomeFacultiesStudents" alignment="0" min="-2" pref="171" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="pnlHomeActivityLog" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="pnlHomeActivityLog" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -561,7 +561,7 @@
                           <Component id="lblHomeScheduleNumber" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="lblHomeCreatedSchedule" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="50" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -734,7 +734,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="spActivityLog" pref="244" max="32767" attributes="0"/>
+                          <Component id="spActivityLog" pref="306" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -858,7 +858,13 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblRAMError" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="btnRAMAdd" min="-2" pref="85" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="btnRAMEdit" min="-2" pref="89" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="lblRAMError" max="32767" attributes="0"/>
+                              </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
@@ -919,24 +925,15 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="spRAMShowRoom" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="txtRAMSearch" min="-2" pref="259" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" max="-2" attributes="0"/>
-                                          <Component id="btnRAMSearch" min="-2" pref="104" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" max="-2" attributes="0"/>
-                                          <Component id="btnRAMViewAll" min="-2" pref="83" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="lblRAMID" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtRAMID" min="-2" pref="168" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" attributes="0">
-                                          <Component id="btnRAMAdd" min="-2" pref="85" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="btnRAMEdit" min="-2" pref="89" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
+                                  <Component id="txtRAMSearch" min="-2" pref="259" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnRAMSearch" min="-2" pref="104" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnRAMViewAll" min="-2" pref="83" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="lblRAMID" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtRAMID" min="-2" pref="168" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="btnRAMSave" min="-2" pref="70" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -951,88 +948,91 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lblRAMTeacher" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="cbRAMTeacher" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="cbRAMDayOfTheWeek" min="-2" max="-2" attributes="0"/>
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
-                                          <Component id="lblRAMDayOfTheWeek" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="lblRAMTeacher" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="cbRAMTeacher" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="cbRAMDayOfTheWeek" min="-2" max="-2" attributes="0"/>
+                                              <Group type="102" attributes="0">
+                                                  <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
+                                                  <Component id="lblRAMDayOfTheWeek" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="txtRAMStartTime" min="-2" max="-2" attributes="0"/>
+                                              <Component id="btnRAMStartTime" min="-2" pref="22" max="-2" attributes="0"/>
+                                              <Group type="102" attributes="0">
+                                                  <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
+                                                  <Component id="lblRAMStartTime" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="txtRAMEndTime" min="-2" max="-2" attributes="0"/>
+                                              <Component id="btnRAMEndTime" min="-2" pref="22" max="-2" attributes="0"/>
+                                              <Group type="102" attributes="0">
+                                                  <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
+                                                  <Component id="lblRAMEndTime" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="txtRAMRoom" min="-2" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
+                                                  <Component id="lblRAMRoom" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="txtRAMSubject" min="-2" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
+                                                  <Component id="lblRAMSubject" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="txtRAMSection" min="-2" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
+                                                  <Component id="lblRAMSection" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
                                       </Group>
                                   </Group>
-                                  <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtRAMStartTime" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnRAMStartTime" min="-2" pref="22" max="-2" attributes="0"/>
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
-                                          <Component id="lblRAMStartTime" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtRAMEndTime" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnRAMEndTime" min="-2" pref="22" max="-2" attributes="0"/>
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
-                                          <Component id="lblRAMEndTime" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
+                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                  <Component id="lblRAMError" min="-2" pref="20" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtRAMRoom" min="-2" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
-                                          <Component id="lblRAMRoom" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtRAMSubject" min="-2" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
-                                          <Component id="lblRAMSubject" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtRAMSection" min="-2" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
-                                          <Component id="lblRAMSection" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                          <Component id="lblRAMError" min="-2" pref="20" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="btnRAMAdd" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                              <Component id="btnRAMEdit" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace pref="42" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="btnRAMSearch" alignment="3" pref="27" max="32767" attributes="0"/>
+                                  <Component id="btnRAMAdd" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                                  <Component id="btnRAMEdit" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                   <Component id="btnRAMViewAll" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                                   <Component id="txtRAMID" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                                   <Component id="lblRAMID" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnRAMDeleteRoom" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                                   <Component id="btnRAMSave" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                                  <Component id="btnRAMSearch" alignment="0" min="-2" pref="27" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="txtRAMSearch" alignment="1" max="32767" attributes="0"/>
+                              <Component id="txtRAMSearch" alignment="1" min="-2" pref="27" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="spRAMShowRoom" min="-2" pref="266" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="spRAMShowRoom" pref="330" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -1519,57 +1519,51 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="spMUser" alignment="1" max="32767" attributes="0"/>
-                              <Group type="102" attributes="0">
+                              <Component id="spMUser" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblMUserUsername" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblMUserPassword" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblMUserDepartment" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblMUserRole" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="lblMUserUsername" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblMUserPassword" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblMUserDepartment" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblMUserRole" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="txtMUserUsername" alignment="0" min="-2" pref="259" max="-2" attributes="0"/>
-                                              <Component id="pwMUserPassword" alignment="0" min="-2" pref="259" max="-2" attributes="0"/>
-                                              <Component id="txtMUserDepartment" alignment="0" min="-2" pref="259" max="-2" attributes="0"/>
-                                              <Component id="cbMUserRole" alignment="0" min="-2" pref="259" max="-2" attributes="0"/>
-                                              <Component id="cbMUserShowPassword" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="lblMUserFirstName" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblMUserLastName" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblMUserMiddleName" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblMUserEmail" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblMUserContactNo" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace pref="25" max="32767" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="txtMUserContactNo" alignment="0" min="-2" pref="259" max="-2" attributes="0"/>
-                                              <Component id="txtMUserLastName" alignment="0" min="-2" pref="259" max="-2" attributes="0"/>
-                                              <Component id="txtMUserFirstName" alignment="0" min="-2" pref="259" max="-2" attributes="0"/>
-                                              <Component id="txtMUserMiddleName" alignment="0" min="-2" pref="259" max="-2" attributes="0"/>
-                                              <Component id="txtMUserEmail" alignment="0" min="-2" pref="259" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="lblMUserAddress" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jScrollPane1" min="-2" pref="215" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="lblMUserError" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtMUserUsername" alignment="0" min="-2" pref="259" max="-2" attributes="0"/>
+                                      <Component id="pwMUserPassword" alignment="0" min="-2" pref="259" max="-2" attributes="0"/>
+                                      <Component id="txtMUserDepartment" alignment="0" min="-2" pref="259" max="-2" attributes="0"/>
+                                      <Component id="cbMUserRole" alignment="0" min="-2" pref="259" max="-2" attributes="0"/>
+                                      <Component id="cbMUserShowPassword" min="-2" max="-2" attributes="0"/>
                                   </Group>
+                                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblMUserFirstName" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblMUserLastName" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblMUserMiddleName" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblMUserEmail" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblMUserContactNo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="txtMUserContactNo" alignment="0" min="-2" pref="259" max="-2" attributes="0"/>
+                                      <Component id="txtMUserLastName" alignment="0" min="-2" pref="259" max="-2" attributes="0"/>
+                                      <Component id="txtMUserFirstName" alignment="0" min="-2" pref="259" max="-2" attributes="0"/>
+                                      <Component id="txtMUserMiddleName" alignment="0" min="-2" pref="259" max="-2" attributes="0"/>
+                                      <Component id="txtMUserEmail" alignment="0" min="-2" pref="259" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="lblMUserAddress" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jScrollPane1" min="-2" pref="215" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace max="-2" attributes="0"/>
                                           <Component id="txtMUserSearch" min="-2" pref="259" max="-2" attributes="0"/>
-                                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
                                           <Component id="btnMUserSearch" min="-2" pref="104" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="btnMUserViewAll" min="-2" pref="83" max="-2" attributes="0"/>
@@ -1579,22 +1573,26 @@
                                           <Component id="txtMUserID" min="-2" pref="260" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                                           <Component id="btnMUserAdd" min="-2" pref="89" max="-2" attributes="0"/>
-                                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
                                           <Component id="btnMUserEdit" min="-2" pref="89" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="lblMUserError" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="cbMUserUpdateRole" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="cbMUserUpdateRole" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" attributes="0">
                                           <Component id="btnMUserSave" min="-2" pref="81" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="btnMUserDelete" min="-2" pref="89" max="-2" attributes="0"/>
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -1677,30 +1675,33 @@
                               <Component id="lblMUserAddress" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jScrollPane1" alignment="0" min="-2" pref="136" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                          <Component id="lblMUserError" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="btnMUserAdd" min="-2" pref="28" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="btnMUserEdit" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                                  <Component id="cbMUserUpdateRole" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="lblMUserError" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnMUserAdd" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                      <Component id="btnMUserEdit" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="cbMUserUpdateRole" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtMUserSearch" min="-2" pref="28" max="-2" attributes="0"/>
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="btnMUserSearch" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                                  <Component id="btnMUserViewAll" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                                  <Component id="txtMUserID" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                                  <Component id="lblMUserID" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnMUserDelete" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                                  <Component id="btnMUserSave" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                              </Group>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txtMUserSearch" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                              <Component id="btnMUserSearch" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                              <Component id="btnMUserViewAll" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                              <Component id="lblMUserID" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtMUserID" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                              <Component id="btnMUserDelete" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                              <Component id="btnMUserSave" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="spMUser" pref="324" max="32767" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="spMUser" pref="293" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
