@@ -471,7 +471,7 @@ public class View_Schedule extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblInfoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblInfoMouseClicked
-        JOptionPane.showMessageDialog(null, "Contact our administration for wrong information. For conflict schedule,\ncontact the head program.\nAdmin: admin@laspinas.sti.edu.ph\nHead: head@laspinas.sti.edu.ph");
+        JOptionPane.showMessageDialog(null, "Contact the IT administrator for problems regarding the application.");
     }//GEN-LAST:event_lblInfoMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

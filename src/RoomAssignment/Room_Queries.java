@@ -42,11 +42,11 @@ public class Room_Queries extends SQLConnection {
             return null;
         }
     }
-    
+
     public ResultSet getSearchedRoomScheduleInformation(String searchQuery) {
         try {
             sqlStatement = sqlConnection.createStatement();
-            query = "SELECT ScheduleID,Room,Subject,[Section],Teacher,DayOfTheWeek,FORMAT(CAST(StartTime AS datetime),'hh:mm tt')'StartTime',FORMAT(CAST(EndTime AS datetime),'hh:mm tt') 'EndTime' FROM TeacherSchedules WHERE CAST(ScheduleID AS VARCHAR) = '" + searchQuery + "' AND CAST(ScheduleID AS VARCHAR) LIKE '"+searchQuery+"%' OR Room  LIKE '"+searchQuery+"%' OR Subject LIKE '"+searchQuery+"%' OR Section LIKE '"+searchQuery+"%' OR Teacher LIKE '"+searchQuery+"%' OR DayOfTheWeek LIKE '"+searchQuery+"%' OR FORMAT(CAST(StartTime AS datetime),'hh:mm tt') LIKE'%"+searchQuery+"%' OR FORMAT(CAST(EndTime AS datetime),'hh:mm tt')LIKE '%"+searchQuery+"%' ORDER BY CASE WHEN DayOfTheWeek = 'Monday' THEN 1 WHEN DayOfTheWeek = 'Tuesday' THEN 2 WHEN DayOfTheWeek = 'Wednesday' THEN 3 WHEN DayOfTheWeek = 'Thursday' THEN 4 WHEN DayOfTheWeek = 'Friday' THEN 5 WHEN DayOfTheWeek = 'Saturday' THEN 6 END, FORMAT(CAST(StartTime AS datetime),'HH:MM'), Room ASC" ;
+            query = "SELECT ScheduleID,Room,Subject,[Section],Teacher,DayOfTheWeek,FORMAT(CAST(StartTime AS datetime),'hh:mm tt')'StartTime',FORMAT(CAST(EndTime AS datetime),'hh:mm tt') 'EndTime' FROM TeacherSchedules WHERE CAST(ScheduleID AS VARCHAR) = '" + searchQuery + "' AND CAST(ScheduleID AS VARCHAR) LIKE '" + searchQuery + "%' OR Room  LIKE '" + searchQuery + "%' OR Subject LIKE '" + searchQuery + "%' OR Section LIKE '" + searchQuery + "%' OR Teacher LIKE '" + searchQuery + "%' OR DayOfTheWeek LIKE '" + searchQuery + "%' OR FORMAT(CAST(StartTime AS datetime),'hh:mm tt') LIKE'%" + searchQuery + "%' OR FORMAT(CAST(EndTime AS datetime),'hh:mm tt')LIKE '%" + searchQuery + "%' ORDER BY CASE WHEN DayOfTheWeek = 'Monday' THEN 1 WHEN DayOfTheWeek = 'Tuesday' THEN 2 WHEN DayOfTheWeek = 'Wednesday' THEN 3 WHEN DayOfTheWeek = 'Thursday' THEN 4 WHEN DayOfTheWeek = 'Friday' THEN 5 WHEN DayOfTheWeek = 'Saturday' THEN 6 END, FORMAT(CAST(StartTime AS datetime),'HH:MM'), Room ASC";
             rs = sqlStatement.executeQuery(query);
             return rs;
         } catch (SQLException sqlex) {
@@ -71,6 +71,18 @@ public class Room_Queries extends SQLConnection {
         try {
             sqlStatement = sqlConnection.createStatement();
             query = "SELECT ScheduleID,Room,Subject,[Section],Teacher,DayOfTheWeek,FORMAT(CAST(StartTime AS datetime),'hh:mm tt')'StartTime',FORMAT(CAST(EndTime AS datetime),'hh:mm tt') 'EndTime' FROM TeacherSchedules WHERE DayOfTheWeek ='" + dayOfTheWeek + "' AND Teacher = '" + teacher + "'";
+            rs = sqlStatement.executeQuery(query);
+            return rs;
+        } catch (SQLException sqlex) {
+            JOptionPane.showMessageDialog(null, sqlex.toString(), "SQL Query Error!", JOptionPane.ERROR_MESSAGE);
+            return null;
+        }
+    }
+
+    public ResultSet getSpecificSectionScheduleInformation(String dayOfTheWeek, String section) {
+        try {
+            sqlStatement = sqlConnection.createStatement();
+            query = "SELECT ScheduleID,Room,Subject,[Section],Teacher,DayOfTheWeek,FORMAT(CAST(StartTime AS datetime),'hh:mm tt')'StartTime',FORMAT(CAST(EndTime AS datetime),'hh:mm tt') 'EndTime' FROM TeacherSchedules WHERE DayOfTheWeek ='" + dayOfTheWeek + "' AND [Section] = '" + section + "'";
             rs = sqlStatement.executeQuery(query);
             return rs;
         } catch (SQLException sqlex) {
@@ -112,19 +124,9 @@ public class Room_Queries extends SQLConnection {
         }
     }
 
-    public void updateRoomScheduleSection(String section, int scheduleID) {
+    public void updateRoomScheduleTimeInformation(String room, String section, String teacher, String dayOfTheWeek, String startTime, String endTime, int scheduleID) {
         try {
-            query = "UPDATE TeacherSchedules SET Section = '" + section + "' WHERE ScheduleID = " + scheduleID + "";
-            sqlPreparedStatement = sqlConnection.prepareStatement(query);
-            sqlPreparedStatement.executeUpdate();
-        } catch (SQLException sqlex) {
-            JOptionPane.showMessageDialog(null, sqlex.toString(), "SQL Query Error!", JOptionPane.ERROR_MESSAGE);
-        }
-    }
-
-    public void updateRoomScheduleTimeInformation(String room, String teacher, String dayOfTheWeek, String startTime, String endTime, int scheduleID) {
-        try {
-            query = "UPDATE TeacherSchedules SET Room = '" + room + "', Teacher = '" + teacher + "', DayOfTheWeek = '" + dayOfTheWeek + "', StartTime = '" + startTime + "', EndTime = '" + endTime + "' WHERE ScheduleID = " + scheduleID + "";
+            query = "UPDATE TeacherSchedules SET Room = '" + room + "', [Section] = '" + section + "' Teacher = '" + teacher + "', DayOfTheWeek = '" + dayOfTheWeek + "', StartTime = '" + startTime + "', EndTime = '" + endTime + "' WHERE ScheduleID = " + scheduleID + "";
             sqlPreparedStatement = sqlConnection.prepareStatement(query);
             sqlPreparedStatement.executeUpdate();
         } catch (SQLException sqlex) {
