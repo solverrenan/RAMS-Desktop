@@ -113,20 +113,27 @@ public class Change_Password extends javax.swing.JFrame {
             }
         });
 
+        pwNewPassword.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         pwNewPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pwNewPasswordActionPerformed(evt);
             }
         });
 
+        pwConfirmPassword.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+
+        cbShowPassword.setBackground(new java.awt.Color(102, 102, 102));
+        cbShowPassword.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         cbShowPassword.setForeground(java.awt.Color.white);
         cbShowPassword.setText("Show Password");
+        cbShowPassword.setBorder(null);
         cbShowPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbShowPasswordActionPerformed(evt);
             }
         });
 
+        pwCurrentPassword.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         pwCurrentPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pwCurrentPasswordActionPerformed(evt);
@@ -180,7 +187,7 @@ public class Change_Password extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnChangePassword, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

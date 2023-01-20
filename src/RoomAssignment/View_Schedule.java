@@ -37,6 +37,7 @@ public class View_Schedule extends javax.swing.JFrame {
     Vector<Object> tblRowData;
     ResultSet tblData;
     Account_Validator userValidation = new Account_Validator();
+    private int confirmLogout;
 
     public View_Schedule(int userID) {
         initComponents();
@@ -58,6 +59,7 @@ public class View_Schedule extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblImageBackground = new javax.swing.JLabel();
         pnlViewSchedule = new javax.swing.JPanel();
         pnlNavigatorBar = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
@@ -93,7 +95,6 @@ public class View_Schedule extends javax.swing.JFrame {
         tblShowSchedule = new javax.swing.JTable();
         btnSearch = new javax.swing.JButton();
         btnViewToday = new javax.swing.JButton();
-        lblImageBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Schedule");
@@ -101,11 +102,13 @@ public class View_Schedule extends javax.swing.JFrame {
         setName("frmViewSchedule"); // NOI18N
         setUndecorated(true);
 
+        lblImageBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RoomAssignment/image/3d-cubes-abstract-diagonals.jpg"))); // NOI18N
+
         pnlViewSchedule.setBackground(new java.awt.Color(245, 245, 245));
-        pnlViewSchedule.setLayout(null);
+        pnlViewSchedule.setOpaque(false);
 
         pnlNavigatorBar.setBackground(new java.awt.Color(205, 203, 214));
-        pnlNavigatorBar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        pnlNavigatorBar.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         pnlNavigatorBar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 pnlNavigatorBarMouseDragged(evt);
@@ -117,7 +120,7 @@ public class View_Schedule extends javax.swing.JFrame {
             }
         });
 
-        lblTitle.setFont(new java.awt.Font("Copperplate Gothic Bold", 3, 12)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Century Gothic", 3, 14)); // NOI18N
         lblTitle.setText("Room Assignment & Management | View Schedule");
 
         lblInfo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -151,7 +154,7 @@ public class View_Schedule extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlNavigatorBarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblTitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 483, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -165,70 +168,52 @@ public class View_Schedule extends javax.swing.JFrame {
             .addGroup(pnlNavigatorBarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlNavigatorBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlNavigatorBarLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(lblTitle))
-                    .addComponent(lblLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblLogout, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                    .addComponent(lblInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblTitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
-
-        pnlViewSchedule.add(pnlNavigatorBar);
-        pnlNavigatorBar.setBounds(0, 0, 983, 38);
 
         lblWelcome.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
         lblWelcome.setForeground(java.awt.Color.white);
         lblWelcome.setText("Welcome, User!");
-        pnlViewSchedule.add(lblWelcome);
-        lblWelcome.setBounds(10, 56, 190, 32);
 
         lblNotice.setFont(new java.awt.Font("Century Gothic", 2, 12)); // NOI18N
         lblNotice.setForeground(java.awt.Color.white);
         lblNotice.setText("Check your schedule carefully. Contact your program head when you have conflict on schedule.");
-        pnlViewSchedule.add(lblNotice);
-        lblNotice.setBounds(10, 85, 520, 16);
+
         pnlYourInformation.setBackground(new java.awt.Color(245, 245, 245));
         pnlYourInformation.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Your Information", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Century Gothic", 3, 14), java.awt.Color.white)); // NOI18N
         pnlYourInformation.setForeground(java.awt.Color.white);
         pnlYourInformation.setOpaque(false);
-        pnlYourInformation.setLayout(null);
 
         lblUsername.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         lblUsername.setForeground(java.awt.Color.white);
         lblUsername.setText("Username");
-        pnlYourInformation.add(lblUsername);
-        lblUsername.setBounds(16, 35, 59, 16);
 
         lblFirstName.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         lblFirstName.setForeground(java.awt.Color.white);
         lblFirstName.setText("First Name");
-        pnlYourInformation.add(lblFirstName);
-        lblFirstName.setBounds(16, 63, 61, 16);
 
         lblMiddleName.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         lblMiddleName.setForeground(java.awt.Color.white);
         lblMiddleName.setText("Middle Name");
-        pnlYourInformation.add(lblMiddleName);
-        lblMiddleName.setBounds(16, 91, 73, 16);
+
         lblLastName.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         lblLastName.setForeground(java.awt.Color.white);
         lblLastName.setText("Last Name");
-        pnlYourInformation.add(lblLastName);
-        lblLastName.setBounds(16, 119, 61, 16);
 
         lblDepartment.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         lblDepartment.setForeground(java.awt.Color.white);
         lblDepartment.setText("Department");
-        pnlYourInformation.add(lblDepartment);
-        lblDepartment.setBounds(16, 147, 65, 16);
+
         txtMiddleName.setEditable(false);
         txtMiddleName.setBackground(new java.awt.Color(51, 51, 51));
         txtMiddleName.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         txtMiddleName.setForeground(java.awt.Color.white);
         txtMiddleName.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
         txtMiddleName.setFocusable(false);
-        pnlYourInformation.add(txtMiddleName);
-        txtMiddleName.setBounds(100, 88, 251, 17);
+        txtMiddleName.setOpaque(true);
 
         txtFirstName.setEditable(false);
         txtFirstName.setBackground(new java.awt.Color(51, 51, 51));
@@ -236,8 +221,7 @@ public class View_Schedule extends javax.swing.JFrame {
         txtFirstName.setForeground(java.awt.Color.white);
         txtFirstName.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
         txtFirstName.setFocusable(false);
-        pnlYourInformation.add(txtFirstName);
-        txtFirstName.setBounds(100, 60, 251, 17);
+        txtFirstName.setOpaque(true);
 
         txtUsername.setEditable(false);
         txtUsername.setBackground(new java.awt.Color(51, 51, 51));
@@ -245,8 +229,7 @@ public class View_Schedule extends javax.swing.JFrame {
         txtUsername.setForeground(java.awt.Color.white);
         txtUsername.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
         txtUsername.setFocusable(false);
-        pnlYourInformation.add(txtUsername);
-        txtUsername.setBounds(100, 32, 251, 17);
+        txtUsername.setOpaque(true);
 
         txtLastName.setEditable(false);
         txtLastName.setBackground(new java.awt.Color(51, 51, 51));
@@ -254,8 +237,7 @@ public class View_Schedule extends javax.swing.JFrame {
         txtLastName.setForeground(java.awt.Color.white);
         txtLastName.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
         txtLastName.setFocusable(false);
-        pnlYourInformation.add(txtLastName);
-        txtLastName.setBounds(100, 116, 251, 17);
+        txtLastName.setOpaque(true);
 
         txtDepartment.setEditable(false);
         txtDepartment.setBackground(new java.awt.Color(51, 51, 51));
@@ -263,42 +245,35 @@ public class View_Schedule extends javax.swing.JFrame {
         txtDepartment.setForeground(java.awt.Color.white);
         txtDepartment.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
         txtDepartment.setFocusable(false);
-        pnlYourInformation.add(txtDepartment);
-        txtDepartment.setBounds(99, 144, 251, 17);
+        txtDepartment.setOpaque(true);
 
         lblEmail.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         lblEmail.setForeground(java.awt.Color.white);
         lblEmail.setText("Email");
-        pnlYourInformation.add(lblEmail);
-        lblEmail.setBounds(369, 35, 32, 16);
+
         txtEmail.setEditable(false);
         txtEmail.setBackground(new java.awt.Color(51, 51, 51));
         txtEmail.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         txtEmail.setForeground(java.awt.Color.white);
         txtEmail.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
         txtEmail.setFocusable(false);
-        pnlYourInformation.add(txtEmail);
-        txtEmail.setBounds(433, 32, 251, 17);
+        txtEmail.setOpaque(true);
 
         lblContact.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         lblContact.setForeground(java.awt.Color.white);
         lblContact.setText("Contact");
-        pnlYourInformation.add(lblContact);
-        lblContact.setBounds(369, 63, 42, 16);
+
         txtContact.setEditable(false);
         txtContact.setBackground(new java.awt.Color(51, 51, 51));
         txtContact.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         txtContact.setForeground(java.awt.Color.white);
         txtContact.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
         txtContact.setFocusable(false);
-        pnlYourInformation.add(txtContact);
-        txtContact.setBounds(433, 60, 251, 17);
+        txtContact.setOpaque(true);
 
         lblAddress.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         lblAddress.setForeground(java.awt.Color.white);
         lblAddress.setText("Address");
-        pnlYourInformation.add(lblAddress);
-        lblAddress.setBounds(369, 91, 46, 16);
 
         txtAddress.setEditable(false);
         txtAddress.setBackground(new java.awt.Color(51, 51, 51));
@@ -306,28 +281,125 @@ public class View_Schedule extends javax.swing.JFrame {
         txtAddress.setForeground(java.awt.Color.white);
         txtAddress.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
         txtAddress.setFocusable(false);
-        pnlYourInformation.add(txtAddress);
-        txtAddress.setBounds(434, 88, 251, 17);
+        txtAddress.setOpaque(true);
 
         lblContactAdmin.setFont(new java.awt.Font("Century Gothic", 2, 12)); // NOI18N
         lblContactAdmin.setForeground(java.awt.Color.white);
         lblContactAdmin.setText("Wrong information? Contact our administrator for correction of your information.");
-        pnlYourInformation.add(lblContactAdmin);
-        lblContactAdmin.setBounds(470, 150, 431, 16);
+
         jButton1.setBackground(new java.awt.Color(218, 104, 70));
         jButton1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jButton1.setText("Change Password");
         jButton1.setToolTipText("Change Password");
+        jButton1.setBorder(null);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        pnlYourInformation.add(jButton1);
-        jButton1.setBounds(793, 20, 150, 23);
 
-        pnlViewSchedule.add(pnlYourInformation);
-        pnlYourInformation.setBounds(10, 128, 960, 200);
+        javax.swing.GroupLayout pnlYourInformationLayout = new javax.swing.GroupLayout(pnlYourInformation);
+        pnlYourInformation.setLayout(pnlYourInformationLayout);
+        pnlYourInformationLayout.setHorizontalGroup(
+            pnlYourInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlYourInformationLayout.createSequentialGroup()
+                .addGroup(pnlYourInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlYourInformationLayout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addGroup(pnlYourInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlYourInformationLayout.createSequentialGroup()
+                                .addComponent(lblUsername)
+                                .addGap(25, 25, 25)
+                                .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblEmail)
+                                .addGap(33, 33, 33)
+                                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(109, 109, 109)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pnlYourInformationLayout.createSequentialGroup()
+                                .addComponent(lblFirstName)
+                                .addGap(22, 22, 22)
+                                .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblContact)
+                                .addGap(14, 14, 14)
+                                .addComponent(txtContact, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pnlYourInformationLayout.createSequentialGroup()
+                                .addComponent(lblMiddleName)
+                                .addGap(4, 4, 4)
+                                .addComponent(txtMiddleName, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblAddress)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pnlYourInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(pnlYourInformationLayout.createSequentialGroup()
+                                    .addComponent(lblDepartment)
+                                    .addGap(10, 10, 10)
+                                    .addComponent(txtDepartment))
+                                .addGroup(pnlYourInformationLayout.createSequentialGroup()
+                                    .addComponent(lblLastName)
+                                    .addGap(21, 21, 21)
+                                    .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlYourInformationLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblContactAdmin)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addContainerGap(10, Short.MAX_VALUE))
+        );
+        pnlYourInformationLayout.setVerticalGroup(
+            pnlYourInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlYourInformationLayout.createSequentialGroup()
+                .addGroup(pnlYourInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlYourInformationLayout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(lblUsername))
+                    .addGroup(pnlYourInformationLayout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlYourInformationLayout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(lblEmail))
+                    .addGroup(pnlYourInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                        .addGroup(pnlYourInformationLayout.createSequentialGroup()
+                            .addGap(12, 12, 12)
+                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(9, 9, 9)
+                .addGroup(pnlYourInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtContact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnlYourInformationLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addGroup(pnlYourInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblFirstName)
+                            .addComponent(lblContact))))
+                .addGap(9, 9, 9)
+                .addGroup(pnlYourInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtMiddleName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnlYourInformationLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addGroup(pnlYourInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblMiddleName)
+                            .addComponent(lblAddress))))
+                .addGap(9, 9, 9)
+                .addGroup(pnlYourInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlYourInformationLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(lblLastName))
+                    .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(9, 9, 9)
+                .addGroup(pnlYourInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlYourInformationLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(lblDepartment))
+                    .addComponent(txtDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addComponent(lblContactAdmin)
+                .addContainerGap())
+        );
 
         pnlYourSchedule.setBackground(new java.awt.Color(245, 245, 245));
         pnlYourSchedule.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Your Schedule", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Century Gothic", 3, 14), java.awt.Color.white)); // NOI18N
@@ -337,6 +409,7 @@ public class View_Schedule extends javax.swing.JFrame {
         btnViewAll.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         btnViewAll.setText("View All");
         btnViewAll.setToolTipText("View all schedules.");
+        btnViewAll.setBorder(null);
         btnViewAll.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewAllActionPerformed(evt);
@@ -346,9 +419,9 @@ public class View_Schedule extends javax.swing.JFrame {
         lblSearch.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         lblSearch.setForeground(java.awt.Color.white);
         lblSearch.setText("Search");
-        pnlYourSchedule.add(lblSearch);
-        lblSearch.setBounds(16, 35, 41, 16);
+
         txtSearch.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+
         tblShowSchedule.setBackground(new java.awt.Color(245, 245, 245));
         tblShowSchedule.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         tblShowSchedule.setModel(new javax.swing.table.DefaultTableModel(
@@ -389,9 +462,11 @@ public class View_Schedule extends javax.swing.JFrame {
         btnViewToday.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         btnViewToday.setText("View Today");
         btnViewToday.setToolTipText("View today schedules.");
+        btnViewToday.setBorder(null);
         btnViewToday.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewTodayActionPerformed(evt);
+                btnSearchActionPerformed(evt);
             }
         });
 
@@ -401,67 +476,99 @@ public class View_Schedule extends javax.swing.JFrame {
             pnlYourScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlYourScheduleLayout.createSequentialGroup()
                 .addGap(11, 11, 11)
-                .addGroup(pnlYourScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlYourScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(pnlYourScheduleLayout.createSequentialGroup()
-                        .addComponent(lblSearch)
-                        .addGap(21, 21, 21)
+                        .addComponent(lblSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 396, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnViewToday, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnViewAll, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(spShowSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 931, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                        .addComponent(btnViewAll, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(21, 21, 21))
+                    .addGroup(pnlYourScheduleLayout.createSequentialGroup()
+                        .addComponent(spShowSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 931, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         pnlYourScheduleLayout.setVerticalGroup(
             pnlYourScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlYourScheduleLayout.createSequentialGroup()
                 .addGroup(pnlYourScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlYourScheduleLayout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(lblSearch))
-                    .addGroup(pnlYourScheduleLayout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlYourScheduleLayout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addGroup(pnlYourScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(pnlYourScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnlYourScheduleLayout.createSequentialGroup()
+                            .addGap(5, 5, 5)
                             .addGroup(pnlYourScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(btnViewAll, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                .addComponent(btnViewToday, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                            .addComponent(btnSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE))))
-                .addGap(18, 18, 18)
-                .addComponent(spShowSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnViewAll, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnViewToday, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlYourScheduleLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addGroup(pnlYourScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(btnSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))))
+                    .addComponent(lblSearch, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(spShowSchedule, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE))
         );
-        btnSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSearchActionPerformed(evt);
-            }
-        });
-        pnlYourSchedule.add(btnSearch);
-        btnSearch.setBounds(333, 32, 28, 22);
-        pnlViewSchedule.add(pnlYourSchedule);
-        pnlYourSchedule.setBounds(10, 331, 960, 280);
 
-        lblImageBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RoomAssignment/image/3d-cubes-abstract-diagonals.jpg"))); // NOI18N
-        pnlViewSchedule.add(lblImageBackground);
-        lblImageBackground.setBounds(-6, 0, 990, 620);
+        javax.swing.GroupLayout pnlViewScheduleLayout = new javax.swing.GroupLayout(pnlViewSchedule);
+        pnlViewSchedule.setLayout(pnlViewScheduleLayout);
+        pnlViewScheduleLayout.setHorizontalGroup(
+            pnlViewScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlNavigatorBar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pnlViewScheduleLayout.createSequentialGroup()
+                .addGroup(pnlViewScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(pnlYourInformation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnlViewScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnlViewScheduleLayout.createSequentialGroup()
+                            .addGap(16, 16, 16)
+                            .addGroup(pnlViewScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblNotice)
+                                .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(pnlViewScheduleLayout.createSequentialGroup()
+                            .addGap(16, 16, 16)
+                            .addComponent(pnlYourSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(14, 28, Short.MAX_VALUE))
+        );
+        pnlViewScheduleLayout.setVerticalGroup(
+            pnlViewScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlViewScheduleLayout.createSequentialGroup()
+                .addGroup(pnlViewScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlViewScheduleLayout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addGroup(pnlViewScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlViewScheduleLayout.createSequentialGroup()
+                                .addGap(29, 29, 29)
+                                .addComponent(lblNotice))
+                            .addComponent(lblWelcome)))
+                    .addComponent(pnlNavigatorBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(pnlYourInformation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnlYourSchedule, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(17, 17, 17))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 982, Short.MAX_VALUE)
+            .addGap(0, 1002, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(pnlViewSchedule, javax.swing.GroupLayout.DEFAULT_SIZE, 982, Short.MAX_VALUE))
+                .addComponent(pnlViewSchedule, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(lblImageBackground, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 1002, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 619, Short.MAX_VALUE)
+            .addGap(0, 632, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(pnlViewSchedule, javax.swing.GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE))
+                .addComponent(pnlViewSchedule, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addComponent(lblImageBackground, javax.swing.GroupLayout.PREFERRED_SIZE, 626, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 6, Short.MAX_VALUE)))
         );
 
         getAccessibleContext().setAccessibleName("frmViewSchedule");
@@ -481,11 +588,14 @@ public class View_Schedule extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void lblLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLogoutMouseClicked
-        Signin_Signout ss = new Signin_Signout();
-        ss.show();
-        activityData.insertActivity(teacher, "Logged out.", userID);
-        forLoginLogout("Logout Successfully!");
-        this.dispose();
+        confirmLogout = JOptionPane.showConfirmDialog(this, "Confirm Logout User?", "Logout User", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (confirmLogout == 0) {
+            Signin_Signout ss = new Signin_Signout();
+            ss.show();
+            activityData.insertActivity(teacher, "Logged out.", userID);
+            forLoginLogout("Logout Successfully!");
+            this.dispose();
+        }
     }//GEN-LAST:event_lblLogoutMouseClicked
 
     private void lblMinimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMinimizeMouseClicked
