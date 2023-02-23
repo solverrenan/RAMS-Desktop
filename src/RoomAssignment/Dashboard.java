@@ -66,7 +66,7 @@ public class Dashboard extends javax.swing.JFrame {
         displayCurrentDate();
         this.setTitle("RAMS - Dashboard");
         if (userRole.equalsIgnoreCase("Program Head")) {
-            ProgramHeadAccess();
+           ProgramHeadAccess();
         }
         populateUserJTable();
         populateRoomJTable();
@@ -1646,7 +1646,7 @@ public class Dashboard extends javax.swing.JFrame {
             } else if (roomValidation.isTeacherScheduleTimeFree(cbRAMDayOfTheWeek.getSelectedItem().toString().trim(), cbRAMTeacher.getSelectedItem().toString().trim(), tpRAMStartTime.getSelectedTime(), tpRAMEndTime.getSelectedTime(), Integer.parseInt(txtRAMID.getText().trim())) == false) {
                 lblRAMError.setText("The teacher's schedule is occupied on that day and time!");
                 clearErrorMessageRAM();
-            } else if (roomValidation.isSectionScheduleTimeFree(cbRAMDayOfTheWeek.getSelectedItem().toString().trim(), txtRAMSection.getText().trim(), tpRAMStartTime.getSelectedTime(), tpRAMEndTime.getSelectedTime()) == false) {
+            } else if (roomValidation.isSectionScheduleTimeFree(cbRAMDayOfTheWeek.getSelectedItem().toString().trim(), txtRAMSection.getText().trim(), tpRAMStartTime.getSelectedTime(), tpRAMEndTime.getSelectedTime(), Integer.parseInt(txtRAMID.getText().trim())) == false) {
                 lblRAMError.setText("The section's schedule is occupied on that day and time!");
                 clearErrorMessageRAM();
             } else {
@@ -1926,18 +1926,7 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_cbMUserShowPasswordActionPerformed
 
     private void btnALogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnALogoutActionPerformed
-        /*confirmDeletion = JOptionPane.showConfirmDialog(this, "Confirm Deletion of User Data?", "Delete User Data", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-            if (confirmDeletion == 0) {
-                userData.deleteUserAccountInformation(Integer.parseInt(txtMUserID.getText().trim()));
-                populateUserJTable();
-                Error("Delete User Successfully!");
-                activityData.insertActivity(name, "Deleted user data.", userID);
-                statisticsData.decrementCurrentFacultiesCount();
-                displayStatisticsInformation();
-                populateDashboardActivityLog();
-                MemberClear();
-            }*/
-        
+                
         confirmLogout = JOptionPane.showConfirmDialog(this, "Confirm Logout User?", "Logout User", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (confirmLogout == 0) {
             Signin_Signout ss = new Signin_Signout();
@@ -2053,7 +2042,7 @@ public class Dashboard extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    // Clears error message after 3 seconds in members panel
+    // Clears error message after 5 seconds in members panel
     private void clearErrorMessageMembers() {
         clearErrorTimer = new Timer(5000, new ActionListener() {
             @Override
@@ -2066,7 +2055,7 @@ public class Dashboard extends javax.swing.JFrame {
         clearErrorTimer.start();
     }
 
-    // Clears error message after 3 seconds in RAM panel
+    // Clears error message after 5 seconds in RAM panel
     private void clearErrorMessageRAM() {
         clearErrorTimer = new Timer(5000, new ActionListener() {
             @Override

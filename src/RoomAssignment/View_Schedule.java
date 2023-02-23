@@ -344,8 +344,7 @@ public class View_Schedule extends javax.swing.JFrame {
                                     .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlYourInformationLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(lblContactAdmin)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addComponent(lblContactAdmin)))
                 .addContainerGap(10, Short.MAX_VALUE))
         );
         pnlYourInformationLayout.setVerticalGroup(
@@ -457,6 +456,11 @@ public class View_Schedule extends javax.swing.JFrame {
         btnSearch.setBackground(new java.awt.Color(218, 104, 70));
         btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RoomAssignment/image/search.png"))); // NOI18N
         btnSearch.setBorder(null);
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
 
         btnViewToday.setBackground(new java.awt.Color(218, 104, 70));
         btnViewToday.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -466,7 +470,6 @@ public class View_Schedule extends javax.swing.JFrame {
         btnViewToday.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewTodayActionPerformed(evt);
-                btnSearchActionPerformed(evt);
             }
         });
 
@@ -518,17 +521,13 @@ public class View_Schedule extends javax.swing.JFrame {
             pnlViewScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pnlNavigatorBar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(pnlViewScheduleLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
                 .addGroup(pnlViewScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(pnlYourInformation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlViewScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(pnlViewScheduleLayout.createSequentialGroup()
-                            .addGap(16, 16, 16)
-                            .addGroup(pnlViewScheduleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblNotice)
-                                .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(pnlViewScheduleLayout.createSequentialGroup()
-                            .addGap(16, 16, 16)
-                            .addComponent(pnlYourSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(lblNotice)
+                        .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(pnlYourSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(14, 28, Short.MAX_VALUE))
         );
         pnlViewScheduleLayout.setVerticalGroup(
@@ -618,12 +617,11 @@ public class View_Schedule extends javax.swing.JFrame {
     private void btnViewTodayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewTodayActionPerformed
         displayTeacherScheduleThisDay();
     }//GEN-LAST:event_btnViewTodayActionPerformed
+
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-       
-            searchTeacherJTable(txtSearch.getText().trim());
-            Info("Search Completed!");
-            activityData.insertActivity(teacher, "Searched user data.", userID);
-        
+        searchTeacherJTable(txtSearch.getText().trim());
+        Info("Search Completed!");
+        activityData.insertActivity(teacher, "Searched user data.", userID);
     }//GEN-LAST:event_btnSearchActionPerformed
 
     public void forLoginLogout(String message) {
@@ -657,7 +655,7 @@ public class View_Schedule extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, sqlex.toString(), "SQL Query Error!", JOptionPane.ERROR_MESSAGE);
         }
     }
-    
+
     private void displayAllTeacherSchedules() {
         try {
             tblData = roomData.getAllRoomSchedulesInformation();
